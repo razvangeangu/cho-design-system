@@ -1,0 +1,28 @@
+{
+  "timestamp": "2020-04-23T22:47:49",
+  "compiler": {
+    "name": "@stencil/core",
+    "version": "1.12.5",
+    "typescriptVersion": "3.8.3"
+  },
+  "components": [
+    {
+      "filePath": "./src/components/cho-button/cho-button.tsx",
+      "encapsulation": "shadow",
+      "tag": "cho-button",
+      "readme": "# cho-button\n\n\n",
+      "docs": "",
+      "docsTags": [],
+      "usage": {},
+      "props": [],
+      "methods": [],
+      "events": [],
+      "listeners": [],
+      "styles": [],
+      "slots": [],
+      "dependents": [],
+      "dependencies": [],
+      "dependencyGraph": {}
+    }
+  ]
+}
