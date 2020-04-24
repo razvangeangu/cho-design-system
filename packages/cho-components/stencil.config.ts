@@ -32,7 +32,8 @@ export const config: Config = {
     { type: 'docs-json', file: 'docs/cho-components.json' },
     {
       type: 'www',
-      serviceWorker: null // disable service workers
+      serviceWorker: null, // disable service workers
+      copy: [{ src: 'scripts', warn: true, dest: 'build/scripts' }]
     }
   ]
 };
