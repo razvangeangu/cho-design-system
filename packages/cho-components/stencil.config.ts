@@ -8,26 +8,31 @@ const angularValueAccessorBindings: ValueAccessorConfig[] = [];
 export const config: Config = {
   namespace: 'cho',
   plugins: [sass()],
+  globalStyle: 'src/global/style.scss',
+  devServer: {
+    reloadStrategy: 'pageReload',
+    openBrowser: false
+  },
   outputTargets: [
     angularOutputTarget({
       componentCorePackage: 'cho-components',
       directivesProxyFile: '../cho-components-angular/src/directives/proxies.ts',
-      valueAccessorConfigs: angularValueAccessorBindings,
+      valueAccessorConfigs: angularValueAccessorBindings
     }),
     reactOutputTarget({
       componentCorePackage: 'cho-components',
-      proxiesFile: '../cho-components-react/src/components.ts',
+      proxiesFile: '../cho-components-react/src/components.ts'
     }),
     {
       type: 'dist',
-      esmLoaderPath: '../loader',
+      esmLoaderPath: '../loader'
     },
     { type: 'experimental-dist-module', dir: 'dist/module' },
     { type: 'docs-readme' },
     { type: 'docs-json', file: 'docs/cho-components.json' },
     {
       type: 'www',
-      serviceWorker: null, // disable service workers
-    },
-  ],
+      serviceWorker: null // disable service workers
+    }
+  ]
 };
