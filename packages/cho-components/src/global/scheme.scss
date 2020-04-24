@@ -1,0 +1,13 @@
+@import './material-colors';
+
+:root,
+[data-theme='dark'] {
+  --cho-primary: var(--blue50);
+  --cho-text-color: var(--black);
+}
+
+:root,
+[data-theme='light'] {
+  --cho-primary: var(--blue);
+  --cho-text-color: var(--white);
+}

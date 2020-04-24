@@ -5,8 +5,11 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { TChoButtonKind, } from "./components/inputs/cho-button/model";
 export namespace Components {
     interface ChoButton {
+        "disabled"?: boolean;
+        "kind"?: TChoButtonKind;
     }
 }
 declare global {
@@ -22,6 +25,8 @@ declare global {
 }
 declare namespace LocalJSX {
     interface ChoButton {
+        "disabled"?: boolean;
+        "kind"?: TChoButtonKind;
     }
     interface IntrinsicElements {
         "cho-button": ChoButton;

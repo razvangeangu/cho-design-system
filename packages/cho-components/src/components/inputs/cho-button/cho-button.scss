@@ -1,0 +1,34 @@
+@import '../../../global/style';
+
+.button {
+  @include cho-button-without-defaults();
+
+  background: var(--cho-primary);
+  border: 0.0625rem solid transparent;
+  color: var(--cho-text-color);
+  cursor: pointer;
+  white-space: nowrap;
+
+  ::slotted(*) {
+    font-weight: var(--cho-font-weight-bold);
+    text-transform: uppercase;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled) {
+    &:focus {
+      border-color: var(--cho-primary);
+    }
+
+    &:hover {
+      background-color: var(--cho-primary);
+
+      &:active {
+        background-color: var(--cho-primary);
+      }
+    }
+  }
+}

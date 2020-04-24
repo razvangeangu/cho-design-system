@@ -1,1 +1,1 @@
-# CHO Design System
+# Chocolate Design System
