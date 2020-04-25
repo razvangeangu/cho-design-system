@@ -9,6 +9,7 @@ export const config: Config = {
   namespace: 'cho',
   plugins: [sass()],
   globalStyle: 'src/global/style.scss',
+  globalScript: 'src/main.ts',
   devServer: {
     reloadStrategy: 'pageReload',
     openBrowser: false
