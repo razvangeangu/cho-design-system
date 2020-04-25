@@ -3,24 +3,32 @@
 import { Component, h, FunctionalComponent } from '@stencil/core';
 import { RouteRenderProps } from '@stencil/router';
 import { IndexPage } from './pages';
-import { readFileSync } from 'fs';
-console.log(readFileSync);
+import { components, namespace } from '../../../utils';
 
 const ChoNavigator: FunctionalComponent = () => {
-  return (
+  return [
     <ul>
       <li>
         <stencil-route-link url="/" exact>
-          Exact Base Link
+          Home
         </stencil-route-link>
       </li>
-      <li>
-        <stencil-route-link url="/button" exact>
-          Button
-        </stencil-route-link>
-      </li>
-    </ul>
-  );
+    </ul>,
+    ...Object.keys(components).map(category => (
+      <ul>
+        {components[category].map((component: string) => (
+          <li>
+            <stencil-route-link url={`/${category}/${component.replace(`${namespace}-`, '')}`}>
+              {component
+                .replace(`${namespace}-`, '')
+                .replace(/^\w/, c => c.toUpperCase())
+                .replace(/-\w/g, c => c.replace('-', ' ').toUpperCase())}
+            </stencil-route-link>
+          </li>
+        ))}
+      </ul>
+    ))
+  ];
 };
 const NotFoundPage: (props: RouteRenderProps) => FunctionalComponent = () => <div>Not Found</div>;
 
@@ -34,6 +42,14 @@ export class RouterDemoApp {
         <ChoNavigator />
         <stencil-route-switch scrollTopOffset={0}>
           <stencil-route url="/" exact routeRender={() => <IndexPage />} />
+          {Object.keys(components).map(category =>
+            components[category].map((component: string) => (
+              <stencil-route
+                url={`/${category}/${component.replace(`${namespace}-`, '')}`}
+                routeRender={NotFoundPage}
+              />
+            ))
+          )}
           <stencil-route routeRender={NotFoundPage} />
         </stencil-route-switch>
       </stencil-router>
