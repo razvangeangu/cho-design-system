@@ -11,6 +11,8 @@ export namespace Components {
         "disabled"?: boolean;
         "kind"?: TChoButtonKind;
     }
+    interface ChoRouter {
+    }
 }
 declare global {
     interface HTMLChoButtonElement extends Components.ChoButton, HTMLStencilElement {
@@ -19,8 +21,15 @@ declare global {
         prototype: HTMLChoButtonElement;
         new (): HTMLChoButtonElement;
     };
+    interface HTMLChoRouterElement extends Components.ChoRouter, HTMLStencilElement {
+    }
+    var HTMLChoRouterElement: {
+        prototype: HTMLChoRouterElement;
+        new (): HTMLChoRouterElement;
+    };
     interface HTMLElementTagNameMap {
         "cho-button": HTMLChoButtonElement;
+        "cho-router": HTMLChoRouterElement;
     }
 }
 declare namespace LocalJSX {
@@ -28,8 +37,11 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "kind"?: TChoButtonKind;
     }
+    interface ChoRouter {
+    }
     interface IntrinsicElements {
         "cho-button": ChoButton;
+        "cho-router": ChoRouter;
     }
 }
 export { LocalJSX as JSX };
@@ -37,6 +49,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "cho-button": LocalJSX.ChoButton & JSXBase.HTMLAttributes<HTMLChoButtonElement>;
+            "cho-router": LocalJSX.ChoRouter & JSXBase.HTMLAttributes<HTMLChoRouterElement>;
         }
     }
 }
