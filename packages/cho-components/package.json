@@ -40,5 +40,8 @@
     "stylelint-config-standard": "^20.0.0",
     "stylelint-scss": "^3.17.1"
   },
+  "dependencies": {
+    "@stencil/router": "^1.0.1"
+  },
   "license": "MIT"
 }
