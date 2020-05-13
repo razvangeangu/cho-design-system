@@ -1,6 +1,6 @@
 {
-  "name": "cho-components-angular",
-  "version": "0.0.1",
+  "name": "@cho/components-angular",
+  "version": "1.0.0",
   "description": "",
   "license": "MIT",
   "repository": {
@@ -29,7 +29,7 @@
     "dist/"
   ],
   "dependencies": {
-    "cho-components": "1.0.0",
+    "@cho/components": "1.0.0",
     "tslib": "^1.9.3"
   },
   "peerDependencies": {

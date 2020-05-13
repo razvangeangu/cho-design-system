@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { defineCustomElements } from 'cho-components/loader';
+import { defineCustomElements } from '@cho/components/loader';
 
 import { NumericValueAccessor } from './directives/number-value-accessor';
 import { ChoButton } from './directives/proxies';

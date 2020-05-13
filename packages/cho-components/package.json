@@ -1,5 +1,5 @@
 {
-  "name": "cho-components",
+  "name": "@cho/components",
   "version": "1.0.0",
   "description": "Design System Components",
   "module": "dist/index.mjs",
@@ -41,9 +41,6 @@
     "stylelint-config-standard": "^20.0.0",
     "stylelint-scss": "^3.17.1",
     "stylelint-selector-bem-pattern": "^2.1.0"
-  },
-  "dependencies": {
-    "@stencil/router": "^1.0.1"
   },
   "license": "MIT"
 }

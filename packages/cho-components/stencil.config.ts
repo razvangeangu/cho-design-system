@@ -16,12 +16,12 @@ export const config: Config = {
   },
   outputTargets: [
     angularOutputTarget({
-      componentCorePackage: 'cho-components',
+      componentCorePackage: '@cho/components',
       directivesProxyFile: '../cho-components-angular/src/directives/proxies.ts',
       valueAccessorConfigs: angularValueAccessorBindings,
     }),
     reactOutputTarget({
-      componentCorePackage: 'cho-components',
+      componentCorePackage: '@cho/components',
       proxiesFile: '../cho-components-react/src/components.ts',
     }),
     {

@@ -41,12 +41,34 @@ export function ProxyCmp(opts: { inputs?: any; methods?: any }) {
   return decorator;
 }
 
-import { Components } from 'cho-components'
+import { Components } from '@cho/components'
 
 export declare interface ChoButton extends Components.ChoButton {}
-
-@Component({ selector: 'cho-button', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>' })
+@ProxyCmp({inputs: ['disabled', 'kind']})
+@Component({ selector: 'cho-button', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'kind'] })
 export class ChoButton {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+export declare interface ChoList extends Components.ChoList {}
+
+@Component({ selector: 'cho-list', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>' })
+export class ChoList {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+export declare interface ChoListItem extends Components.ChoListItem {}
+
+@Component({ selector: 'cho-list-item', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>' })
+export class ChoListItem {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
