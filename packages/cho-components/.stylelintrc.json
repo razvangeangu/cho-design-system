@@ -19,7 +19,7 @@
     "a11y/no-obsolete-attribute": [true, { "severity": "warning" }],
     "a11y/no-obsolete-element": [true, { "severity": "warning" }],
     "a11y/no-text-align-justify": [true, { "severity": "warning" }],
-    "max-nesting-depth": 3,
+    "max-nesting-depth": 4,
     "declaration-property-value-blacklist": {
       "/^border/": [""]
     },

@@ -19,8 +19,8 @@ function setTheme(theme) {
   document.body.dataset.choTheme = localStorage.getItem('cho-theme');
 }
 
-const span = document.createElement('span');
-span.style = `
+const choThemeSpan = document.createElement('span');
+choThemeSpan.style = `
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -28,27 +28,27 @@ span.style = `
   width: 1rem;
   height: 1rem;
 `;
-span.innerHTML = '☀';
+choThemeSpan.innerHTML = '☀';
 
-const button = document.createElement('cho-button');
-button.style = `
+const choThemeButton = document.createElement('cho-button');
+choThemeButton.style = `
   position: fixed;
   right: 0;
   bottom: 0;
 `;
 
-button.appendChild(span);
-button.addEventListener('click', function() {
+choThemeButton.appendChild(choThemeSpan);
+choThemeButton.addEventListener('click', function() {
   setTheme();
 
   if (localStorage.getItem('cho-theme') === 'dark') {
-    span.innerHTML = '☽';
+    choThemeSpan.innerHTML = '☽';
   } else {
-    span.innerHTML = '☀';
+    choThemeSpan.innerHTML = '☀';
   }
 });
 
-document.body.appendChild(button);
+document.body.appendChild(choThemeButton);
 document.body.dataset.choTheme = 'light';
 
 if (localStorage.getItem('cho-theme')) {

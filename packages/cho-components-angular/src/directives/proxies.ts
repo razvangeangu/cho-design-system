@@ -53,25 +53,3 @@ export class ChoButton {
     this.el = r.nativeElement;
   }
 }
-
-export declare interface ChoList extends Components.ChoList {}
-
-@Component({ selector: 'cho-list', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>' })
-export class ChoList {
-  protected el: HTMLElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
-    c.detach();
-    this.el = r.nativeElement;
-  }
-}
-
-export declare interface ChoListItem extends Components.ChoListItem {}
-
-@Component({ selector: 'cho-list-item', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>' })
-export class ChoListItem {
-  protected el: HTMLElement;
-  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
-    c.detach();
-    this.el = r.nativeElement;
-  }
-}
