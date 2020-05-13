@@ -12,21 +12,21 @@ export const config: Config = {
   globalScript: 'src/main.ts',
   devServer: {
     reloadStrategy: 'pageReload',
-    openBrowser: false
+    openBrowser: false,
   },
   outputTargets: [
     angularOutputTarget({
       componentCorePackage: 'cho-components',
       directivesProxyFile: '../cho-components-angular/src/directives/proxies.ts',
-      valueAccessorConfigs: angularValueAccessorBindings
+      valueAccessorConfigs: angularValueAccessorBindings,
     }),
     reactOutputTarget({
       componentCorePackage: 'cho-components',
-      proxiesFile: '../cho-components-react/src/components.ts'
+      proxiesFile: '../cho-components-react/src/components.ts',
     }),
     {
       type: 'dist',
-      esmLoaderPath: '../loader'
+      esmLoaderPath: '../loader',
     },
     { type: 'experimental-dist-module', dir: 'dist/module' },
     { type: 'docs-readme' },
@@ -34,7 +34,7 @@ export const config: Config = {
     {
       type: 'www',
       serviceWorker: null, // disable service workers
-      copy: [{ src: 'scripts', warn: true, dest: 'build/scripts' }]
-    }
-  ]
+      copy: [{ src: 'scripts', warn: true, dest: 'build/scripts' }],
+    },
+  ],
 };

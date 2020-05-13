@@ -5,17 +5,15 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { TChoButtonKind, } from "./components/inputs/button/model";
+import { TButtonKind, } from "./components/inputs/button/model";
 export namespace Components {
     interface ChoButton {
         "disabled"?: boolean;
-        "kind"?: TChoButtonKind;
+        "kind"?: TButtonKind;
     }
     interface ChoList {
     }
     interface ChoListItem {
-    }
-    interface ChoRouter {
     }
 }
 declare global {
@@ -37,35 +35,25 @@ declare global {
         prototype: HTMLChoListItemElement;
         new (): HTMLChoListItemElement;
     };
-    interface HTMLChoRouterElement extends Components.ChoRouter, HTMLStencilElement {
-    }
-    var HTMLChoRouterElement: {
-        prototype: HTMLChoRouterElement;
-        new (): HTMLChoRouterElement;
-    };
     interface HTMLElementTagNameMap {
         "cho-button": HTMLChoButtonElement;
         "cho-list": HTMLChoListElement;
         "cho-list-item": HTMLChoListItemElement;
-        "cho-router": HTMLChoRouterElement;
     }
 }
 declare namespace LocalJSX {
     interface ChoButton {
         "disabled"?: boolean;
-        "kind"?: TChoButtonKind;
+        "kind"?: TButtonKind;
     }
     interface ChoList {
     }
     interface ChoListItem {
     }
-    interface ChoRouter {
-    }
     interface IntrinsicElements {
         "cho-button": ChoButton;
         "cho-list": ChoList;
         "cho-list-item": ChoListItem;
-        "cho-router": ChoRouter;
     }
 }
 export { LocalJSX as JSX };
@@ -75,7 +63,6 @@ declare module "@stencil/core" {
             "cho-button": LocalJSX.ChoButton & JSXBase.HTMLAttributes<HTMLChoButtonElement>;
             "cho-list": LocalJSX.ChoList & JSXBase.HTMLAttributes<HTMLChoListElement>;
             "cho-list-item": LocalJSX.ChoListItem & JSXBase.HTMLAttributes<HTMLChoListItemElement>;
-            "cho-router": LocalJSX.ChoRouter & JSXBase.HTMLAttributes<HTMLChoRouterElement>;
         }
     }
 }

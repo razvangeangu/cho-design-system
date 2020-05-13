@@ -1,1 +1,1 @@
-export * from './t-cho-button-kind';
+export * from './t-button-kind';
