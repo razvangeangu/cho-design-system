@@ -29,7 +29,7 @@
     "dist/"
   ],
   "dependencies": {
-    "cho-components": "0.0.1",
+    "cho-components": "1.0.0",
     "tslib": "^1.9.3"
   },
   "peerDependencies": {

@@ -34,7 +34,7 @@
     "typescript": "^3.3.4000"
   },
   "dependencies": {
-    "cho-components": "^0.0.1"
+    "cho-components": "1.0.0"
   },
   "peerDependencies": {
     "react": "^16.7.0",

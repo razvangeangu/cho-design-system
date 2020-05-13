@@ -5,12 +5,12 @@
 }
 
 .button {
-  @include cho-button-without-defaults();
+  @include button-without-defaults();
 
-  background-color: var(--cho-primary);
+  background-color: var(--primary);
   border: 0.0625rem solid transparent;
   border-radius: 0.25rem;
-  color: var(--cho-text-color);
+  color: var(--button__text-color);
   cursor: pointer;
   margin: 0.5rem;
   padding: 0.5rem 1rem;
@@ -22,21 +22,21 @@
 
   &:not(:disabled) {
     &:focus {
-      border-color: var(--cho-primary);
+      border-color: var(--primary);
     }
 
     &:hover {
-      background-color: var(--cho-primary);
+      background-color: var(--primary);
 
       &:active {
-        background-color: var(--cho-primary);
+        background-color: var(--primary);
       }
     }
   }
 
   // #region "Children"
   * {
-    font-weight: var(--cho-font-weight-bold);
+    font-weight: var(--font-weight-bold);
     text-transform: uppercase;
   }
   // #endregion "Children"

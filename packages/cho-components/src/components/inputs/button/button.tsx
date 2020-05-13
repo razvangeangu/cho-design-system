@@ -4,10 +4,10 @@ import { TChoButtonKind } from './model';
 
 @Component({
   tag: 'cho-button',
-  styleUrl: 'cho-button.scss',
+  styleUrl: 'button.scss',
   shadow: true
 })
-export class ChoButton implements ComponentInterface {
+export class Button implements ComponentInterface {
   @Prop() kind?: TChoButtonKind = 'primary';
 
   @Prop() disabled?: boolean;

@@ -1,0 +1,27 @@
+@import '../../../global/style';
+
+:host {
+  display: block;
+}
+
+.list-item__container {
+  box-sizing: border-box;
+  cursor: default;
+  display: flex;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+
+  &:focus {
+    border-color: var(--primary);
+  }
+
+  &:hover {
+    background-color: var(--primary);
+
+    &:active {
+      background-color: var(--primary);
+    }
+  }
+}

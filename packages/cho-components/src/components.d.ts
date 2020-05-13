@@ -5,11 +5,15 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { TChoButtonKind, } from "./components/inputs/cho-button/model";
+import { TChoButtonKind, } from "./components/inputs/button/model";
 export namespace Components {
     interface ChoButton {
         "disabled"?: boolean;
         "kind"?: TChoButtonKind;
+    }
+    interface ChoList {
+    }
+    interface ChoListItem {
     }
     interface ChoRouter {
     }
@@ -21,6 +25,18 @@ declare global {
         prototype: HTMLChoButtonElement;
         new (): HTMLChoButtonElement;
     };
+    interface HTMLChoListElement extends Components.ChoList, HTMLStencilElement {
+    }
+    var HTMLChoListElement: {
+        prototype: HTMLChoListElement;
+        new (): HTMLChoListElement;
+    };
+    interface HTMLChoListItemElement extends Components.ChoListItem, HTMLStencilElement {
+    }
+    var HTMLChoListItemElement: {
+        prototype: HTMLChoListItemElement;
+        new (): HTMLChoListItemElement;
+    };
     interface HTMLChoRouterElement extends Components.ChoRouter, HTMLStencilElement {
     }
     var HTMLChoRouterElement: {
@@ -29,6 +45,8 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "cho-button": HTMLChoButtonElement;
+        "cho-list": HTMLChoListElement;
+        "cho-list-item": HTMLChoListItemElement;
         "cho-router": HTMLChoRouterElement;
     }
 }
@@ -37,10 +55,16 @@ declare namespace LocalJSX {
         "disabled"?: boolean;
         "kind"?: TChoButtonKind;
     }
+    interface ChoList {
+    }
+    interface ChoListItem {
+    }
     interface ChoRouter {
     }
     interface IntrinsicElements {
         "cho-button": ChoButton;
+        "cho-list": ChoList;
+        "cho-list-item": ChoListItem;
         "cho-router": ChoRouter;
     }
 }
@@ -49,6 +73,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "cho-button": LocalJSX.ChoButton & JSXBase.HTMLAttributes<HTMLChoButtonElement>;
+            "cho-list": LocalJSX.ChoList & JSXBase.HTMLAttributes<HTMLChoListElement>;
+            "cho-list-item": LocalJSX.ChoListItem & JSXBase.HTMLAttributes<HTMLChoListItemElement>;
             "cho-router": LocalJSX.ChoRouter & JSXBase.HTMLAttributes<HTMLChoRouterElement>;
         }
     }

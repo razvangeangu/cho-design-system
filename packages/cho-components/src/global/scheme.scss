@@ -2,12 +2,18 @@
 
 :root,
 [data-cho-theme='dark'] {
-  --cho-primary: var(--blue200);
-  --cho-text-color: var(--black);
+  --primary: var(--blue200);
+  --text-color: var(--white);
+  --button__text-color: var(--black);
+
+  color: var(--text-color);
 }
 
 :root,
 [data-cho-theme='light'] {
-  --cho-primary: var(--blue);
-  --cho-text-color: var(--white);
+  --primary: var(--blue);
+  --text-color: var(--black);
+  --button__text-color: var(--white);
+
+  color: var(--text-color);
 }
