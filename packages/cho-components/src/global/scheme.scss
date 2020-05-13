@@ -3,8 +3,15 @@
 :root,
 [data-cho-theme='dark'] {
   --primary: var(--blue200);
+  --primary--hover: var(--blue300);
+  --primary--focus: var(--blue400);
+  --primary--active: var(--blue400);
+  --error: var(--red200);
+  --disabled: var(--gray);
   --text-color: var(--white);
   --button__text-color: var(--black);
+  --button__primary-color--hover: var(--blue-gray800);
+  --button__primary-color--active: var(--blue-gray900);
 
   color: var(--text-color);
 }
@@ -12,8 +19,15 @@
 :root,
 [data-cho-theme='light'] {
   --primary: var(--blue);
+  --primary--hover: var(--blue600);
+  --primary--focus: var(--blue800);
+  --primary--active: var(--blue800);
+  --error: var(--red);
+  --disabled: var(--gray);
   --text-color: var(--black);
   --button__text-color: var(--white);
+  --button__primary-color--hover: var(--blue50);
+  --button__primary-color--active: var(--blue100);
 
   color: var(--text-color);
 }

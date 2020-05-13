@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property   | Attribute  | Description | Type                                                | Default     |
-| ---------- | ---------- | ----------- | --------------------------------------------------- | ----------- |
-| `disabled` | `disabled` |             | `boolean`                                           | `undefined` |
-| `kind`     | `kind`     |             | `"error" \| "primary" \| "secondary" \| "tertiary"` | `'primary'` |
+| Property   | Attribute  | Description                             | Type                                  | Default       |
+| ---------- | ---------- | --------------------------------------- | ------------------------------------- | ------------- |
+| `disabled` | `disabled` | If `true`, the button will be disabled. | `boolean`                             | `false`       |
+| `kind`     | `kind`     | The kind to use.                        | `"contained" \| "outlined" \| "text"` | `'contained'` |
 
 
 ----------------------------------------------

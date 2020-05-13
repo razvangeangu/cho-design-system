@@ -14,6 +14,7 @@
     "react/prop-types": 0,
     "implicit-arrow-linebreak": 0,
     "function-paren-newline": 0,
-    "max-len": ["error", { "code": 180 }]
+    "max-len": ["error", { "code": 180 }],
+    "no-warning-comments": [1, { "terms": ["todo"], "location": "anywhere" }]
   }
 }

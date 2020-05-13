@@ -2,42 +2,95 @@
 
 :host {
   display: inline-block;
+  margin: 0.5rem;
 }
 
 .button {
   @include button-without-defaults();
 
-  background-color: var(--primary);
+  background-color: transparent;
   border: 0.0625rem solid transparent;
   border-radius: 0.25rem;
-  color: var(--button__text-color);
   cursor: pointer;
-  margin: 0.5rem;
   padding: 0.5rem 1rem;
   white-space: nowrap;
+  width: 100%;
 
-  &:disabled {
-    cursor: not-allowed;
-  }
-
-  &:not(:disabled) {
-    &:focus {
-      border-color: var(--primary);
-    }
-
-    &:hover {
-      background-color: var(--primary);
-
-      &:active {
-        background-color: var(--primary);
-      }
-    }
-  }
-
-  // #region "Children"
   * {
     font-weight: var(--font-weight-bold);
     text-transform: uppercase;
   }
-  // #endregion "Children"
+
+  &:disabled {
+    cursor: not-allowed;
+
+    * {
+      pointer-events: none;
+    }
+  }
+
+  ::slotted([slot='leading']) {
+    margin-right: 0.5rem;
+  }
+
+  ::slotted([slot='trailing']) {
+    margin-left: 0.5rem;
+  }
+}
+
+@mixin button-kind-enabled($focusColor, $hoverColor, $activeColor) {
+  &:not(:disabled) {
+    &:focus {
+      background-color: $focusColor;
+    }
+
+    &:hover {
+      background-color: $hoverColor;
+
+      &:active {
+        background-color: $activeColor;
+      }
+    }
+  }
+}
+
+.button[data-cho-kind='contained'] {
+  @include button-kind-enabled(var(--primary--hover), var(--primary--hover), var(--primary--active));
+
+  background-color: var(--primary);
+  color: var(--button__text-color);
+
+  &:disabled {
+    background-color: var(--disabled);
+  }
+}
+
+.button[data-cho-kind='outlined'] {
+  @include button-kind-enabled(
+    var(--button__primary-color--hover),
+    var(--button__primary-color--hover),
+    var(--button__primary-color--active)
+  );
+
+  border-color: var(--primary);
+  color: var(--primary);
+
+  &:disabled {
+    border-color: var(--disabled);
+    color: var(--disabled);
+  }
+}
+
+.button[data-cho-kind='text'] {
+  @include button-kind-enabled(
+    var(--button__primary-color--hover),
+    var(--button__primary-color--hover),
+    var(--button__primary-color--active)
+  );
+
+  color: var(--primary);
+
+  &:disabled {
+    color: var(--disabled);
+  }
 }

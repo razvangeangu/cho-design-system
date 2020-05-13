@@ -1,1 +1,1 @@
-export type TButtonKind = 'primary' | 'secondary' | 'tertiary' | 'error';
+export type TButtonKind = 'contained' | 'text' | 'outlined';
