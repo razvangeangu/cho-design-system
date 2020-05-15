@@ -3,9 +3,9 @@ import { h, Component, Prop, ComponentInterface } from '@stencil/core';
 import { TButtonKind, kButton } from './model';
 
 /**
- * @slot leading - TODO: add docs
- * @slot TODO:
- * @slot trailing - TODO: add docs
+ * @slot leading - A component to display before the primary content.
+ * @slot - The primary content of the button.
+ * @slot trailing - A component to display after the primary content.
  */
 @Component({
   tag: 'cho-button',
