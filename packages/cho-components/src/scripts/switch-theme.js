@@ -3,39 +3,45 @@
 function setTheme(theme) {
   if (theme) {
     localStorage.setItem('cho-theme', theme);
-    document.body.style.backgroundColor = theme == 'light' ? 'initial' : '#000';
+    if (theme == 'light') {
+      document.body.style.backgroundColor = 'transparent';
+    } else {
+      document.body.style.backgroundColor = '#000';
+    }
+
     document.body.dataset.choTheme = localStorage.getItem('cho-theme');
     return;
   }
 
   if (localStorage.getItem('cho-theme') === 'dark') {
     localStorage.setItem('cho-theme', 'light');
-    document.body.style.backgroundColor = 'initial';
+    document.body.style.backgroundColor = 'transparent';
   } else {
     localStorage.setItem('cho-theme', 'dark');
-    document.body.style.backgroundColor = 'black';
+    document.body.style.backgroundColor = '#000';
   }
 
   document.body.dataset.choTheme = localStorage.getItem('cho-theme');
 }
 
-const choThemeSpan = document.createElement('span');
-choThemeSpan.style = `
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 1rem;
-  height: 1rem;
-`;
+var choThemeSpan = document.createElement('span');
+choThemeSpan.style =
+  '\
+  align-items: center;\
+  display: flex;\
+  flex-direction: row;\
+  justify-content: center;\
+  width: 1rem;\
+  height: 1rem;\
+';
 choThemeSpan.innerHTML = '☀';
 
-const choThemeButton = document.createElement('cho-button');
-choThemeButton.style = `
-  position: fixed;
-  right: 0;
-  bottom: 0;
-`;
+var choThemeButton = document.createElement('cho-button');
+choThemeButton.style = '\
+  position: fixed;\
+  right: 0;\
+  bottom: 0;\
+';
 
 choThemeButton.appendChild(choThemeSpan);
 choThemeButton.addEventListener('click', function() {
