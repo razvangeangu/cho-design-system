@@ -1,0 +1,11 @@
+@mixin surface-inner-space {
+  padding: 0.5rem 1rem;
+}
+
+@mixin surface-leading-space {
+  margin-right: 0.5rem;
+}
+
+@mixin surface-trailing-space {
+  margin-left: 0.5rem;
+}

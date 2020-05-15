@@ -7,7 +7,11 @@ const angularValueAccessorBindings: ValueAccessorConfig[] = [];
 
 export const config: Config = {
   namespace: 'cho',
-  plugins: [sass()],
+  plugins: [
+    sass({
+      injectGlobalPaths: ['src/global/style.scss'],
+    }),
+  ],
   globalStyle: 'src/global/style.scss',
   globalScript: 'src/main.ts',
   devServer: {

@@ -1,5 +1,3 @@
-@import '../../../global/style';
-
 :host {
   display: inline-block;
   margin: 0.5rem;
@@ -7,12 +5,12 @@
 
 .button {
   @include button-without-defaults();
+  @include surface-inner-space();
 
   background-color: transparent;
-  border: 0.0625rem solid transparent;
-  border-radius: 0.25rem;
+  border: var(--border-width) solid transparent;
+  border-radius: var(--border-radius);
   cursor: pointer;
-  padding: 0.5rem 1rem;
   white-space: nowrap;
   width: 100%;
 
@@ -30,11 +28,11 @@
   }
 
   ::slotted([slot='leading']) {
-    margin-right: 0.5rem;
+    @include surface-leading-space();
   }
 
   ::slotted([slot='trailing']) {
-    margin-left: 0.5rem;
+    @include surface-trailing-space();
   }
 }
 
