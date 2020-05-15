@@ -16,7 +16,9 @@
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
-    "lint": "eslint src/**/*{.ts,.tsx}"
+    "lint": "eslint src/**/*{.ts,.tsx}",
+    "prettify": "prettier --write",
+    "generate": "plop --plopfile internals/generators/index.js"
   },
   "devDependencies": {
     "@stencil/angular-output-target": "^0.0.2",
@@ -34,6 +36,8 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.20.0",
     "jest": "^26.0.1",
+    "node-plop": "^0.25.0",
+    "plop": "^2.6.0",
     "prettier-eslint": "^9.0.1",
     "stylelint": "^13.3.3",
     "stylelint-a11y": "^1.2.3",

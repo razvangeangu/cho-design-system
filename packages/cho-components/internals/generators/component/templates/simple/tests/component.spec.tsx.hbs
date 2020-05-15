@@ -1,0 +1,15 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import { h } from '@stencil/core';
+import { newSpecPage } from '@stencil/core/testing';
+import { {{ properCase name }} } from '../{{ name }}';
+
+describe('{{ properCase name }}', () => {
+  it('should render', async () => {
+    const page = await newSpecPage({
+      components: [{{ properCase name }}],
+      template: () => <cho-{{ name }} />,
+    });
+
+    expect(page.root).toBeTruthy();
+  });
+});
