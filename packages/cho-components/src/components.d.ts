@@ -7,6 +7,8 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { TButtonKind, } from "./components/inputs/button/model";
 import { ICheckboxValueChangedDetail, TCheckboxPlacement, } from "./components/inputs/checkbox/model";
+import { TPlacement, } from "./types";
+import { IRadioValueChangedDetail, } from "./components/inputs/radio/model";
 export namespace Components {
     interface ChoButton {
         /**
@@ -42,6 +44,23 @@ export namespace Components {
          */
         "labelPlacement"?: TCheckboxPlacement;
     }
+    interface ChoRadio {
+        /**
+          * If `true`, the component is checked.
+          * @default false
+         */
+        "checked"?: boolean;
+        /**
+          * If `true`, the radio will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * The position of the label
+          * @default 'end'
+         */
+        "labelPlacement"?: TPlacement;
+    }
 }
 declare global {
     interface HTMLChoButtonElement extends Components.ChoButton, HTMLStencilElement {
@@ -56,9 +75,16 @@ declare global {
         prototype: HTMLChoCheckboxElement;
         new (): HTMLChoCheckboxElement;
     };
+    interface HTMLChoRadioElement extends Components.ChoRadio, HTMLStencilElement {
+    }
+    var HTMLChoRadioElement: {
+        prototype: HTMLChoRadioElement;
+        new (): HTMLChoRadioElement;
+    };
     interface HTMLElementTagNameMap {
         "cho-button": HTMLChoButtonElement;
         "cho-checkbox": HTMLChoCheckboxElement;
+        "cho-radio": HTMLChoRadioElement;
     }
 }
 declare namespace LocalJSX {
@@ -100,9 +126,31 @@ declare namespace LocalJSX {
          */
         "onCheckedChanged"?: (event: CustomEvent<ICheckboxValueChangedDetail>) => void;
     }
+    interface ChoRadio {
+        /**
+          * If `true`, the component is checked.
+          * @default false
+         */
+        "checked"?: boolean;
+        /**
+          * If `true`, the radio will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * The position of the label
+          * @default 'end'
+         */
+        "labelPlacement"?: TPlacement;
+        /**
+          * Callback fired when the state is changed.
+         */
+        "onCheckedChanged"?: (event: CustomEvent<IRadioValueChangedDetail>) => void;
+    }
     interface IntrinsicElements {
         "cho-button": ChoButton;
         "cho-checkbox": ChoCheckbox;
+        "cho-radio": ChoRadio;
     }
 }
 export { LocalJSX as JSX };
@@ -111,6 +159,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "cho-button": LocalJSX.ChoButton & JSXBase.HTMLAttributes<HTMLChoButtonElement>;
             "cho-checkbox": LocalJSX.ChoCheckbox & JSXBase.HTMLAttributes<HTMLChoCheckboxElement>;
+            "cho-radio": LocalJSX.ChoRadio & JSXBase.HTMLAttributes<HTMLChoRadioElement>;
         }
     }
 }

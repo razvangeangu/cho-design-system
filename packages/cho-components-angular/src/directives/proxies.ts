@@ -66,3 +66,16 @@ export class ChoCheckbox {
     proxyOutputs(this, this.el, ['checkedChanged']);
   }
 }
+
+export declare interface ChoRadio extends Components.ChoRadio {}
+@ProxyCmp({inputs: ['checked', 'disabled', 'labelPlacement']})
+@Component({ selector: 'cho-radio', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['checked', 'disabled', 'labelPlacement'] })
+export class ChoRadio {
+  checkedChanged!: EventEmitter<CustomEvent>;
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['checkedChanged']);
+  }
+}

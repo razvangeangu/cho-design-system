@@ -5,7 +5,7 @@ import { reactOutputTarget } from '@stencil/react-output-target';
 
 const angularValueAccessorBindings: ValueAccessorConfig[] = [
   {
-    elementSelectors: ['cho-checkbox'],
+    elementSelectors: ['cho-checkbox', 'cho-radio'],
     event: 'checkedChanged',
     targetAttr: 'checked',
     type: 'boolean',
