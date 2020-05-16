@@ -3,6 +3,7 @@ import { defineCustomElements } from '@cho/components/loader';
 
 import { BooleanValueAccessor } from './directives/boolean-value-accessor';
 import { ChoButton } from './directives/proxies';
+import { RadioValueAccessor } from './directives/radio-value-accessor';
 
 defineCustomElements(window);
 
@@ -12,6 +13,7 @@ const DECLARATIONS = [
 
   // Value Accessors
   BooleanValueAccessor,
+  RadioValueAccessor,
 ];
 
 @NgModule({

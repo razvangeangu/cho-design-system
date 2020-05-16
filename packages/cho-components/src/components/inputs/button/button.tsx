@@ -39,7 +39,7 @@ export class Button implements ComponentInterface {
       <button
         onClick={this.didClick}
         disabled={this.disabled}
-        class={kButton.classNames.button}
+        class={kButton.classes.button}
         type="button"
         data-cho-kind={this.kind}
         data-cho-color="primary"

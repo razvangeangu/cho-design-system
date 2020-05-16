@@ -1,8 +1,8 @@
 export const kRadio = {
-  classNames: {
-    label: 'radio-label',
-    input: 'radio-input',
-    radioCustom: 'radio-custom',
+  classes: {
+    label: 'radio__label',
+    input: 'radio__input',
+    checkmark: 'radio__checkmark',
   },
   ids: {
     radio: 'radio',

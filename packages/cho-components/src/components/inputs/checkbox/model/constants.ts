@@ -1,9 +1,8 @@
 export const kCheckbox = {
-  classNames: {
-    label: 'checkbox-label',
-    input: 'checkbox-input',
-    checkboxCustom: 'checkbox-custom',
-    checkboxIndeterminate: 'checkbox-custom-indeterminate',
+  classes: {
+    label: 'checkbox__label',
+    input: 'checkbox__input',
+    checkmark: 'checkbox__checkmark',
   },
   ids: {
     checkbox: 'checkbox',

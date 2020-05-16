@@ -23,7 +23,7 @@ describe('Checkbox', () => {
       });
 
       expect(
-        (page.root.shadowRoot.querySelector(`[class="${kCheckbox.classNames.label}"]`)
+        (page.root.shadowRoot.querySelector(`[class="${kCheckbox.classes.label}"]`)
           .firstChild as HTMLElement).tagName,
       ).toBe('SLOT');
     });
@@ -35,7 +35,7 @@ describe('Checkbox', () => {
       });
 
       expect(
-        (page.root.shadowRoot.querySelector(`[class="${kCheckbox.classNames.label}"]`)
+        (page.root.shadowRoot.querySelector(`[class="${kCheckbox.classes.label}"]`)
           .firstChild as HTMLElement).tagName,
       ).toBe('SLOT');
     });
@@ -47,7 +47,7 @@ describe('Checkbox', () => {
       });
 
       expect(
-        (page.root.shadowRoot.querySelector(`[class="${kCheckbox.classNames.label}"]`)
+        (page.root.shadowRoot.querySelector(`[class="${kCheckbox.classes.label}"]`)
           .lastChild as HTMLElement).tagName,
       ).toBe('SLOT');
     });
@@ -59,7 +59,7 @@ describe('Checkbox', () => {
       });
 
       expect(
-        (page.root.shadowRoot.querySelector(`[class="${kCheckbox.classNames.label}"]`)
+        (page.root.shadowRoot.querySelector(`[class="${kCheckbox.classes.label}"]`)
           .lastChild as HTMLElement).tagName,
       ).toBe('SLOT');
     });

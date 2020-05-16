@@ -8,7 +8,7 @@
 ) {
   &:not([data-disabled='true']) {
     &:focus {
-      .checkbox-custom {
+      .checkbox__checkmark {
         background-color: $focusColor;
 
         &[data-checked='true'] {
@@ -18,7 +18,7 @@
     }
 
     &:hover {
-      .checkbox-custom {
+      .checkbox__checkmark {
         background-color: $hoverColor;
 
         &[data-checked='true'] {
@@ -28,7 +28,7 @@
       }
 
       &:active {
-        .checkbox-custom {
+        .checkbox__checkmark {
           background-color: $activeColor;
 
           &[data-checked='true'] {
@@ -45,7 +45,7 @@
   display: inline-block;
 }
 
-.checkbox-custom {
+.checkbox__checkmark {
   background-color: transparent;
   border: solid var(--surface__border-color);
   border-radius: var(--border-radius);
@@ -94,7 +94,7 @@
   }
 }
 
-.checkbox-label {
+.checkbox__label {
   @include checkbox-enabled(
     var(--surface__color--focus),
     var(--primary--focus),
@@ -129,13 +129,13 @@
   }
 }
 
-.checkbox-input {
+.checkbox__input {
   cursor: pointer;
   opacity: 0;
   position: absolute;
 
   &:focus {
-    + .checkbox-custom {
+    + .checkbox__checkmark {
       background-color: var(--surface__color--focus);
 
       &[data-checked='true'] {
@@ -146,7 +146,7 @@
   }
 
   &:checked {
-    ~ .checkbox-custom {
+    ~ .checkbox__checkmark {
       background-color: var(--primary);
       border: solid var(--primary);
       border-radius: var(--border-radius);

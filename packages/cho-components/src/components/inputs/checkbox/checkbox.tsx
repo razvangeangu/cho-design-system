@@ -56,7 +56,7 @@ export class Checkbox implements ComponentInterface {
     return [
       this.labelPlacement === 'start' || this.labelPlacement === 'bottom' ? <slot /> : null,
       <input
-        class={kCheckbox.classNames.input}
+        class={kCheckbox.classes.input}
         type="checkbox"
         id={kCheckbox.ids.checkbox}
         checked={this.checked}
@@ -65,7 +65,7 @@ export class Checkbox implements ComponentInterface {
         onInput={this.didInput}
       />,
       <span
-        class={kCheckbox.classNames.checkboxCustom}
+        class={kCheckbox.classes.checkmark}
         data-disabled={String(this.disabled)}
         data-checked={String(this.checked)}
         data-indeterminate={String(this.indeterminate)}
@@ -78,7 +78,7 @@ export class Checkbox implements ComponentInterface {
   render() {
     return (
       <label
-        class={kCheckbox.classNames.label}
+        class={kCheckbox.classes.label}
         htmlFor={kCheckbox.ids.checkbox}
         data-disabled={String(this.disabled)}
         data-label-placement={this.labelPlacement}

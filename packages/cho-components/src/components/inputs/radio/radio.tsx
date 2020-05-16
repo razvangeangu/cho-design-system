@@ -49,7 +49,7 @@ export class Radio implements ComponentInterface {
     return [
       this.labelPlacement === 'start' || this.labelPlacement === 'bottom' ? <slot /> : null,
       <input
-        class={kRadio.classNames.input}
+        class={kRadio.classes.input}
         type="radio"
         id={kRadio.ids.radio}
         checked={this.checked}
@@ -57,7 +57,7 @@ export class Radio implements ComponentInterface {
         onInput={this.didInput}
       />,
       <span
-        class={kRadio.classNames.radioCustom}
+        class={kRadio.classes.checkmark}
         data-disabled={String(this.disabled)}
         data-checked={String(this.checked)}
         data-label-placement={this.labelPlacement}
@@ -69,7 +69,7 @@ export class Radio implements ComponentInterface {
   render() {
     return (
       <label
-        class={kRadio.classNames.label}
+        class={kRadio.classes.label}
         htmlFor={kRadio.ids.radio}
         data-disabled={String(this.disabled)}
         data-label-placement={this.labelPlacement}

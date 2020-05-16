@@ -1,5 +1,5 @@
 export const kButton = {
-  classNames: {
+  classes: {
     button: 'button',
   },
   slots: {
