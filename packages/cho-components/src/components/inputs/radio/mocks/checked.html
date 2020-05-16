@@ -1,0 +1,12 @@
+<cho-radio checked></cho-radio>
+
+<script>
+  const radio = document.querySelector('cho-radio');
+  radio.addEventListener('checkedChanged', function(event) {
+    // Get the checked value from the event detail.
+    console.log(event.detail.checked);
+
+    // Get the checked value from the html target.
+    console.log(event.target.checked);
+  });
+</script>
