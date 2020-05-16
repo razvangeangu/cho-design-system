@@ -7,11 +7,15 @@
   --primary--focus: var(--blue400);
   --primary--active: var(--blue400);
   --error: var(--red200);
-  --disabled: var(--gray);
+  --disabled: var(--gray600);
   --text-color: var(--white);
   --button__text-color: var(--black);
   --button__primary-color--hover: var(--blue-gray800);
   --button__primary-color--active: var(--blue-gray900);
+  --surface__border-color: var(--gray200);
+  --surface__color--hover: var(--gray800);
+  --surface__color--focus: var(--gray900);
+  --surface__color--active: var(--gray900);
 
   color: var(--text-color);
 }
@@ -23,11 +27,15 @@
   --primary--focus: var(--blue800);
   --primary--active: var(--blue800);
   --error: var(--red);
-  --disabled: var(--gray);
+  --disabled: var(--gray400);
   --text-color: var(--black);
   --button__text-color: var(--white);
   --button__primary-color--hover: var(--blue50);
   --button__primary-color--active: var(--blue100);
+  --surface__border-color: var(--gray);
+  --surface__color--hover: var(--gray50);
+  --surface__color--focus: var(--gray100);
+  --surface__color--active: var(--gray100);
 
   color: var(--text-color);
 }

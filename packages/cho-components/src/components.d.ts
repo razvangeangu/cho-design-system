@@ -6,6 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { TButtonKind, } from "./components/inputs/button/model";
+import { ICheckboxValueChangedDetail, TCheckboxPlacement, } from "./components/inputs/checkbox/model";
 export namespace Components {
     interface ChoButton {
         /**
@@ -19,6 +20,28 @@ export namespace Components {
          */
         "kind"?: TButtonKind;
     }
+    interface ChoCheckbox {
+        /**
+          * If `true`, the component is checked.
+          * @default false
+         */
+        "checked"?: boolean;
+        /**
+          * If `true`, the checkbox will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the component appears indeterminate.
+          * @default false
+         */
+        "indeterminate"?: boolean;
+        /**
+          * The position of the label
+          * @default 'end'
+         */
+        "labelPlacement"?: TCheckboxPlacement;
+    }
 }
 declare global {
     interface HTMLChoButtonElement extends Components.ChoButton, HTMLStencilElement {
@@ -27,8 +50,15 @@ declare global {
         prototype: HTMLChoButtonElement;
         new (): HTMLChoButtonElement;
     };
+    interface HTMLChoCheckboxElement extends Components.ChoCheckbox, HTMLStencilElement {
+    }
+    var HTMLChoCheckboxElement: {
+        prototype: HTMLChoCheckboxElement;
+        new (): HTMLChoCheckboxElement;
+    };
     interface HTMLElementTagNameMap {
         "cho-button": HTMLChoButtonElement;
+        "cho-checkbox": HTMLChoCheckboxElement;
     }
 }
 declare namespace LocalJSX {
@@ -44,8 +74,35 @@ declare namespace LocalJSX {
          */
         "kind"?: TButtonKind;
     }
+    interface ChoCheckbox {
+        /**
+          * If `true`, the component is checked.
+          * @default false
+         */
+        "checked"?: boolean;
+        /**
+          * If `true`, the checkbox will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the component appears indeterminate.
+          * @default false
+         */
+        "indeterminate"?: boolean;
+        /**
+          * The position of the label
+          * @default 'end'
+         */
+        "labelPlacement"?: TCheckboxPlacement;
+        /**
+          * Callback fired when the state is changed.
+         */
+        "onCheckedChanged"?: (event: CustomEvent<ICheckboxValueChangedDetail>) => void;
+    }
     interface IntrinsicElements {
         "cho-button": ChoButton;
+        "cho-checkbox": ChoCheckbox;
     }
 }
 export { LocalJSX as JSX };
@@ -53,6 +110,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "cho-button": LocalJSX.ChoButton & JSXBase.HTMLAttributes<HTMLChoButtonElement>;
+            "cho-checkbox": LocalJSX.ChoCheckbox & JSXBase.HTMLAttributes<HTMLChoCheckboxElement>;
         }
     }
 }

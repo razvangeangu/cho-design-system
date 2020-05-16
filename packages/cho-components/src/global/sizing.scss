@@ -9,3 +9,11 @@
 @mixin surface-trailing-space {
   margin-left: 0.5rem;
 }
+
+@mixin surface-bottom-space {
+  margin-top: 0.25rem;
+}
+
+@mixin surface-top-space {
+  margin-bottom: 0.25rem;
+}

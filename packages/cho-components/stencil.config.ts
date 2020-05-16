@@ -3,7 +3,14 @@ import { sass } from '@stencil/sass';
 import { angularOutputTarget, ValueAccessorConfig } from '@stencil/angular-output-target';
 import { reactOutputTarget } from '@stencil/react-output-target';
 
-const angularValueAccessorBindings: ValueAccessorConfig[] = [];
+const angularValueAccessorBindings: ValueAccessorConfig[] = [
+  {
+    elementSelectors: ['cho-checkbox'],
+    event: 'checkedChanged',
+    targetAttr: 'checked',
+    type: 'boolean',
+  },
+];
 
 export const config: Config = {
   namespace: 'cho',

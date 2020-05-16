@@ -53,3 +53,16 @@ export class ChoButton {
     this.el = r.nativeElement;
   }
 }
+
+export declare interface ChoCheckbox extends Components.ChoCheckbox {}
+@ProxyCmp({inputs: ['checked', 'disabled', 'indeterminate', 'labelPlacement']})
+@Component({ selector: 'cho-checkbox', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['checked', 'disabled', 'indeterminate', 'labelPlacement'] })
+export class ChoCheckbox {
+  checkedChanged!: EventEmitter<CustomEvent>;
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['checkedChanged']);
+  }
+}

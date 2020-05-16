@@ -9,3 +9,4 @@ import { defineCustomElements, applyPolyfills } from '@cho/components/loader';
 
 applyPolyfills().then(() => defineCustomElements());
 export const ChoButton = /*@__PURE__*/createReactComponent<JSX.ChoButton, HTMLChoButtonElement>('cho-button');
+export const ChoCheckbox = /*@__PURE__*/createReactComponent<JSX.ChoCheckbox, HTMLChoCheckboxElement>('cho-checkbox');

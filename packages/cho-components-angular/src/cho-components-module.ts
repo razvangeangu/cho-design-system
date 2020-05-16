@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { defineCustomElements } from '@cho/components/loader';
 
-import { NumericValueAccessor } from './directives/number-value-accessor';
+import { BooleanValueAccessor } from './directives/boolean-value-accessor';
 import { ChoButton } from './directives/proxies';
 
 defineCustomElements(window);
@@ -11,7 +11,7 @@ const DECLARATIONS = [
   ChoButton,
 
   // Value Accessors
-  NumericValueAccessor,
+  BooleanValueAccessor,
 ];
 
 @NgModule({
