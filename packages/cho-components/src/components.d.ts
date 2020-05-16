@@ -6,8 +6,8 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { TButtonKind, } from "./components/inputs/button/model";
-import { ICheckboxValueChangedDetail, TCheckboxPlacement, } from "./components/inputs/checkbox/model";
 import { TPlacement, } from "./types";
+import { ICheckboxValueChangedDetail, } from "./components/inputs/checkbox/model";
 import { IRadioValueChangedDetail, } from "./components/inputs/radio/model";
 export namespace Components {
     interface ChoButton {
@@ -42,7 +42,7 @@ export namespace Components {
           * The position of the label
           * @default 'end'
          */
-        "labelPlacement"?: TCheckboxPlacement;
+        "labelPlacement"?: TPlacement;
     }
     interface ChoRadio {
         /**
@@ -120,7 +120,7 @@ declare namespace LocalJSX {
           * The position of the label
           * @default 'end'
          */
-        "labelPlacement"?: TCheckboxPlacement;
+        "labelPlacement"?: TPlacement;
         /**
           * Callback fired when the state is changed.
          */

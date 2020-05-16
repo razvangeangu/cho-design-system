@@ -1,6 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { h, Component, ComponentInterface, Prop, Event, EventEmitter } from '@stencil/core';
-import { kCheckbox, TCheckboxPlacement, ICheckboxValueChangedDetail } from './model';
+import { kCheckbox, ICheckboxValueChangedDetail } from './model';
+import { TPlacement } from '../../../types';
 
 /**
  * @slot - The primary content of the checkbox.
@@ -37,7 +38,7 @@ export class Checkbox implements ComponentInterface {
    *
    * @default 'end'
    */
-  @Prop() labelPlacement?: TCheckboxPlacement = 'end';
+  @Prop() labelPlacement?: TPlacement = 'end';
 
   /**
    * Callback fired when the state is changed.
