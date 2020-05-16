@@ -79,3 +79,16 @@ export class ChoRadio {
     proxyOutputs(this, this.el, ['checkedChanged']);
   }
 }
+
+export declare interface ChoSwitch extends Components.ChoSwitch {}
+@ProxyCmp({inputs: ['checked', 'disabled', 'labelPlacement']})
+@Component({ selector: 'cho-switch', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['checked', 'disabled', 'labelPlacement'] })
+export class ChoSwitch {
+  checkedChanged!: EventEmitter<CustomEvent>;
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['checkedChanged']);
+  }
+}
