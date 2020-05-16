@@ -140,6 +140,7 @@
 
       &[data-checked='true'] {
         background-color: var(--primary--focus);
+        border-color: var(--primary--focus);
       }
     }
   }
