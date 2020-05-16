@@ -15,30 +15,6 @@ describe('Checkbox', () => {
     expect(page.root.tagName).toBe('CHO-CHECKBOX');
   });
 
-  describe('didInput', () => {
-    it('should change checked', async () => {
-      const spyObject = {
-        checkedDidChange: (root: HTMLChoCheckboxElement) => {
-          expect(root.checked).toBe(true);
-        },
-      };
-      const checkedDidChangeSpy = jest.spyOn(spyObject, 'checkedDidChange');
-      const page = await newSpecPage({
-        components: [Checkbox],
-        template: () => (
-          <cho-checkbox
-            // eslint-disable-next-line react/jsx-no-bind
-            onCheckedChanged={() => spyObject.checkedDidChange(page.root as HTMLChoCheckboxElement)}
-          />
-        ),
-      });
-
-      page.root.shadowRoot.querySelector('input').dispatchEvent(new Event('input'));
-
-      expect(checkedDidChangeSpy).toHaveBeenCalled();
-    });
-  });
-
   describe('renderInput', () => {
     it('labelPlacement start', async () => {
       const page = await newSpecPage({
@@ -52,7 +28,7 @@ describe('Checkbox', () => {
       ).toBe('SLOT');
     });
 
-    it('labelPlacement start', async () => {
+    it('labelPlacement bottom', async () => {
       const page = await newSpecPage({
         components: [Checkbox],
         template: () => <cho-checkbox labelPlacement="bottom">Bottom</cho-checkbox>,
@@ -64,10 +40,10 @@ describe('Checkbox', () => {
       ).toBe('SLOT');
     });
 
-    it('labelPlacement end', async () => {
+    it('labelPlacement top', async () => {
       const page = await newSpecPage({
         components: [Checkbox],
-        template: () => <cho-checkbox labelPlacement="end">End</cho-checkbox>,
+        template: () => <cho-checkbox labelPlacement="top">Top</cho-checkbox>,
       });
 
       expect(
