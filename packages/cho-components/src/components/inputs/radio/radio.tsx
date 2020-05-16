@@ -50,7 +50,7 @@ export class Radio implements ComponentInterface {
       this.labelPlacement === 'start' || this.labelPlacement === 'bottom' ? <slot /> : null,
       <input
         class={kRadio.classNames.input}
-        type="checkbox"
+        type="radio"
         id={kRadio.ids.radio}
         checked={this.checked}
         disabled={this.disabled}
