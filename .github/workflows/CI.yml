@@ -34,3 +34,4 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path-to-lcov: './packages/cho-components/coverage/lcov.info'
+          base-path: 'packages/cho-components'
