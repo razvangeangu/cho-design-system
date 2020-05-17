@@ -1,4 +1,4 @@
-name: CD
+name: CI
 
 on:
   push:
@@ -33,3 +33,4 @@ jobs:
         uses: coverallsapp/github-action@master
         with:
           github-token: ${{ secrets.REPO_TOKEN }}
+          path-to-lcov: 'packages/cho-components/coverage/lcov.info'
