@@ -12,7 +12,8 @@
   ],
   "scripts": {
     "dev": "lerna --scope @cho/components run --stream start",
-    "release": "standard-version"
+    "release": "standard-version",
+    "lerna": "lerna"
   },
   "config": {
     "commitizen": {

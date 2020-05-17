@@ -21,13 +21,13 @@ jobs:
           node-version: 10.x
 
       - name: Install Packages
-        run: npm install && lerna bootstrap
+        run: npm install && npm run lerna -- bootstrap
 
       - name: Run build
-        run: lerna run build
+        run: npm run lerna -- run build
 
       - name: Run tests
-        run: lerna run test
+        run: npm run lerna -- run test
 
       - name: Coveralls
         uses: coverallsapp/github-action@master
