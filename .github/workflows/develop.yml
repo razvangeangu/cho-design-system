@@ -1,7 +1,7 @@
-name: CI
+name: develop
 
 on:
-  push:
+  pull_request:
     branches:
       - master
 
@@ -25,10 +25,3 @@ jobs:
 
       - name: Run tests
         run: npm run lerna -- run test
-
-      - name: Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          path-to-lcov: './packages/cho-components/coverage/lcov.info'
-          base-path: 'packages/cho-components'
