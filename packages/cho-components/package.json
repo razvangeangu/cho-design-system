@@ -18,7 +18,8 @@
     "test.watch": "stencil test --spec --e2e --watchAll",
     "lint": "eslint src/**/*{.ts,.tsx}",
     "prettify": "prettier --write",
-    "generate": "plop --plopfile internals/generators/index.js"
+    "generate": "plop --plopfile internals/generators/index.js",
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "devDependencies": {
     "@stencil/angular-output-target": "^0.0.2",
@@ -31,6 +32,7 @@
     "@types/puppeteer": "2.0.1",
     "@typescript-eslint/eslint-plugin": "^2.29.0",
     "@typescript-eslint/parser": "^2.29.0",
+    "coveralls": "^3.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb-typescript": "^7.2.1",
     "eslint-plugin-import": "^2.20.2",
