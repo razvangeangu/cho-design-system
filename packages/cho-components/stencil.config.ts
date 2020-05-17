@@ -16,6 +16,12 @@ const angularValueAccessorBindings: ValueAccessorConfig[] = [
     targetAttr: 'checked',
     type: 'radio',
   },
+  {
+    elementSelectors: ['cho-text-field'],
+    event: 'valueChanged',
+    targetAttr: 'value',
+    type: 'text',
+  },
 ];
 
 export const config: Config = {

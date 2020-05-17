@@ -92,3 +92,16 @@ export class ChoSwitch {
     proxyOutputs(this, this.el, ['checkedChanged']);
   }
 }
+
+export declare interface ChoTextField extends Components.ChoTextField {}
+@ProxyCmp({inputs: ['disabled', 'error', 'helperText', 'label', 'multiline', 'name', 'placeholder', 'readOnly', 'rows', 'type', 'value']})
+@Component({ selector: 'cho-text-field', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'error', 'helperText', 'label', 'multiline', 'name', 'placeholder', 'readOnly', 'rows', 'type', 'value'] })
+export class ChoTextField {
+  valueChanged!: EventEmitter<CustomEvent>;
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['valueChanged']);
+  }
+}

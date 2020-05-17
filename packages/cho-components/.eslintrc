@@ -15,6 +15,12 @@
     "implicit-arrow-linebreak": 0,
     "function-paren-newline": 0,
     "max-len": ["error", { "code": 180 }],
-    "no-warning-comments": [1, { "terms": ["todo"], "location": "anywhere" }]
+    "no-warning-comments": [1, { "terms": ["todo"], "location": "anywhere" }],
+    "react/jsx-props-no-spreading": [
+      1,
+      {
+        "html": "ignore"
+      }
+    ]
   }
 }

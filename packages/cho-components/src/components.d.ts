@@ -6,10 +6,11 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { TButtonKind, } from "./components/inputs/button/model";
-import { TPlacement, } from "./types";
+import { TInputType, TPlacement, } from "./types";
 import { ICheckboxValueChangedDetail, } from "./components/inputs/checkbox/model";
 import { IRadioValueChangedDetail, } from "./components/inputs/radio/model";
 import { ISwitchValueChangedDetail, } from "./components/inputs/switch/model";
+import { ITextFieldValueChangedDetail, } from "./components/inputs/text-field/model";
 export namespace Components {
     interface ChoButton {
         /**
@@ -79,6 +80,63 @@ export namespace Components {
          */
         "labelPlacement"?: TPlacement;
     }
+    interface ChoTextField {
+        /**
+          * If `true`, the text-field will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the label will be displayed in an error state.
+          * @default false
+         */
+        "error"?: boolean;
+        /**
+          * The helper text content.
+          * @default undefined
+         */
+        "helperText"?: string;
+        /**
+          * The label content.
+          * @default undefined
+         */
+        "label"?: string;
+        /**
+          * If `true`, a textarea element will be rendered instead of an input.
+          * @default false
+         */
+        "multiline"?: boolean;
+        /**
+          * Name attribute of the input element.
+          * @default undefined
+         */
+        "name"?: string;
+        /**
+          * The short hint displayed in the input before the user enters a value.
+          * @default undefined
+         */
+        "placeholder"?: string;
+        /**
+          * It prevents the user from changing the value of the field (not from interacting with the field).
+          * @default false
+         */
+        "readOnly": boolean;
+        /**
+          * Number of rows to display when `multiline` option is set to true.
+          * @default 2
+         */
+        "rows"?: number;
+        /**
+          * Specifies the type of <input> element to display.
+          * @default 'text'
+         */
+        "type"?: TInputType;
+        /**
+          * The value of the input element, required for a controlled component.
+          * @default undefined
+         */
+        "value"?: string;
+    }
 }
 declare global {
     interface HTMLChoButtonElement extends Components.ChoButton, HTMLStencilElement {
@@ -105,11 +163,18 @@ declare global {
         prototype: HTMLChoSwitchElement;
         new (): HTMLChoSwitchElement;
     };
+    interface HTMLChoTextFieldElement extends Components.ChoTextField, HTMLStencilElement {
+    }
+    var HTMLChoTextFieldElement: {
+        prototype: HTMLChoTextFieldElement;
+        new (): HTMLChoTextFieldElement;
+    };
     interface HTMLElementTagNameMap {
         "cho-button": HTMLChoButtonElement;
         "cho-checkbox": HTMLChoCheckboxElement;
         "cho-radio": HTMLChoRadioElement;
         "cho-switch": HTMLChoSwitchElement;
+        "cho-text-field": HTMLChoTextFieldElement;
     }
 }
 declare namespace LocalJSX {
@@ -193,11 +258,73 @@ declare namespace LocalJSX {
          */
         "onCheckedChanged"?: (event: CustomEvent<ISwitchValueChangedDetail>) => void;
     }
+    interface ChoTextField {
+        /**
+          * If `true`, the text-field will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the label will be displayed in an error state.
+          * @default false
+         */
+        "error"?: boolean;
+        /**
+          * The helper text content.
+          * @default undefined
+         */
+        "helperText"?: string;
+        /**
+          * The label content.
+          * @default undefined
+         */
+        "label"?: string;
+        /**
+          * If `true`, a textarea element will be rendered instead of an input.
+          * @default false
+         */
+        "multiline"?: boolean;
+        /**
+          * Name attribute of the input element.
+          * @default undefined
+         */
+        "name"?: string;
+        /**
+          * Callback fired when the value is changed.
+         */
+        "onValueChanged"?: (event: CustomEvent<ITextFieldValueChangedDetail>) => void;
+        /**
+          * The short hint displayed in the input before the user enters a value.
+          * @default undefined
+         */
+        "placeholder"?: string;
+        /**
+          * It prevents the user from changing the value of the field (not from interacting with the field).
+          * @default false
+         */
+        "readOnly"?: boolean;
+        /**
+          * Number of rows to display when `multiline` option is set to true.
+          * @default 2
+         */
+        "rows"?: number;
+        /**
+          * Specifies the type of <input> element to display.
+          * @default 'text'
+         */
+        "type"?: TInputType;
+        /**
+          * The value of the input element, required for a controlled component.
+          * @default undefined
+         */
+        "value"?: string;
+    }
     interface IntrinsicElements {
         "cho-button": ChoButton;
         "cho-checkbox": ChoCheckbox;
         "cho-radio": ChoRadio;
         "cho-switch": ChoSwitch;
+        "cho-text-field": ChoTextField;
     }
 }
 export { LocalJSX as JSX };
@@ -208,6 +335,7 @@ declare module "@stencil/core" {
             "cho-checkbox": LocalJSX.ChoCheckbox & JSXBase.HTMLAttributes<HTMLChoCheckboxElement>;
             "cho-radio": LocalJSX.ChoRadio & JSXBase.HTMLAttributes<HTMLChoRadioElement>;
             "cho-switch": LocalJSX.ChoSwitch & JSXBase.HTMLAttributes<HTMLChoSwitchElement>;
+            "cho-text-field": LocalJSX.ChoTextField & JSXBase.HTMLAttributes<HTMLChoTextFieldElement>;
         }
     }
 }
