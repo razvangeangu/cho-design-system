@@ -14,7 +14,7 @@
   "scripts": {
     "build": "stencil build --docs",
     "start": "stencil build --dev --watch --serve",
-    "test": "stencil test --spec --e2e",
+    "test": "stencil test --spec --e2e --coverage",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "lint": "eslint src/**/*{.ts,.tsx}",
     "prettify": "prettier --write",
