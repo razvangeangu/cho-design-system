@@ -42,7 +42,7 @@ describe('Slider', () => {
         template: () => <cho-slider />,
       });
 
-      page.rootInstance.showTooltip = true;
+      page.root.shadowRoot.querySelector('input').dispatchEvent(new Event('mousedown'));
       await page.waitForChanges();
 
       expect(page.root.shadowRoot.querySelector('output')).toBeDefined();
@@ -54,7 +54,7 @@ describe('Slider', () => {
         template: () => <cho-slider track="inverted" />,
       });
 
-      page.rootInstance.showTooltip = true;
+      page.root.shadowRoot.querySelector('input').dispatchEvent(new Event('mousedown'));
       await page.waitForChanges();
 
       expect(page.root.shadowRoot.querySelector('output')).not.toBe(null);
@@ -66,7 +66,7 @@ describe('Slider', () => {
         template: () => <cho-slider />,
       });
 
-      page.rootInstance.showTooltip = false;
+      page.root.shadowRoot.querySelector('input').dispatchEvent(new Event('blur'));
       await page.waitForChanges();
 
       expect(page.root.shadowRoot.querySelector('output')).toBeNull();

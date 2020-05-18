@@ -24,6 +24,7 @@ describe('Button', () => {
       });
 
       page.root.click();
+      page.root.shadowRoot.querySelector('button').click();
       await page.waitForChanges();
 
       expect(didClick).toHaveBeenCalled();
