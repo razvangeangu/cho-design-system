@@ -9,6 +9,7 @@ import { TButtonKind, } from "./components/inputs/button/model";
 import { TInputType, TPlacement, } from "./types";
 import { ICheckboxValueChangedDetail, } from "./components/inputs/checkbox/model";
 import { IRadioValueChangedDetail, } from "./components/inputs/radio/model";
+import { ISliderTickmark, ISliderValueChangedDetail, } from "./components/inputs/slider/model";
 import { ISwitchValueChangedDetail, } from "./components/inputs/switch/model";
 import { ITextFieldValueChangedDetail, } from "./components/inputs/text-field/model";
 export namespace Components {
@@ -63,6 +64,46 @@ export namespace Components {
          */
         "labelPlacement"?: TPlacement;
     }
+    interface ChoSlider {
+        /**
+          * If `true`, the text-field will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * The label content.
+          * @default undefined
+         */
+        "label"?: string;
+        /**
+          * The maximum allowed value of the slider. Should not be equal to min.
+          * @default 100
+         */
+        "max"?: number;
+        /**
+          * The minimum allowed value of the slider. Should not be equal to max.
+          * @default 0
+         */
+        "min"?: number;
+        /**
+          * The granularity with which the slider can step through values.
+          * @default 1
+         */
+        "step"?: number;
+        /**
+          * Tickmarks indicate predetermined values to which the user can move the slider. If an `Array`, it should contain objects with value and an optional label keys.
+         */
+        "tickmarks"?: Array<ISliderTickmark>;
+        /**
+          * The track presentation: - `normal` the track will render a bar representing the slider value. - `inverted` the track will render a bar representing the remaining slider value. - `false` the track will render without a bar.
+         */
+        "track"?: "normal" | "inverted" | "false";
+        /**
+          * The value of the slider.
+          * @default 0
+         */
+        "value"?: number;
+    }
     interface ChoSwitch {
         /**
           * If `true`, the component is checked.
@@ -102,6 +143,16 @@ export namespace Components {
          */
         "label"?: string;
         /**
+          * The maximum allowed value of the input. Should not be equal to min.
+          * @default 100
+         */
+        "max"?: number;
+        /**
+          * The minimum allowed value of the input. Should not be equal to max.
+          * @default 0
+         */
+        "min"?: number;
+        /**
           * If `true`, a textarea element will be rendered instead of an input.
           * @default false
          */
@@ -126,6 +177,11 @@ export namespace Components {
           * @default 2
          */
         "rows"?: number;
+        /**
+          * The granularity with which the input can step through values.
+          * @default 'any'
+         */
+        "step"?: number | string;
         /**
           * Specifies the type of <input> element to display.
           * @default 'text'
@@ -157,6 +213,12 @@ declare global {
         prototype: HTMLChoRadioElement;
         new (): HTMLChoRadioElement;
     };
+    interface HTMLChoSliderElement extends Components.ChoSlider, HTMLStencilElement {
+    }
+    var HTMLChoSliderElement: {
+        prototype: HTMLChoSliderElement;
+        new (): HTMLChoSliderElement;
+    };
     interface HTMLChoSwitchElement extends Components.ChoSwitch, HTMLStencilElement {
     }
     var HTMLChoSwitchElement: {
@@ -173,6 +235,7 @@ declare global {
         "cho-button": HTMLChoButtonElement;
         "cho-checkbox": HTMLChoCheckboxElement;
         "cho-radio": HTMLChoRadioElement;
+        "cho-slider": HTMLChoSliderElement;
         "cho-switch": HTMLChoSwitchElement;
         "cho-text-field": HTMLChoTextFieldElement;
     }
@@ -237,6 +300,50 @@ declare namespace LocalJSX {
          */
         "onCheckedChanged"?: (event: CustomEvent<IRadioValueChangedDetail>) => void;
     }
+    interface ChoSlider {
+        /**
+          * If `true`, the text-field will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * The label content.
+          * @default undefined
+         */
+        "label"?: string;
+        /**
+          * The maximum allowed value of the slider. Should not be equal to min.
+          * @default 100
+         */
+        "max"?: number;
+        /**
+          * The minimum allowed value of the slider. Should not be equal to max.
+          * @default 0
+         */
+        "min"?: number;
+        /**
+          * Callback fired when the value is changed.
+         */
+        "onValueChanged"?: (event: CustomEvent<ISliderValueChangedDetail>) => void;
+        /**
+          * The granularity with which the slider can step through values.
+          * @default 1
+         */
+        "step"?: number;
+        /**
+          * Tickmarks indicate predetermined values to which the user can move the slider. If an `Array`, it should contain objects with value and an optional label keys.
+         */
+        "tickmarks"?: Array<ISliderTickmark>;
+        /**
+          * The track presentation: - `normal` the track will render a bar representing the slider value. - `inverted` the track will render a bar representing the remaining slider value. - `false` the track will render without a bar.
+         */
+        "track"?: "normal" | "inverted" | "false";
+        /**
+          * The value of the slider.
+          * @default 0
+         */
+        "value"?: number;
+    }
     interface ChoSwitch {
         /**
           * If `true`, the component is checked.
@@ -280,6 +387,16 @@ declare namespace LocalJSX {
          */
         "label"?: string;
         /**
+          * The maximum allowed value of the input. Should not be equal to min.
+          * @default 100
+         */
+        "max"?: number;
+        /**
+          * The minimum allowed value of the input. Should not be equal to max.
+          * @default 0
+         */
+        "min"?: number;
+        /**
           * If `true`, a textarea element will be rendered instead of an input.
           * @default false
          */
@@ -309,6 +426,11 @@ declare namespace LocalJSX {
          */
         "rows"?: number;
         /**
+          * The granularity with which the input can step through values.
+          * @default 'any'
+         */
+        "step"?: number | string;
+        /**
           * Specifies the type of <input> element to display.
           * @default 'text'
          */
@@ -323,6 +445,7 @@ declare namespace LocalJSX {
         "cho-button": ChoButton;
         "cho-checkbox": ChoCheckbox;
         "cho-radio": ChoRadio;
+        "cho-slider": ChoSlider;
         "cho-switch": ChoSwitch;
         "cho-text-field": ChoTextField;
     }
@@ -334,6 +457,7 @@ declare module "@stencil/core" {
             "cho-button": LocalJSX.ChoButton & JSXBase.HTMLAttributes<HTMLChoButtonElement>;
             "cho-checkbox": LocalJSX.ChoCheckbox & JSXBase.HTMLAttributes<HTMLChoCheckboxElement>;
             "cho-radio": LocalJSX.ChoRadio & JSXBase.HTMLAttributes<HTMLChoRadioElement>;
+            "cho-slider": LocalJSX.ChoSlider & JSXBase.HTMLAttributes<HTMLChoSliderElement>;
             "cho-switch": LocalJSX.ChoSwitch & JSXBase.HTMLAttributes<HTMLChoSwitchElement>;
             "cho-text-field": LocalJSX.ChoTextField & JSXBase.HTMLAttributes<HTMLChoTextFieldElement>;
         }

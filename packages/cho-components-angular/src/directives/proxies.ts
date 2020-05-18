@@ -80,6 +80,19 @@ export class ChoRadio {
   }
 }
 
+export declare interface ChoSlider extends Components.ChoSlider {}
+@ProxyCmp({inputs: ['disabled', 'label', 'max', 'min', 'step', 'tickmarks', 'track', 'value']})
+@Component({ selector: 'cho-slider', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'label', 'max', 'min', 'step', 'tickmarks', 'track', 'value'] })
+export class ChoSlider {
+  valueChanged!: EventEmitter<CustomEvent>;
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['valueChanged']);
+  }
+}
+
 export declare interface ChoSwitch extends Components.ChoSwitch {}
 @ProxyCmp({inputs: ['checked', 'disabled', 'labelPlacement']})
 @Component({ selector: 'cho-switch', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['checked', 'disabled', 'labelPlacement'] })
@@ -94,8 +107,8 @@ export class ChoSwitch {
 }
 
 export declare interface ChoTextField extends Components.ChoTextField {}
-@ProxyCmp({inputs: ['disabled', 'error', 'helperText', 'label', 'multiline', 'name', 'placeholder', 'readOnly', 'rows', 'type', 'value']})
-@Component({ selector: 'cho-text-field', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'error', 'helperText', 'label', 'multiline', 'name', 'placeholder', 'readOnly', 'rows', 'type', 'value'] })
+@ProxyCmp({inputs: ['disabled', 'error', 'helperText', 'label', 'max', 'min', 'multiline', 'name', 'placeholder', 'readOnly', 'rows', 'step', 'type', 'value']})
+@Component({ selector: 'cho-text-field', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'error', 'helperText', 'label', 'max', 'min', 'multiline', 'name', 'placeholder', 'readOnly', 'rows', 'step', 'type', 'value'] })
 export class ChoTextField {
   valueChanged!: EventEmitter<CustomEvent>;
   protected el: HTMLElement;

@@ -22,6 +22,12 @@ const angularValueAccessorBindings: ValueAccessorConfig[] = [
     targetAttr: 'value',
     type: 'text',
   },
+  {
+    elementSelectors: ['cho-slider'],
+    event: 'valueChanged',
+    targetAttr: 'value',
+    type: 'number',
+  },
 ];
 
 export const config: Config = {

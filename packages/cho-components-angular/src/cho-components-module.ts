@@ -2,7 +2,15 @@ import { NgModule } from '@angular/core';
 import { defineCustomElements } from '@cho/components/loader';
 
 import { BooleanValueAccessor } from './directives/boolean-value-accessor';
-import { ChoButton, ChoCheckbox, ChoRadio, ChoSwitch, ChoTextField } from './directives/proxies';
+import { NumericValueAccessor } from './directives/number-value-accessor';
+import {
+  ChoButton,
+  ChoCheckbox,
+  ChoRadio,
+  ChoSlider,
+  ChoSwitch,
+  ChoTextField,
+} from './directives/proxies';
 import { RadioValueAccessor } from './directives/radio-value-accessor';
 import { TextValueAccessor } from './directives/text-value-accessor';
 
@@ -13,11 +21,13 @@ const DECLARATIONS = [
   ChoButton,
   ChoCheckbox,
   ChoRadio,
+  ChoSlider,
   ChoSwitch,
   ChoTextField,
 
   // Value Accessors
   BooleanValueAccessor,
+  NumericValueAccessor,
   RadioValueAccessor,
   TextValueAccessor,
 ];
