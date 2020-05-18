@@ -55,8 +55,8 @@ export class ChoButton {
 }
 
 export declare interface ChoCheckbox extends Components.ChoCheckbox {}
-@ProxyCmp({inputs: ['checked', 'disabled', 'indeterminate', 'labelPlacement']})
-@Component({ selector: 'cho-checkbox', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['checked', 'disabled', 'indeterminate', 'labelPlacement'] })
+@ProxyCmp({inputs: ['checked', 'disabled', 'error', 'indeterminate', 'labelPlacement']})
+@Component({ selector: 'cho-checkbox', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['checked', 'disabled', 'error', 'indeterminate', 'labelPlacement'] })
 export class ChoCheckbox {
   checkedChanged!: EventEmitter<CustomEvent>;
   protected el: HTMLElement;
@@ -68,8 +68,8 @@ export class ChoCheckbox {
 }
 
 export declare interface ChoRadio extends Components.ChoRadio {}
-@ProxyCmp({inputs: ['checked', 'disabled', 'labelPlacement']})
-@Component({ selector: 'cho-radio', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['checked', 'disabled', 'labelPlacement'] })
+@ProxyCmp({inputs: ['checked', 'disabled', 'error', 'labelPlacement']})
+@Component({ selector: 'cho-radio', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['checked', 'disabled', 'error', 'labelPlacement'] })
 export class ChoRadio {
   checkedChanged!: EventEmitter<CustomEvent>;
   protected el: HTMLElement;

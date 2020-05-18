@@ -34,6 +34,13 @@ export class Radio implements ComponentInterface {
   @Prop() labelPlacement?: TPlacement = 'end';
 
   /**
+   * If `true`, the component will be displayed in an error state.
+   *
+   * @default false
+   */
+  @Prop() error?: boolean = false;
+
+  /**
    * Callback fired when the state is changed.
    */
   @Event() checkedChanged: EventEmitter<IRadioValueChangedDetail>;
@@ -55,12 +62,14 @@ export class Radio implements ComponentInterface {
         checked={this.checked}
         disabled={this.disabled}
         onInput={this.didInput}
+        data-error={String(this.error)}
       />,
       <span
         class={kRadio.classes.checkmark}
         data-disabled={String(this.disabled)}
         data-checked={String(this.checked)}
         data-label-placement={this.labelPlacement}
+        data-error={String(this.error)}
       />,
       this.labelPlacement === 'end' || this.labelPlacement === 'top' ? <slot /> : null,
     ];
@@ -73,6 +82,7 @@ export class Radio implements ComponentInterface {
         htmlFor={kRadio.ids.radio}
         data-disabled={String(this.disabled)}
         data-label-placement={this.labelPlacement}
+        data-error={String(this.error)}
       >
         {this.renderInput()}
       </label>

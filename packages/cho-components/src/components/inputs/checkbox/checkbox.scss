@@ -89,6 +89,10 @@
     width: 0;
   }
 
+  &[data-error='true'] {
+    border-color: var(--error);
+  }
+
   &[data-disabled='true'] {
     border-color: var(--disabled);
   }
@@ -122,10 +126,25 @@
     * {
       color: var(--disabled);
     }
+
+    ::slotted(*) {
+      color: var(--disabled);
+    }
   }
 
   &:not([data-disabled='true']) {
     cursor: pointer;
+  }
+
+  &[data-error='true'] {
+    @include checkbox-enabled(
+      var(--surface__color--focus),
+      var(--error--focus),
+      var(--surface__color--hover),
+      var(--error--hover),
+      var(--surface__color--active),
+      var(--error--active)
+    );
   }
 }
 
@@ -141,6 +160,11 @@
       &[data-checked='true'] {
         background-color: var(--primary--focus);
         border-color: var(--primary--focus);
+
+        &[data-error='true'] {
+          background-color: var(--error--focus);
+          border-color: var(--error--focus);
+        }
       }
     }
   }
@@ -173,6 +197,11 @@
           top: 0.1563rem;
           transform: rotate(90deg) scale(1);
         }
+      }
+
+      &[data-error='true'] {
+        background-color: var(--error);
+        border-color: var(--error);
       }
 
       &[data-disabled='true'] {

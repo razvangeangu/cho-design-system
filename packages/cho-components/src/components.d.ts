@@ -37,6 +37,11 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
+          * If `true`, the component will be displayed in an error state.
+          * @default false
+         */
+        "error"?: boolean;
+        /**
           * If `true`, the component appears indeterminate.
           * @default false
          */
@@ -58,6 +63,11 @@ export namespace Components {
           * @default false
          */
         "disabled"?: boolean;
+        /**
+          * If `true`, the component will be displayed in an error state.
+          * @default false
+         */
+        "error"?: boolean;
         /**
           * The position of the label
           * @default 'end'
@@ -265,6 +275,11 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * If `true`, the component will be displayed in an error state.
+          * @default false
+         */
+        "error"?: boolean;
+        /**
           * If `true`, the component appears indeterminate.
           * @default false
          */
@@ -290,6 +305,11 @@ declare namespace LocalJSX {
           * @default false
          */
         "disabled"?: boolean;
+        /**
+          * If `true`, the component will be displayed in an error state.
+          * @default false
+         */
+        "error"?: boolean;
         /**
           * The position of the label
           * @default 'end'
