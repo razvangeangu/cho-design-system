@@ -20,7 +20,18 @@ describe('Slider', () => {
         template: () => <cho-slider tickmarks={[{ label: '1', value: 1 }]} />,
       });
 
-      expect(page.root.shadowRoot.querySelector('datalist')).toBeDefined();
+      expect(page.root.shadowRoot.querySelector('datalist')).not.toBeNull();
+    });
+  });
+
+  describe('label', () => {
+    it('should have label', async () => {
+      const page = await newSpecPage({
+        components: [Slider],
+        template: () => <cho-slider label="Label" />,
+      });
+
+      expect(page.root.shadowRoot.innerHTML).toContain('Label');
     });
   });
 
@@ -31,7 +42,8 @@ describe('Slider', () => {
         template: () => <cho-slider />,
       });
 
-      page.root.shadowRoot.querySelector('input').dispatchEvent(new Event('focus'));
+      page.rootInstance.showTooltip = true;
+      await page.waitForChanges();
 
       expect(page.root.shadowRoot.querySelector('output')).toBeDefined();
     });
@@ -42,9 +54,10 @@ describe('Slider', () => {
         template: () => <cho-slider track="inverted" />,
       });
 
-      page.root.shadowRoot.querySelector('input').dispatchEvent(new Event('focus'));
+      page.rootInstance.showTooltip = true;
+      await page.waitForChanges();
 
-      expect(page.root.shadowRoot.querySelector('output')).toBeDefined();
+      expect(page.root.shadowRoot.querySelector('output')).not.toBe(null);
     });
 
     it('should not show tooltip on blur', async () => {
@@ -53,7 +66,8 @@ describe('Slider', () => {
         template: () => <cho-slider />,
       });
 
-      page.root.shadowRoot.querySelector('input').dispatchEvent(new Event('blur'));
+      page.rootInstance.showTooltip = false;
+      await page.waitForChanges();
 
       expect(page.root.shadowRoot.querySelector('output')).toBeNull();
     });
@@ -93,6 +107,17 @@ describe('Slider', () => {
       });
 
       expect(page.root.shadowRoot.querySelector('input').disabled).toBe(true);
+    });
+  });
+
+  describe('track', () => {
+    it('should be false', async () => {
+      const page = await newSpecPage({
+        components: [Slider],
+        template: () => <cho-slider track="false" />,
+      });
+
+      expect(page.root.shadowRoot.querySelector('input').style.background).toBe('');
     });
   });
 });
