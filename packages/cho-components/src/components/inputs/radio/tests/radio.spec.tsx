@@ -64,4 +64,19 @@ describe('Radio', () => {
       ).toBe('SLOT');
     });
   });
+
+  describe('didInput', () => {
+    it('should emit checkedChanged', async () => {
+      const didCheckChange = jest.fn();
+      const page = await newSpecPage({
+        components: [Radio],
+        template: () => <cho-radio onCheckedChanged={didCheckChange} />,
+      });
+
+      page.root.shadowRoot.querySelector('input').dispatchEvent(new Event('input'));
+      await page.waitForChanges();
+
+      expect(didCheckChange).toHaveBeenCalled();
+    });
+  });
 });

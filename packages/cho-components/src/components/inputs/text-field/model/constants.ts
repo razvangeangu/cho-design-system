@@ -9,4 +9,8 @@ export const kTextField = {
   ids: {
     textField: 'text-field',
   },
+  slots: {
+    leading: 'leading',
+    trailing: 'trailing',
+  },
 };

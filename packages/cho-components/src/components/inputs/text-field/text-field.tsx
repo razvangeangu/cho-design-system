@@ -15,6 +15,27 @@ import { TInputType } from '../../../types';
 })
 export class TextField implements ComponentInterface {
   /**
+   * The granularity with which the input can step through values.
+   *
+   * @default 'any'
+   */
+  @Prop() step?: number | string = 'any';
+
+  /**
+   * The minimum allowed value of the input. Should not be equal to max.
+   *
+   * @default 0
+   */
+  @Prop() min?: number = 0;
+
+  /**
+   * The maximum allowed value of the input. Should not be equal to min.
+   *
+   * @default 100
+   */
+  @Prop() max?: number = 100;
+
+  /**
    * Name attribute of the input element.
    *
    * @default undefined
@@ -134,7 +155,16 @@ export class TextField implements ComponentInterface {
       );
     }
 
-    return <input {...props} type={this.type} data-error={String(this.error)} />;
+    return (
+      <input
+        type={this.type}
+        min={this.min}
+        max={this.max}
+        step={this.step}
+        data-error={String(this.error)}
+        {...props}
+      />
+    );
   }
 
   render() {
@@ -159,9 +189,9 @@ export class TextField implements ComponentInterface {
           data-input-focus={String(this.inputFocus)}
           data-error={String(this.error)}
         >
-          <slot name="leading" />
+          <slot name={kTextField.slots.leading} />
           {this.renderInput()}
-          <slot name="trailing" />
+          <slot name={kTextField.slots.trailing} />
         </div>
         {this.helperText && (
           <div
