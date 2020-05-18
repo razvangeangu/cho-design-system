@@ -24,6 +24,7 @@ describe('Button', () => {
       });
 
       page.root.click();
+      await page.waitForChanges();
 
       expect(didClick).toHaveBeenCalled();
     });
@@ -41,6 +42,7 @@ describe('Button', () => {
       });
 
       page.root.shadowRoot.querySelector('button').click();
+      await page.waitForChanges();
 
       expect(page.root.disabled).toBe(true);
       expect(didClick).not.toHaveBeenCalled();
