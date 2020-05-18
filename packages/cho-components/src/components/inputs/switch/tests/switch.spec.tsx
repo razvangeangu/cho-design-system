@@ -64,4 +64,19 @@ describe('Switch', () => {
       ).toBe('SLOT');
     });
   });
+
+  describe('didInput', () => {
+    it('should emit checkedChanged', async () => {
+      const didCheckChange = jest.fn();
+      const page = await newSpecPage({
+        components: [Switch],
+        template: () => <cho-switch onCheckedChanged={didCheckChange} />,
+      });
+
+      page.root.shadowRoot.querySelector('input').dispatchEvent(new Event('input'));
+      await page.waitForChanges();
+
+      expect(didCheckChange).toHaveBeenCalled();
+    });
+  });
 });

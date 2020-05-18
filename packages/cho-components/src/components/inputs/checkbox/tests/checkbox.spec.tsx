@@ -66,7 +66,7 @@ describe('Checkbox', () => {
   });
 
   describe('didInput', () => {
-    it('should eemit checkedChanged', async () => {
+    it('should emit checkedChanged', async () => {
       const didCheckChange = jest.fn();
       const page = await newSpecPage({
         components: [Checkbox],
