@@ -52,6 +52,24 @@ export namespace Components {
          */
         "labelPlacement"?: TPlacement;
     }
+    interface ChoDivider {
+    }
+    interface ChoMenu {
+    }
+    interface ChoMenuItem {
+        /**
+          * If `true`, the switch will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * The value of the slider.
+          * @default undefined
+         */
+        "value"?: any;
+    }
+    interface ChoMenuItemGroup {
+    }
     interface ChoRadio {
         /**
           * If `true`, the component is checked.
@@ -217,6 +235,30 @@ declare global {
         prototype: HTMLChoCheckboxElement;
         new (): HTMLChoCheckboxElement;
     };
+    interface HTMLChoDividerElement extends Components.ChoDivider, HTMLStencilElement {
+    }
+    var HTMLChoDividerElement: {
+        prototype: HTMLChoDividerElement;
+        new (): HTMLChoDividerElement;
+    };
+    interface HTMLChoMenuElement extends Components.ChoMenu, HTMLStencilElement {
+    }
+    var HTMLChoMenuElement: {
+        prototype: HTMLChoMenuElement;
+        new (): HTMLChoMenuElement;
+    };
+    interface HTMLChoMenuItemElement extends Components.ChoMenuItem, HTMLStencilElement {
+    }
+    var HTMLChoMenuItemElement: {
+        prototype: HTMLChoMenuItemElement;
+        new (): HTMLChoMenuItemElement;
+    };
+    interface HTMLChoMenuItemGroupElement extends Components.ChoMenuItemGroup, HTMLStencilElement {
+    }
+    var HTMLChoMenuItemGroupElement: {
+        prototype: HTMLChoMenuItemGroupElement;
+        new (): HTMLChoMenuItemGroupElement;
+    };
     interface HTMLChoRadioElement extends Components.ChoRadio, HTMLStencilElement {
     }
     var HTMLChoRadioElement: {
@@ -244,6 +286,10 @@ declare global {
     interface HTMLElementTagNameMap {
         "cho-button": HTMLChoButtonElement;
         "cho-checkbox": HTMLChoCheckboxElement;
+        "cho-divider": HTMLChoDividerElement;
+        "cho-menu": HTMLChoMenuElement;
+        "cho-menu-item": HTMLChoMenuItemElement;
+        "cho-menu-item-group": HTMLChoMenuItemGroupElement;
         "cho-radio": HTMLChoRadioElement;
         "cho-slider": HTMLChoSliderElement;
         "cho-switch": HTMLChoSwitchElement;
@@ -293,6 +339,24 @@ declare namespace LocalJSX {
           * Callback fired when the state is changed.
          */
         "onCheckedChanged"?: (event: CustomEvent<ICheckboxValueChangedDetail>) => void;
+    }
+    interface ChoDivider {
+    }
+    interface ChoMenu {
+    }
+    interface ChoMenuItem {
+        /**
+          * If `true`, the switch will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * The value of the slider.
+          * @default undefined
+         */
+        "value"?: any;
+    }
+    interface ChoMenuItemGroup {
     }
     interface ChoRadio {
         /**
@@ -464,6 +528,10 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "cho-button": ChoButton;
         "cho-checkbox": ChoCheckbox;
+        "cho-divider": ChoDivider;
+        "cho-menu": ChoMenu;
+        "cho-menu-item": ChoMenuItem;
+        "cho-menu-item-group": ChoMenuItemGroup;
         "cho-radio": ChoRadio;
         "cho-slider": ChoSlider;
         "cho-switch": ChoSwitch;
@@ -476,6 +544,10 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "cho-button": LocalJSX.ChoButton & JSXBase.HTMLAttributes<HTMLChoButtonElement>;
             "cho-checkbox": LocalJSX.ChoCheckbox & JSXBase.HTMLAttributes<HTMLChoCheckboxElement>;
+            "cho-divider": LocalJSX.ChoDivider & JSXBase.HTMLAttributes<HTMLChoDividerElement>;
+            "cho-menu": LocalJSX.ChoMenu & JSXBase.HTMLAttributes<HTMLChoMenuElement>;
+            "cho-menu-item": LocalJSX.ChoMenuItem & JSXBase.HTMLAttributes<HTMLChoMenuItemElement>;
+            "cho-menu-item-group": LocalJSX.ChoMenuItemGroup & JSXBase.HTMLAttributes<HTMLChoMenuItemGroupElement>;
             "cho-radio": LocalJSX.ChoRadio & JSXBase.HTMLAttributes<HTMLChoRadioElement>;
             "cho-slider": LocalJSX.ChoSlider & JSXBase.HTMLAttributes<HTMLChoSliderElement>;
             "cho-switch": LocalJSX.ChoSwitch & JSXBase.HTMLAttributes<HTMLChoSwitchElement>;

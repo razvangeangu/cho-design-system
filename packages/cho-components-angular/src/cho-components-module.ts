@@ -6,6 +6,10 @@ import { NumericValueAccessor } from './directives/number-value-accessor';
 import {
   ChoButton,
   ChoCheckbox,
+  ChoDivider,
+  ChoMenu,
+  ChoMenuItem,
+  ChoMenuItemGroup,
   ChoRadio,
   ChoSlider,
   ChoSwitch,
@@ -20,6 +24,10 @@ const DECLARATIONS = [
   // proxies
   ChoButton,
   ChoCheckbox,
+  ChoDivider,
+  ChoMenu,
+  ChoMenuItem,
+  ChoMenuItemGroup,
   ChoRadio,
   ChoSlider,
   ChoSwitch,
@@ -38,4 +46,4 @@ const DECLARATIONS = [
   imports: [],
   providers: [],
 })
-export class ComponentLibraryModule {}
+export class ChoComponentsModule {}

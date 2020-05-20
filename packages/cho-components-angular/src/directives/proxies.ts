@@ -67,6 +67,50 @@ export class ChoCheckbox {
   }
 }
 
+export declare interface ChoDivider extends Components.ChoDivider {}
+
+@Component({ selector: 'cho-divider', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>' })
+export class ChoDivider {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+export declare interface ChoMenu extends Components.ChoMenu {}
+
+@Component({ selector: 'cho-menu', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>' })
+export class ChoMenu {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+export declare interface ChoMenuItem extends Components.ChoMenuItem {}
+@ProxyCmp({inputs: ['disabled', 'value']})
+@Component({ selector: 'cho-menu-item', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'value'] })
+export class ChoMenuItem {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+export declare interface ChoMenuItemGroup extends Components.ChoMenuItemGroup {}
+
+@Component({ selector: 'cho-menu-item-group', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>' })
+export class ChoMenuItemGroup {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 export declare interface ChoRadio extends Components.ChoRadio {}
 @ProxyCmp({inputs: ['checked', 'disabled', 'error', 'labelPlacement']})
 @Component({ selector: 'cho-radio', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['checked', 'disabled', 'error', 'labelPlacement'] })

@@ -1,0 +1,12 @@
+:host {
+  display: inline-block;
+}
+
+.divider__li {
+  @include surface-bottom-space();
+  @include surface-top-space();
+
+  border-bottom: solid var(--surface__border-color);
+  border-width: var(--border-width);
+  list-style-type: none;
+}

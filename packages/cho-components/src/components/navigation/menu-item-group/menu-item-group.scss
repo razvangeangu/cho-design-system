@@ -1,0 +1,28 @@
+:host {
+  display: inline-block;
+}
+
+.menu-item-group__ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-item-group__li {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  ::slotted([slot='label']) {
+    @include surface-inner-space();
+
+    color: var(--label-color);
+    cursor: default;
+    font-size: 0.8125rem;
+    font-weight: bold;
+  }
+}

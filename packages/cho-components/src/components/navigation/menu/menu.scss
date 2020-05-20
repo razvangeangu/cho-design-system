@@ -1,0 +1,14 @@
+:host {
+  display: inline-block;
+}
+
+.menu__ul {
+  border: solid var(--surface__border-color);
+  border-radius: var(--border-radius);
+  border-width: var(--border-width);
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+}

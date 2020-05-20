@@ -1,0 +1,31 @@
+:host {
+  display: inline-block;
+}
+
+.menu-item__li {
+  @include surface-inner-space();
+
+  list-style-type: none;
+  outline: none;
+
+  &[data-disabled='true'] {
+    color: var(--disabled);
+    cursor: default;
+  }
+
+  &:not([data-disabled='true']) {
+    cursor: pointer;
+
+    &:focus {
+      background-color: var(--surface__background-color--focus);
+    }
+
+    &:hover {
+      background-color: var(--surface__background-color--hover);
+
+      &:active {
+        background-color: var(--surface__background-color--active);
+      }
+    }
+  }
+}
