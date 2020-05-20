@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { defineCustomElements } from '@cho/components/loader';
-
 import { BooleanValueAccessor } from './directives/boolean-value-accessor';
 import { NumericValueAccessor } from './directives/number-value-accessor';
 import {
@@ -11,11 +10,13 @@ import {
   ChoMenuItem,
   ChoMenuItemGroup,
   ChoRadio,
+  ChoSelect,
   ChoSlider,
   ChoSwitch,
   ChoTextField,
 } from './directives/proxies';
 import { RadioValueAccessor } from './directives/radio-value-accessor';
+import { SelectValueAccessor } from './directives/select-value-accessor';
 import { TextValueAccessor } from './directives/text-value-accessor';
 
 defineCustomElements(window);
@@ -29,6 +30,7 @@ const DECLARATIONS = [
   ChoMenuItem,
   ChoMenuItemGroup,
   ChoRadio,
+  ChoSelect,
   ChoSlider,
   ChoSwitch,
   ChoTextField,
@@ -37,6 +39,7 @@ const DECLARATIONS = [
   BooleanValueAccessor,
   NumericValueAccessor,
   RadioValueAccessor,
+  SelectValueAccessor,
   TextValueAccessor,
 ];
 

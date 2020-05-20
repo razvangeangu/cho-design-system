@@ -8,7 +8,9 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { TButtonKind, } from "./components/inputs/button/model";
 import { TInputType, TPlacement, } from "./types";
 import { ICheckboxValueChangedDetail, } from "./components/inputs/checkbox/model";
+import { IMenuItemConnectedDetail, TMenuItemHostContainer, } from "./components/navigation/menu-item/model";
 import { IRadioValueChangedDetail, } from "./components/inputs/radio/model";
+import { ISelectValueChangedDetail, } from "./components/inputs/select/model";
 import { ISliderTickmark, ISliderValueChangedDetail, } from "./components/inputs/slider/model";
 import { ISwitchValueChangedDetail, } from "./components/inputs/switch/model";
 import { ITextFieldValueChangedDetail, } from "./components/inputs/text-field/model";
@@ -58,12 +60,22 @@ export namespace Components {
     }
     interface ChoMenuItem {
         /**
-          * If `true`, the switch will be disabled.
+          * If `true`, the menu-item will be disabled.
           * @default false
          */
         "disabled"?: boolean;
         /**
-          * The value of the slider.
+          * If `true`, the menu-item will be selected.
+          * @default false
+         */
+        "selected"?: boolean;
+        /**
+          * Helper used to keep track internally of the menu items in containers.
+          * @param hostContainer The container that controls the menu-item.
+         */
+        "setHostContainer": (hostContainer: TMenuItemHostContainer) => Promise<void>;
+        /**
+          * The value of the menu-item.
           * @default undefined
          */
         "value"?: any;
@@ -91,6 +103,37 @@ export namespace Components {
           * @default 'end'
          */
         "labelPlacement"?: TPlacement;
+    }
+    interface ChoSelect {
+        /**
+          * If `true`, the text-field will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the label will be displayed in an error state.
+          * @default false
+         */
+        "error"?: boolean;
+        /**
+          * The label content.
+          * @default undefined
+         */
+        "label"?: string;
+        /**
+          * Helper used to keep track internally of the menu items in select.
+          * @param menuItem The menu item that has been disconnected and due to be removed.
+         */
+        "removeMenuItem": (menuItem: HTMLChoMenuItemElement) => Promise<void>;
+        /**
+          * Reset the select to its initial state.
+         */
+        "reset": () => Promise<void>;
+        /**
+          * The value of the select.
+          * @default null
+         */
+        "value"?: any;
     }
     interface ChoSlider {
         /**
@@ -265,6 +308,12 @@ declare global {
         prototype: HTMLChoRadioElement;
         new (): HTMLChoRadioElement;
     };
+    interface HTMLChoSelectElement extends Components.ChoSelect, HTMLStencilElement {
+    }
+    var HTMLChoSelectElement: {
+        prototype: HTMLChoSelectElement;
+        new (): HTMLChoSelectElement;
+    };
     interface HTMLChoSliderElement extends Components.ChoSlider, HTMLStencilElement {
     }
     var HTMLChoSliderElement: {
@@ -291,6 +340,7 @@ declare global {
         "cho-menu-item": HTMLChoMenuItemElement;
         "cho-menu-item-group": HTMLChoMenuItemGroupElement;
         "cho-radio": HTMLChoRadioElement;
+        "cho-select": HTMLChoSelectElement;
         "cho-slider": HTMLChoSliderElement;
         "cho-switch": HTMLChoSwitchElement;
         "cho-text-field": HTMLChoTextFieldElement;
@@ -346,12 +396,21 @@ declare namespace LocalJSX {
     }
     interface ChoMenuItem {
         /**
-          * If `true`, the switch will be disabled.
+          * If `true`, the menu-item will be disabled.
           * @default false
          */
         "disabled"?: boolean;
         /**
-          * The value of the slider.
+          * Called every time the component is connected to the DOM.
+         */
+        "onMenuItemConnected"?: (event: CustomEvent<IMenuItemConnectedDetail>) => void;
+        /**
+          * If `true`, the menu-item will be selected.
+          * @default false
+         */
+        "selected"?: boolean;
+        /**
+          * The value of the menu-item.
           * @default undefined
          */
         "value"?: any;
@@ -383,6 +442,32 @@ declare namespace LocalJSX {
           * Callback fired when the state is changed.
          */
         "onCheckedChanged"?: (event: CustomEvent<IRadioValueChangedDetail>) => void;
+    }
+    interface ChoSelect {
+        /**
+          * If `true`, the text-field will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the label will be displayed in an error state.
+          * @default false
+         */
+        "error"?: boolean;
+        /**
+          * The label content.
+          * @default undefined
+         */
+        "label"?: string;
+        /**
+          * Callback fired when the value is changed.
+         */
+        "onValueChanged"?: (event: CustomEvent<ISelectValueChangedDetail>) => void;
+        /**
+          * The value of the select.
+          * @default null
+         */
+        "value"?: any;
     }
     interface ChoSlider {
         /**
@@ -533,6 +618,7 @@ declare namespace LocalJSX {
         "cho-menu-item": ChoMenuItem;
         "cho-menu-item-group": ChoMenuItemGroup;
         "cho-radio": ChoRadio;
+        "cho-select": ChoSelect;
         "cho-slider": ChoSlider;
         "cho-switch": ChoSwitch;
         "cho-text-field": ChoTextField;
@@ -549,6 +635,7 @@ declare module "@stencil/core" {
             "cho-menu-item": LocalJSX.ChoMenuItem & JSXBase.HTMLAttributes<HTMLChoMenuItemElement>;
             "cho-menu-item-group": LocalJSX.ChoMenuItemGroup & JSXBase.HTMLAttributes<HTMLChoMenuItemGroupElement>;
             "cho-radio": LocalJSX.ChoRadio & JSXBase.HTMLAttributes<HTMLChoRadioElement>;
+            "cho-select": LocalJSX.ChoSelect & JSXBase.HTMLAttributes<HTMLChoSelectElement>;
             "cho-slider": LocalJSX.ChoSlider & JSXBase.HTMLAttributes<HTMLChoSliderElement>;
             "cho-switch": LocalJSX.ChoSwitch & JSXBase.HTMLAttributes<HTMLChoSwitchElement>;
             "cho-text-field": LocalJSX.ChoTextField & JSXBase.HTMLAttributes<HTMLChoTextFieldElement>;

@@ -15,6 +15,7 @@ export const ChoMenu = /*@__PURE__*/createReactComponent<JSX.ChoMenu, HTMLChoMen
 export const ChoMenuItem = /*@__PURE__*/createReactComponent<JSX.ChoMenuItem, HTMLChoMenuItemElement>('cho-menu-item');
 export const ChoMenuItemGroup = /*@__PURE__*/createReactComponent<JSX.ChoMenuItemGroup, HTMLChoMenuItemGroupElement>('cho-menu-item-group');
 export const ChoRadio = /*@__PURE__*/createReactComponent<JSX.ChoRadio, HTMLChoRadioElement>('cho-radio');
+export const ChoSelect = /*@__PURE__*/createReactComponent<JSX.ChoSelect, HTMLChoSelectElement>('cho-select');
 export const ChoSlider = /*@__PURE__*/createReactComponent<JSX.ChoSlider, HTMLChoSliderElement>('cho-slider');
 export const ChoSwitch = /*@__PURE__*/createReactComponent<JSX.ChoSwitch, HTMLChoSwitchElement>('cho-switch');
 export const ChoTextField = /*@__PURE__*/createReactComponent<JSX.ChoTextField, HTMLChoTextFieldElement>('cho-text-field');

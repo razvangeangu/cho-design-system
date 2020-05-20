@@ -90,13 +90,15 @@ export class ChoMenu {
 }
 
 export declare interface ChoMenuItem extends Components.ChoMenuItem {}
-@ProxyCmp({inputs: ['disabled', 'value']})
-@Component({ selector: 'cho-menu-item', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'value'] })
+@ProxyCmp({inputs: ['disabled', 'selected', 'value']})
+@Component({ selector: 'cho-menu-item', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'selected', 'value'] })
 export class ChoMenuItem {
+  menuItemConnected!: EventEmitter<CustomEvent>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['menuItemConnected']);
   }
 }
 
@@ -121,6 +123,19 @@ export class ChoRadio {
     c.detach();
     this.el = r.nativeElement;
     proxyOutputs(this, this.el, ['checkedChanged']);
+  }
+}
+
+export declare interface ChoSelect extends Components.ChoSelect {}
+@ProxyCmp({inputs: ['disabled', 'error', 'label', 'value'], 'methods': ['reset']})
+@Component({ selector: 'cho-select', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'error', 'label', 'value'] })
+export class ChoSelect {
+  valueChanged!: EventEmitter<CustomEvent>;
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['valueChanged']);
   }
 }
 

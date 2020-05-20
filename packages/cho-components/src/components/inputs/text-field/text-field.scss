@@ -67,6 +67,10 @@ textarea {
     }
   }
 
+  &:read-only {
+    cursor: default;
+  }
+
   &::placeholder {
     color: var(--placeholder-color);
   }

@@ -1,7 +1,7 @@
-import { Config } from '@stencil/core';
-import { sass } from '@stencil/sass';
 import { angularOutputTarget, ValueAccessorConfig } from '@stencil/angular-output-target';
+import { Config } from '@stencil/core';
 import { reactOutputTarget } from '@stencil/react-output-target';
+import { sass } from '@stencil/sass';
 
 const angularValueAccessorBindings: ValueAccessorConfig[] = [
   {
@@ -27,6 +27,12 @@ const angularValueAccessorBindings: ValueAccessorConfig[] = [
     event: 'valueChanged',
     targetAttr: 'value',
     type: 'number',
+  },
+  {
+    elementSelectors: ['cho-select'],
+    event: 'valueChanged',
+    targetAttr: 'value',
+    type: 'select',
   },
 ];
 

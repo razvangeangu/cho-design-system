@@ -40,6 +40,19 @@
 | `"trailing"` | A component to display after the primary content.  |
 
 
+## Dependencies
+
+### Used by
+
+ - [cho-select](../select)
+
+### Graph
+```mermaid
+graph TD;
+  cho-select --> cho-text-field
+  style cho-text-field fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

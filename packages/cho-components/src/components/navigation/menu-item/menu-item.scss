@@ -8,6 +8,10 @@
   list-style-type: none;
   outline: none;
 
+  ::slotted(*) {
+    width: 100%;
+  }
+
   &[data-disabled='true'] {
     color: var(--disabled);
     cursor: default;
@@ -28,4 +32,8 @@
       }
     }
   }
+}
+
+.menu-item__li--selected {
+  background-color: var(--surface__background-color--active);
 }

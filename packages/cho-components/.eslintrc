@@ -21,6 +21,7 @@
       {
         "html": "ignore"
       }
-    ]
+    ],
+    "no-param-reassign": ["error", { "props": false }]
   }
 }
