@@ -1,4 +1,5 @@
 export const kTextField = {
+  componentName: 'cho-text-field' as 'cho-text-field',
   classes: {
     input: 'text-field__input',
     inputContainer: 'text-field__input-container',

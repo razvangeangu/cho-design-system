@@ -1,4 +1,5 @@
 export const kSlider = {
+  componentName: 'cho-slider' as 'cho-slider',
   classes: {
     slider: 'slider',
     sliderContainer: 'slider__container',

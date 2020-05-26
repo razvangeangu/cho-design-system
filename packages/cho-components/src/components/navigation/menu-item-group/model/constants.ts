@@ -1,4 +1,5 @@
 export const kMenuItemGroup = {
+  componentName: 'cho-menu-item-group' as 'cho-menu-item-group',
   classes: {
     menuItemGroupUl: 'menu-item-group__ul',
     menuItemGroupLi: 'menu-item-group__li',

@@ -1,4 +1,5 @@
 export const kButton = {
+  componentName: 'cho-button' as 'cho-button',
   classes: {
     button: 'button',
   },
