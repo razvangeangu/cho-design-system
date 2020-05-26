@@ -102,10 +102,12 @@ export class Select implements ComponentInterface {
   }
 
   private handleSelection = (event: Event) => {
-    if (event.target instanceof HTMLElement) {
-      if (event.target.tagName.toLowerCase() !== kMenuItem.componentName) {
+    if ('tagName' in event.target) {
+      if ((event.target as any).tagName.toLowerCase() !== kMenuItem.componentName) {
         return;
       }
+    } else {
+      return;
     }
 
     const menuItem = event.target as HTMLChoMenuItemElement;
