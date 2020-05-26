@@ -5,7 +5,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ionic-team/ionic.git"
+    "url": "https://github.com/razvangeangu/cho-design-system"
   },
   "scripts": {
     "build": "npm run build.ng",
