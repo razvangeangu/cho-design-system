@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Component, ComponentInterface, Event, EventEmitter, h, Prop, Watch } from '@stencil/core';
+import { Component, ComponentInterface, Event, EventEmitter, h, Prop } from '@stencil/core';
 import { ITextFieldValueChangedDetail, kTextField } from '../text-field/model';
 import {
   getDateFromDateString,
@@ -74,8 +74,7 @@ export class DatePicker implements ComponentInterface {
    */
   @Event() dayChanged: EventEmitter<IDatePickerDayChangedDetail>;
 
-  @Watch('value')
-  valueChangedWatcher(newValue: Date, oldValue: Date) {
+  private valueChangedEmitter = (newValue: Date, oldValue: Date) => {
     this.valueChanged.emit({ value: this.value });
 
     if (newValue != null && oldValue != null) {
@@ -95,7 +94,7 @@ export class DatePicker implements ComponentInterface {
       this.monthChanged.emit();
       this.dayChanged.emit();
     }
-  }
+  };
 
   private didValueChanged = (event: CustomEvent<ITextFieldValueChangedDetail>) => {
     // Stop the text-field valueChanged event from propagating since date-picker has its own
@@ -105,7 +104,9 @@ export class DatePicker implements ComponentInterface {
     const dateData = getDateFromDateString(value);
 
     if (dateData !== null && dateData.year > 999) {
+      const oldValue = this.value;
       this.value = new Date(dateData.year, dateData.month - 1, dateData.date);
+      this.valueChangedEmitter(this.value, oldValue);
     }
   };
 
@@ -118,7 +119,9 @@ export class DatePicker implements ComponentInterface {
     const rawDate = new Date(getDateStringFromTimestamp(parseInt(element.dataset.timestamp, 10)));
     const date = new Date(rawDate.setMonth(this.value.getMonth() + parseInt(element.dataset.month, 10)));
 
+    const oldValue = this.value;
     this.value = date;
+    this.valueChangedEmitter(this.value, oldValue);
   };
 
   private didClickDay = (event: MouseEvent) => {
