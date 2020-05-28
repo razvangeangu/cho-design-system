@@ -10,6 +10,7 @@ import { defineCustomElements, applyPolyfills } from '@cho/components/loader';
 applyPolyfills().then(() => defineCustomElements());
 export const ChoButton = /*@__PURE__*/createReactComponent<JSX.ChoButton, HTMLChoButtonElement>('cho-button');
 export const ChoCheckbox = /*@__PURE__*/createReactComponent<JSX.ChoCheckbox, HTMLChoCheckboxElement>('cho-checkbox');
+export const ChoDatePicker = /*@__PURE__*/createReactComponent<JSX.ChoDatePicker, HTMLChoDatePickerElement>('cho-date-picker');
 export const ChoDivider = /*@__PURE__*/createReactComponent<JSX.ChoDivider, HTMLChoDividerElement>('cho-divider');
 export const ChoMenu = /*@__PURE__*/createReactComponent<JSX.ChoMenu, HTMLChoMenuElement>('cho-menu');
 export const ChoMenuItem = /*@__PURE__*/createReactComponent<JSX.ChoMenuItem, HTMLChoMenuItemElement>('cho-menu-item');

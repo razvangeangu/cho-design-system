@@ -24,36 +24,35 @@ export class DatePicker implements ComponentInterface {
    *
    * @default new Date()
    */
-  @Prop({ mutable: true }) value?: Date = kDatePicker.defaultProps.value;
+  @Prop({ mutable: true }) value?: Date = new Date();
 
   /**
    * Min selectable date
    *
    * @default new Date('1897-01-14')
    */
-  @Prop() minDate?: Date = kDatePicker.defaultProps.minDate;
+  @Prop() minDate?: Date = new Date('1897-01-14');
 
   /**
    * Max selectable date
    *
    * @default new Date('2097-01-14')
    */
-  @Prop() maxDate?: Date = kDatePicker.defaultProps.maxDate;
+  @Prop() maxDate?: Date = new Date('2097-01-14');
 
   /**
    * Callback used to disable specific dates.
    *
    * @default () => false
    */
-  @Prop() shouldDisableDate?: (timestamp?: number) => boolean =
-    kDatePicker.defaultProps.shouldDisableDate;
+  @Prop() shouldDisableDate?: (timestamp?: number) => boolean = () => false;
 
   /**
    * If `true`, the text-field will be disabled.
    *
    * @default false
    */
-  @Prop() disabled?: boolean = kDatePicker.defaultProps.disabled;
+  @Prop() disabled?: boolean = false;
 
   /**
    * Callback fired when the value is changed.

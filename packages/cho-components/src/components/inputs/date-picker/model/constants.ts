@@ -25,12 +25,4 @@ export const kDatePicker = {
     'November',
     'December',
   ],
-  defaultProps: {
-    value: new Date(),
-    minDate: new Date('1897-01-14'),
-    maxDate: new Date('2097-01-14'),
-    shouldDisableDate: () => false,
-    readOnly: false,
-    disabled: false,
-  },
 };

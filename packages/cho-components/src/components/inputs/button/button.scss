@@ -53,7 +53,7 @@
   }
 }
 
-.button[data-cho-kind='contained'] {
+.button[data-kind='contained'] {
   @include button-kind-enabled(var(--primary--hover), var(--primary--hover), var(--primary--active));
 
   background-color: var(--primary);
@@ -64,7 +64,7 @@
   }
 }
 
-.button[data-cho-kind='outlined'] {
+.button[data-kind='outlined'] {
   @include button-kind-enabled(
     var(--button__primary-color--hover),
     var(--button__primary-color--hover),
@@ -80,7 +80,7 @@
   }
 }
 
-.button[data-cho-kind='text'] {
+.button[data-kind='text'] {
   @include button-kind-enabled(
     var(--button__primary-color--hover),
     var(--button__primary-color--hover),

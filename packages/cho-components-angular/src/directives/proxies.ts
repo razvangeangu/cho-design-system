@@ -67,6 +67,22 @@ export class ChoCheckbox {
   }
 }
 
+export declare interface ChoDatePicker extends Components.ChoDatePicker {}
+@ProxyCmp({inputs: ['disabled', 'maxDate', 'minDate', 'shouldDisableDate', 'value']})
+@Component({ selector: 'cho-date-picker', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'maxDate', 'minDate', 'shouldDisableDate', 'value'] })
+export class ChoDatePicker {
+  valueChanged!: EventEmitter<CustomEvent>;
+  yearChanged!: EventEmitter<CustomEvent>;
+  monthChanged!: EventEmitter<CustomEvent>;
+  dayChanged!: EventEmitter<CustomEvent>;
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['valueChanged', 'yearChanged', 'monthChanged', 'dayChanged']);
+  }
+}
+
 export declare interface ChoDivider extends Components.ChoDivider {}
 
 @Component({ selector: 'cho-divider', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>' })

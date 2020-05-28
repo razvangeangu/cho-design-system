@@ -41,8 +41,8 @@ export class Button implements ComponentInterface {
         disabled={this.disabled}
         class={kButton.classes.button}
         type="button"
-        data-cho-kind={this.kind}
-        data-cho-color="primary"
+        data-kind={this.kind}
+        data-color="primary"
       >
         <slot name="leading" />
         <slot />
