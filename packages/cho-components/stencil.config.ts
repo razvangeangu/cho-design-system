@@ -17,7 +17,7 @@ const angularValueAccessorBindings: ValueAccessorConfig[] = [
     type: 'radio',
   },
   {
-    elementSelectors: ['cho-text-field'],
+    elementSelectors: ['cho-text-field', 'cho-date-picker'],
     event: 'valueChanged',
     targetAttr: 'value',
     type: 'text',

@@ -5,7 +5,7 @@ import { ValueAccessor } from './value-accessor';
 
 @Directive({
   /* tslint:disable-next-line:directive-selector */
-  selector: 'cho-text-field',
+  selector: 'cho-text-field, cho-date-picker',
   host: {
     '(valueChanged)': 'handleChangeEvent($event.target.value)'
   },
