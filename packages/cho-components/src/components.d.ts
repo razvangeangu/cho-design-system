@@ -8,6 +8,7 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { TButtonKind, } from "./components/inputs/button/model";
 import { TInputType, TPlacement, } from "./types";
 import { ICheckboxValueChangedDetail, } from "./components/inputs/checkbox/model";
+import { IDatePickerDayChangedDetail, IDatePickerMonthChangedDetail, IDatePickerValueChangedDetail, IDatePickerYearChangedDetail, } from "./components/inputs/date-picker/model";
 import { IMenuItemConnectedDetail, TMenuItemHostContainer, } from "./components/navigation/menu-item/model";
 import { IRadioValueChangedDetail, } from "./components/inputs/radio/model";
 import { ISelectValueChangedDetail, } from "./components/inputs/select/model";
@@ -53,6 +54,33 @@ export namespace Components {
           * @default 'end'
          */
         "labelPlacement"?: TPlacement;
+    }
+    interface ChoDatePicker {
+        /**
+          * If `true`, the text-field will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Max selectable date
+          * @default new Date('2097-01-14')
+         */
+        "maxDate"?: Date;
+        /**
+          * Min selectable date
+          * @default new Date('1897-01-14')
+         */
+        "minDate"?: Date;
+        /**
+          * Callback used to disable specific dates.
+          * @default () => false
+         */
+        "shouldDisableDate"?: (timestamp?: number) => boolean;
+        /**
+          * The value of the date-picker.
+          * @default new Date()
+         */
+        "value"?: Date;
     }
     interface ChoDivider {
     }
@@ -242,7 +270,7 @@ export namespace Components {
           * It prevents the user from changing the value of the field (not from interacting with the field).
           * @default false
          */
-        "readOnly": boolean;
+        "readOnly"?: boolean;
         /**
           * Number of rows to display when `multiline` option is set to true.
           * @default 2
@@ -277,6 +305,12 @@ declare global {
     var HTMLChoCheckboxElement: {
         prototype: HTMLChoCheckboxElement;
         new (): HTMLChoCheckboxElement;
+    };
+    interface HTMLChoDatePickerElement extends Components.ChoDatePicker, HTMLStencilElement {
+    }
+    var HTMLChoDatePickerElement: {
+        prototype: HTMLChoDatePickerElement;
+        new (): HTMLChoDatePickerElement;
     };
     interface HTMLChoDividerElement extends Components.ChoDivider, HTMLStencilElement {
     }
@@ -335,6 +369,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "cho-button": HTMLChoButtonElement;
         "cho-checkbox": HTMLChoCheckboxElement;
+        "cho-date-picker": HTMLChoDatePickerElement;
         "cho-divider": HTMLChoDividerElement;
         "cho-menu": HTMLChoMenuElement;
         "cho-menu-item": HTMLChoMenuItemElement;
@@ -389,6 +424,49 @@ declare namespace LocalJSX {
           * Callback fired when the state is changed.
          */
         "onCheckedChanged"?: (event: CustomEvent<ICheckboxValueChangedDetail>) => void;
+    }
+    interface ChoDatePicker {
+        /**
+          * If `true`, the text-field will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Max selectable date
+          * @default new Date('2097-01-14')
+         */
+        "maxDate"?: Date;
+        /**
+          * Min selectable date
+          * @default new Date('1897-01-14')
+         */
+        "minDate"?: Date;
+        /**
+          * Callback fired when the day is changed.
+         */
+        "onDayChanged"?: (event: CustomEvent<IDatePickerDayChangedDetail>) => void;
+        /**
+          * Callback fired when the month is changed.
+         */
+        "onMonthChanged"?: (event: CustomEvent<IDatePickerMonthChangedDetail>) => void;
+        /**
+          * Callback fired when the value is changed.
+         */
+        "onValueChanged"?: (event: CustomEvent<IDatePickerValueChangedDetail>) => void;
+        /**
+          * Callback fired when the year is changed.
+         */
+        "onYearChanged"?: (event: CustomEvent<IDatePickerYearChangedDetail>) => void;
+        /**
+          * Callback used to disable specific dates.
+          * @default () => false
+         */
+        "shouldDisableDate"?: (timestamp?: number) => boolean;
+        /**
+          * The value of the date-picker.
+          * @default new Date()
+         */
+        "value"?: Date;
     }
     interface ChoDivider {
     }
@@ -613,6 +691,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "cho-button": ChoButton;
         "cho-checkbox": ChoCheckbox;
+        "cho-date-picker": ChoDatePicker;
         "cho-divider": ChoDivider;
         "cho-menu": ChoMenu;
         "cho-menu-item": ChoMenuItem;
@@ -630,6 +709,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "cho-button": LocalJSX.ChoButton & JSXBase.HTMLAttributes<HTMLChoButtonElement>;
             "cho-checkbox": LocalJSX.ChoCheckbox & JSXBase.HTMLAttributes<HTMLChoCheckboxElement>;
+            "cho-date-picker": LocalJSX.ChoDatePicker & JSXBase.HTMLAttributes<HTMLChoDatePickerElement>;
             "cho-divider": LocalJSX.ChoDivider & JSXBase.HTMLAttributes<HTMLChoDividerElement>;
             "cho-menu": LocalJSX.ChoMenu & JSXBase.HTMLAttributes<HTMLChoMenuElement>;
             "cho-menu-item": LocalJSX.ChoMenuItem & JSXBase.HTMLAttributes<HTMLChoMenuItemElement>;

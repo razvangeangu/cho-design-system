@@ -61,6 +61,14 @@ textarea {
   outline: none;
   width: 100%;
 
+  /* stylelint-disable-next-line a11y/no-display-none */
+  &::-webkit-inner-spin-button,
+  &::-webkit-calendar-picker-indicator {
+    /* stylelint-disable-next-line property-no-vendor-prefix */
+    -webkit-appearance: none;
+    display: none;
+  }
+
   &[data-error='true'] {
     &::placeholder {
       color: var(--placeholder-color--error);

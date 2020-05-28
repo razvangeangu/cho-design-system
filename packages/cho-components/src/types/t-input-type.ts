@@ -1,1 +1,10 @@
-export type TInputType = 'email' | 'hidden' | 'number' | 'password' | 'search' | 'tel' | 'text' | 'url';
+export type TInputType =
+  | 'date'
+  | 'email'
+  | 'hidden'
+  | 'number'
+  | 'password'
+  | 'search'
+  | 'tel'
+  | 'text'
+  | 'url';

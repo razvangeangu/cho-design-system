@@ -1,8 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { h, Component, ComponentInterface, Prop, Event, EventEmitter, State } from '@stencil/core';
+import { Component, ComponentInterface, Event, EventEmitter, h, Prop, State } from '@stencil/core';
 import { JSXBase } from '@stencil/core/internal';
-import { kTextField, ITextFieldValueChangedDetail } from './model';
 import { TInputType } from '../../../types';
+import { ITextFieldValueChangedDetail, kTextField } from './model';
 
 /**
  * @slot leading - A component to display before the primary content.
@@ -61,7 +61,7 @@ export class TextField implements ComponentInterface {
    *
    * @default false
    */
-  @Prop() readOnly: boolean = false;
+  @Prop() readOnly?: boolean = false;
 
   /**
    * Specifies the type of <input> element to display.

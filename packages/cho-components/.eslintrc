@@ -2,7 +2,12 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "extends": ["airbnb-typescript", "plugin:@stencil/recommended"],
+  "extends": [
+    "airbnb-typescript",
+    "plugin:@stencil/recommended",
+    "prettier/@typescript-eslint",
+    "eslint-config-prettier"
+  ],
   "rules": {
     "react/react-in-jsx-scope": 0,
     "react/no-unknown-property": 0,
@@ -22,6 +27,8 @@
         "html": "ignore"
       }
     ],
-    "no-param-reassign": ["error", { "props": false }]
+    "no-param-reassign": ["error", { "props": false }],
+    // TODO(https://github.com/typescript-eslint/typescript-eslint/issues/2077): remove next line this once eslint is upgraded to use v3
+    "@typescript-eslint/camelcase": 0
   }
 }
