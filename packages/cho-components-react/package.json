@@ -6,7 +6,7 @@
   "description": "React specific wrapper for cho-components",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ionic-team/ionic.git"
+    "url": "https://github.com/razvangeangu/cho-design-system"
   },
   "scripts": {
     "build": "npm run clean && npm run compile",
@@ -21,24 +21,24 @@
     "dist/"
   ],
   "devDependencies": {
-    "@types/jest": "23.3.9",
-    "@types/node": "13.13.2",
-    "@types/react": "16.7.6",
-    "@types/react-dom": "16.0.9",
-    "jest": "^23.0.0",
-    "jest-dom": "^3.0.2",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0",
-    "rollup": "^1.21.2",
+    "@types/jest": "25.2.3",
+    "@types/node": "14.0.5",
+    "@types/react": "16.9.35",
+    "@types/react-dom": "16.9.8",
+    "jest": "^26.0.1",
+    "jest-dom": "^4.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "rollup": "^2.10.9",
     "rollup-plugin-node-resolve": "^5.2.0",
-    "typescript": "^3.3.4000"
+    "typescript": "^3.9.3"
   },
   "dependencies": {
     "@cho/components": "1.0.0"
   },
   "peerDependencies": {
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "jest": {
     "preset": "ts-jest",

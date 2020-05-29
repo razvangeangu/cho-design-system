@@ -7,12 +7,13 @@
 
 ## Properties
 
-| Property         | Attribute         | Description                                     | Type                                    | Default |
-| ---------------- | ----------------- | ----------------------------------------------- | --------------------------------------- | ------- |
-| `checked`        | `checked`         | If `true`, the component is checked.            | `boolean`                               | `false` |
-| `disabled`       | `disabled`        | If `true`, the checkbox will be disabled.       | `boolean`                               | `false` |
-| `indeterminate`  | `indeterminate`   | If `true`, the component appears indeterminate. | `boolean`                               | `false` |
-| `labelPlacement` | `label-placement` | The position of the label                       | `"bottom" \| "end" \| "start" \| "top"` | `'end'` |
+| Property         | Attribute         | Description                                                   | Type                                    | Default |
+| ---------------- | ----------------- | ------------------------------------------------------------- | --------------------------------------- | ------- |
+| `checked`        | `checked`         | If `true`, the component is checked.                          | `boolean`                               | `false` |
+| `disabled`       | `disabled`        | If `true`, the checkbox will be disabled.                     | `boolean`                               | `false` |
+| `error`          | `error`           | If `true`, the component will be displayed in an error state. | `boolean`                               | `false` |
+| `indeterminate`  | `indeterminate`   | If `true`, the component appears indeterminate.               | `boolean`                               | `false` |
+| `labelPlacement` | `label-placement` | The position of the label                                     | `"bottom" \| "end" \| "start" \| "top"` | `'end'` |
 
 
 ## Events

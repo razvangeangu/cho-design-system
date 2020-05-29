@@ -8,7 +8,10 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { TButtonKind, } from "./components/inputs/button/model";
 import { TInputType, TPlacement, } from "./types";
 import { ICheckboxValueChangedDetail, } from "./components/inputs/checkbox/model";
+import { IDatePickerDayChangedDetail, IDatePickerMonthChangedDetail, IDatePickerValueChangedDetail, IDatePickerYearChangedDetail, } from "./components/inputs/date-picker/model";
+import { IMenuItemConnectedDetail, TMenuItemHostContainer, } from "./components/navigation/menu-item/model";
 import { IRadioValueChangedDetail, } from "./components/inputs/radio/model";
+import { ISelectValueChangedDetail, } from "./components/inputs/select/model";
 import { ISliderTickmark, ISliderValueChangedDetail, } from "./components/inputs/slider/model";
 import { ISwitchValueChangedDetail, } from "./components/inputs/switch/model";
 import { ITextFieldValueChangedDetail, } from "./components/inputs/text-field/model";
@@ -37,6 +40,11 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
+          * If `true`, the component will be displayed in an error state.
+          * @default false
+         */
+        "error"?: boolean;
+        /**
           * If `true`, the component appears indeterminate.
           * @default false
          */
@@ -46,6 +54,61 @@ export namespace Components {
           * @default 'end'
          */
         "labelPlacement"?: TPlacement;
+    }
+    interface ChoDatePicker {
+        /**
+          * If `true`, the text-field will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Max selectable date
+          * @default new Date('2097-01-14')
+         */
+        "maxDate"?: Date;
+        /**
+          * Min selectable date
+          * @default new Date('1897-01-14')
+         */
+        "minDate"?: Date;
+        /**
+          * Callback used to disable specific dates.
+          * @default () => false
+         */
+        "shouldDisableDate"?: (timestamp?: number) => boolean;
+        /**
+          * The value of the date-picker.
+          * @default new Date()
+         */
+        "value"?: Date;
+    }
+    interface ChoDivider {
+    }
+    interface ChoMenu {
+    }
+    interface ChoMenuItem {
+        /**
+          * If `true`, the menu-item will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the menu-item will be selected.
+          * @default false
+         */
+        "selected"?: boolean;
+        /**
+          * Helper used to keep track internally of the menu items in containers.
+          * @param hostContainer The container that controls the menu-item.
+         */
+        "setHostContainer": (hostContainer: TMenuItemHostContainer) => Promise<void>;
+        /**
+          * The value of the menu-item.
+          * @default undefined
+         */
+        "value"?: any;
+    }
+    interface ChoMenuItemGroup {
     }
     interface ChoRadio {
         /**
@@ -59,10 +122,46 @@ export namespace Components {
          */
         "disabled"?: boolean;
         /**
+          * If `true`, the component will be displayed in an error state.
+          * @default false
+         */
+        "error"?: boolean;
+        /**
           * The position of the label
           * @default 'end'
          */
         "labelPlacement"?: TPlacement;
+    }
+    interface ChoSelect {
+        /**
+          * If `true`, the text-field will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the label will be displayed in an error state.
+          * @default false
+         */
+        "error"?: boolean;
+        /**
+          * The label content.
+          * @default undefined
+         */
+        "label"?: string;
+        /**
+          * Helper used to keep track internally of the menu items in select.
+          * @param menuItem The menu item that has been disconnected and due to be removed.
+         */
+        "removeMenuItem": (menuItem: HTMLChoMenuItemElement) => Promise<void>;
+        /**
+          * Reset the select to its initial state.
+         */
+        "reset": () => Promise<void>;
+        /**
+          * The value of the select.
+          * @default null
+         */
+        "value"?: any;
     }
     interface ChoSlider {
         /**
@@ -171,7 +270,7 @@ export namespace Components {
           * It prevents the user from changing the value of the field (not from interacting with the field).
           * @default false
          */
-        "readOnly": boolean;
+        "readOnly"?: boolean;
         /**
           * Number of rows to display when `multiline` option is set to true.
           * @default 2
@@ -207,11 +306,47 @@ declare global {
         prototype: HTMLChoCheckboxElement;
         new (): HTMLChoCheckboxElement;
     };
+    interface HTMLChoDatePickerElement extends Components.ChoDatePicker, HTMLStencilElement {
+    }
+    var HTMLChoDatePickerElement: {
+        prototype: HTMLChoDatePickerElement;
+        new (): HTMLChoDatePickerElement;
+    };
+    interface HTMLChoDividerElement extends Components.ChoDivider, HTMLStencilElement {
+    }
+    var HTMLChoDividerElement: {
+        prototype: HTMLChoDividerElement;
+        new (): HTMLChoDividerElement;
+    };
+    interface HTMLChoMenuElement extends Components.ChoMenu, HTMLStencilElement {
+    }
+    var HTMLChoMenuElement: {
+        prototype: HTMLChoMenuElement;
+        new (): HTMLChoMenuElement;
+    };
+    interface HTMLChoMenuItemElement extends Components.ChoMenuItem, HTMLStencilElement {
+    }
+    var HTMLChoMenuItemElement: {
+        prototype: HTMLChoMenuItemElement;
+        new (): HTMLChoMenuItemElement;
+    };
+    interface HTMLChoMenuItemGroupElement extends Components.ChoMenuItemGroup, HTMLStencilElement {
+    }
+    var HTMLChoMenuItemGroupElement: {
+        prototype: HTMLChoMenuItemGroupElement;
+        new (): HTMLChoMenuItemGroupElement;
+    };
     interface HTMLChoRadioElement extends Components.ChoRadio, HTMLStencilElement {
     }
     var HTMLChoRadioElement: {
         prototype: HTMLChoRadioElement;
         new (): HTMLChoRadioElement;
+    };
+    interface HTMLChoSelectElement extends Components.ChoSelect, HTMLStencilElement {
+    }
+    var HTMLChoSelectElement: {
+        prototype: HTMLChoSelectElement;
+        new (): HTMLChoSelectElement;
     };
     interface HTMLChoSliderElement extends Components.ChoSlider, HTMLStencilElement {
     }
@@ -234,7 +369,13 @@ declare global {
     interface HTMLElementTagNameMap {
         "cho-button": HTMLChoButtonElement;
         "cho-checkbox": HTMLChoCheckboxElement;
+        "cho-date-picker": HTMLChoDatePickerElement;
+        "cho-divider": HTMLChoDividerElement;
+        "cho-menu": HTMLChoMenuElement;
+        "cho-menu-item": HTMLChoMenuItemElement;
+        "cho-menu-item-group": HTMLChoMenuItemGroupElement;
         "cho-radio": HTMLChoRadioElement;
+        "cho-select": HTMLChoSelectElement;
         "cho-slider": HTMLChoSliderElement;
         "cho-switch": HTMLChoSwitchElement;
         "cho-text-field": HTMLChoTextFieldElement;
@@ -265,6 +406,11 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * If `true`, the component will be displayed in an error state.
+          * @default false
+         */
+        "error"?: boolean;
+        /**
           * If `true`, the component appears indeterminate.
           * @default false
          */
@@ -279,6 +425,76 @@ declare namespace LocalJSX {
          */
         "onCheckedChanged"?: (event: CustomEvent<ICheckboxValueChangedDetail>) => void;
     }
+    interface ChoDatePicker {
+        /**
+          * If `true`, the text-field will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Max selectable date
+          * @default new Date('2097-01-14')
+         */
+        "maxDate"?: Date;
+        /**
+          * Min selectable date
+          * @default new Date('1897-01-14')
+         */
+        "minDate"?: Date;
+        /**
+          * Callback fired when the day is changed.
+         */
+        "onDayChanged"?: (event: CustomEvent<IDatePickerDayChangedDetail>) => void;
+        /**
+          * Callback fired when the month is changed.
+         */
+        "onMonthChanged"?: (event: CustomEvent<IDatePickerMonthChangedDetail>) => void;
+        /**
+          * Callback fired when the value is changed.
+         */
+        "onValueChanged"?: (event: CustomEvent<IDatePickerValueChangedDetail>) => void;
+        /**
+          * Callback fired when the year is changed.
+         */
+        "onYearChanged"?: (event: CustomEvent<IDatePickerYearChangedDetail>) => void;
+        /**
+          * Callback used to disable specific dates.
+          * @default () => false
+         */
+        "shouldDisableDate"?: (timestamp?: number) => boolean;
+        /**
+          * The value of the date-picker.
+          * @default new Date()
+         */
+        "value"?: Date;
+    }
+    interface ChoDivider {
+    }
+    interface ChoMenu {
+    }
+    interface ChoMenuItem {
+        /**
+          * If `true`, the menu-item will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Called every time the component is connected to the DOM.
+         */
+        "onMenuItemConnected"?: (event: CustomEvent<IMenuItemConnectedDetail>) => void;
+        /**
+          * If `true`, the menu-item will be selected.
+          * @default false
+         */
+        "selected"?: boolean;
+        /**
+          * The value of the menu-item.
+          * @default undefined
+         */
+        "value"?: any;
+    }
+    interface ChoMenuItemGroup {
+    }
     interface ChoRadio {
         /**
           * If `true`, the component is checked.
@@ -291,6 +507,11 @@ declare namespace LocalJSX {
          */
         "disabled"?: boolean;
         /**
+          * If `true`, the component will be displayed in an error state.
+          * @default false
+         */
+        "error"?: boolean;
+        /**
           * The position of the label
           * @default 'end'
          */
@@ -299,6 +520,32 @@ declare namespace LocalJSX {
           * Callback fired when the state is changed.
          */
         "onCheckedChanged"?: (event: CustomEvent<IRadioValueChangedDetail>) => void;
+    }
+    interface ChoSelect {
+        /**
+          * If `true`, the text-field will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the label will be displayed in an error state.
+          * @default false
+         */
+        "error"?: boolean;
+        /**
+          * The label content.
+          * @default undefined
+         */
+        "label"?: string;
+        /**
+          * Callback fired when the value is changed.
+         */
+        "onValueChanged"?: (event: CustomEvent<ISelectValueChangedDetail>) => void;
+        /**
+          * The value of the select.
+          * @default null
+         */
+        "value"?: any;
     }
     interface ChoSlider {
         /**
@@ -444,7 +691,13 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "cho-button": ChoButton;
         "cho-checkbox": ChoCheckbox;
+        "cho-date-picker": ChoDatePicker;
+        "cho-divider": ChoDivider;
+        "cho-menu": ChoMenu;
+        "cho-menu-item": ChoMenuItem;
+        "cho-menu-item-group": ChoMenuItemGroup;
         "cho-radio": ChoRadio;
+        "cho-select": ChoSelect;
         "cho-slider": ChoSlider;
         "cho-switch": ChoSwitch;
         "cho-text-field": ChoTextField;
@@ -456,7 +709,13 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "cho-button": LocalJSX.ChoButton & JSXBase.HTMLAttributes<HTMLChoButtonElement>;
             "cho-checkbox": LocalJSX.ChoCheckbox & JSXBase.HTMLAttributes<HTMLChoCheckboxElement>;
+            "cho-date-picker": LocalJSX.ChoDatePicker & JSXBase.HTMLAttributes<HTMLChoDatePickerElement>;
+            "cho-divider": LocalJSX.ChoDivider & JSXBase.HTMLAttributes<HTMLChoDividerElement>;
+            "cho-menu": LocalJSX.ChoMenu & JSXBase.HTMLAttributes<HTMLChoMenuElement>;
+            "cho-menu-item": LocalJSX.ChoMenuItem & JSXBase.HTMLAttributes<HTMLChoMenuItemElement>;
+            "cho-menu-item-group": LocalJSX.ChoMenuItemGroup & JSXBase.HTMLAttributes<HTMLChoMenuItemGroupElement>;
             "cho-radio": LocalJSX.ChoRadio & JSXBase.HTMLAttributes<HTMLChoRadioElement>;
+            "cho-select": LocalJSX.ChoSelect & JSXBase.HTMLAttributes<HTMLChoSelectElement>;
             "cho-slider": LocalJSX.ChoSlider & JSXBase.HTMLAttributes<HTMLChoSliderElement>;
             "cho-switch": LocalJSX.ChoSwitch & JSXBase.HTMLAttributes<HTMLChoSwitchElement>;
             "cho-text-field": LocalJSX.ChoTextField & JSXBase.HTMLAttributes<HTMLChoTextFieldElement>;

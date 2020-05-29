@@ -41,6 +41,13 @@ export class Checkbox implements ComponentInterface {
   @Prop() labelPlacement?: TPlacement = 'end';
 
   /**
+   * If `true`, the component will be displayed in an error state.
+   *
+   * @default false
+   */
+  @Prop() error?: boolean = false;
+
+  /**
    * Callback fired when the state is changed.
    */
   @Event() checkedChanged: EventEmitter<ICheckboxValueChangedDetail>;
@@ -63,6 +70,7 @@ export class Checkbox implements ComponentInterface {
         disabled={this.disabled}
         data-indeterminate={String(this.indeterminate)}
         onInput={this.didInput}
+        data-error={String(this.error)}
       />,
       <span
         class={kCheckbox.classes.checkmark}
@@ -70,6 +78,7 @@ export class Checkbox implements ComponentInterface {
         data-checked={String(this.checked)}
         data-indeterminate={String(this.indeterminate)}
         data-label-placement={this.labelPlacement}
+        data-error={String(this.error)}
       />,
       this.labelPlacement === 'end' || this.labelPlacement === 'top' ? <slot /> : null,
     ];
@@ -82,6 +91,7 @@ export class Checkbox implements ComponentInterface {
         htmlFor={kCheckbox.ids.checkbox}
         data-disabled={String(this.disabled)}
         data-label-placement={this.labelPlacement}
+        data-error={String(this.error)}
       >
         {this.renderInput()}
       </label>

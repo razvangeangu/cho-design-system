@@ -1,0 +1,17 @@
+:host {
+  display: inline-block;
+}
+
+.select__ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+
+.select__trailing-icon {
+  color: var(--text-color);
+  height: 2rem;
+  width: 2rem;
+}
