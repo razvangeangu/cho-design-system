@@ -15,6 +15,7 @@ import { ISelectValueChangedDetail, } from "./components/inputs/select/model";
 import { ISliderTickmark, ISliderValueChangedDetail, } from "./components/inputs/slider/model";
 import { ISwitchValueChangedDetail, } from "./components/inputs/switch/model";
 import { ITextFieldValueChangedDetail, } from "./components/inputs/text-field/model";
+import { ITimePickerHoursChangedDetail, ITimePickerMinutesChangedDetail, ITimePickerValueChangedDetail, } from "./components/inputs/time-picker/model";
 export namespace Components {
     interface ChoButton {
         /**
@@ -292,6 +293,23 @@ export namespace Components {
          */
         "value"?: string;
     }
+    interface ChoTimePicker {
+        /**
+          * If `true`, the text-field will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the value will be formatted with AM/PM.
+          * @default false
+         */
+        "twelveHourFormat": boolean;
+        /**
+          * The value of the time-picker.
+          * @default new Date()
+         */
+        "value"?: Date;
+    }
 }
 declare global {
     interface HTMLChoButtonElement extends Components.ChoButton, HTMLStencilElement {
@@ -366,6 +384,12 @@ declare global {
         prototype: HTMLChoTextFieldElement;
         new (): HTMLChoTextFieldElement;
     };
+    interface HTMLChoTimePickerElement extends Components.ChoTimePicker, HTMLStencilElement {
+    }
+    var HTMLChoTimePickerElement: {
+        prototype: HTMLChoTimePickerElement;
+        new (): HTMLChoTimePickerElement;
+    };
     interface HTMLElementTagNameMap {
         "cho-button": HTMLChoButtonElement;
         "cho-checkbox": HTMLChoCheckboxElement;
@@ -379,6 +403,7 @@ declare global {
         "cho-slider": HTMLChoSliderElement;
         "cho-switch": HTMLChoSwitchElement;
         "cho-text-field": HTMLChoTextFieldElement;
+        "cho-time-picker": HTMLChoTimePickerElement;
     }
 }
 declare namespace LocalJSX {
@@ -688,6 +713,35 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface ChoTimePicker {
+        /**
+          * If `true`, the text-field will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Callback fired when the hours value is changed.
+         */
+        "onHoursChanged"?: (event: CustomEvent<ITimePickerHoursChangedDetail>) => void;
+        /**
+          * Callback fired when the minutes value is changed.
+         */
+        "onMinutesChanged"?: (event: CustomEvent<ITimePickerMinutesChangedDetail>) => void;
+        /**
+          * Callback fired when the value is changed.
+         */
+        "onValueChanged"?: (event: CustomEvent<ITimePickerValueChangedDetail>) => void;
+        /**
+          * If `true`, the value will be formatted with AM/PM.
+          * @default false
+         */
+        "twelveHourFormat"?: boolean;
+        /**
+          * The value of the time-picker.
+          * @default new Date()
+         */
+        "value"?: Date;
+    }
     interface IntrinsicElements {
         "cho-button": ChoButton;
         "cho-checkbox": ChoCheckbox;
@@ -701,6 +755,7 @@ declare namespace LocalJSX {
         "cho-slider": ChoSlider;
         "cho-switch": ChoSwitch;
         "cho-text-field": ChoTextField;
+        "cho-time-picker": ChoTimePicker;
     }
 }
 export { LocalJSX as JSX };
@@ -719,6 +774,7 @@ declare module "@stencil/core" {
             "cho-slider": LocalJSX.ChoSlider & JSXBase.HTMLAttributes<HTMLChoSliderElement>;
             "cho-switch": LocalJSX.ChoSwitch & JSXBase.HTMLAttributes<HTMLChoSwitchElement>;
             "cho-text-field": LocalJSX.ChoTextField & JSXBase.HTMLAttributes<HTMLChoTextFieldElement>;
+            "cho-time-picker": LocalJSX.ChoTimePicker & JSXBase.HTMLAttributes<HTMLChoTimePickerElement>;
         }
     }
 }

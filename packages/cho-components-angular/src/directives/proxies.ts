@@ -193,3 +193,18 @@ export class ChoTextField {
     proxyOutputs(this, this.el, ['valueChanged']);
   }
 }
+
+export declare interface ChoTimePicker extends Components.ChoTimePicker {}
+@ProxyCmp({inputs: ['disabled', 'twelveHourFormat', 'value']})
+@Component({ selector: 'cho-time-picker', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'twelveHourFormat', 'value'] })
+export class ChoTimePicker {
+  valueChanged!: EventEmitter<CustomEvent>;
+  hoursChanged!: EventEmitter<CustomEvent>;
+  minutesChanged!: EventEmitter<CustomEvent>;
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['valueChanged', 'hoursChanged', 'minutesChanged']);
+  }
+}

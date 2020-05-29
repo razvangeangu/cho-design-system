@@ -20,3 +20,4 @@ export const ChoSelect = /*@__PURE__*/createReactComponent<JSX.ChoSelect, HTMLCh
 export const ChoSlider = /*@__PURE__*/createReactComponent<JSX.ChoSlider, HTMLChoSliderElement>('cho-slider');
 export const ChoSwitch = /*@__PURE__*/createReactComponent<JSX.ChoSwitch, HTMLChoSwitchElement>('cho-switch');
 export const ChoTextField = /*@__PURE__*/createReactComponent<JSX.ChoTextField, HTMLChoTextFieldElement>('cho-text-field');
+export const ChoTimePicker = /*@__PURE__*/createReactComponent<JSX.ChoTimePicker, HTMLChoTimePickerElement>('cho-time-picker');

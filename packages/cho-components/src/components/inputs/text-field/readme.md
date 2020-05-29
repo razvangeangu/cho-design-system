@@ -46,12 +46,14 @@
 
  - [cho-date-picker](../date-picker)
  - [cho-select](../select)
+ - [cho-time-picker](../time-picker)
 
 ### Graph
 ```mermaid
 graph TD;
   cho-date-picker --> cho-text-field
   cho-select --> cho-text-field
+  cho-time-picker --> cho-text-field
   style cho-text-field fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
