@@ -43,6 +43,17 @@ export function ProxyCmp(opts: { inputs?: any; methods?: any }) {
 
 import { Components } from '@cho/components'
 
+export declare interface ChoBadge extends Components.ChoBadge {}
+@ProxyCmp({inputs: ['content', 'horizontalPlacement', 'kind', 'max', 'verticalPlacement', 'visible']})
+@Component({ selector: 'cho-badge', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['content', 'horizontalPlacement', 'kind', 'max', 'verticalPlacement', 'visible'] })
+export class ChoBadge {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 export declare interface ChoButton extends Components.ChoButton {}
 @ProxyCmp({inputs: ['disabled', 'kind']})
 @Component({ selector: 'cho-button', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'kind'] })

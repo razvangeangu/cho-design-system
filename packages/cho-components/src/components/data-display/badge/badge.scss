@@ -1,0 +1,73 @@
+:host {
+  display: inline-block;
+}
+
+.badge__container {
+  margin: 0.5rem;
+  position: relative;
+
+  &[data-kind='dot'] {
+    margin: 0.25rem;
+  }
+}
+
+.badge__content {
+  align-content: center;
+  align-items: center;
+  background-color: var(--error);
+  border-radius: 0.625rem;
+  box-sizing: border-box;
+  color: var(--button__text-color);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 0.8125rem;
+  height: 1.25rem;
+  justify-content: center;
+  min-width: 1.25rem;
+  padding: 0 0.375rem;
+  position: absolute;
+  z-index: 1;
+
+  &[data-vertical-placement='bottom'] {
+    bottom: 0;
+
+    &[data-horizontal-placement='start'] {
+      transform: scale(1) translate(-50%, 50%);
+      transform-origin: 0% 100%;
+    }
+
+    &[data-horizontal-placement='end'] {
+      transform: scale(1) translate(50%, 50%);
+      transform-origin: 100% 0%;
+    }
+  }
+
+  &[data-vertical-placement='top'] {
+    top: 0;
+
+    &[data-horizontal-placement='start'] {
+      transform: scale(1) translate(-50%, -50%);
+      transform-origin: 0% 0%;
+    }
+
+    &[data-horizontal-placement='end'] {
+      transform: scale(1) translate(50%, -50%);
+      transform-origin: 100% 0%;
+    }
+  }
+
+  &[data-horizontal-placement='start'] {
+    left: 0;
+  }
+
+  &[data-horizontal-placement='end'] {
+    right: 0;
+  }
+
+  &[data-kind='dot'] {
+    height: 0.625rem;
+    min-width: 0.625rem;
+    padding: 0;
+  }
+}

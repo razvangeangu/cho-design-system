@@ -5,18 +5,51 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { TButtonKind, } from "./components/inputs/button/model";
-import { TInputType, TPlacement, } from "./types";
-import { ICheckboxValueChangedDetail, } from "./components/inputs/checkbox/model";
-import { IDatePickerDayChangedDetail, IDatePickerMonthChangedDetail, IDatePickerValueChangedDetail, IDatePickerYearChangedDetail, } from "./components/inputs/date-picker/model";
-import { IMenuItemConnectedDetail, TMenuItemHostContainer, } from "./components/navigation/menu-item/model";
-import { IRadioValueChangedDetail, } from "./components/inputs/radio/model";
-import { ISelectValueChangedDetail, } from "./components/inputs/select/model";
-import { ISliderTickmark, ISliderValueChangedDetail, } from "./components/inputs/slider/model";
-import { ISwitchValueChangedDetail, } from "./components/inputs/switch/model";
-import { ITextFieldValueChangedDetail, } from "./components/inputs/text-field/model";
-import { ITimePickerHoursChangedDetail, ITimePickerMinutesChangedDetail, ITimePickerValueChangedDetail, } from "./components/inputs/time-picker/model";
+import { TBadgeKind } from "./components/data-display/badge/model";
+import { TInputType, TPlacement, TPlacementHorizontal, TPlacementVertical } from "./types";
+import { TButtonKind } from "./components/inputs/button/model";
+import { ICheckboxValueChangedDetail } from "./components/inputs/checkbox/model";
+import { IDatePickerDayChangedDetail, IDatePickerMonthChangedDetail, IDatePickerValueChangedDetail, IDatePickerYearChangedDetail } from "./components/inputs/date-picker/model";
+import { IMenuItemConnectedDetail, TMenuItemHostContainer } from "./components/navigation/menu-item/model";
+import { IRadioValueChangedDetail } from "./components/inputs/radio/model";
+import { ISelectValueChangedDetail } from "./components/inputs/select/model";
+import { ISliderTickmark, ISliderValueChangedDetail } from "./components/inputs/slider/model";
+import { ISwitchValueChangedDetail } from "./components/inputs/switch/model";
+import { ITextFieldValueChangedDetail } from "./components/inputs/text-field/model";
+import { ITimePickerHoursChangedDetail, ITimePickerMinutesChangedDetail, ITimePickerValueChangedDetail } from "./components/inputs/time-picker/model";
 export namespace Components {
+    interface ChoBadge {
+        /**
+          * The content of the badge.
+          * @default undefined
+         */
+        "content"?: number;
+        /**
+          * The horizontal position of the badge.
+          * @default 'end'
+         */
+        "horizontalPlacement"?: TPlacementHorizontal;
+        /**
+          * The kind to use.
+          * @default 'simple'
+         */
+        "kind"?: TBadgeKind;
+        /**
+          * The maximum value of the content.
+          * @default 99
+         */
+        "max"?: number;
+        /**
+          * The vertical position of the badge.
+          * @default 'top'
+         */
+        "verticalPlacement"?: TPlacementVertical;
+        /**
+          * If `true`, the badge will be visible.
+          * @default true
+         */
+        "visible"?: boolean;
+    }
     interface ChoButton {
         /**
           * If `true`, the button will be disabled.
@@ -197,7 +230,7 @@ export namespace Components {
         /**
           * The track presentation: - `normal` the track will render a bar representing the slider value. - `inverted` the track will render a bar representing the remaining slider value. - `false` the track will render without a bar.
          */
-        "track"?: "normal" | "inverted" | "false";
+        "track"?: 'normal' | 'inverted' | 'false';
         /**
           * The value of the slider.
           * @default 0
@@ -312,6 +345,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLChoBadgeElement extends Components.ChoBadge, HTMLStencilElement {
+    }
+    var HTMLChoBadgeElement: {
+        prototype: HTMLChoBadgeElement;
+        new (): HTMLChoBadgeElement;
+    };
     interface HTMLChoButtonElement extends Components.ChoButton, HTMLStencilElement {
     }
     var HTMLChoButtonElement: {
@@ -391,6 +430,7 @@ declare global {
         new (): HTMLChoTimePickerElement;
     };
     interface HTMLElementTagNameMap {
+        "cho-badge": HTMLChoBadgeElement;
         "cho-button": HTMLChoButtonElement;
         "cho-checkbox": HTMLChoCheckboxElement;
         "cho-date-picker": HTMLChoDatePickerElement;
@@ -407,6 +447,38 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface ChoBadge {
+        /**
+          * The content of the badge.
+          * @default undefined
+         */
+        "content"?: number;
+        /**
+          * The horizontal position of the badge.
+          * @default 'end'
+         */
+        "horizontalPlacement"?: TPlacementHorizontal;
+        /**
+          * The kind to use.
+          * @default 'simple'
+         */
+        "kind"?: TBadgeKind;
+        /**
+          * The maximum value of the content.
+          * @default 99
+         */
+        "max"?: number;
+        /**
+          * The vertical position of the badge.
+          * @default 'top'
+         */
+        "verticalPlacement"?: TPlacementVertical;
+        /**
+          * If `true`, the badge will be visible.
+          * @default true
+         */
+        "visible"?: boolean;
+    }
     interface ChoButton {
         /**
           * If `true`, the button will be disabled.
@@ -609,7 +681,7 @@ declare namespace LocalJSX {
         /**
           * The track presentation: - `normal` the track will render a bar representing the slider value. - `inverted` the track will render a bar representing the remaining slider value. - `false` the track will render without a bar.
          */
-        "track"?: "normal" | "inverted" | "false";
+        "track"?: 'normal' | 'inverted' | 'false';
         /**
           * The value of the slider.
           * @default 0
@@ -743,6 +815,7 @@ declare namespace LocalJSX {
         "value"?: Date;
     }
     interface IntrinsicElements {
+        "cho-badge": ChoBadge;
         "cho-button": ChoButton;
         "cho-checkbox": ChoCheckbox;
         "cho-date-picker": ChoDatePicker;
@@ -762,6 +835,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "cho-badge": LocalJSX.ChoBadge & JSXBase.HTMLAttributes<HTMLChoBadgeElement>;
             "cho-button": LocalJSX.ChoButton & JSXBase.HTMLAttributes<HTMLChoButtonElement>;
             "cho-checkbox": LocalJSX.ChoCheckbox & JSXBase.HTMLAttributes<HTMLChoCheckboxElement>;
             "cho-date-picker": LocalJSX.ChoDatePicker & JSXBase.HTMLAttributes<HTMLChoDatePickerElement>;
