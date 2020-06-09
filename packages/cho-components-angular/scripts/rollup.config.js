@@ -4,11 +4,11 @@ export default {
   input: 'build/es2015/core.js',
   output: {
     file: 'dist/fesm2015.js',
-    format: 'es'
+    format: 'es',
   },
-  external: (id) => {
-    // inline @ionic/core deps
-    if (id === '@ionic/core') {
+  external: id => {
+    // inline @cho/components-angular deps
+    if (id === '@cho/components') {
       return false;
     }
     // anything else is external
@@ -19,6 +19,6 @@ export default {
   plugins: [
     resolve({
       module: true,
-    })
-  ]
+    }),
+  ],
 };

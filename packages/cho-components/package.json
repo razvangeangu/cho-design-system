@@ -4,7 +4,7 @@
   "description": "Design System Components",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
-  "unpkg": "dist/ionic.js",
+  "unpkg": "dist/cho.js",
   "private": true,
   "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
