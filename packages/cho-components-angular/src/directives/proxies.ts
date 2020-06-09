@@ -78,6 +78,19 @@ export class ChoCheckbox {
   }
 }
 
+export declare interface ChoChip extends Components.ChoChip {}
+@ProxyCmp({inputs: ['clickable', 'deleteIcon', 'disabled', 'kind']})
+@Component({ selector: 'cho-chip', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['clickable', 'deleteIcon', 'disabled', 'kind'] })
+export class ChoChip {
+  delete!: EventEmitter<CustomEvent>;
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['delete']);
+  }
+}
+
 export declare interface ChoDatePicker extends Components.ChoDatePicker {}
 @ProxyCmp({inputs: ['disabled', 'maxDate', 'minDate', 'shouldDisableDate', 'value']})
 @Component({ selector: 'cho-date-picker', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'maxDate', 'minDate', 'shouldDisableDate', 'value'] })

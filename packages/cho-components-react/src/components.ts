@@ -11,6 +11,7 @@ applyPolyfills().then(() => defineCustomElements());
 export const ChoBadge = /*@__PURE__*/createReactComponent<JSX.ChoBadge, HTMLChoBadgeElement>('cho-badge');
 export const ChoButton = /*@__PURE__*/createReactComponent<JSX.ChoButton, HTMLChoButtonElement>('cho-button');
 export const ChoCheckbox = /*@__PURE__*/createReactComponent<JSX.ChoCheckbox, HTMLChoCheckboxElement>('cho-checkbox');
+export const ChoChip = /*@__PURE__*/createReactComponent<JSX.ChoChip, HTMLChoChipElement>('cho-chip');
 export const ChoDatePicker = /*@__PURE__*/createReactComponent<JSX.ChoDatePicker, HTMLChoDatePickerElement>('cho-date-picker');
 export const ChoDivider = /*@__PURE__*/createReactComponent<JSX.ChoDivider, HTMLChoDividerElement>('cho-divider');
 export const ChoMenu = /*@__PURE__*/createReactComponent<JSX.ChoMenu, HTMLChoMenuElement>('cho-menu');

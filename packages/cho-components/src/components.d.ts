@@ -9,6 +9,7 @@ import { TBadgeKind } from "./components/data-display/badge/model";
 import { TInputType, TPlacement, TPlacementHorizontal, TPlacementVertical } from "./types";
 import { TButtonKind } from "./components/inputs/button/model";
 import { ICheckboxValueChangedDetail } from "./components/inputs/checkbox/model";
+import { IChipDeleteEventDetail, TChipKind } from "./components/data-display/chip/model";
 import { IDatePickerDayChangedDetail, IDatePickerMonthChangedDetail, IDatePickerValueChangedDetail, IDatePickerYearChangedDetail } from "./components/inputs/date-picker/model";
 import { IMenuItemConnectedDetail, TMenuItemHostContainer } from "./components/navigation/menu-item/model";
 import { IRadioValueChangedDetail } from "./components/inputs/radio/model";
@@ -88,6 +89,28 @@ export namespace Components {
           * @default 'end'
          */
         "labelPlacement"?: TPlacement;
+    }
+    interface ChoChip {
+        /**
+          * If `true`, the component will display clicking style.
+          * @default false
+         */
+        "clickable"?: boolean;
+        /**
+          * If `true`, the component will show the delete icon in the trailing space.
+          * @default false
+         */
+        "deleteIcon"?: boolean;
+        /**
+          * If `true`, the button will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * The kind to use.
+          * @default 'contained'
+         */
+        "kind"?: TChipKind;
     }
     interface ChoDatePicker {
         /**
@@ -363,6 +386,12 @@ declare global {
         prototype: HTMLChoCheckboxElement;
         new (): HTMLChoCheckboxElement;
     };
+    interface HTMLChoChipElement extends Components.ChoChip, HTMLStencilElement {
+    }
+    var HTMLChoChipElement: {
+        prototype: HTMLChoChipElement;
+        new (): HTMLChoChipElement;
+    };
     interface HTMLChoDatePickerElement extends Components.ChoDatePicker, HTMLStencilElement {
     }
     var HTMLChoDatePickerElement: {
@@ -433,6 +462,7 @@ declare global {
         "cho-badge": HTMLChoBadgeElement;
         "cho-button": HTMLChoButtonElement;
         "cho-checkbox": HTMLChoCheckboxElement;
+        "cho-chip": HTMLChoChipElement;
         "cho-date-picker": HTMLChoDatePickerElement;
         "cho-divider": HTMLChoDividerElement;
         "cho-menu": HTMLChoMenuElement;
@@ -521,6 +551,32 @@ declare namespace LocalJSX {
           * Callback fired when the state is changed.
          */
         "onCheckedChanged"?: (event: CustomEvent<ICheckboxValueChangedDetail>) => void;
+    }
+    interface ChoChip {
+        /**
+          * If `true`, the component will display clicking style.
+          * @default false
+         */
+        "clickable"?: boolean;
+        /**
+          * If `true`, the component will show the delete icon in the trailing space.
+          * @default false
+         */
+        "deleteIcon"?: boolean;
+        /**
+          * If `true`, the button will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * The kind to use.
+          * @default 'contained'
+         */
+        "kind"?: TChipKind;
+        /**
+          * Callback fired when the delete icon is clicked.
+         */
+        "onDelete"?: (event: CustomEvent<IChipDeleteEventDetail>) => void;
     }
     interface ChoDatePicker {
         /**
@@ -818,6 +874,7 @@ declare namespace LocalJSX {
         "cho-badge": ChoBadge;
         "cho-button": ChoButton;
         "cho-checkbox": ChoCheckbox;
+        "cho-chip": ChoChip;
         "cho-date-picker": ChoDatePicker;
         "cho-divider": ChoDivider;
         "cho-menu": ChoMenu;
@@ -838,6 +895,7 @@ declare module "@stencil/core" {
             "cho-badge": LocalJSX.ChoBadge & JSXBase.HTMLAttributes<HTMLChoBadgeElement>;
             "cho-button": LocalJSX.ChoButton & JSXBase.HTMLAttributes<HTMLChoButtonElement>;
             "cho-checkbox": LocalJSX.ChoCheckbox & JSXBase.HTMLAttributes<HTMLChoCheckboxElement>;
+            "cho-chip": LocalJSX.ChoChip & JSXBase.HTMLAttributes<HTMLChoChipElement>;
             "cho-date-picker": LocalJSX.ChoDatePicker & JSXBase.HTMLAttributes<HTMLChoDatePickerElement>;
             "cho-divider": LocalJSX.ChoDivider & JSXBase.HTMLAttributes<HTMLChoDividerElement>;
             "cho-menu": LocalJSX.ChoMenu & JSXBase.HTMLAttributes<HTMLChoMenuElement>;

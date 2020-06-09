@@ -1,0 +1,131 @@
+:host {
+  display: inline-flex;
+}
+
+@mixin chip-enabled(
+  $focusColor,
+  $borderFocusColor,
+  $hoverColor,
+  $borderHoverColor,
+  $activeColor,
+  $borderActiveColor
+) {
+  &:not(:disabled) {
+    cursor: pointer;
+
+    &:focus {
+      background-color: $focusColor;
+      border-color: $borderFocusColor;
+    }
+
+    &:hover {
+      background-color: $hoverColor;
+      border-color: $borderHoverColor;
+
+      &:active {
+        background-color: $activeColor;
+        border-color: $borderActiveColor;
+      }
+    }
+  }
+}
+
+.chip__content {
+  @include surface-inner-space-dense();
+
+  color: var(--text-color);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chip__delete-icon {
+  margin-right: 0.25rem;
+
+  &:not([data-disabled='true']) {
+    cursor: pointer;
+  }
+
+  &[data-disabled='true'] {
+    cursor: not-allowed;
+    outline: none; // TODO: remove once changed to real icon
+  }
+}
+
+.chip-container {
+  @include button-without-defaults();
+
+  align-content: center;
+  align-items: center;
+  background: transparent;
+  border: solid var(--surface__background-color);
+  border-radius: 1rem;
+  border-width: var(--border-width);
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  overflow: hidden;
+
+  ::slotted([slot='leading']) {
+    margin-left: 0.25rem;
+  }
+
+  ::slotted([slot='trailing']) {
+    margin-right: 0.25rem;
+  }
+
+  &:disabled {
+    &[data-clickable='true'] {
+      cursor: not-allowed;
+    }
+
+    * {
+      color: var(--disabled);
+      pointer-events: none;
+    }
+
+    ::slotted(*) {
+      color: var(--disabled);
+    }
+  }
+}
+
+.chip-container[data-kind='contained'] {
+  background-color: var(--surface__background-color);
+
+  &:disabled {
+    background-color: var(--surface__background-color--disabled);
+    border-color: var(--surface__background-color--disabled);
+  }
+
+  &[data-clickable='true'] {
+    @include chip-enabled(
+      var(--surface__background-color--focus),
+      var(--surface__background-color--focus),
+      var(--surface__background-color--hover),
+      var(--surface__background-color--hover),
+      var(--surface__background-color--active),
+      var(--surface__background-color--active)
+    );
+  }
+}
+
+.chip-container[data-kind='outlined'] {
+  border-color: var(--surface__border-color);
+
+  &:disabled {
+    border-color: var(--surface__background-color--disabled);
+  }
+
+  &[data-clickable='true'] {
+    @include chip-enabled(
+      var(--surface__background-color--focus),
+      var(--surface__border-color),
+      var(--surface__background-color--hover),
+      var(--surface__border-color),
+      var(--surface__background-color--active),
+      var(--surface__border-color)
+    );
+  }
+}
