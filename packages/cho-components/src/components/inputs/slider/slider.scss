@@ -40,7 +40,7 @@
   @include surface-top-space();
 
   color: var(--label-color);
-  font-size: 0.8125rem;
+  font-size: var(--label__font-size);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -138,7 +138,7 @@
   background: var(--primary);
   border-radius: var(--border-radius);
   color: var(--button__text-color);
-  font-size: 0.8125rem;
+  font-size: var(--label__font-size);
   left: 50%;
   margin-top: 1rem;
   position: absolute;
@@ -163,7 +163,7 @@
 
 .slider__option {
   color: var(--label-color);
-  font-size: 0.8125rem;
+  font-size: var(--label__font-size);
   overflow: hidden;
   padding: 0;
   position: absolute;

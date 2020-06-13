@@ -97,7 +97,7 @@ textarea {
   @include surface-top-space();
 
   color: var(--label-color);
-  font-size: 0.8125rem;
+  font-size: var(--label__font-size);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -115,7 +115,7 @@ textarea {
   @include surface-bottom-space();
 
   color: var(--label-color);
-  font-size: 0.8125rem;
+  font-size: var(--label__font-size);
 
   &[data-disabled='true'] {
     color: var(--disabled);

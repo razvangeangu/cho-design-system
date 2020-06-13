@@ -16,7 +16,7 @@
 
 .date-picker__calendar-header-day {
   color: var(--label-color);
-  font-size: 0.8125rem;
+  font-size: var(--label__font-size);
   text-transform: uppercase;
   width: 1.75rem;
 
