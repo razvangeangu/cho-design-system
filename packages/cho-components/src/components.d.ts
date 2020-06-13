@@ -21,6 +21,13 @@ import { ITextFieldValueChangedDetail } from "./components/inputs/text-field/mod
 import { ITimePickerHoursChangedDetail, ITimePickerMinutesChangedDetail, ITimePickerValueChangedDetail } from "./components/inputs/time-picker/model";
 import { TOverlayPlacement } from "./types/t-overlay-placement";
 export namespace Components {
+    interface ChoBackdrop {
+        /**
+          * If `true`, the backdrop and it's children will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
+    }
     interface ChoBadge {
         /**
           * The content of the badge.
@@ -413,6 +420,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLChoBackdropElement extends Components.ChoBackdrop, HTMLStencilElement {
+    }
+    var HTMLChoBackdropElement: {
+        prototype: HTMLChoBackdropElement;
+        new (): HTMLChoBackdropElement;
+    };
     interface HTMLChoBadgeElement extends Components.ChoBadge, HTMLStencilElement {
     }
     var HTMLChoBadgeElement: {
@@ -522,6 +535,7 @@ declare global {
         new (): HTMLChoTooltipElement;
     };
     interface HTMLElementTagNameMap {
+        "cho-backdrop": HTMLChoBackdropElement;
         "cho-badge": HTMLChoBadgeElement;
         "cho-breadcrumbs": HTMLChoBreadcrumbsElement;
         "cho-button": HTMLChoButtonElement;
@@ -543,6 +557,13 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface ChoBackdrop {
+        /**
+          * If `true`, the backdrop and it's children will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
+    }
     interface ChoBadge {
         /**
           * The content of the badge.
@@ -980,6 +1001,7 @@ declare namespace LocalJSX {
         "visible"?: boolean;
     }
     interface IntrinsicElements {
+        "cho-backdrop": ChoBackdrop;
         "cho-badge": ChoBadge;
         "cho-breadcrumbs": ChoBreadcrumbs;
         "cho-button": ChoButton;
@@ -1004,6 +1026,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "cho-backdrop": LocalJSX.ChoBackdrop & JSXBase.HTMLAttributes<HTMLChoBackdropElement>;
             "cho-badge": LocalJSX.ChoBadge & JSXBase.HTMLAttributes<HTMLChoBadgeElement>;
             "cho-breadcrumbs": LocalJSX.ChoBreadcrumbs & JSXBase.HTMLAttributes<HTMLChoBreadcrumbsElement>;
             "cho-button": LocalJSX.ChoButton & JSXBase.HTMLAttributes<HTMLChoButtonElement>;
