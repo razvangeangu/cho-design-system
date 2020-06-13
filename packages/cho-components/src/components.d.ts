@@ -11,6 +11,7 @@ import { TButtonKind } from "./components/inputs/button/model";
 import { ICheckboxValueChangedDetail } from "./components/inputs/checkbox/model";
 import { IChipDeleteEventDetail, TChipKind } from "./components/data-display/chip/model";
 import { IDatePickerDayChangedDetail, IDatePickerMonthChangedDetail, IDatePickerValueChangedDetail, IDatePickerYearChangedDetail } from "./components/inputs/date-picker/model";
+import { TLinkRelation, TLinkTarget } from "./components/navigation/link/model";
 import { IMenuItemConnectedDetail, TMenuItemHostContainer } from "./components/navigation/menu-item/model";
 import { IRadioValueChangedDetail } from "./components/inputs/radio/model";
 import { ISelectValueChangedDetail } from "./components/inputs/select/model";
@@ -140,6 +141,26 @@ export namespace Components {
         "value"?: Date;
     }
     interface ChoDivider {
+    }
+    interface ChoLink {
+        /**
+          * If `true`, the button will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Specifies the link's destination.
+          * @default undefined
+         */
+        "href"?: string;
+        /**
+          * Specifies the relationship between the current document and the linked document. Only used if the href attribute is present.
+         */
+        "relation"?: TLinkRelation;
+        /**
+          * Specifies where to open the linked document.
+         */
+        "target"?: TLinkTarget;
     }
     interface ChoMenu {
     }
@@ -404,6 +425,12 @@ declare global {
         prototype: HTMLChoDividerElement;
         new (): HTMLChoDividerElement;
     };
+    interface HTMLChoLinkElement extends Components.ChoLink, HTMLStencilElement {
+    }
+    var HTMLChoLinkElement: {
+        prototype: HTMLChoLinkElement;
+        new (): HTMLChoLinkElement;
+    };
     interface HTMLChoMenuElement extends Components.ChoMenu, HTMLStencilElement {
     }
     var HTMLChoMenuElement: {
@@ -465,6 +492,7 @@ declare global {
         "cho-chip": HTMLChoChipElement;
         "cho-date-picker": HTMLChoDatePickerElement;
         "cho-divider": HTMLChoDividerElement;
+        "cho-link": HTMLChoLinkElement;
         "cho-menu": HTMLChoMenuElement;
         "cho-menu-item": HTMLChoMenuItemElement;
         "cho-menu-item-group": HTMLChoMenuItemGroupElement;
@@ -622,6 +650,26 @@ declare namespace LocalJSX {
         "value"?: Date;
     }
     interface ChoDivider {
+    }
+    interface ChoLink {
+        /**
+          * If `true`, the button will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Specifies the link's destination.
+          * @default undefined
+         */
+        "href"?: string;
+        /**
+          * Specifies the relationship between the current document and the linked document. Only used if the href attribute is present.
+         */
+        "relation"?: TLinkRelation;
+        /**
+          * Specifies where to open the linked document.
+         */
+        "target"?: TLinkTarget;
     }
     interface ChoMenu {
     }
@@ -877,6 +925,7 @@ declare namespace LocalJSX {
         "cho-chip": ChoChip;
         "cho-date-picker": ChoDatePicker;
         "cho-divider": ChoDivider;
+        "cho-link": ChoLink;
         "cho-menu": ChoMenu;
         "cho-menu-item": ChoMenuItem;
         "cho-menu-item-group": ChoMenuItemGroup;
@@ -898,6 +947,7 @@ declare module "@stencil/core" {
             "cho-chip": LocalJSX.ChoChip & JSXBase.HTMLAttributes<HTMLChoChipElement>;
             "cho-date-picker": LocalJSX.ChoDatePicker & JSXBase.HTMLAttributes<HTMLChoDatePickerElement>;
             "cho-divider": LocalJSX.ChoDivider & JSXBase.HTMLAttributes<HTMLChoDividerElement>;
+            "cho-link": LocalJSX.ChoLink & JSXBase.HTMLAttributes<HTMLChoLinkElement>;
             "cho-menu": LocalJSX.ChoMenu & JSXBase.HTMLAttributes<HTMLChoMenuElement>;
             "cho-menu-item": LocalJSX.ChoMenuItem & JSXBase.HTMLAttributes<HTMLChoMenuItemElement>;
             "cho-menu-item-group": LocalJSX.ChoMenuItemGroup & JSXBase.HTMLAttributes<HTMLChoMenuItemGroupElement>;

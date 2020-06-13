@@ -1,7 +1,13 @@
 @mixin button-without-defaults {
+  background-color: transparent;
   border: none;
   margin: 0;
   outline: none;
   padding: 0;
   text-decoration: none;
+
+  * {
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+  }
 }

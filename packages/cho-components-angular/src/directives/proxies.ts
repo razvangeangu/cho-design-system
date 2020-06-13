@@ -118,6 +118,17 @@ export class ChoDivider {
   }
 }
 
+export declare interface ChoLink extends Components.ChoLink {}
+@ProxyCmp({inputs: ['disabled', 'href', 'relation', 'target']})
+@Component({ selector: 'cho-link', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'href', 'relation', 'target'] })
+export class ChoLink {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 export declare interface ChoMenu extends Components.ChoMenu {}
 
 @Component({ selector: 'cho-menu', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>' })
