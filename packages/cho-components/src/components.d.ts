@@ -19,6 +19,7 @@ import { ISliderTickmark, ISliderValueChangedDetail } from "./components/inputs/
 import { ISwitchValueChangedDetail } from "./components/inputs/switch/model";
 import { ITextFieldValueChangedDetail } from "./components/inputs/text-field/model";
 import { ITimePickerHoursChangedDetail, ITimePickerMinutesChangedDetail, ITimePickerValueChangedDetail } from "./components/inputs/time-picker/model";
+import { TOverlayPlacement } from "./types/t-overlay-placement";
 export namespace Components {
     interface ChoBadge {
         /**
@@ -394,6 +395,22 @@ export namespace Components {
          */
         "value"?: Date;
     }
+    interface ChoTooltip {
+        /**
+          * The horizontal position of the badge.
+          * @default 'end'
+         */
+        "placement"?: TOverlayPlacement;
+        /**
+          * Tooltip title.
+         */
+        "titleContent"?: string;
+        /**
+          * If `true`, the tooltip will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
+    }
 }
 declare global {
     interface HTMLChoBadgeElement extends Components.ChoBadge, HTMLStencilElement {
@@ -498,6 +515,12 @@ declare global {
         prototype: HTMLChoTimePickerElement;
         new (): HTMLChoTimePickerElement;
     };
+    interface HTMLChoTooltipElement extends Components.ChoTooltip, HTMLStencilElement {
+    }
+    var HTMLChoTooltipElement: {
+        prototype: HTMLChoTooltipElement;
+        new (): HTMLChoTooltipElement;
+    };
     interface HTMLElementTagNameMap {
         "cho-badge": HTMLChoBadgeElement;
         "cho-breadcrumbs": HTMLChoBreadcrumbsElement;
@@ -516,6 +539,7 @@ declare global {
         "cho-switch": HTMLChoSwitchElement;
         "cho-text-field": HTMLChoTextFieldElement;
         "cho-time-picker": HTMLChoTimePickerElement;
+        "cho-tooltip": HTMLChoTooltipElement;
     }
 }
 declare namespace LocalJSX {
@@ -939,6 +963,22 @@ declare namespace LocalJSX {
          */
         "value"?: Date;
     }
+    interface ChoTooltip {
+        /**
+          * The horizontal position of the badge.
+          * @default 'end'
+         */
+        "placement"?: TOverlayPlacement;
+        /**
+          * Tooltip title.
+         */
+        "titleContent"?: string;
+        /**
+          * If `true`, the tooltip will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
+    }
     interface IntrinsicElements {
         "cho-badge": ChoBadge;
         "cho-breadcrumbs": ChoBreadcrumbs;
@@ -957,6 +997,7 @@ declare namespace LocalJSX {
         "cho-switch": ChoSwitch;
         "cho-text-field": ChoTextField;
         "cho-time-picker": ChoTimePicker;
+        "cho-tooltip": ChoTooltip;
     }
 }
 export { LocalJSX as JSX };
@@ -980,6 +1021,7 @@ declare module "@stencil/core" {
             "cho-switch": LocalJSX.ChoSwitch & JSXBase.HTMLAttributes<HTMLChoSwitchElement>;
             "cho-text-field": LocalJSX.ChoTextField & JSXBase.HTMLAttributes<HTMLChoTextFieldElement>;
             "cho-time-picker": LocalJSX.ChoTimePicker & JSXBase.HTMLAttributes<HTMLChoTimePickerElement>;
+            "cho-tooltip": LocalJSX.ChoTooltip & JSXBase.HTMLAttributes<HTMLChoTooltipElement>;
         }
     }
 }

@@ -1,0 +1,15 @@
+:host {
+  display: inline-block;
+}
+
+.tooltip-container {
+  position: relative;
+}
+
+.tooltip-title {
+  @include surface-inner-space-dense();
+
+  background-color: var(--surface__background-color);
+  font-size: var(--label__font-size);
+  position: absolute;
+}

@@ -254,3 +254,14 @@ export class ChoTimePicker {
     proxyOutputs(this, this.el, ['valueChanged', 'hoursChanged', 'minutesChanged']);
   }
 }
+
+export declare interface ChoTooltip extends Components.ChoTooltip {}
+@ProxyCmp({inputs: ['placement', 'titleContent', 'visible']})
+@Component({ selector: 'cho-tooltip', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['placement', 'titleContent', 'visible'] })
+export class ChoTooltip {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
