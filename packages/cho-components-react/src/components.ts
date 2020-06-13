@@ -20,6 +20,7 @@ export const ChoLink = /*@__PURE__*/createReactComponent<JSX.ChoLink, HTMLChoLin
 export const ChoMenu = /*@__PURE__*/createReactComponent<JSX.ChoMenu, HTMLChoMenuElement>('cho-menu');
 export const ChoMenuItem = /*@__PURE__*/createReactComponent<JSX.ChoMenuItem, HTMLChoMenuItemElement>('cho-menu-item');
 export const ChoMenuItemGroup = /*@__PURE__*/createReactComponent<JSX.ChoMenuItemGroup, HTMLChoMenuItemGroupElement>('cho-menu-item-group');
+export const ChoProgress = /*@__PURE__*/createReactComponent<JSX.ChoProgress, HTMLChoProgressElement>('cho-progress');
 export const ChoRadio = /*@__PURE__*/createReactComponent<JSX.ChoRadio, HTMLChoRadioElement>('cho-radio');
 export const ChoSelect = /*@__PURE__*/createReactComponent<JSX.ChoSelect, HTMLChoSelectElement>('cho-select');
 export const ChoSlider = /*@__PURE__*/createReactComponent<JSX.ChoSlider, HTMLChoSliderElement>('cho-slider');

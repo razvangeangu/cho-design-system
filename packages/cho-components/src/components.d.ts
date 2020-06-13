@@ -13,6 +13,7 @@ import { IChipDeleteEventDetail, TChipKind } from "./components/data-display/chi
 import { IDatePickerDayChangedDetail, IDatePickerMonthChangedDetail, IDatePickerValueChangedDetail, IDatePickerYearChangedDetail } from "./components/inputs/date-picker/model";
 import { TLinkRelation, TLinkTarget } from "./components/navigation/link/model";
 import { IMenuItemConnectedDetail, TMenuItemHostContainer } from "./components/navigation/menu-item/model";
+import { TProgressKind } from "./components/feedback/progress/model";
 import { IRadioValueChangedDetail } from "./components/inputs/radio/model";
 import { ISelectValueChangedDetail } from "./components/inputs/select/model";
 import { ISliderTickmark, ISliderValueChangedDetail } from "./components/inputs/slider/model";
@@ -202,6 +203,28 @@ export namespace Components {
         "value"?: any;
     }
     interface ChoMenuItemGroup {
+    }
+    interface ChoProgress {
+        /**
+          * If `true`, the component appears indeterminate.
+          * @default true
+         */
+        "indeterminate"?: boolean;
+        /**
+          * The kind to use.
+          * @default 'circular'
+         */
+        "kind"?: TProgressKind;
+        /**
+          * If `true`, the label will be visible.
+          * @default false
+         */
+        "label"?: boolean;
+        /**
+          * The value of the progress indicator for the determinate and static variants. Value between 0 and 100.
+          * @default 0
+         */
+        "value"?: number;
     }
     interface ChoRadio {
         /**
@@ -492,6 +515,12 @@ declare global {
         prototype: HTMLChoMenuItemGroupElement;
         new (): HTMLChoMenuItemGroupElement;
     };
+    interface HTMLChoProgressElement extends Components.ChoProgress, HTMLStencilElement {
+    }
+    var HTMLChoProgressElement: {
+        prototype: HTMLChoProgressElement;
+        new (): HTMLChoProgressElement;
+    };
     interface HTMLChoRadioElement extends Components.ChoRadio, HTMLStencilElement {
     }
     var HTMLChoRadioElement: {
@@ -547,6 +576,7 @@ declare global {
         "cho-menu": HTMLChoMenuElement;
         "cho-menu-item": HTMLChoMenuItemElement;
         "cho-menu-item-group": HTMLChoMenuItemGroupElement;
+        "cho-progress": HTMLChoProgressElement;
         "cho-radio": HTMLChoRadioElement;
         "cho-select": HTMLChoSelectElement;
         "cho-slider": HTMLChoSliderElement;
@@ -761,6 +791,28 @@ declare namespace LocalJSX {
         "value"?: any;
     }
     interface ChoMenuItemGroup {
+    }
+    interface ChoProgress {
+        /**
+          * If `true`, the component appears indeterminate.
+          * @default true
+         */
+        "indeterminate"?: boolean;
+        /**
+          * The kind to use.
+          * @default 'circular'
+         */
+        "kind"?: TProgressKind;
+        /**
+          * If `true`, the label will be visible.
+          * @default false
+         */
+        "label"?: boolean;
+        /**
+          * The value of the progress indicator for the determinate and static variants. Value between 0 and 100.
+          * @default 0
+         */
+        "value"?: number;
     }
     interface ChoRadio {
         /**
@@ -1013,6 +1065,7 @@ declare namespace LocalJSX {
         "cho-menu": ChoMenu;
         "cho-menu-item": ChoMenuItem;
         "cho-menu-item-group": ChoMenuItemGroup;
+        "cho-progress": ChoProgress;
         "cho-radio": ChoRadio;
         "cho-select": ChoSelect;
         "cho-slider": ChoSlider;
@@ -1038,6 +1091,7 @@ declare module "@stencil/core" {
             "cho-menu": LocalJSX.ChoMenu & JSXBase.HTMLAttributes<HTMLChoMenuElement>;
             "cho-menu-item": LocalJSX.ChoMenuItem & JSXBase.HTMLAttributes<HTMLChoMenuItemElement>;
             "cho-menu-item-group": LocalJSX.ChoMenuItemGroup & JSXBase.HTMLAttributes<HTMLChoMenuItemGroupElement>;
+            "cho-progress": LocalJSX.ChoProgress & JSXBase.HTMLAttributes<HTMLChoProgressElement>;
             "cho-radio": LocalJSX.ChoRadio & JSXBase.HTMLAttributes<HTMLChoRadioElement>;
             "cho-select": LocalJSX.ChoSelect & JSXBase.HTMLAttributes<HTMLChoSelectElement>;
             "cho-slider": LocalJSX.ChoSlider & JSXBase.HTMLAttributes<HTMLChoSliderElement>;

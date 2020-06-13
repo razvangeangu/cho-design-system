@@ -186,6 +186,17 @@ export class ChoMenuItemGroup {
   }
 }
 
+export declare interface ChoProgress extends Components.ChoProgress {}
+@ProxyCmp({inputs: ['indeterminate', 'kind', 'label', 'value']})
+@Component({ selector: 'cho-progress', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['indeterminate', 'kind', 'label', 'value'] })
+export class ChoProgress {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 export declare interface ChoRadio extends Components.ChoRadio {}
 @ProxyCmp({inputs: ['checked', 'disabled', 'error', 'labelPlacement']})
 @Component({ selector: 'cho-radio', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['checked', 'disabled', 'error', 'labelPlacement'] })
