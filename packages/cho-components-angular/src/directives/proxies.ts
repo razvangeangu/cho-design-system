@@ -54,6 +54,17 @@ export class ChoBadge {
   }
 }
 
+export declare interface ChoBreadcrumbs extends Components.ChoBreadcrumbs {}
+@ProxyCmp({inputs: ['separator']})
+@Component({ selector: 'cho-breadcrumbs', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['separator'] })
+export class ChoBreadcrumbs {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 export declare interface ChoButton extends Components.ChoButton {}
 @ProxyCmp({inputs: ['disabled', 'kind']})
 @Component({ selector: 'cho-button', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'kind'] })

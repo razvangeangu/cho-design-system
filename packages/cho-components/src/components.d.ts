@@ -52,6 +52,13 @@ export namespace Components {
          */
         "visible"?: boolean;
     }
+    interface ChoBreadcrumbs {
+        /**
+          * Custom separator string.
+          * @default '/'
+         */
+        "separator"?: string;
+    }
     interface ChoButton {
         /**
           * If `true`, the button will be disabled.
@@ -395,6 +402,12 @@ declare global {
         prototype: HTMLChoBadgeElement;
         new (): HTMLChoBadgeElement;
     };
+    interface HTMLChoBreadcrumbsElement extends Components.ChoBreadcrumbs, HTMLStencilElement {
+    }
+    var HTMLChoBreadcrumbsElement: {
+        prototype: HTMLChoBreadcrumbsElement;
+        new (): HTMLChoBreadcrumbsElement;
+    };
     interface HTMLChoButtonElement extends Components.ChoButton, HTMLStencilElement {
     }
     var HTMLChoButtonElement: {
@@ -487,6 +500,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "cho-badge": HTMLChoBadgeElement;
+        "cho-breadcrumbs": HTMLChoBreadcrumbsElement;
         "cho-button": HTMLChoButtonElement;
         "cho-checkbox": HTMLChoCheckboxElement;
         "cho-chip": HTMLChoChipElement;
@@ -536,6 +550,13 @@ declare namespace LocalJSX {
           * @default true
          */
         "visible"?: boolean;
+    }
+    interface ChoBreadcrumbs {
+        /**
+          * Custom separator string.
+          * @default '/'
+         */
+        "separator"?: string;
     }
     interface ChoButton {
         /**
@@ -920,6 +941,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "cho-badge": ChoBadge;
+        "cho-breadcrumbs": ChoBreadcrumbs;
         "cho-button": ChoButton;
         "cho-checkbox": ChoCheckbox;
         "cho-chip": ChoChip;
@@ -942,6 +964,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "cho-badge": LocalJSX.ChoBadge & JSXBase.HTMLAttributes<HTMLChoBadgeElement>;
+            "cho-breadcrumbs": LocalJSX.ChoBreadcrumbs & JSXBase.HTMLAttributes<HTMLChoBreadcrumbsElement>;
             "cho-button": LocalJSX.ChoButton & JSXBase.HTMLAttributes<HTMLChoButtonElement>;
             "cho-checkbox": LocalJSX.ChoCheckbox & JSXBase.HTMLAttributes<HTMLChoCheckboxElement>;
             "cho-chip": LocalJSX.ChoChip & JSXBase.HTMLAttributes<HTMLChoChipElement>;

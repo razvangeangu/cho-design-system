@@ -9,6 +9,7 @@ import { defineCustomElements, applyPolyfills } from '@cho/components/loader';
 
 applyPolyfills().then(() => defineCustomElements());
 export const ChoBadge = /*@__PURE__*/createReactComponent<JSX.ChoBadge, HTMLChoBadgeElement>('cho-badge');
+export const ChoBreadcrumbs = /*@__PURE__*/createReactComponent<JSX.ChoBreadcrumbs, HTMLChoBreadcrumbsElement>('cho-breadcrumbs');
 export const ChoButton = /*@__PURE__*/createReactComponent<JSX.ChoButton, HTMLChoButtonElement>('cho-button');
 export const ChoCheckbox = /*@__PURE__*/createReactComponent<JSX.ChoCheckbox, HTMLChoCheckboxElement>('cho-checkbox');
 export const ChoChip = /*@__PURE__*/createReactComponent<JSX.ChoChip, HTMLChoChipElement>('cho-chip');

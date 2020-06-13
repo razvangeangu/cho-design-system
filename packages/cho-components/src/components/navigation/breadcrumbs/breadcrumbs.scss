@@ -1,0 +1,19 @@
+:host {
+  display: inline-block;
+}
+
+.breadcrumbs-container {
+  display: inline-flex;
+
+  ::slotted(*:not(:last-child)) {
+    /* stylelint-disable-next-line a11y/content-property-no-static-value */
+    &::after {
+      @include surface-leading-space();
+      @include surface-trailing-space();
+
+      color: var(--label-color);
+      content: var(--breadcrumbs-separator);
+      user-select: none;
+    }
+  }
+}
