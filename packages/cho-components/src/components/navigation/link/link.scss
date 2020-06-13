@@ -25,7 +25,7 @@
   }
 }
 
-.cho-link__container {
+.link__container {
   color: var(--primary);
   font-size: var(--font-size);
   outline: none;
@@ -45,7 +45,7 @@
   }
 }
 
-.cho-link__container-button {
+.link__container-button {
   @include button-without-defaults();
 
   color: var(--primary);
