@@ -59,6 +59,19 @@ describe('Link', () => {
 
       expect(event.defaultPrevented).toBeTruthy();
     });
+
+    it('should key press - other key', async () => {
+      const page = await newSpecPage({
+        components: [Link],
+        template: () => <cho-link />,
+      });
+
+      const event = new KeyboardEvent('keypress', { key: 'Backspace' });
+      page.root.shadowRoot.querySelector('button').dispatchEvent(event);
+      await page.waitForChanges();
+
+      expect(event.defaultPrevented).toBeFalsy();
+    });
   });
 
   describe('didClick', () => {
