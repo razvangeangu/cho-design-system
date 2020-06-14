@@ -18,9 +18,9 @@ export class Tooltip implements ComponentInterface {
   @Prop() titleContent?: string;
 
   /**
-   * The horizontal position of the badge.
+   * The fixed position of the badge on the screen.
    *
-   * @default 'end'
+   * @default 'bottom'
    */
   @Prop() placement?: TOverlayPlacement = 'bottom';
 
