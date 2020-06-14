@@ -59,6 +59,10 @@ describe('Notification', () => {
       page.root.kind = 'success';
       await page.waitForChanges();
       expect(page.root.shadowRoot.querySelectorAll('cho-icon')).toHaveLength(2);
+
+      page.root.kind = 'invalid';
+      await page.waitForChanges();
+      expect(page.root.shadowRoot.querySelectorAll('cho-icon')).toHaveLength(2);
     });
 
     it('should not have leading icon', async () => {
@@ -78,12 +82,11 @@ describe('Notification', () => {
         template: () => <cho-notification visible />,
       });
 
-      const didCloseSpy = spyOn(page.rootInstance, 'didClose');
       page.root.shadowRoot
         .querySelector(`[class=${kNotification.classes.trailing}]`)
         .dispatchEvent(new MouseEvent('click'));
 
-      expect(didCloseSpy).toHaveBeenCalled();
+      expect(page.root.visible).toBe(false);
     });
   });
 });

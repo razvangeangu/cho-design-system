@@ -11,6 +11,7 @@ import { TButtonKind } from "./components/inputs/button/model";
 import { ICheckboxValueChangedDetail } from "./components/inputs/checkbox/model";
 import { IChipDeleteEventDetail, TChipKind } from "./components/data-display/chip/model";
 import { IDatePickerDayChangedDetail, IDatePickerMonthChangedDetail, IDatePickerValueChangedDetail, IDatePickerYearChangedDetail } from "./components/inputs/date-picker/model";
+import { IExpansionPanelItemConnectedDetail, IExpansionPanelItemVisibleChangedDetail, TExpansionPanelItemHostContainer } from "./components/surfaces/expansion-panel-item/model";
 import { TIconKind } from "./components/data-display/icon/model";
 import { TLinkRelation, TLinkTarget } from "./components/navigation/link/model";
 import { IMenuItemConnectedDetail, TMenuItemHostContainer } from "./components/navigation/menu-item/model";
@@ -159,6 +160,35 @@ export namespace Components {
         "value"?: Date;
     }
     interface ChoDivider {
+    }
+    interface ChoExpansionPanel {
+        /**
+          * If `true`, the expansion panel items will be closed when opening another one.
+          * @default false
+         */
+        "accordion"?: boolean;
+        /**
+          * Helper used to keep track internally of the expansion panel items in expansion panel.
+          * @param expansionPanelItem The expansion panel item that has been disconnected and due to be removed.
+         */
+        "removeExpansionPanelItem": (expansionPanelItem: HTMLChoExpansionPanelItemElement) => Promise<void>;
+    }
+    interface ChoExpansionPanelItem {
+        /**
+          * If `true`, the expansion-panel-item will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Helper used to keep track internally of the menu items in containers.
+          * @param hostContainer The container that controls the menu-item.
+         */
+        "setHostContainer": (hostContainer: TExpansionPanelItemHostContainer) => Promise<void>;
+        /**
+          * If `true`, the content will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
     }
     interface ChoIcon {
         /**
@@ -522,6 +552,18 @@ declare global {
         prototype: HTMLChoDividerElement;
         new (): HTMLChoDividerElement;
     };
+    interface HTMLChoExpansionPanelElement extends Components.ChoExpansionPanel, HTMLStencilElement {
+    }
+    var HTMLChoExpansionPanelElement: {
+        prototype: HTMLChoExpansionPanelElement;
+        new (): HTMLChoExpansionPanelElement;
+    };
+    interface HTMLChoExpansionPanelItemElement extends Components.ChoExpansionPanelItem, HTMLStencilElement {
+    }
+    var HTMLChoExpansionPanelItemElement: {
+        prototype: HTMLChoExpansionPanelItemElement;
+        new (): HTMLChoExpansionPanelItemElement;
+    };
     interface HTMLChoIconElement extends Components.ChoIcon, HTMLStencilElement {
     }
     var HTMLChoIconElement: {
@@ -615,6 +657,8 @@ declare global {
         "cho-chip": HTMLChoChipElement;
         "cho-date-picker": HTMLChoDatePickerElement;
         "cho-divider": HTMLChoDividerElement;
+        "cho-expansion-panel": HTMLChoExpansionPanelElement;
+        "cho-expansion-panel-item": HTMLChoExpansionPanelItemElement;
         "cho-icon": HTMLChoIconElement;
         "cho-link": HTMLChoLinkElement;
         "cho-menu": HTMLChoMenuElement;
@@ -791,6 +835,33 @@ declare namespace LocalJSX {
         "value"?: Date;
     }
     interface ChoDivider {
+    }
+    interface ChoExpansionPanel {
+        /**
+          * If `true`, the expansion panel items will be closed when opening another one.
+          * @default false
+         */
+        "accordion"?: boolean;
+    }
+    interface ChoExpansionPanelItem {
+        /**
+          * If `true`, the expansion-panel-item will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Called every time the component is connected to the DOM.
+         */
+        "onExpansionPanelItemConnected"?: (event: CustomEvent<IExpansionPanelItemConnectedDetail>) => void;
+        /**
+          * Callback fired when the visible is changed.
+         */
+        "onVisibleChanged"?: (event: CustomEvent<IExpansionPanelItemVisibleChangedDetail>) => void;
+        /**
+          * If `true`, the content will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
     }
     interface ChoIcon {
         /**
@@ -1135,6 +1206,8 @@ declare namespace LocalJSX {
         "cho-chip": ChoChip;
         "cho-date-picker": ChoDatePicker;
         "cho-divider": ChoDivider;
+        "cho-expansion-panel": ChoExpansionPanel;
+        "cho-expansion-panel-item": ChoExpansionPanelItem;
         "cho-icon": ChoIcon;
         "cho-link": ChoLink;
         "cho-menu": ChoMenu;
@@ -1163,6 +1236,8 @@ declare module "@stencil/core" {
             "cho-chip": LocalJSX.ChoChip & JSXBase.HTMLAttributes<HTMLChoChipElement>;
             "cho-date-picker": LocalJSX.ChoDatePicker & JSXBase.HTMLAttributes<HTMLChoDatePickerElement>;
             "cho-divider": LocalJSX.ChoDivider & JSXBase.HTMLAttributes<HTMLChoDividerElement>;
+            "cho-expansion-panel": LocalJSX.ChoExpansionPanel & JSXBase.HTMLAttributes<HTMLChoExpansionPanelElement>;
+            "cho-expansion-panel-item": LocalJSX.ChoExpansionPanelItem & JSXBase.HTMLAttributes<HTMLChoExpansionPanelItemElement>;
             "cho-icon": LocalJSX.ChoIcon & JSXBase.HTMLAttributes<HTMLChoIconElement>;
             "cho-link": LocalJSX.ChoLink & JSXBase.HTMLAttributes<HTMLChoLinkElement>;
             "cho-menu": LocalJSX.ChoMenu & JSXBase.HTMLAttributes<HTMLChoMenuElement>;

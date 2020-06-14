@@ -1,5 +1,6 @@
 export type TIconKind =
   | 'arrow-down'
+  | 'arrow-up'
   | 'calendar'
   | 'cancel'
   | 'close'

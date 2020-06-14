@@ -3,12 +3,17 @@
 import { h } from '@stencil/core';
 
 export const icons = {
-  'arrow-down': (
+  'arrow-down': () => (
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path fill="var(--icon-color)" d="M7 10l5 5 5-5z" />
     </svg>
   ),
-  'calendar': (
+  'arrow-up': () => (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="var(--icon-color)" d="M7 14l5-5 5 5z" />
+    </svg>
+  ),
+  'calendar': () => (
     <svg viewBox="0 0 24 24">
       <path
         fill="var(--icon-color)"
@@ -17,7 +22,7 @@ export const icons = {
       <path fill="none" d="M0 0h24v24H0z" />
     </svg>
   ),
-  'cancel': (
+  'cancel': () => (
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path
         fill="var(--icon-color)"
@@ -25,7 +30,7 @@ export const icons = {
       />
     </svg>
   ),
-  'close': (
+  'close': () => (
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path
         fill="var(--icon-color)"
@@ -33,7 +38,7 @@ export const icons = {
       />
     </svg>
   ),
-  'error-outline': (
+  'error-outline': () => (
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path
         fill="var(--icon-color)"
@@ -41,7 +46,7 @@ export const icons = {
       />
     </svg>
   ),
-  'info': (
+  'info': () => (
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path
         fill="var(--icon-color)"
@@ -49,7 +54,7 @@ export const icons = {
       />
     </svg>
   ),
-  'success': (
+  'success': () => (
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path
         fill="var(--icon-color)"
@@ -57,7 +62,7 @@ export const icons = {
       />
     </svg>
   ),
-  'warning': (
+  'warning': () => (
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path fill="var(--icon-color)" d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" />
     </svg>

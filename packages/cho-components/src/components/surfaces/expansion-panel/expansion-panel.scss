@@ -1,0 +1,17 @@
+:host {
+  display: block;
+}
+
+.expansion-panel__container {
+  background-color: var(--surface__background-color);
+  border: solid var(--surface__border-color);
+  border-radius: var(--border-radius);
+  border-width: var(--border-width);
+  display: flex;
+  flex-direction: column;
+
+  ::slotted(:not(:first-child)) {
+    border-top: solid var(--surface__border-color);
+    border-top-width: var(--border-width);
+  }
+}

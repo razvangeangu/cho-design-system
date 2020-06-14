@@ -28,6 +28,6 @@ export class Icon implements ComponentInterface {
   }
 
   render() {
-    return <Host style={{ ...this.iconColorVar }}>{icons[this.kind]}</Host>;
+    return <Host style={{ ...this.iconColorVar }}>{icons[this.kind]()}</Host>;
   }
 }

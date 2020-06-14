@@ -140,6 +140,31 @@ export class ChoDivider {
   }
 }
 
+export declare interface ChoExpansionPanel extends Components.ChoExpansionPanel {}
+@ProxyCmp({inputs: ['accordion']})
+@Component({ selector: 'cho-expansion-panel', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['accordion'] })
+export class ChoExpansionPanel {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+export declare interface ChoExpansionPanelItem extends Components.ChoExpansionPanelItem {}
+@ProxyCmp({inputs: ['disabled', 'visible']})
+@Component({ selector: 'cho-expansion-panel-item', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'visible'] })
+export class ChoExpansionPanelItem {
+  visibleChanged!: EventEmitter<CustomEvent>;
+  expansionPanelItemConnected!: EventEmitter<CustomEvent>;
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['visibleChanged', 'expansionPanelItemConnected']);
+  }
+}
+
 export declare interface ChoIcon extends Components.ChoIcon {}
 @ProxyCmp({inputs: ['color', 'kind']})
 @Component({ selector: 'cho-icon', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['color', 'kind'] })
