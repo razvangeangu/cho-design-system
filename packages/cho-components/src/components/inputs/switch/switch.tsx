@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { h, Component, ComponentInterface, Prop, Event, EventEmitter } from '@stencil/core';
-import { kSwitch, ISwitchValueChangedDetail } from './model';
+import { Component, ComponentInterface, Event, EventEmitter, h, Prop } from '@stencil/core';
 import { TPlacement } from '../../../types';
+import { ISwitchValueChangedDetail, kSwitch } from './model';
 
 /**
  * @slot - The primary content of the switch.
@@ -58,8 +58,8 @@ export class Switch implements ComponentInterface {
       />,
       <span
         class={kSwitch.classNames.switchCustom}
-        data-disabled={String(this.disabled)}
-        data-checked={String(this.checked)}
+        data-disabled={String(!!this.disabled)}
+        data-checked={String(!!this.checked)}
         data-label-placement={this.labelPlacement}
       />,
       this.labelPlacement === 'end' || this.labelPlacement === 'top' ? <slot /> : null,
@@ -71,7 +71,7 @@ export class Switch implements ComponentInterface {
       <label
         class={kSwitch.classNames.label}
         htmlFor={kSwitch.ids.switch}
-        data-disabled={String(this.disabled)}
+        data-disabled={String(!!this.disabled)}
         data-label-placement={this.labelPlacement}
       >
         {this.renderInput()}

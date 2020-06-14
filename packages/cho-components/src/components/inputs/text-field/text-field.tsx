@@ -150,7 +150,7 @@ export class TextField implements ComponentInterface {
           {...(props as JSXBase.TextareaHTMLAttributes<HTMLInputElement & HTMLTextAreaElement>)}
           rows={this.rows}
           data-type={this.type}
-          data-error={String(this.error)}
+          data-error={String(!!this.error)}
         />
       );
     }
@@ -161,7 +161,7 @@ export class TextField implements ComponentInterface {
         min={this.min}
         max={this.max}
         step={this.step}
-        data-error={String(this.error)}
+        data-error={String(!!this.error)}
         {...props}
       />
     );
@@ -172,22 +172,22 @@ export class TextField implements ComponentInterface {
       <label
         htmlFor={kTextField.ids.textField}
         class={kTextField.classes.label}
-        data-disabled={String(this.disabled)}
-        data-error={String(this.error)}
+        data-disabled={String(!!this.disabled)}
+        data-error={String(!!this.error)}
       >
         {this.label && (
           <div
             class={kTextField.classes.labelContent}
-            data-disabled={String(this.disabled)}
-            data-error={String(this.error)}
+            data-disabled={String(!!this.disabled)}
+            data-error={String(!!this.error)}
           >
             {this.label}
           </div>
         )}
         <div
           class={kTextField.classes.inputContainer}
-          data-input-focus={String(this.inputFocus)}
-          data-error={String(this.error)}
+          data-input-focus={String(!!this.inputFocus)}
+          data-error={String(!!this.error)}
         >
           <slot name={kTextField.slots.leading} />
           {this.renderInput()}
@@ -196,8 +196,8 @@ export class TextField implements ComponentInterface {
         {this.helperText && (
           <div
             class={kTextField.classes.helperText}
-            data-disabled={String(this.disabled)}
-            data-error={String(this.error)}
+            data-disabled={String(!!this.disabled)}
+            data-error={String(!!this.error)}
           >
             {this.helperText}
           </div>

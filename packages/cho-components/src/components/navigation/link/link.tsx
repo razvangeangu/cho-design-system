@@ -57,7 +57,7 @@ export class Link implements ComponentInterface {
         target={this.target}
         rel={this.relation}
         onClick={this.didClick}
-        data-disabled={String(this.disabled)}
+        data-disabled={String(!!this.disabled)}
       >
         <slot />
       </a>

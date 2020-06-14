@@ -166,7 +166,7 @@ export class DatePicker implements ComponentInterface {
                   <th
                     key={d}
                     class={kDatePicker.classes.calendarHeaderDay}
-                    data-disabled={String(this.disabled)}
+                    data-disabled={String(!!this.disabled)}
                   >
                     {d.slice(0, 3)}
                   </th>
@@ -190,8 +190,8 @@ export class DatePicker implements ComponentInterface {
                         onKeyPress={this.didKeyPressDay}
                         data-month={String(day.month)}
                         data-timestamp={String(day.timestamp)}
-                        data-selected={String(selected)}
-                        data-disabled={String(shouldDisableDate)}
+                        data-selected={String(!!selected)}
+                        data-disabled={String(!!shouldDisableDate)}
                       >
                         {day.date}
                       </td>

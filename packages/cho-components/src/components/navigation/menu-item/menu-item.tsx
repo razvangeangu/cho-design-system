@@ -91,7 +91,7 @@ export class MenuItem implements ComponentInterface {
         class={`${kMenuItem.classes.li} ${this.selected ? kMenuItem.classes.liSelected : ''}`}
         role="menuitem"
         tabIndex={this.disabled ? -1 : 0}
-        data-disabled={String(this.disabled)}
+        data-disabled={String(!!this.disabled)}
         onClick={this.didClick}
         onKeyPress={this.didKeyPress}
       >

@@ -73,7 +73,7 @@ export class Chip implements ComponentInterface {
         class={kChip.classes.container}
         disabled={this.disabled}
         onClick={this.didClick}
-        data-clickable={String(this.clickable)}
+        data-clickable={String(!!this.clickable)}
         data-kind={this.kind}
       >
         <slot name={kChip.slots.leading} />

@@ -44,7 +44,7 @@ export class Progress implements ComponentInterface {
         <svg
           class={kProgress.classes.circularSvg}
           viewBox="22 22 44 44"
-          data-indeterminate={String(this.indeterminate)}
+          data-indeterminate={String(!!this.indeterminate)}
         >
           <circle
             cx={44}
@@ -54,7 +54,7 @@ export class Progress implements ComponentInterface {
               'stroke-dasharray': `${max}`,
               'stroke-dashoffset': `${max - (max * this.value) / 100}`,
             }}
-            data-indeterminate={String(this.indeterminate)}
+            data-indeterminate={String(!!this.indeterminate)}
           />
         </svg>
         {this.label && <div class={kProgress.classes.circularPercentage}>{this.value}</div>}
@@ -67,7 +67,7 @@ export class Progress implements ComponentInterface {
       <Host style={{ display: 'initial' }}>
         <div class={kProgress.classes.linearContainer}>
           <div class={kProgress.classes.linear} role="progressbar">
-            <div data-indeterminate={String(this.indeterminate)} style={{ width: `${this.value}%` }} />
+            <div data-indeterminate={String(!!this.indeterminate)} style={{ width: `${this.value}%` }} />
           </div>
           {this.label && <div class={kProgress.classes.linearPercentage}>{this.value}</div>}
         </div>

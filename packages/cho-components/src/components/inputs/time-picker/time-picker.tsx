@@ -109,7 +109,7 @@ export class TimePicker implements ComponentInterface {
                 onKeyPress={this.didKeyPressHours}
                 data-selected={String(this.value.getHours() === hours)}
                 data-hours={String(hours)}
-                data-disabled={String(this.disabled)}
+                data-disabled={String(!!this.disabled)}
               >
                 {`${hours < 10 ? '0' : ''}${hours}`}
               </li>
@@ -124,7 +124,7 @@ export class TimePicker implements ComponentInterface {
                 onKeyPress={this.didKeyPressMinutes}
                 data-selected={String(this.value.getMinutes() === minutes)}
                 data-minutes={String(minutes)}
-                data-disabled={String(this.disabled)}
+                data-disabled={String(!!this.disabled)}
               >
                 {`${minutes < 10 ? '0' : ''}${minutes}`}
               </li>

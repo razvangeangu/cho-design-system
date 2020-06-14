@@ -129,7 +129,7 @@ export class Slider implements ComponentInterface {
     return (
       <div class={kSlider.classes.slider}>
         {this.label && (
-          <div class={kSlider.classes.labelContent} data-disabled={String(this.disabled)}>
+          <div class={kSlider.classes.labelContent} data-disabled={String(!!this.disabled)}>
             {this.label}
           </div>
         )}
@@ -164,7 +164,7 @@ export class Slider implements ComponentInterface {
                     label={tickmark.label}
                     value={tickmark.value}
                     style={{ left: this.positionedLeft(tickmark.value, 0) }}
-                    data-disabled={String(this.disabled)}
+                    data-disabled={String(!!this.disabled)}
                   />
                 ))}
               </datalist>

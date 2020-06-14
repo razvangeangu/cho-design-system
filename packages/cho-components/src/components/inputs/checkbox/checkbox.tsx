@@ -68,17 +68,17 @@ export class Checkbox implements ComponentInterface {
         id={kCheckbox.ids.checkbox}
         checked={this.checked}
         disabled={this.disabled}
-        data-indeterminate={String(this.indeterminate)}
+        data-indeterminate={String(!!this.indeterminate)}
         onInput={this.didInput}
-        data-error={String(this.error)}
+        data-error={String(!!this.error)}
       />,
       <span
         class={kCheckbox.classes.checkmark}
-        data-disabled={String(this.disabled)}
-        data-checked={String(this.checked)}
-        data-indeterminate={String(this.indeterminate)}
+        data-disabled={String(!!this.disabled)}
+        data-checked={String(!!this.checked)}
+        data-indeterminate={String(!!this.indeterminate)}
         data-label-placement={this.labelPlacement}
-        data-error={String(this.error)}
+        data-error={String(!!this.error)}
       />,
       this.labelPlacement === 'end' || this.labelPlacement === 'top' ? <slot /> : null,
     ];
@@ -89,9 +89,9 @@ export class Checkbox implements ComponentInterface {
       <label
         class={kCheckbox.classes.label}
         htmlFor={kCheckbox.ids.checkbox}
-        data-disabled={String(this.disabled)}
+        data-disabled={String(!!this.disabled)}
         data-label-placement={this.labelPlacement}
-        data-error={String(this.error)}
+        data-error={String(!!this.error)}
       >
         {this.renderInput()}
       </label>
