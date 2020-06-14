@@ -7,9 +7,20 @@ describe('Icon', () => {
   it('should render', async () => {
     const page = await newSpecPage({
       components: [Icon],
-      template: () => <cho-icon />,
+      template: () => <cho-icon kind="info" />,
     });
 
     expect(page.root).toBeTruthy();
+  });
+
+  describe('iconColorVar', () => {
+    it('should get icon color css variable', async () => {
+      const page = await newSpecPage({
+        components: [Icon],
+        template: () => <cho-icon kind="success" />,
+      });
+
+      expect(page.root.style.getPropertyValue('--icon-color')).toBeDefined();
+    });
   });
 });

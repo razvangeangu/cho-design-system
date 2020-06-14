@@ -14,7 +14,7 @@ export class Icon implements ComponentInterface {
    *
    * @default undefined
    */
-  @Prop() kind: TIconKind;
+  @Prop() kind!: TIconKind;
 
   /**
    * The color to use.

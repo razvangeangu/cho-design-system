@@ -802,7 +802,7 @@ declare namespace LocalJSX {
           * The kind to use.
           * @default undefined
          */
-        "kind"?: TIconKind;
+        "kind": TIconKind;
     }
     interface ChoLink {
         /**

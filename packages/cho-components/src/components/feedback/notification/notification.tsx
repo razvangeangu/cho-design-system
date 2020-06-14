@@ -41,10 +41,6 @@ export class Notification implements ComponentInterface {
     this.didClose();
   };
 
-  private didKeyPressClose = () => {
-    this.didClose();
-  };
-
   private get leadingIcon(): JSX.IntrinsicElements['cho-icon']['kind'] {
     switch (this.kind) {
       case 'error':
@@ -79,12 +75,7 @@ export class Notification implements ComponentInterface {
             )}
             <slot />
           </div>
-          <button
-            class={kNotification.classes.trailing}
-            type="button"
-            onClick={this.didClickClose}
-            onKeyPress={this.didKeyPressClose}
-          >
+          <button class={kNotification.classes.trailing} type="button" onClick={this.didClickClose}>
             <cho-icon
               class={kNotification.classes.leading}
               kind="close"
