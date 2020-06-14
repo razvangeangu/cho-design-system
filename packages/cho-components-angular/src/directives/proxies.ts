@@ -186,6 +186,17 @@ export class ChoMenuItemGroup {
   }
 }
 
+export declare interface ChoNotification extends Components.ChoNotification {}
+@ProxyCmp({inputs: ['kind', 'placement', 'visible']})
+@Component({ selector: 'cho-notification', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['kind', 'placement', 'visible'] })
+export class ChoNotification {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 export declare interface ChoProgress extends Components.ChoProgress {}
 @ProxyCmp({inputs: ['indeterminate', 'kind', 'label', 'value']})
 @Component({ selector: 'cho-progress', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['indeterminate', 'kind', 'label', 'value'] })

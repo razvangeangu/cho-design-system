@@ -1,0 +1,145 @@
+@mixin button-kind-enabled($focusColor, $hoverColor, $activeColor) {
+  &:not(:disabled) {
+    &:focus {
+      path {
+        fill: $focusColor;
+      }
+    }
+
+    &:hover {
+      path {
+        fill: $hoverColor;
+      }
+
+      &:active {
+        path {
+          fill: $activeColor;
+        }
+      }
+    }
+  }
+}
+
+.notification-container {
+  @include surface-inner-space();
+
+  align-content: center;
+  align-items: center;
+  background-color: var(--surface__background-color--dark);
+  border-radius: var(--border-radius);
+  color: var(--button__text-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: fixed;
+
+  &[data-kind='error'] {
+    background-color: var(--error);
+  }
+
+  &[data-kind='warning'] {
+    background-color: var(--warning);
+  }
+
+  &[data-kind='information'] {
+    background-color: var(--information);
+  }
+
+  &[data-kind='success'] {
+    background-color: var(--success);
+  }
+
+  &[data-placement='bottom'] {
+    @include surface-top-space();
+
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &[data-placement='bottom-end'] {
+    @include surface-top-space();
+    @include surface-leading-space();
+
+    bottom: 0;
+    right: 0;
+  }
+
+  &[data-placement='bottom-start'] {
+    @include surface-top-space();
+    @include surface-trailing-space();
+
+    bottom: 0;
+    left: 0;
+  }
+
+  &[data-placement='end'] {
+    @include surface-leading-space();
+
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &[data-placement='start'] {
+    @include surface-trailing-space();
+
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &[data-placement='top'] {
+    @include surface-bottom-space();
+
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+  }
+
+  &[data-placement='top-end'] {
+    @include surface-bottom-space();
+    @include surface-leading-space();
+
+    right: 0;
+    top: 0;
+  }
+
+  &[data-placement='top-start'] {
+    @include surface-bottom-space();
+    @include surface-trailing-space();
+
+    left: 0;
+    top: 0;
+  }
+}
+
+.notification-leading {
+  @include surface-leading-space();
+}
+
+.notification-trailing {
+  @include button-without-defaults();
+  @include surface-trailing-space();
+  @include button-kind-enabled(
+    var(--surface__background-color--focus),
+    var(--surface__background-color--hover),
+    var(--surface__background-color--active)
+  );
+
+  align-content: center;
+  align-items: center;
+  border-radius: 100%;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.notification-leading-container {
+  align-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

@@ -13,6 +13,8 @@ import { IChipDeleteEventDetail, TChipKind } from "./components/data-display/chi
 import { IDatePickerDayChangedDetail, IDatePickerMonthChangedDetail, IDatePickerValueChangedDetail, IDatePickerYearChangedDetail } from "./components/inputs/date-picker/model";
 import { TLinkRelation, TLinkTarget } from "./components/navigation/link/model";
 import { IMenuItemConnectedDetail, TMenuItemHostContainer } from "./components/navigation/menu-item/model";
+import { TNotificationKind } from "./components/feedback/notification/model";
+import { TOverlayPlacement } from "./types/t-overlay-placement";
 import { TProgressKind } from "./components/feedback/progress/model";
 import { IRadioValueChangedDetail } from "./components/inputs/radio/model";
 import { ISelectValueChangedDetail } from "./components/inputs/select/model";
@@ -20,7 +22,6 @@ import { ISliderTickmark, ISliderValueChangedDetail } from "./components/inputs/
 import { ISwitchValueChangedDetail } from "./components/inputs/switch/model";
 import { ITextFieldValueChangedDetail } from "./components/inputs/text-field/model";
 import { ITimePickerHoursChangedDetail, ITimePickerMinutesChangedDetail, ITimePickerValueChangedDetail } from "./components/inputs/time-picker/model";
-import { TOverlayPlacement } from "./types/t-overlay-placement";
 export namespace Components {
     interface ChoBackdrop {
         /**
@@ -203,6 +204,23 @@ export namespace Components {
         "value"?: any;
     }
     interface ChoMenuItemGroup {
+    }
+    interface ChoNotification {
+        /**
+          * The kind to use.
+          * @default 'default'
+         */
+        "kind"?: TNotificationKind;
+        /**
+          * The fixed position of the badge on the screen.
+          * @default 'bottom'
+         */
+        "placement"?: TOverlayPlacement;
+        /**
+          * If `true`, the notification will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
     }
     interface ChoProgress {
         /**
@@ -427,8 +445,8 @@ export namespace Components {
     }
     interface ChoTooltip {
         /**
-          * The horizontal position of the badge.
-          * @default 'end'
+          * The fixed position of the badge on the screen.
+          * @default 'bottom'
          */
         "placement"?: TOverlayPlacement;
         /**
@@ -515,6 +533,12 @@ declare global {
         prototype: HTMLChoMenuItemGroupElement;
         new (): HTMLChoMenuItemGroupElement;
     };
+    interface HTMLChoNotificationElement extends Components.ChoNotification, HTMLStencilElement {
+    }
+    var HTMLChoNotificationElement: {
+        prototype: HTMLChoNotificationElement;
+        new (): HTMLChoNotificationElement;
+    };
     interface HTMLChoProgressElement extends Components.ChoProgress, HTMLStencilElement {
     }
     var HTMLChoProgressElement: {
@@ -576,6 +600,7 @@ declare global {
         "cho-menu": HTMLChoMenuElement;
         "cho-menu-item": HTMLChoMenuItemElement;
         "cho-menu-item-group": HTMLChoMenuItemGroupElement;
+        "cho-notification": HTMLChoNotificationElement;
         "cho-progress": HTMLChoProgressElement;
         "cho-radio": HTMLChoRadioElement;
         "cho-select": HTMLChoSelectElement;
@@ -791,6 +816,23 @@ declare namespace LocalJSX {
         "value"?: any;
     }
     interface ChoMenuItemGroup {
+    }
+    interface ChoNotification {
+        /**
+          * The kind to use.
+          * @default 'default'
+         */
+        "kind"?: TNotificationKind;
+        /**
+          * The fixed position of the badge on the screen.
+          * @default 'bottom'
+         */
+        "placement"?: TOverlayPlacement;
+        /**
+          * If `true`, the notification will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
     }
     interface ChoProgress {
         /**
@@ -1038,8 +1080,8 @@ declare namespace LocalJSX {
     }
     interface ChoTooltip {
         /**
-          * The horizontal position of the badge.
-          * @default 'end'
+          * The fixed position of the badge on the screen.
+          * @default 'bottom'
          */
         "placement"?: TOverlayPlacement;
         /**
@@ -1065,6 +1107,7 @@ declare namespace LocalJSX {
         "cho-menu": ChoMenu;
         "cho-menu-item": ChoMenuItem;
         "cho-menu-item-group": ChoMenuItemGroup;
+        "cho-notification": ChoNotification;
         "cho-progress": ChoProgress;
         "cho-radio": ChoRadio;
         "cho-select": ChoSelect;
@@ -1091,6 +1134,7 @@ declare module "@stencil/core" {
             "cho-menu": LocalJSX.ChoMenu & JSXBase.HTMLAttributes<HTMLChoMenuElement>;
             "cho-menu-item": LocalJSX.ChoMenuItem & JSXBase.HTMLAttributes<HTMLChoMenuItemElement>;
             "cho-menu-item-group": LocalJSX.ChoMenuItemGroup & JSXBase.HTMLAttributes<HTMLChoMenuItemGroupElement>;
+            "cho-notification": LocalJSX.ChoNotification & JSXBase.HTMLAttributes<HTMLChoNotificationElement>;
             "cho-progress": LocalJSX.ChoProgress & JSXBase.HTMLAttributes<HTMLChoProgressElement>;
             "cho-radio": LocalJSX.ChoRadio & JSXBase.HTMLAttributes<HTMLChoRadioElement>;
             "cho-select": LocalJSX.ChoSelect & JSXBase.HTMLAttributes<HTMLChoSelectElement>;
