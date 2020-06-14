@@ -11,6 +11,7 @@ import { TButtonKind } from "./components/inputs/button/model";
 import { ICheckboxValueChangedDetail } from "./components/inputs/checkbox/model";
 import { IChipDeleteEventDetail, TChipKind } from "./components/data-display/chip/model";
 import { IDatePickerDayChangedDetail, IDatePickerMonthChangedDetail, IDatePickerValueChangedDetail, IDatePickerYearChangedDetail } from "./components/inputs/date-picker/model";
+import { TIconKind } from "./components/data-display/icon/model";
 import { TLinkRelation, TLinkTarget } from "./components/navigation/link/model";
 import { IMenuItemConnectedDetail, TMenuItemHostContainer } from "./components/navigation/menu-item/model";
 import { TNotificationKind } from "./components/feedback/notification/model";
@@ -158,6 +159,18 @@ export namespace Components {
         "value"?: Date;
     }
     interface ChoDivider {
+    }
+    interface ChoIcon {
+        /**
+          * The color to use.
+          * @default 'var(--text-color)''
+         */
+        "color"?: string;
+        /**
+          * The kind to use.
+          * @default undefined
+         */
+        "kind": TIconKind;
     }
     interface ChoLink {
         /**
@@ -509,6 +522,12 @@ declare global {
         prototype: HTMLChoDividerElement;
         new (): HTMLChoDividerElement;
     };
+    interface HTMLChoIconElement extends Components.ChoIcon, HTMLStencilElement {
+    }
+    var HTMLChoIconElement: {
+        prototype: HTMLChoIconElement;
+        new (): HTMLChoIconElement;
+    };
     interface HTMLChoLinkElement extends Components.ChoLink, HTMLStencilElement {
     }
     var HTMLChoLinkElement: {
@@ -596,6 +615,7 @@ declare global {
         "cho-chip": HTMLChoChipElement;
         "cho-date-picker": HTMLChoDatePickerElement;
         "cho-divider": HTMLChoDividerElement;
+        "cho-icon": HTMLChoIconElement;
         "cho-link": HTMLChoLinkElement;
         "cho-menu": HTMLChoMenuElement;
         "cho-menu-item": HTMLChoMenuItemElement;
@@ -771,6 +791,18 @@ declare namespace LocalJSX {
         "value"?: Date;
     }
     interface ChoDivider {
+    }
+    interface ChoIcon {
+        /**
+          * The color to use.
+          * @default 'var(--text-color)''
+         */
+        "color"?: string;
+        /**
+          * The kind to use.
+          * @default undefined
+         */
+        "kind"?: TIconKind;
     }
     interface ChoLink {
         /**
@@ -1103,6 +1135,7 @@ declare namespace LocalJSX {
         "cho-chip": ChoChip;
         "cho-date-picker": ChoDatePicker;
         "cho-divider": ChoDivider;
+        "cho-icon": ChoIcon;
         "cho-link": ChoLink;
         "cho-menu": ChoMenu;
         "cho-menu-item": ChoMenuItem;
@@ -1130,6 +1163,7 @@ declare module "@stencil/core" {
             "cho-chip": LocalJSX.ChoChip & JSXBase.HTMLAttributes<HTMLChoChipElement>;
             "cho-date-picker": LocalJSX.ChoDatePicker & JSXBase.HTMLAttributes<HTMLChoDatePickerElement>;
             "cho-divider": LocalJSX.ChoDivider & JSXBase.HTMLAttributes<HTMLChoDividerElement>;
+            "cho-icon": LocalJSX.ChoIcon & JSXBase.HTMLAttributes<HTMLChoIconElement>;
             "cho-link": LocalJSX.ChoLink & JSXBase.HTMLAttributes<HTMLChoLinkElement>;
             "cho-menu": LocalJSX.ChoMenu & JSXBase.HTMLAttributes<HTMLChoMenuElement>;
             "cho-menu-item": LocalJSX.ChoMenuItem & JSXBase.HTMLAttributes<HTMLChoMenuItemElement>;

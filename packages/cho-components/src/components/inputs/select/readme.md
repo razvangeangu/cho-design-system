@@ -47,6 +47,7 @@ Type: `Promise<void>`
 ### Depends on
 
 - [cho-text-field](../text-field)
+- [cho-icon](../../data-display/icon)
 - [cho-menu-item](../../navigation/menu-item)
 - [cho-divider](../../data-display/divider)
 
@@ -54,6 +55,7 @@ Type: `Promise<void>`
 ```mermaid
 graph TD;
   cho-select --> cho-text-field
+  cho-select --> cho-icon
   cho-select --> cho-menu-item
   cho-select --> cho-divider
   style cho-select fill:#f9f,stroke:#333,stroke-width:4px

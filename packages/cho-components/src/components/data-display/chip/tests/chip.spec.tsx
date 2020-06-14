@@ -89,34 +89,4 @@ describe('Chip', () => {
       expect(page.rootInstance.didDelete).toHaveBeenCalled();
     });
   });
-
-  describe('didKeyPressDelete', () => {
-    it('should call didDelete on Enter', async () => {
-      const page = await newSpecPage({
-        components: [Chip],
-        template: () => <cho-chip deleteIcon />,
-      });
-      page.rootInstance.didDelete = jest.fn();
-
-      const click = new KeyboardEvent('keypress', { key: 'Enter' });
-      page.root.shadowRoot.querySelector(`[class='${kChip.classes.deleteIcon}']`).dispatchEvent(click);
-      await page.waitForChanges();
-
-      expect(page.rootInstance.didDelete).toHaveBeenCalled();
-    });
-
-    it('should call didDelete on other keys', async () => {
-      const page = await newSpecPage({
-        components: [Chip],
-        template: () => <cho-chip deleteIcon />,
-      });
-      page.rootInstance.didDelete = jest.fn();
-
-      const click = new KeyboardEvent('keypress', { key: 'Backspace' });
-      page.root.shadowRoot.querySelector(`[class='${kChip.classes.deleteIcon}']`).dispatchEvent(click);
-      await page.waitForChanges();
-
-      expect(page.rootInstance.didDelete).not.toHaveBeenCalled();
-    });
-  });
 });

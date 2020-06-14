@@ -21,6 +21,19 @@
 |      | The main content of the notification. |
 
 
+## Dependencies
+
+### Depends on
+
+- [cho-icon](../../data-display/icon)
+
+### Graph
+```mermaid
+graph TD;
+  cho-notification --> cho-icon
+  style cho-notification fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

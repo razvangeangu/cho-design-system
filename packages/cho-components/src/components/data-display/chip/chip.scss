@@ -41,15 +41,19 @@
 }
 
 .chip__delete-icon {
+  @include button-without-defaults();
+
+  align-content: center;
+  align-items: center;
+  display: flex;
   margin-right: 0.25rem;
 
-  &:not([data-disabled='true']) {
+  &:not(:disabled) {
     cursor: pointer;
   }
 
-  &[data-disabled='true'] {
+  &:disabled {
     cursor: not-allowed;
-    outline: none; // TODO: remove once changed to real icon
   }
 }
 

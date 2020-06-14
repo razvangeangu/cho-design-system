@@ -16,6 +16,7 @@ export const ChoCheckbox = /*@__PURE__*/createReactComponent<JSX.ChoCheckbox, HT
 export const ChoChip = /*@__PURE__*/createReactComponent<JSX.ChoChip, HTMLChoChipElement>('cho-chip');
 export const ChoDatePicker = /*@__PURE__*/createReactComponent<JSX.ChoDatePicker, HTMLChoDatePickerElement>('cho-date-picker');
 export const ChoDivider = /*@__PURE__*/createReactComponent<JSX.ChoDivider, HTMLChoDividerElement>('cho-divider');
+export const ChoIcon = /*@__PURE__*/createReactComponent<JSX.ChoIcon, HTMLChoIconElement>('cho-icon');
 export const ChoLink = /*@__PURE__*/createReactComponent<JSX.ChoLink, HTMLChoLinkElement>('cho-link');
 export const ChoMenu = /*@__PURE__*/createReactComponent<JSX.ChoMenu, HTMLChoMenuElement>('cho-menu');
 export const ChoMenuItem = /*@__PURE__*/createReactComponent<JSX.ChoMenuItem, HTMLChoMenuItemElement>('cho-menu-item');

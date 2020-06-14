@@ -31,11 +31,13 @@
 ### Depends on
 
 - [cho-text-field](../text-field)
+- [cho-icon](../../data-display/icon)
 
 ### Graph
 ```mermaid
 graph TD;
   cho-date-picker --> cho-text-field
+  cho-date-picker --> cho-icon
   style cho-date-picker fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

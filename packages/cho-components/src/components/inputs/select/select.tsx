@@ -144,15 +144,11 @@ export class Select implements ComponentInterface {
           value={this.inputValue}
           readOnly
         >
-          {/* TODO: extract to icon component */}
-          <svg
+          <cho-icon
+            kind="arrow-down"
             slot={kTextField.slots.trailing}
             class={kSelect.classes.trailingIcon}
-            focusable="false"
-            viewBox="0 0 24 24"
-          >
-            <path d="M7 10l5 5 5-5z" />
-          </svg>
+          />
         </cho-text-field>
         <ul
           class={kSelect.classes.selectUl}

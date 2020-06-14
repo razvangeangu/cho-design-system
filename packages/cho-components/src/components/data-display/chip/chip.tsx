@@ -66,12 +66,6 @@ export class Chip implements ComponentInterface {
     this.didDelete(event);
   };
 
-  private didKeyPressDelete = (event: KeyboardEvent) => {
-    if (event.key === 'Enter') {
-      this.didDelete(event);
-    }
-  };
-
   render() {
     return (
       <button
@@ -88,21 +82,14 @@ export class Chip implements ComponentInterface {
         </div>
         <slot name={kChip.slots.trailing} />
         {this.deleteIcon && (
-          // TODO: replace with real icon
-          <svg
-            role="button"
+          <button
             class={kChip.classes.deleteIcon}
+            type="button"
+            disabled={this.disabled}
             onClick={this.didClickDelete}
-            onKeyPress={this.didKeyPressDelete}
-            tabindex={this.disabled ? -1 : 0}
-            data-disabled={String(this.disabled)}
-            width="24px"
-            height="24px"
-            viewBox="0 0 24 24"
           >
-            {/* eslint-disable-next-line max-len */}
-            <path d="M12 2C6.47 2 2 6.47 2 12s4.47 10 10 10 10-4.47 10-10S17.53 2 12 2zm5 13.59L15.59 17 12 13.41 8.41 17 7 15.59 10.59 12 7 8.41 8.41 7 12 10.59 15.59 7 17 8.41 13.41 12 17 15.59z" />
-          </svg>
+            <cho-icon kind="cancel" color={this.disabled ? 'var(--disabled)' : undefined} />
+          </button>
         )}
       </button>
     );

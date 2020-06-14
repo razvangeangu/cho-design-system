@@ -31,6 +31,19 @@
 | `"trailing"` | A component to display after the primary content.  |
 
 
+## Dependencies
+
+### Depends on
+
+- [cho-icon](../icon)
+
+### Graph
+```mermaid
+graph TD;
+  cho-chip --> cho-icon
+  style cho-chip fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

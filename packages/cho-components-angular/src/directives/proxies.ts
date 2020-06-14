@@ -140,6 +140,17 @@ export class ChoDivider {
   }
 }
 
+export declare interface ChoIcon extends Components.ChoIcon {}
+@ProxyCmp({inputs: ['color', 'kind']})
+@Component({ selector: 'cho-icon', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['color', 'kind'] })
+export class ChoIcon {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 export declare interface ChoLink extends Components.ChoLink {}
 @ProxyCmp({inputs: ['disabled', 'href', 'relation', 'target']})
 @Component({ selector: 'cho-link', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'href', 'relation', 'target'] })
