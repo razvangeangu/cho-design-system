@@ -15,6 +15,10 @@ import { ITabItemContentConnectedDetail } from '../tab-item-content/model';
 import { ITabItemConnectedDetail, ITabItemSelectedDetail } from '../tab-item/model';
 import { ICurrentIndexChangedDetail, kTabs } from './model';
 
+/**
+ * @slot label - The label content of the tabs (i.e. tab-item)
+ * @slot content - The content content of the tabs (i.e. tab-item-content)
+ */
 @Component({
   tag: 'cho-tabs',
   styleUrl: 'tabs.scss',

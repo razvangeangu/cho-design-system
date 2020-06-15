@@ -19,6 +19,14 @@
 | `currentIndexChanged` | Callback fired when current index value is changed. | `CustomEvent<ICurrentIndexChangedDetail>` |
 
 
+## Slots
+
+| Slot        | Description                                             |
+| ----------- | ------------------------------------------------------- |
+| `"content"` | The content content of the tabs (i.e. tab-item-content) |
+| `"label"`   | The label content of the tabs (i.e. tab-item)           |
+
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
