@@ -296,6 +296,46 @@ export class ChoSwitch {
   }
 }
 
+export declare interface ChoTabItem extends Components.ChoTabItem {}
+@ProxyCmp({inputs: ['disabled', 'index', 'label', 'selected']})
+@Component({ selector: 'cho-tab-item', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'index', 'label', 'selected'] })
+export class ChoTabItem {
+  tabItemSelected!: EventEmitter<CustomEvent>;
+  tabItemConnected!: EventEmitter<CustomEvent>;
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['tabItemSelected', 'tabItemConnected']);
+  }
+}
+
+export declare interface ChoTabItemContent extends Components.ChoTabItemContent {}
+@ProxyCmp({inputs: ['index', 'visible']})
+@Component({ selector: 'cho-tab-item-content', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['index', 'visible'] })
+export class ChoTabItemContent {
+  tabItemContentConnected!: EventEmitter<CustomEvent>;
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['tabItemContentConnected']);
+  }
+}
+
+export declare interface ChoTabs extends Components.ChoTabs {}
+@ProxyCmp({inputs: ['currentIndex']})
+@Component({ selector: 'cho-tabs', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['currentIndex'] })
+export class ChoTabs {
+  currentIndexChanged!: EventEmitter<CustomEvent>;
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['currentIndexChanged']);
+  }
+}
+
 export declare interface ChoTextField extends Components.ChoTextField {}
 @ProxyCmp({inputs: ['disabled', 'error', 'helperText', 'label', 'max', 'min', 'multiline', 'name', 'placeholder', 'readOnly', 'rows', 'step', 'type', 'value']})
 @Component({ selector: 'cho-text-field', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'error', 'helperText', 'label', 'max', 'min', 'multiline', 'name', 'placeholder', 'readOnly', 'rows', 'step', 'type', 'value'] })

@@ -1,0 +1,7 @@
+:host {
+  display: inline-block;
+}
+
+.tab-item-content__container {
+  @include surface-inner-space();
+}

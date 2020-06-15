@@ -22,6 +22,9 @@ import { IRadioValueChangedDetail } from "./components/inputs/radio/model";
 import { ISelectValueChangedDetail } from "./components/inputs/select/model";
 import { ISliderTickmark, ISliderValueChangedDetail } from "./components/inputs/slider/model";
 import { ISwitchValueChangedDetail } from "./components/inputs/switch/model";
+import { ITabItemConnectedDetail, ITabItemSelectedDetail, TTabItemHostContainer } from "./components/navigation/tab-item/model";
+import { ITabItemContentConnectedDetail, TTabItemContentHostContainer } from "./components/navigation/tab-item-content/model";
+import { ICurrentIndexChangedDetail } from "./components/navigation/tabs/model";
 import { ITextFieldValueChangedDetail } from "./components/inputs/text-field/model";
 import { ITimePickerHoursChangedDetail, ITimePickerMinutesChangedDetail, ITimePickerValueChangedDetail } from "./components/inputs/time-picker/model";
 export namespace Components {
@@ -397,6 +400,67 @@ export namespace Components {
          */
         "labelPlacement"?: TPlacement;
     }
+    interface ChoTabItem {
+        /**
+          * If `true`, the button will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * The position index of the tab.
+          * @default undefined
+         */
+        "index": number;
+        /**
+          * The label content.
+          * @default undefined
+         */
+        "label": string;
+        /**
+          * If `true`, the tab item will display selected.
+          * @default false
+         */
+        "selected"?: boolean;
+        /**
+          * Helper used to keep track internally of the menu items in containers.
+          * @param hostContainer The container that controls the menu-item.
+         */
+        "setHostContainer": (hostContainer: TTabItemHostContainer) => Promise<void>;
+    }
+    interface ChoTabItemContent {
+        /**
+          * The position index of the tab content.
+          * @default undefined
+         */
+        "index": number;
+        /**
+          * Helper used to keep track internally of the menu items in containers.
+          * @param hostContainer The container that controls the menu-item.
+         */
+        "setHostContainer": (hostContainer: TTabItemContentHostContainer) => Promise<void>;
+        /**
+          * If `true`, the tab item content will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
+    }
+    interface ChoTabs {
+        /**
+          * The position index of the tab content.
+          * @default 0
+         */
+        "currentIndex"?: number;
+        /**
+          * Helper used to keep track internally of the tab item content items in tab item content.
+          * @param tabItem The tab item item that has been disconnected and due to be removed.
+         */
+        "removeTabItem": (tabItem: HTMLChoTabItemElement) => Promise<void>;
+        /**
+          * Helper used to keep track internally of the tab item content items in tab item content.
+          * @param tabItemContent The tab item content item that has been disconnected and due to be removed.
+         */
+        "removeTabItemContent": (tabItemContent: HTMLChoTabItemContentElement) => Promise<void>;
+    }
     interface ChoTextField {
         /**
           * If `true`, the text-field will be disabled.
@@ -630,6 +694,24 @@ declare global {
         prototype: HTMLChoSwitchElement;
         new (): HTMLChoSwitchElement;
     };
+    interface HTMLChoTabItemElement extends Components.ChoTabItem, HTMLStencilElement {
+    }
+    var HTMLChoTabItemElement: {
+        prototype: HTMLChoTabItemElement;
+        new (): HTMLChoTabItemElement;
+    };
+    interface HTMLChoTabItemContentElement extends Components.ChoTabItemContent, HTMLStencilElement {
+    }
+    var HTMLChoTabItemContentElement: {
+        prototype: HTMLChoTabItemContentElement;
+        new (): HTMLChoTabItemContentElement;
+    };
+    interface HTMLChoTabsElement extends Components.ChoTabs, HTMLStencilElement {
+    }
+    var HTMLChoTabsElement: {
+        prototype: HTMLChoTabsElement;
+        new (): HTMLChoTabsElement;
+    };
     interface HTMLChoTextFieldElement extends Components.ChoTextField, HTMLStencilElement {
     }
     var HTMLChoTextFieldElement: {
@@ -670,6 +752,9 @@ declare global {
         "cho-select": HTMLChoSelectElement;
         "cho-slider": HTMLChoSliderElement;
         "cho-switch": HTMLChoSwitchElement;
+        "cho-tab-item": HTMLChoTabItemElement;
+        "cho-tab-item-content": HTMLChoTabItemContentElement;
+        "cho-tabs": HTMLChoTabsElement;
         "cho-text-field": HTMLChoTextFieldElement;
         "cho-time-picker": HTMLChoTimePickerElement;
         "cho-tooltip": HTMLChoTooltipElement;
@@ -1076,6 +1161,63 @@ declare namespace LocalJSX {
          */
         "onCheckedChanged"?: (event: CustomEvent<ISwitchValueChangedDetail>) => void;
     }
+    interface ChoTabItem {
+        /**
+          * If `true`, the button will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * The position index of the tab.
+          * @default undefined
+         */
+        "index": number;
+        /**
+          * The label content.
+          * @default undefined
+         */
+        "label": string;
+        /**
+          * Called every time the component is connected to the DOM.
+         */
+        "onTabItemConnected"?: (event: CustomEvent<ITabItemConnectedDetail>) => void;
+        /**
+          * Callback fired when the tab item is selected.
+         */
+        "onTabItemSelected"?: (event: CustomEvent<ITabItemSelectedDetail>) => void;
+        /**
+          * If `true`, the tab item will display selected.
+          * @default false
+         */
+        "selected"?: boolean;
+    }
+    interface ChoTabItemContent {
+        /**
+          * The position index of the tab content.
+          * @default undefined
+         */
+        "index": number;
+        /**
+          * Called every time the component is connected to the DOM.
+         */
+        "onTabItemContentConnected"?: (event: CustomEvent<ITabItemContentConnectedDetail>) => void;
+        /**
+          * If `true`, the tab item content will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
+    }
+    interface ChoTabs {
+        /**
+          * The position index of the tab content.
+          * @default 0
+         */
+        "currentIndex"?: number;
+        /**
+          * Callback fired when current index value is changed.
+         */
+        "onCurrentIndexChanged"?: (event: CustomEvent<ICurrentIndexChangedDetail>) => void;
+    }
     interface ChoTextField {
         /**
           * If `true`, the text-field will be disabled.
@@ -1219,6 +1361,9 @@ declare namespace LocalJSX {
         "cho-select": ChoSelect;
         "cho-slider": ChoSlider;
         "cho-switch": ChoSwitch;
+        "cho-tab-item": ChoTabItem;
+        "cho-tab-item-content": ChoTabItemContent;
+        "cho-tabs": ChoTabs;
         "cho-text-field": ChoTextField;
         "cho-time-picker": ChoTimePicker;
         "cho-tooltip": ChoTooltip;
@@ -1249,6 +1394,9 @@ declare module "@stencil/core" {
             "cho-select": LocalJSX.ChoSelect & JSXBase.HTMLAttributes<HTMLChoSelectElement>;
             "cho-slider": LocalJSX.ChoSlider & JSXBase.HTMLAttributes<HTMLChoSliderElement>;
             "cho-switch": LocalJSX.ChoSwitch & JSXBase.HTMLAttributes<HTMLChoSwitchElement>;
+            "cho-tab-item": LocalJSX.ChoTabItem & JSXBase.HTMLAttributes<HTMLChoTabItemElement>;
+            "cho-tab-item-content": LocalJSX.ChoTabItemContent & JSXBase.HTMLAttributes<HTMLChoTabItemContentElement>;
+            "cho-tabs": LocalJSX.ChoTabs & JSXBase.HTMLAttributes<HTMLChoTabsElement>;
             "cho-text-field": LocalJSX.ChoTextField & JSXBase.HTMLAttributes<HTMLChoTextFieldElement>;
             "cho-time-picker": LocalJSX.ChoTimePicker & JSXBase.HTMLAttributes<HTMLChoTimePickerElement>;
             "cho-tooltip": LocalJSX.ChoTooltip & JSXBase.HTMLAttributes<HTMLChoTooltipElement>;

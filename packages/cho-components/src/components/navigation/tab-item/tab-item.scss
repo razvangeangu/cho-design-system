@@ -1,0 +1,27 @@
+:host {
+  display: inline-block;
+}
+
+.tab-item__button {
+  @include button-without-defaults();
+  @include surface-inner-space();
+
+  border-bottom: solid;
+  border-color: transparent;
+  border-width: 0.125rem;
+  padding: 0;
+
+  &[data-selected='true'] {
+    border-color: var(--primary);
+  }
+}
+
+.tab-item__label {
+  &:not([data-disabled='true']) {
+    color: var(--text-color);
+  }
+
+  &[data-selected='true'] {
+    color: var(--primary);
+  }
+}

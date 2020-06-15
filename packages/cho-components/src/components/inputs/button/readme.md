@@ -22,6 +22,19 @@
 | `"trailing"` | A component to display after the primary content.  |
 
 
+## Dependencies
+
+### Used by
+
+ - [cho-tab-item](../../navigation/tab-item)
+
+### Graph
+```mermaid
+graph TD;
+  cho-tab-item --> cho-button
+  style cho-button fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*

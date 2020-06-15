@@ -1,0 +1,16 @@
+:host {
+  display: block;
+}
+
+.tabs__container {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabs__label-container {
+  border-bottom: solid;
+  border-color: var(--surface__border-color);
+  border-width: var(--border-width);
+  display: inline-flex;
+  flex-direction: row;
+}
