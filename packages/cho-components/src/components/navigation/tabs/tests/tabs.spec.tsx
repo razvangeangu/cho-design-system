@@ -65,6 +65,27 @@ describe('Tabs', () => {
 
       expect(page.rootInstance.tabItemItems.size).toBe(1);
     });
+
+    it('should remove tab item content and set current index', async () => {
+      const page = await newSpecPage({
+        components: [Tabs, TabItem, TabItemContent],
+        template: () => (
+          <cho-tabs currentIndex={1}>
+            <cho-tab-item index={0} label="Item 0" />
+            <cho-tab-item index={1} label="Item 1" />
+
+            <cho-tab-item-content index={0} />
+            <cho-tab-item-content index={1} />
+          </cho-tabs>
+        ),
+      });
+
+      page.root.querySelectorAll('cho-tab-item')[1].remove();
+      await page.waitForChanges();
+
+      expect(page.rootInstance.currentIndex).toBe(0);
+      expect(page.rootInstance.tabItemItems.size).toBe(1);
+    });
   });
 
   describe('currentIndexWatcher', () => {

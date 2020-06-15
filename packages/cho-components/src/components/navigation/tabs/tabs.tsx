@@ -63,6 +63,10 @@ export class Tabs implements ComponentInterface {
   @Method()
   async removeTabItem(tabItem: HTMLChoTabItemElement) {
     this.tabItemItems.delete(tabItem);
+
+    if (tabItem.index === this.currentIndex) {
+      this.currentIndex = 0;
+    }
   }
 
   @Listen('tabItemConnected')
