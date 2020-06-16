@@ -1,6 +1,6 @@
 export const kBackdrop = {
-  componentName: 'cho-backdrop' as 'cho-backdrop',
+  componentName: 'cho-backdrop',
   classes: {
     container: 'backdrop-container',
   },
-};
+} as const;

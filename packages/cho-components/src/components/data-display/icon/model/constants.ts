@@ -1,3 +1,3 @@
 export const kIcon = {
-  componentName: 'cho-icon' as 'cho-icon',
-};
+  componentName: 'cho-icon',
+} as const;

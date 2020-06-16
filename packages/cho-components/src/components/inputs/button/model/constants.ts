@@ -1,5 +1,5 @@
 export const kButton = {
-  componentName: 'cho-button' as 'cho-button',
+  componentName: 'cho-button',
   classes: {
     button: 'button',
   },
@@ -7,4 +7,4 @@ export const kButton = {
     leading: 'leading',
     trailing: 'trailing',
   },
-};
+} as const;

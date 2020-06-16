@@ -1,5 +1,5 @@
 export const kExpansionPanelItem = {
-  componentName: 'cho-expansion-panel-item' as 'cho-expansion-panel-item',
+  componentName: 'cho-expansion-panel-item',
   classes: {
     container: 'expansion-panel-item__container',
     title: 'expansion-panel-item__title',
@@ -12,4 +12,4 @@ export const kExpansionPanelItem = {
     expandIcon: 'expand-icon',
     content: 'content',
   },
-};
+} as const;

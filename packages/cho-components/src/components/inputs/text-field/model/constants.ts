@@ -1,5 +1,5 @@
 export const kTextField = {
-  componentName: 'cho-text-field' as 'cho-text-field',
+  componentName: 'cho-text-field',
   classes: {
     input: 'text-field__input',
     inputContainer: 'text-field__input-container',
@@ -14,4 +14,4 @@ export const kTextField = {
     leading: 'leading',
     trailing: 'trailing',
   },
-};
+} as const;

@@ -1,5 +1,5 @@
 export const kRadio = {
-  componentName: 'cho-radio' as 'cho-radio',
+  componentName: 'cho-radio',
   classes: {
     label: 'radio__label',
     input: 'radio__input',
@@ -8,4 +8,4 @@ export const kRadio = {
   ids: {
     radio: 'radio',
   },
-};
+} as const;

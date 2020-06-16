@@ -1,5 +1,5 @@
 export const kCheckbox = {
-  componentName: 'cho-checkbox' as 'cho-checkbox',
+  componentName: 'cho-checkbox',
   classes: {
     label: 'checkbox__label',
     input: 'checkbox__input',
@@ -8,4 +8,4 @@ export const kCheckbox = {
   ids: {
     checkbox: 'checkbox',
   },
-};
+} as const;

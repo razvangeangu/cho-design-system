@@ -46,11 +46,24 @@ export const icons = {
       />
     </svg>
   ),
+  'hamburger': () => (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path fill="var(--icon-color)" d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+    </svg>
+  ),
   'info': () => (
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <path
         fill="var(--icon-color)"
         d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+      />
+    </svg>
+  ),
+  'search': () => (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path
+        fill="var(--icon-color)"
+        d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
       />
     </svg>
   ),
@@ -67,4 +80,4 @@ export const icons = {
       <path fill="var(--icon-color)" d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z" />
     </svg>
   ),
-};
+} as const;

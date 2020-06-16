@@ -1,6 +1,6 @@
 export const kMenu = {
-  componentName: 'cho-menu' as 'cho-menu',
+  componentName: 'cho-menu',
   classes: {
     menuUl: 'menu__ul',
   },
-};
+} as const;

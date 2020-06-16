@@ -1,5 +1,5 @@
 export const kChip = {
-  componentName: 'cho-chip' as 'cho-chip',
+  componentName: 'cho-chip',
   classes: {
     container: 'chip-container',
     content: 'chip__content',
@@ -9,4 +9,4 @@ export const kChip = {
     leading: 'leading',
     trailing: 'trailing',
   },
-};
+} as const;

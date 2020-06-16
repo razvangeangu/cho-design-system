@@ -1,10 +1,3 @@
-export type TIconKind =
-  | 'arrow-down'
-  | 'arrow-up'
-  | 'calendar'
-  | 'cancel'
-  | 'close'
-  | 'error-outline'
-  | 'info'
-  | 'success'
-  | 'warning';
+import { icons } from '../assets/icons';
+
+export type TIconKind = keyof typeof icons;

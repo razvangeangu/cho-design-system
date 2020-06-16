@@ -1,5 +1,5 @@
 export const kTabs = {
-  componentName: 'cho-tabs' as 'cho-tabs',
+  componentName: 'cho-tabs',
   classes: {
     container: 'tabs__container',
     labelContainer: 'tabs__label-container',
@@ -8,4 +8,4 @@ export const kTabs = {
     label: 'label',
     content: 'content',
   },
-};
+} as const;

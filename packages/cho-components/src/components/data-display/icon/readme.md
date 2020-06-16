@@ -7,16 +7,17 @@
 
 ## Properties
 
-| Property            | Attribute | Description       | Type                                                                                                                     | Default               |
-| ------------------- | --------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------ | --------------------- |
-| `color`             | `color`   | The color to use. | `string`                                                                                                                 | `'var(--text-color)'` |
-| `kind` _(required)_ | `kind`    | The kind to use.  | `"arrow-down" \| "arrow-up" \| "calendar" \| "cancel" \| "close" \| "error-outline" \| "info" \| "success" \| "warning"` | `undefined`           |
+| Property            | Attribute | Description       | Type                                                                                                                                                | Default               |
+| ------------------- | --------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `color`             | `color`   | The color to use. | `string`                                                                                                                                            | `'var(--text-color)'` |
+| `kind` _(required)_ | `kind`    | The kind to use.  | `"arrow-down" \| "arrow-up" \| "calendar" \| "cancel" \| "close" \| "error-outline" \| "hamburger" \| "info" \| "search" \| "success" \| "warning"` | `undefined`           |
 
 
 ## Dependencies
 
 ### Used by
 
+ - [cho-app-bar](../../surfaces/app-bar)
  - [cho-chip](../chip)
  - [cho-date-picker](../../inputs/date-picker)
  - [cho-dialog](../../feedback/dialog)
@@ -27,6 +28,7 @@
 ### Graph
 ```mermaid
 graph TD;
+  cho-app-bar --> cho-icon
   cho-chip --> cho-icon
   cho-date-picker --> cho-icon
   cho-dialog --> cho-icon

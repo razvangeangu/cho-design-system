@@ -1,5 +1,5 @@
 export const kDialog = {
-  componentName: 'cho-dialog' as 'cho-dialog',
+  componentName: 'cho-dialog',
   classes: {
     container: 'dialog__container',
     content: 'dialog__content',
@@ -10,4 +10,4 @@ export const kDialog = {
     title: 'title',
     footer: 'footer',
   },
-};
+} as const;

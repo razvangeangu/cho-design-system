@@ -1,5 +1,5 @@
 export const kMenuItem = {
-  componentName: 'cho-menu-item' as 'cho-menu-item',
+  componentName: 'cho-menu-item',
   classes: {
     li: 'menu-item__li',
     liSelected: 'menu-item__li--selected',
@@ -8,4 +8,4 @@ export const kMenuItem = {
     menuItemConnected: 'menuItemConnected',
     menuItemDisconnected: 'menuItemDisconnected',
   },
-};
+} as const;

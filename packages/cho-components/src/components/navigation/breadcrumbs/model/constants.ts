@@ -1,6 +1,6 @@
 export const kBreadcrumbs = {
-  componentName: 'cho-breadcrumbs' as 'cho-breadcrumbs',
+  componentName: 'cho-breadcrumbs',
   classes: {
     container: 'breadcrumbs-container',
   },
-};
+} as const;

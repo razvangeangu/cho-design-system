@@ -1,5 +1,5 @@
 export const kProgress = {
-  componentName: 'cho-progress' as 'cho-progress',
+  componentName: 'cho-progress',
   classes: {
     linear: 'progress-linear',
     linearContainer: 'progress-linear-container',
@@ -8,4 +8,4 @@ export const kProgress = {
     circularPercentage: 'progress-circular-percentage',
     circularSvg: 'progress-circular-svg',
   },
-};
+} as const;

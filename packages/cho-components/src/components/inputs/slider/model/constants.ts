@@ -1,5 +1,5 @@
 export const kSlider = {
-  componentName: 'cho-slider' as 'cho-slider',
+  componentName: 'cho-slider',
   classes: {
     slider: 'slider',
     sliderContainer: 'slider__container',
@@ -19,4 +19,4 @@ export const kSlider = {
     leading: 'leading',
     trailing: 'trailing',
   },
-};
+} as const;

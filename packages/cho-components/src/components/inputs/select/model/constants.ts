@@ -1,5 +1,5 @@
 export const kSelect = {
-  componentName: 'cho-select' as 'cho-select',
+  componentName: 'cho-select',
   classes: {
     selectUl: 'select__ul',
     trailingIcon: 'select__trailing-icon',
@@ -8,4 +8,4 @@ export const kSelect = {
     select: 'Select',
     none: 'None',
   },
-};
+} as const;
