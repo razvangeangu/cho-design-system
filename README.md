@@ -8,6 +8,11 @@ A light design system based on common web standards and design guidelines useful
 
 ```sh
 git clone https://github.com/razvangeangu/cho-design-system.git
+```
+
+Open the directory and run:
+
+```sh
 npm install
 lerna bootstrap
 lerna run build
@@ -26,4 +31,4 @@ npm run dev
 
 ## License
 
-This project is licensed under the MIT license, Copyright (c) 2019 Razvan-Gabriel Geangu. For more information see [LICENSE](LICENSE).
+This project is licensed under the MIT license, Copyright (c) 2020 Razvan-Gabriel Geangu. For more information see [LICENSE](LICENSE).
