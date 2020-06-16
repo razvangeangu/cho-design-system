@@ -43,6 +43,17 @@ export function ProxyCmp(opts: { inputs?: any; methods?: any }) {
 
 import { Components } from '@cho/components'
 
+export declare interface ChoAppBar extends Components.ChoAppBar {}
+@ProxyCmp({inputs: ['hidesOnScroll', 'position']})
+@Component({ selector: 'cho-app-bar', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['hidesOnScroll', 'position'] })
+export class ChoAppBar {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 export declare interface ChoBackdrop extends Components.ChoBackdrop {}
 @ProxyCmp({inputs: ['visible']})
 @Component({ selector: 'cho-backdrop', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['visible'] })

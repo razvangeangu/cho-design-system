@@ -5,6 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { TAppBarPosition } from "./components/surfaces/app-bar/model";
 import { TBadgeKind } from "./components/data-display/badge/model";
 import { TInputType, TPlacement, TPlacementHorizontal, TPlacementVertical } from "./types";
 import { TButtonKind } from "./components/inputs/button/model";
@@ -28,6 +29,18 @@ import { ICurrentIndexChangedDetail } from "./components/navigation/tabs/model";
 import { ITextFieldValueChangedDetail } from "./components/inputs/text-field/model";
 import { ITimePickerHoursChangedDetail, ITimePickerMinutesChangedDetail, ITimePickerValueChangedDetail } from "./components/inputs/time-picker/model";
 export namespace Components {
+    interface ChoAppBar {
+        /**
+          * If `true`, hides on scroll down to leave more space for reading
+          * @default 'false'
+         */
+        "hidesOnScroll"?: boolean;
+        /**
+          * The position of the app bar.
+          * @default 'static'
+         */
+        "position"?: TAppBarPosition;
+    }
     interface ChoBackdrop {
         /**
           * If `true`, the backdrop and it's children will be visible.
@@ -580,6 +593,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLChoAppBarElement extends Components.ChoAppBar, HTMLStencilElement {
+    }
+    var HTMLChoAppBarElement: {
+        prototype: HTMLChoAppBarElement;
+        new (): HTMLChoAppBarElement;
+    };
     interface HTMLChoBackdropElement extends Components.ChoBackdrop, HTMLStencilElement {
     }
     var HTMLChoBackdropElement: {
@@ -749,6 +768,7 @@ declare global {
         new (): HTMLChoTooltipElement;
     };
     interface HTMLElementTagNameMap {
+        "cho-app-bar": HTMLChoAppBarElement;
         "cho-backdrop": HTMLChoBackdropElement;
         "cho-badge": HTMLChoBadgeElement;
         "cho-breadcrumbs": HTMLChoBreadcrumbsElement;
@@ -780,6 +800,18 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface ChoAppBar {
+        /**
+          * If `true`, hides on scroll down to leave more space for reading
+          * @default 'false'
+         */
+        "hidesOnScroll"?: boolean;
+        /**
+          * The position of the app bar.
+          * @default 'static'
+         */
+        "position"?: TAppBarPosition;
+    }
     interface ChoBackdrop {
         /**
           * If `true`, the backdrop and it's children will be visible.
@@ -1371,6 +1403,7 @@ declare namespace LocalJSX {
         "visible"?: boolean;
     }
     interface IntrinsicElements {
+        "cho-app-bar": ChoAppBar;
         "cho-backdrop": ChoBackdrop;
         "cho-badge": ChoBadge;
         "cho-breadcrumbs": ChoBreadcrumbs;
@@ -1405,6 +1438,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "cho-app-bar": LocalJSX.ChoAppBar & JSXBase.HTMLAttributes<HTMLChoAppBarElement>;
             "cho-backdrop": LocalJSX.ChoBackdrop & JSXBase.HTMLAttributes<HTMLChoBackdropElement>;
             "cho-badge": LocalJSX.ChoBadge & JSXBase.HTMLAttributes<HTMLChoBadgeElement>;
             "cho-breadcrumbs": LocalJSX.ChoBreadcrumbs & JSXBase.HTMLAttributes<HTMLChoBreadcrumbsElement>;

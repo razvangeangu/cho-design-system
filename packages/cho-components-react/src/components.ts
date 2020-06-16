@@ -8,6 +8,7 @@ import { JSX } from '@cho/components';
 import { defineCustomElements, applyPolyfills } from '@cho/components/loader';
 
 applyPolyfills().then(() => defineCustomElements());
+export const ChoAppBar = /*@__PURE__*/createReactComponent<JSX.ChoAppBar, HTMLChoAppBarElement>('cho-app-bar');
 export const ChoBackdrop = /*@__PURE__*/createReactComponent<JSX.ChoBackdrop, HTMLChoBackdropElement>('cho-backdrop');
 export const ChoBadge = /*@__PURE__*/createReactComponent<JSX.ChoBadge, HTMLChoBadgeElement>('cho-badge');
 export const ChoBreadcrumbs = /*@__PURE__*/createReactComponent<JSX.ChoBreadcrumbs, HTMLChoBreadcrumbsElement>('cho-breadcrumbs');
