@@ -162,6 +162,18 @@ export namespace Components {
          */
         "value"?: Date;
     }
+    interface ChoDialog {
+        /**
+          * If `true`, the dialog will close when clicking on the backdrop.
+          * @default true
+         */
+        "dismissible"?: boolean;
+        /**
+          * If `true`, the dialog will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
+    }
     interface ChoDivider {
     }
     interface ChoExpansionPanel {
@@ -610,6 +622,12 @@ declare global {
         prototype: HTMLChoDatePickerElement;
         new (): HTMLChoDatePickerElement;
     };
+    interface HTMLChoDialogElement extends Components.ChoDialog, HTMLStencilElement {
+    }
+    var HTMLChoDialogElement: {
+        prototype: HTMLChoDialogElement;
+        new (): HTMLChoDialogElement;
+    };
     interface HTMLChoDividerElement extends Components.ChoDivider, HTMLStencilElement {
     }
     var HTMLChoDividerElement: {
@@ -738,6 +756,7 @@ declare global {
         "cho-checkbox": HTMLChoCheckboxElement;
         "cho-chip": HTMLChoChipElement;
         "cho-date-picker": HTMLChoDatePickerElement;
+        "cho-dialog": HTMLChoDialogElement;
         "cho-divider": HTMLChoDividerElement;
         "cho-expansion-panel": HTMLChoExpansionPanelElement;
         "cho-expansion-panel-item": HTMLChoExpansionPanelItemElement;
@@ -918,6 +937,18 @@ declare namespace LocalJSX {
           * @default new Date()
          */
         "value"?: Date;
+    }
+    interface ChoDialog {
+        /**
+          * If `true`, the dialog will close when clicking on the backdrop.
+          * @default true
+         */
+        "dismissible"?: boolean;
+        /**
+          * If `true`, the dialog will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
     }
     interface ChoDivider {
     }
@@ -1347,6 +1378,7 @@ declare namespace LocalJSX {
         "cho-checkbox": ChoCheckbox;
         "cho-chip": ChoChip;
         "cho-date-picker": ChoDatePicker;
+        "cho-dialog": ChoDialog;
         "cho-divider": ChoDivider;
         "cho-expansion-panel": ChoExpansionPanel;
         "cho-expansion-panel-item": ChoExpansionPanelItem;
@@ -1380,6 +1412,7 @@ declare module "@stencil/core" {
             "cho-checkbox": LocalJSX.ChoCheckbox & JSXBase.HTMLAttributes<HTMLChoCheckboxElement>;
             "cho-chip": LocalJSX.ChoChip & JSXBase.HTMLAttributes<HTMLChoChipElement>;
             "cho-date-picker": LocalJSX.ChoDatePicker & JSXBase.HTMLAttributes<HTMLChoDatePickerElement>;
+            "cho-dialog": LocalJSX.ChoDialog & JSXBase.HTMLAttributes<HTMLChoDialogElement>;
             "cho-divider": LocalJSX.ChoDivider & JSXBase.HTMLAttributes<HTMLChoDividerElement>;
             "cho-expansion-panel": LocalJSX.ChoExpansionPanel & JSXBase.HTMLAttributes<HTMLChoExpansionPanelElement>;
             "cho-expansion-panel-item": LocalJSX.ChoExpansionPanelItem & JSXBase.HTMLAttributes<HTMLChoExpansionPanelItemElement>;

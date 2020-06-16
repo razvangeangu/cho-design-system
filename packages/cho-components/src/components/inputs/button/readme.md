@@ -26,11 +26,13 @@
 
 ### Used by
 
+ - [cho-dialog](../../feedback/dialog)
  - [cho-tab-item](../../navigation/tab-item)
 
 ### Graph
 ```mermaid
 graph TD;
+  cho-dialog --> cho-button
   cho-tab-item --> cho-button
   style cho-button fill:#f9f,stroke:#333,stroke-width:4px
 ```

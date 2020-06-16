@@ -129,6 +129,17 @@ export class ChoDatePicker {
   }
 }
 
+export declare interface ChoDialog extends Components.ChoDialog {}
+@ProxyCmp({inputs: ['dismissible', 'visible']})
+@Component({ selector: 'cho-dialog', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['dismissible', 'visible'] })
+export class ChoDialog {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 export declare interface ChoDivider extends Components.ChoDivider {}
 
 @Component({ selector: 'cho-divider', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>' })

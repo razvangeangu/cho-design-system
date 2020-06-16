@@ -1,6 +1,5 @@
 :host {
   display: inline-block;
-  margin: 0.5rem;
 }
 
 .button {
@@ -11,7 +10,7 @@
   border: var(--border-width) solid transparent;
   border-radius: var(--border-radius);
   cursor: pointer;
-  display: inline-block;
+  display: inline-flex;
   white-space: nowrap;
   width: 100%;
 

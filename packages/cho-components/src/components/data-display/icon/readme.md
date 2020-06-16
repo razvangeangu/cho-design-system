@@ -19,6 +19,7 @@
 
  - [cho-chip](../chip)
  - [cho-date-picker](../../inputs/date-picker)
+ - [cho-dialog](../../feedback/dialog)
  - [cho-expansion-panel-item](../../surfaces/expansion-panel-item)
  - [cho-notification](../../feedback/notification)
  - [cho-select](../../inputs/select)
@@ -28,6 +29,7 @@
 graph TD;
   cho-chip --> cho-icon
   cho-date-picker --> cho-icon
+  cho-dialog --> cho-icon
   cho-expansion-panel-item --> cho-icon
   cho-notification --> cho-icon
   cho-select --> cho-icon

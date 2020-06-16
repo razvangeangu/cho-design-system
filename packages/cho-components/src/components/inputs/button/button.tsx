@@ -1,6 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { h, Component, Prop, ComponentInterface } from '@stencil/core';
-import { TButtonKind, kButton } from './model';
+import { Component, ComponentInterface, h, Prop } from '@stencil/core';
+import { kButton, TButtonKind } from './model';
 
 /**
  * @slot leading - A component to display before the primary content.
