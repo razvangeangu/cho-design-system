@@ -30,6 +30,7 @@
   font-size: var(--font-size);
   outline: none;
   text-decoration: none;
+  width: 100%;
 
   &:not([data-disabled='true']) {
     @include link-enabled();
