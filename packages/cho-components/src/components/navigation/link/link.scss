@@ -52,6 +52,7 @@
   font-size: var(--font-size);
   outline: none;
   text-decoration: none;
+  width: 100%;
 
   &:not(:disabled) {
     @include link-enabled();

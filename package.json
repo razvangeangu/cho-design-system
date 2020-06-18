@@ -11,7 +11,7 @@
     "packages/*"
   ],
   "scripts": {
-    "dev": "lerna --scope @cho/components run --stream start",
+    "dev": "lerna --scope @cho/components run serve --stream",
     "release": "standard-version",
     "lerna": "lerna"
   },

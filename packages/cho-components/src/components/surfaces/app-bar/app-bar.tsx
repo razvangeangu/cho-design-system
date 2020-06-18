@@ -48,7 +48,7 @@ export class AppBar implements ComponentInterface {
   private get hostStyle() {
     return {
       position: this.position === 'static' ? 'initial' : 'fixed',
-      visibility: this.visible ? 'hidden' : 'initial',
+      visibility: this.visible ? 'initial' : 'hidden',
     };
   }
 

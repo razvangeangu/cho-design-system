@@ -7,10 +7,10 @@
 
 ## Properties
 
-| Property            | Attribute | Description       | Type                                                                                                                                                | Default               |
-| ------------------- | --------- | ----------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
-| `color`             | `color`   | The color to use. | `string`                                                                                                                                            | `'var(--text-color)'` |
-| `kind` _(required)_ | `kind`    | The kind to use.  | `"arrow-down" \| "arrow-up" \| "calendar" \| "cancel" \| "close" \| "error-outline" \| "hamburger" \| "info" \| "search" \| "success" \| "warning"` | `undefined`           |
+| Property            | Attribute | Description       | Type                                                                                                                                                          | Default               |
+| ------------------- | --------- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `color`             | `color`   | The color to use. | `string`                                                                                                                                                      | `'var(--text-color)'` |
+| `kind` _(required)_ | `kind`    | The kind to use.  | `"arrow-down" \| "arrow-up" \| "calendar" \| "cancel" \| "close" \| "error-outline" \| "hamburger" \| "info" \| "link" \| "search" \| "success" \| "warning"` | `undefined`           |
 
 
 ## Dependencies
