@@ -38,13 +38,14 @@ choThemeSpan.innerHTML = '☀';
 
 var choThemeButton = document.createElement('cho-button');
 choThemeButton.style = '\
+  margin: 1rem;\
   position: fixed;\
   right: 0;\
   bottom: 0;\
 ';
 
 choThemeButton.appendChild(choThemeSpan);
-choThemeButton.addEventListener('click', function() {
+choThemeButton.addEventListener('click', function () {
   setTheme();
 
   if (localStorage.getItem('cho-theme') === 'dark') {
