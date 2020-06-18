@@ -5,29 +5,29 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { TAppBarPosition } from "./components/surfaces/app-bar/model";
-import { TBadgeKind } from "./components/data-display/badge/model";
+import { TAppBarPosition } from "./components/app-bar/model";
+import { TBadgeKind } from "./components/badge/model";
 import { TInputType, TPlacement, TPlacementHorizontal, TPlacementVertical } from "./types";
-import { TButtonKind } from "./components/inputs/button/model";
-import { ICheckboxValueChangedDetail } from "./components/inputs/checkbox/model";
-import { IChipDeleteEventDetail, TChipKind } from "./components/data-display/chip/model";
-import { IDatePickerDayChangedDetail, IDatePickerMonthChangedDetail, IDatePickerValueChangedDetail, IDatePickerYearChangedDetail } from "./components/inputs/date-picker/model";
-import { IExpansionPanelItemConnectedDetail, IExpansionPanelItemVisibleChangedDetail, TExpansionPanelItemHostContainer } from "./components/surfaces/expansion-panel-item/model";
-import { TIconKind } from "./components/data-display/icon/model";
-import { TLinkRelation, TLinkTarget } from "./components/navigation/link/model";
-import { IMenuItemConnectedDetail, TMenuItemHostContainer } from "./components/navigation/menu-item/model";
-import { TNotificationKind } from "./components/feedback/notification/model";
+import { TButtonKind } from "./components/button/model";
+import { ICheckboxValueChangedDetail } from "./components/checkbox/model";
+import { IChipDeleteEventDetail, TChipKind } from "./components/chip/model";
+import { IDatePickerDayChangedDetail, IDatePickerMonthChangedDetail, IDatePickerValueChangedDetail, IDatePickerYearChangedDetail } from "./components/date-picker/model";
+import { IExpansionPanelItemConnectedDetail, IExpansionPanelItemVisibleChangedDetail, TExpansionPanelItemHostContainer } from "./components/expansion-panel-item/model";
+import { TIconKind } from "./components/icon/model";
+import { TLinkRelation, TLinkTarget } from "./components/link/model";
+import { IMenuItemConnectedDetail, TMenuItemHostContainer } from "./components/menu-item/model";
+import { TNotificationKind } from "./components/notification/model";
 import { TOverlayPlacement } from "./types/t-overlay-placement";
-import { TProgressKind } from "./components/feedback/progress/model";
-import { IRadioValueChangedDetail } from "./components/inputs/radio/model";
-import { ISelectValueChangedDetail } from "./components/inputs/select/model";
-import { ISliderTickmark, ISliderValueChangedDetail } from "./components/inputs/slider/model";
-import { ISwitchValueChangedDetail } from "./components/inputs/switch/model";
-import { ITabItemConnectedDetail, ITabItemSelectedDetail, TTabItemHostContainer } from "./components/navigation/tab-item/model";
-import { ITabItemContentConnectedDetail, TTabItemContentHostContainer } from "./components/navigation/tab-item-content/model";
-import { ICurrentIndexChangedDetail } from "./components/navigation/tabs/model";
-import { ITextFieldValueChangedDetail } from "./components/inputs/text-field/model";
-import { ITimePickerHoursChangedDetail, ITimePickerMinutesChangedDetail, ITimePickerValueChangedDetail } from "./components/inputs/time-picker/model";
+import { TProgressKind } from "./components/progress/model";
+import { IRadioValueChangedDetail } from "./components/radio/model";
+import { ISelectValueChangedDetail } from "./components/select/model";
+import { ISliderTickmark, ISliderValueChangedDetail } from "./components/slider/model";
+import { ISwitchValueChangedDetail } from "./components/switch/model";
+import { ITabItemConnectedDetail, ITabItemSelectedDetail, TTabItemHostContainer } from "./components/tab-item/model";
+import { ITabItemContentConnectedDetail, TTabItemContentHostContainer } from "./components/tab-item-content/model";
+import { ICurrentIndexChangedDetail } from "./components/tabs/model";
+import { ITextFieldValueChangedDetail } from "./components/text-field/model";
+import { ITimePickerHoursChangedDetail, ITimePickerMinutesChangedDetail, ITimePickerValueChangedDetail } from "./components/time-picker/model";
 export namespace Components {
     interface ChoAppBar {
         /**
