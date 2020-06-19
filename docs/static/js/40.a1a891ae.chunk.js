@@ -1,0 +1,1 @@
+(this["webpackJsonp@cho/site"]=this["webpackJsonp@cho/site"]||[]).push([[40],{1039:function(e,s,t){e.exports=t.p+"static/media/readme.8abdbed0.md"}}]);
