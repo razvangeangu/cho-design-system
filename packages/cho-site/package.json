@@ -60,7 +60,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "postbuild": "cp -R build/ ../../docs",
+    "postbuild": "cd ../../docs && (ls | grep -v 'commands.md' | grep -v 'CNAME' | xargs rm -rf) && cp -R ../packages/cho-site/build/ .",
     "test": "react-scripts test --watchAll=false",
     "test:watch": "react-scripts test",
     "eject": "react-scripts eject",

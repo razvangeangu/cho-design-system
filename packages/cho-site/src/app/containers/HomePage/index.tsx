@@ -2,6 +2,8 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 export function HomePage() {
+  window.location.href = '/button';
+
   return (
     <>
       <Helmet>
