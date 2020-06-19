@@ -6,6 +6,9 @@
   --primary--hover: var(--blue300);
   --primary--focus: var(--blue400);
   --primary--active: var(--blue400);
+  --success: var(--green200);
+  --information: var(--blue200);
+  --warning: var(--orange200);
   --error: var(--red200);
   --error--hover: var(--red300);
   --error--focus: var(--red400);
@@ -19,6 +22,7 @@
   --button__text-color: var(--black);
   --button__primary-color--hover: var(--blue-gray800);
   --button__primary-color--active: var(--blue-gray900);
+  --surface__background-color--dark: var(--gray100);
   --surface__background-color: var(--gray700);
   --surface__background-color--hover: var(--gray800);
   --surface__background-color--focus: var(--gray800);
@@ -28,6 +32,7 @@
   --surface__color--hover: var(--gray700);
   --surface__color--focus: var(--gray800);
   --surface__color--active: var(--gray800);
+  --background-color: var(--black);
 
   color: var(--text-color);
 }
@@ -38,6 +43,9 @@
   --primary--hover: var(--blue600);
   --primary--focus: var(--blue800);
   --primary--active: var(--blue800);
+  --success: var(--green);
+  --information: var(--blue);
+  --warning: var(--orange);
   --error: var(--red);
   --error--hover: var(--red700);
   --error--focus: var(--red800);
@@ -51,6 +59,7 @@
   --button__text-color: var(--white);
   --button__primary-color--hover: var(--blue50);
   --button__primary-color--active: var(--blue100);
+  --surface__background-color--dark: var(--gray900);
   --surface__background-color: var(--gray100);
   --surface__background-color--hover: var(--gray200);
   --surface__background-color--focus: var(--gray300);
@@ -60,6 +69,7 @@
   --surface__color--hover: var(--gray50);
   --surface__color--focus: var(--gray100);
   --surface__color--active: var(--gray100);
+  --background-color: var(--white);
 
   color: var(--text-color);
 }

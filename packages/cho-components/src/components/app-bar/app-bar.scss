@@ -1,0 +1,43 @@
+:host {
+  display: inline-flex;
+  width: 100%;
+}
+
+.app-bar__container {
+  @include surface-inner-space();
+
+  align-content: center;
+  align-items: center;
+  background-color: var(--primary);
+  color: var(--text-color);
+  display: inline-flex;
+  font-size: 1.5rem;
+  width: 100%;
+
+  * {
+    color: var(--button__text-color);
+    font-weight: var(--font-weight-bold);
+  }
+
+  ::slotted(*) {
+    color: var(--button__text-color);
+    font-weight: var(--font-weight-bold);
+  }
+}
+
+.app-bar__leading {
+  @include surface-leading-space();
+
+  display: flex;
+}
+
+.app-bar__title {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+.app-bar__trailing {
+  @include surface-trailing-space();
+
+  display: flex;
+}

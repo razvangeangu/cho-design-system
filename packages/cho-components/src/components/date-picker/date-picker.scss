@@ -1,0 +1,101 @@
+:host {
+  display: inline-block;
+}
+
+.date-picker__calendar-container {
+  @include surface-inner-space();
+
+  border: solid var(--surface__border-color);
+  border-radius: var(--border-radius);
+  border-width: var(--border-width);
+}
+
+.date-picker__calendar-header {
+  text-align: center;
+}
+
+.date-picker__calendar-header-day {
+  color: var(--label-color);
+  font-size: var(--label__font-size);
+  text-transform: uppercase;
+  width: 1.75rem;
+
+  &[data-disabled='true'] {
+    color: var(--disabled);
+  }
+}
+
+.date-picker__calendar-days-container {
+  border-collapse: separate;
+  table-layout: auto;
+  width: 100%;
+}
+
+.date-picker__calendar-day {
+  border: var(--border-width) solid transparent;
+  border-radius: var(--border-radius);
+  height: 1.75rem;
+  outline: none;
+  text-align: center;
+  width: 1.75rem;
+
+  &[data-selected='true'] {
+    background-color: var(--primary);
+    color: var(--button__text-color);
+  }
+
+  &:not([data-disabled='true']) {
+    cursor: pointer;
+
+    &:focus {
+      background-color: var(--primary--focus);
+      color: var(--button__text-color);
+
+      &[data-selected='false'] {
+        background-color: var(--button__primary-color--hover);
+        color: var(--label-color);
+      }
+    }
+
+    &:hover {
+      background-color: var(--button__primary-color--hover);
+
+      &[data-selected='true'] {
+        background-color: var(--primary--hover);
+      }
+
+      &:active {
+        background-color: var(--primary--active);
+        color: var(--button__text-color);
+
+        &[data-selected='false'] {
+          background-color: var(--button__primary-color--active);
+          color: var(--label-color);
+        }
+      }
+    }
+  }
+
+  &[data-month='-1'],
+  &[data-month='1'] {
+    color: var(--placeholder-color);
+  }
+
+  &[data-disabled='true'] {
+    color: var(--placeholder-color);
+
+    &[data-selected='true'] {
+      background-color: var(--surface__background-color--disabled);
+    }
+
+    &[data-month='-1'],
+    &[data-month='1'] {
+      color: var(--placeholder-color--disabled);
+    }
+  }
+}
+
+.date-picker__text-field-icon {
+  height: 2rem;
+  width: 2rem;
+}

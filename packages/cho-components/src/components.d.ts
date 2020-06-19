@@ -5,17 +5,88 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { TButtonKind, } from "./components/inputs/button/model";
-import { TInputType, TPlacement, } from "./types";
-import { ICheckboxValueChangedDetail, } from "./components/inputs/checkbox/model";
-import { IDatePickerDayChangedDetail, IDatePickerMonthChangedDetail, IDatePickerValueChangedDetail, IDatePickerYearChangedDetail, } from "./components/inputs/date-picker/model";
-import { IMenuItemConnectedDetail, TMenuItemHostContainer, } from "./components/navigation/menu-item/model";
-import { IRadioValueChangedDetail, } from "./components/inputs/radio/model";
-import { ISelectValueChangedDetail, } from "./components/inputs/select/model";
-import { ISliderTickmark, ISliderValueChangedDetail, } from "./components/inputs/slider/model";
-import { ISwitchValueChangedDetail, } from "./components/inputs/switch/model";
-import { ITextFieldValueChangedDetail, } from "./components/inputs/text-field/model";
+import { IAppBarHamburgerClickedDetail, TAppBarPosition } from "./components/app-bar/model";
+import { TBadgeKind } from "./components/badge/model";
+import { TInputType, TPlacement, TPlacementHorizontal, TPlacementVertical } from "./types";
+import { TButtonKind } from "./components/button/model";
+import { ICheckboxValueChangedDetail } from "./components/checkbox/model";
+import { IChipDeleteEventDetail, TChipKind } from "./components/chip/model";
+import { IDatePickerDayChangedDetail, IDatePickerMonthChangedDetail, IDatePickerValueChangedDetail, IDatePickerYearChangedDetail } from "./components/date-picker/model";
+import { IExpansionPanelItemConnectedDetail, IExpansionPanelItemVisibleChangedDetail, TExpansionPanelItemHostContainer } from "./components/expansion-panel-item/model";
+import { TIconKind } from "./components/icon/model";
+import { TLinkRelation, TLinkTarget } from "./components/link/model";
+import { IMenuItemConnectedDetail, TMenuItemHostContainer } from "./components/menu-item/model";
+import { TNotificationKind } from "./components/notification/model";
+import { TOverlayPlacement } from "./types/t-overlay-placement";
+import { TProgressKind } from "./components/progress/model";
+import { IRadioValueChangedDetail } from "./components/radio/model";
+import { ISelectValueChangedDetail } from "./components/select/model";
+import { ISliderTickmark, ISliderValueChangedDetail } from "./components/slider/model";
+import { ISwitchValueChangedDetail } from "./components/switch/model";
+import { ITabItemConnectedDetail, ITabItemSelectedDetail, TTabItemHostContainer } from "./components/tab-item/model";
+import { ITabItemContentConnectedDetail, TTabItemContentHostContainer } from "./components/tab-item-content/model";
+import { ICurrentIndexChangedDetail } from "./components/tabs/model";
+import { ITextFieldValueChangedDetail } from "./components/text-field/model";
+import { ITimePickerHoursChangedDetail, ITimePickerMinutesChangedDetail, ITimePickerValueChangedDetail } from "./components/time-picker/model";
 export namespace Components {
+    interface ChoAppBar {
+        /**
+          * If `true`, hides on scroll down to leave more space for reading
+          * @default 'false'
+         */
+        "hidesOnScroll"?: boolean;
+        /**
+          * The position of the app bar.
+          * @default 'static'
+         */
+        "position"?: TAppBarPosition;
+    }
+    interface ChoBackdrop {
+        /**
+          * If `true`, the backdrop and it's children will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
+    }
+    interface ChoBadge {
+        /**
+          * The content of the badge.
+          * @default undefined
+         */
+        "content"?: number;
+        /**
+          * The horizontal position of the badge.
+          * @default 'end'
+         */
+        "horizontalPlacement"?: TPlacementHorizontal;
+        /**
+          * The kind to use.
+          * @default 'simple'
+         */
+        "kind"?: TBadgeKind;
+        /**
+          * The maximum value of the content.
+          * @default 99
+         */
+        "max"?: number;
+        /**
+          * The vertical position of the badge.
+          * @default 'top'
+         */
+        "verticalPlacement"?: TPlacementVertical;
+        /**
+          * If `true`, the badge will be visible.
+          * @default true
+         */
+        "visible"?: boolean;
+    }
+    interface ChoBreadcrumbs {
+        /**
+          * Custom separator string.
+          * @default '/'
+         */
+        "separator"?: string;
+    }
     interface ChoButton {
         /**
           * If `true`, the button will be disabled.
@@ -55,6 +126,28 @@ export namespace Components {
          */
         "labelPlacement"?: TPlacement;
     }
+    interface ChoChip {
+        /**
+          * If `true`, the component will display clicking style.
+          * @default false
+         */
+        "clickable"?: boolean;
+        /**
+          * If `true`, the component will show the delete icon in the trailing space.
+          * @default false
+         */
+        "deleteIcon"?: boolean;
+        /**
+          * If `true`, the button will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * The kind to use.
+          * @default 'contained'
+         */
+        "kind"?: TChipKind;
+    }
     interface ChoDatePicker {
         /**
           * If `true`, the text-field will be disabled.
@@ -82,7 +175,87 @@ export namespace Components {
          */
         "value"?: Date;
     }
+    interface ChoDialog {
+        /**
+          * If `true`, the dialog will close when clicking on the backdrop.
+          * @default true
+         */
+        "dismissible"?: boolean;
+        /**
+          * If `true`, the dialog will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
+    }
     interface ChoDivider {
+    }
+    interface ChoDrawer {
+        /**
+          * If `true`, the drawer and it's children will be visible.
+          * @default true
+         */
+        "visible"?: boolean;
+    }
+    interface ChoExpansionPanel {
+        /**
+          * If `true`, the expansion panel items will be closed when opening another one.
+          * @default false
+         */
+        "accordion"?: boolean;
+        /**
+          * Helper used to keep track internally of the expansion panel items in expansion panel.
+          * @param expansionPanelItem The expansion panel item that has been disconnected and due to be removed.
+         */
+        "removeExpansionPanelItem": (expansionPanelItem: HTMLChoExpansionPanelItemElement) => Promise<void>;
+    }
+    interface ChoExpansionPanelItem {
+        /**
+          * If `true`, the expansion-panel-item will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Helper used to keep track internally of the menu items in containers.
+          * @param hostContainer The container that controls the menu-item.
+         */
+        "setHostContainer": (hostContainer: TExpansionPanelItemHostContainer) => Promise<void>;
+        /**
+          * If `true`, the content will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
+    }
+    interface ChoIcon {
+        /**
+          * The color to use.
+          * @default 'var(--text-color)''
+         */
+        "color"?: string;
+        /**
+          * The kind to use.
+          * @default undefined
+         */
+        "kind": TIconKind;
+    }
+    interface ChoLink {
+        /**
+          * If `true`, the button will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Specifies the link's destination.
+          * @default undefined
+         */
+        "href"?: string;
+        /**
+          * Specifies the relationship between the current document and the linked document. Only used if the href attribute is present.
+         */
+        "relation"?: TLinkRelation;
+        /**
+          * Specifies where to open the linked document.
+         */
+        "target"?: TLinkTarget;
     }
     interface ChoMenu {
     }
@@ -109,6 +282,45 @@ export namespace Components {
         "value"?: any;
     }
     interface ChoMenuItemGroup {
+    }
+    interface ChoNotification {
+        /**
+          * The kind to use.
+          * @default 'default'
+         */
+        "kind"?: TNotificationKind;
+        /**
+          * The fixed position of the badge on the screen.
+          * @default 'bottom'
+         */
+        "placement"?: TOverlayPlacement;
+        /**
+          * If `true`, the notification will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
+    }
+    interface ChoProgress {
+        /**
+          * If `true`, the component appears indeterminate.
+          * @default true
+         */
+        "indeterminate"?: boolean;
+        /**
+          * The kind to use.
+          * @default 'circular'
+         */
+        "kind"?: TProgressKind;
+        /**
+          * If `true`, the label will be visible.
+          * @default false
+         */
+        "label"?: boolean;
+        /**
+          * The value of the progress indicator for the determinate and static variants. Value between 0 and 100.
+          * @default 0
+         */
+        "value"?: number;
     }
     interface ChoRadio {
         /**
@@ -196,7 +408,7 @@ export namespace Components {
         /**
           * The track presentation: - `normal` the track will render a bar representing the slider value. - `inverted` the track will render a bar representing the remaining slider value. - `false` the track will render without a bar.
          */
-        "track"?: "normal" | "inverted" | "false";
+        "track"?: 'normal' | 'inverted' | 'false';
         /**
           * The value of the slider.
           * @default 0
@@ -219,6 +431,67 @@ export namespace Components {
           * @default 'end'
          */
         "labelPlacement"?: TPlacement;
+    }
+    interface ChoTabItem {
+        /**
+          * If `true`, the button will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * The position index of the tab.
+          * @default undefined
+         */
+        "index": number;
+        /**
+          * The label content.
+          * @default undefined
+         */
+        "label": string;
+        /**
+          * If `true`, the tab item will display selected.
+          * @default false
+         */
+        "selected"?: boolean;
+        /**
+          * Helper used to keep track internally of the menu items in containers.
+          * @param hostContainer The container that controls the menu-item.
+         */
+        "setHostContainer": (hostContainer: TTabItemHostContainer) => Promise<void>;
+    }
+    interface ChoTabItemContent {
+        /**
+          * The position index of the tab content.
+          * @default undefined
+         */
+        "index": number;
+        /**
+          * Helper used to keep track internally of the menu items in containers.
+          * @param hostContainer The container that controls the menu-item.
+         */
+        "setHostContainer": (hostContainer: TTabItemContentHostContainer) => Promise<void>;
+        /**
+          * If `true`, the tab item content will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
+    }
+    interface ChoTabs {
+        /**
+          * The position index of the tab content.
+          * @default 0
+         */
+        "currentIndex"?: number;
+        /**
+          * Helper used to keep track internally of the tab item content items in tab item content.
+          * @param tabItem The tab item item that has been disconnected and due to be removed.
+         */
+        "removeTabItem": (tabItem: HTMLChoTabItemElement) => Promise<void>;
+        /**
+          * Helper used to keep track internally of the tab item content items in tab item content.
+          * @param tabItemContent The tab item content item that has been disconnected and due to be removed.
+         */
+        "removeTabItemContent": (tabItemContent: HTMLChoTabItemContentElement) => Promise<void>;
     }
     interface ChoTextField {
         /**
@@ -292,8 +565,65 @@ export namespace Components {
          */
         "value"?: string;
     }
+    interface ChoTimePicker {
+        /**
+          * If `true`, the text-field will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * If `true`, the value will be formatted with AM/PM.
+          * @default false
+         */
+        "twelveHourFormat": boolean;
+        /**
+          * The value of the time-picker.
+          * @default new Date()
+         */
+        "value"?: Date;
+    }
+    interface ChoTooltip {
+        /**
+          * The fixed position of the badge on the screen.
+          * @default 'bottom'
+         */
+        "placement"?: TOverlayPlacement;
+        /**
+          * Tooltip title.
+         */
+        "titleContent"?: string;
+        /**
+          * If `true`, the tooltip will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
+    }
 }
 declare global {
+    interface HTMLChoAppBarElement extends Components.ChoAppBar, HTMLStencilElement {
+    }
+    var HTMLChoAppBarElement: {
+        prototype: HTMLChoAppBarElement;
+        new (): HTMLChoAppBarElement;
+    };
+    interface HTMLChoBackdropElement extends Components.ChoBackdrop, HTMLStencilElement {
+    }
+    var HTMLChoBackdropElement: {
+        prototype: HTMLChoBackdropElement;
+        new (): HTMLChoBackdropElement;
+    };
+    interface HTMLChoBadgeElement extends Components.ChoBadge, HTMLStencilElement {
+    }
+    var HTMLChoBadgeElement: {
+        prototype: HTMLChoBadgeElement;
+        new (): HTMLChoBadgeElement;
+    };
+    interface HTMLChoBreadcrumbsElement extends Components.ChoBreadcrumbs, HTMLStencilElement {
+    }
+    var HTMLChoBreadcrumbsElement: {
+        prototype: HTMLChoBreadcrumbsElement;
+        new (): HTMLChoBreadcrumbsElement;
+    };
     interface HTMLChoButtonElement extends Components.ChoButton, HTMLStencilElement {
     }
     var HTMLChoButtonElement: {
@@ -306,17 +636,59 @@ declare global {
         prototype: HTMLChoCheckboxElement;
         new (): HTMLChoCheckboxElement;
     };
+    interface HTMLChoChipElement extends Components.ChoChip, HTMLStencilElement {
+    }
+    var HTMLChoChipElement: {
+        prototype: HTMLChoChipElement;
+        new (): HTMLChoChipElement;
+    };
     interface HTMLChoDatePickerElement extends Components.ChoDatePicker, HTMLStencilElement {
     }
     var HTMLChoDatePickerElement: {
         prototype: HTMLChoDatePickerElement;
         new (): HTMLChoDatePickerElement;
     };
+    interface HTMLChoDialogElement extends Components.ChoDialog, HTMLStencilElement {
+    }
+    var HTMLChoDialogElement: {
+        prototype: HTMLChoDialogElement;
+        new (): HTMLChoDialogElement;
+    };
     interface HTMLChoDividerElement extends Components.ChoDivider, HTMLStencilElement {
     }
     var HTMLChoDividerElement: {
         prototype: HTMLChoDividerElement;
         new (): HTMLChoDividerElement;
+    };
+    interface HTMLChoDrawerElement extends Components.ChoDrawer, HTMLStencilElement {
+    }
+    var HTMLChoDrawerElement: {
+        prototype: HTMLChoDrawerElement;
+        new (): HTMLChoDrawerElement;
+    };
+    interface HTMLChoExpansionPanelElement extends Components.ChoExpansionPanel, HTMLStencilElement {
+    }
+    var HTMLChoExpansionPanelElement: {
+        prototype: HTMLChoExpansionPanelElement;
+        new (): HTMLChoExpansionPanelElement;
+    };
+    interface HTMLChoExpansionPanelItemElement extends Components.ChoExpansionPanelItem, HTMLStencilElement {
+    }
+    var HTMLChoExpansionPanelItemElement: {
+        prototype: HTMLChoExpansionPanelItemElement;
+        new (): HTMLChoExpansionPanelItemElement;
+    };
+    interface HTMLChoIconElement extends Components.ChoIcon, HTMLStencilElement {
+    }
+    var HTMLChoIconElement: {
+        prototype: HTMLChoIconElement;
+        new (): HTMLChoIconElement;
+    };
+    interface HTMLChoLinkElement extends Components.ChoLink, HTMLStencilElement {
+    }
+    var HTMLChoLinkElement: {
+        prototype: HTMLChoLinkElement;
+        new (): HTMLChoLinkElement;
     };
     interface HTMLChoMenuElement extends Components.ChoMenu, HTMLStencilElement {
     }
@@ -335,6 +707,18 @@ declare global {
     var HTMLChoMenuItemGroupElement: {
         prototype: HTMLChoMenuItemGroupElement;
         new (): HTMLChoMenuItemGroupElement;
+    };
+    interface HTMLChoNotificationElement extends Components.ChoNotification, HTMLStencilElement {
+    }
+    var HTMLChoNotificationElement: {
+        prototype: HTMLChoNotificationElement;
+        new (): HTMLChoNotificationElement;
+    };
+    interface HTMLChoProgressElement extends Components.ChoProgress, HTMLStencilElement {
+    }
+    var HTMLChoProgressElement: {
+        prototype: HTMLChoProgressElement;
+        new (): HTMLChoProgressElement;
     };
     interface HTMLChoRadioElement extends Components.ChoRadio, HTMLStencilElement {
     }
@@ -360,28 +744,138 @@ declare global {
         prototype: HTMLChoSwitchElement;
         new (): HTMLChoSwitchElement;
     };
+    interface HTMLChoTabItemElement extends Components.ChoTabItem, HTMLStencilElement {
+    }
+    var HTMLChoTabItemElement: {
+        prototype: HTMLChoTabItemElement;
+        new (): HTMLChoTabItemElement;
+    };
+    interface HTMLChoTabItemContentElement extends Components.ChoTabItemContent, HTMLStencilElement {
+    }
+    var HTMLChoTabItemContentElement: {
+        prototype: HTMLChoTabItemContentElement;
+        new (): HTMLChoTabItemContentElement;
+    };
+    interface HTMLChoTabsElement extends Components.ChoTabs, HTMLStencilElement {
+    }
+    var HTMLChoTabsElement: {
+        prototype: HTMLChoTabsElement;
+        new (): HTMLChoTabsElement;
+    };
     interface HTMLChoTextFieldElement extends Components.ChoTextField, HTMLStencilElement {
     }
     var HTMLChoTextFieldElement: {
         prototype: HTMLChoTextFieldElement;
         new (): HTMLChoTextFieldElement;
     };
+    interface HTMLChoTimePickerElement extends Components.ChoTimePicker, HTMLStencilElement {
+    }
+    var HTMLChoTimePickerElement: {
+        prototype: HTMLChoTimePickerElement;
+        new (): HTMLChoTimePickerElement;
+    };
+    interface HTMLChoTooltipElement extends Components.ChoTooltip, HTMLStencilElement {
+    }
+    var HTMLChoTooltipElement: {
+        prototype: HTMLChoTooltipElement;
+        new (): HTMLChoTooltipElement;
+    };
     interface HTMLElementTagNameMap {
+        "cho-app-bar": HTMLChoAppBarElement;
+        "cho-backdrop": HTMLChoBackdropElement;
+        "cho-badge": HTMLChoBadgeElement;
+        "cho-breadcrumbs": HTMLChoBreadcrumbsElement;
         "cho-button": HTMLChoButtonElement;
         "cho-checkbox": HTMLChoCheckboxElement;
+        "cho-chip": HTMLChoChipElement;
         "cho-date-picker": HTMLChoDatePickerElement;
+        "cho-dialog": HTMLChoDialogElement;
         "cho-divider": HTMLChoDividerElement;
+        "cho-drawer": HTMLChoDrawerElement;
+        "cho-expansion-panel": HTMLChoExpansionPanelElement;
+        "cho-expansion-panel-item": HTMLChoExpansionPanelItemElement;
+        "cho-icon": HTMLChoIconElement;
+        "cho-link": HTMLChoLinkElement;
         "cho-menu": HTMLChoMenuElement;
         "cho-menu-item": HTMLChoMenuItemElement;
         "cho-menu-item-group": HTMLChoMenuItemGroupElement;
+        "cho-notification": HTMLChoNotificationElement;
+        "cho-progress": HTMLChoProgressElement;
         "cho-radio": HTMLChoRadioElement;
         "cho-select": HTMLChoSelectElement;
         "cho-slider": HTMLChoSliderElement;
         "cho-switch": HTMLChoSwitchElement;
+        "cho-tab-item": HTMLChoTabItemElement;
+        "cho-tab-item-content": HTMLChoTabItemContentElement;
+        "cho-tabs": HTMLChoTabsElement;
         "cho-text-field": HTMLChoTextFieldElement;
+        "cho-time-picker": HTMLChoTimePickerElement;
+        "cho-tooltip": HTMLChoTooltipElement;
     }
 }
 declare namespace LocalJSX {
+    interface ChoAppBar {
+        /**
+          * If `true`, hides on scroll down to leave more space for reading
+          * @default 'false'
+         */
+        "hidesOnScroll"?: boolean;
+        /**
+          * Callback fired when clicking the hamburger button.
+         */
+        "onHamburgerClicked"?: (event: CustomEvent<IAppBarHamburgerClickedDetail>) => void;
+        /**
+          * The position of the app bar.
+          * @default 'static'
+         */
+        "position"?: TAppBarPosition;
+    }
+    interface ChoBackdrop {
+        /**
+          * If `true`, the backdrop and it's children will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
+    }
+    interface ChoBadge {
+        /**
+          * The content of the badge.
+          * @default undefined
+         */
+        "content"?: number;
+        /**
+          * The horizontal position of the badge.
+          * @default 'end'
+         */
+        "horizontalPlacement"?: TPlacementHorizontal;
+        /**
+          * The kind to use.
+          * @default 'simple'
+         */
+        "kind"?: TBadgeKind;
+        /**
+          * The maximum value of the content.
+          * @default 99
+         */
+        "max"?: number;
+        /**
+          * The vertical position of the badge.
+          * @default 'top'
+         */
+        "verticalPlacement"?: TPlacementVertical;
+        /**
+          * If `true`, the badge will be visible.
+          * @default true
+         */
+        "visible"?: boolean;
+    }
+    interface ChoBreadcrumbs {
+        /**
+          * Custom separator string.
+          * @default '/'
+         */
+        "separator"?: string;
+    }
     interface ChoButton {
         /**
           * If `true`, the button will be disabled.
@@ -424,6 +918,32 @@ declare namespace LocalJSX {
           * Callback fired when the state is changed.
          */
         "onCheckedChanged"?: (event: CustomEvent<ICheckboxValueChangedDetail>) => void;
+    }
+    interface ChoChip {
+        /**
+          * If `true`, the component will display clicking style.
+          * @default false
+         */
+        "clickable"?: boolean;
+        /**
+          * If `true`, the component will show the delete icon in the trailing space.
+          * @default false
+         */
+        "deleteIcon"?: boolean;
+        /**
+          * If `true`, the button will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * The kind to use.
+          * @default 'contained'
+         */
+        "kind"?: TChipKind;
+        /**
+          * Callback fired when the delete icon is clicked.
+         */
+        "onDelete"?: (event: CustomEvent<IChipDeleteEventDetail>) => void;
     }
     interface ChoDatePicker {
         /**
@@ -468,7 +988,85 @@ declare namespace LocalJSX {
          */
         "value"?: Date;
     }
+    interface ChoDialog {
+        /**
+          * If `true`, the dialog will close when clicking on the backdrop.
+          * @default true
+         */
+        "dismissible"?: boolean;
+        /**
+          * If `true`, the dialog will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
+    }
     interface ChoDivider {
+    }
+    interface ChoDrawer {
+        /**
+          * If `true`, the drawer and it's children will be visible.
+          * @default true
+         */
+        "visible"?: boolean;
+    }
+    interface ChoExpansionPanel {
+        /**
+          * If `true`, the expansion panel items will be closed when opening another one.
+          * @default false
+         */
+        "accordion"?: boolean;
+    }
+    interface ChoExpansionPanelItem {
+        /**
+          * If `true`, the expansion-panel-item will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Called every time the component is connected to the DOM.
+         */
+        "onExpansionPanelItemConnected"?: (event: CustomEvent<IExpansionPanelItemConnectedDetail>) => void;
+        /**
+          * Callback fired when the visible is changed.
+         */
+        "onVisibleChanged"?: (event: CustomEvent<IExpansionPanelItemVisibleChangedDetail>) => void;
+        /**
+          * If `true`, the content will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
+    }
+    interface ChoIcon {
+        /**
+          * The color to use.
+          * @default 'var(--text-color)''
+         */
+        "color"?: string;
+        /**
+          * The kind to use.
+          * @default undefined
+         */
+        "kind": TIconKind;
+    }
+    interface ChoLink {
+        /**
+          * If `true`, the button will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Specifies the link's destination.
+          * @default undefined
+         */
+        "href"?: string;
+        /**
+          * Specifies the relationship between the current document and the linked document. Only used if the href attribute is present.
+         */
+        "relation"?: TLinkRelation;
+        /**
+          * Specifies where to open the linked document.
+         */
+        "target"?: TLinkTarget;
     }
     interface ChoMenu {
     }
@@ -494,6 +1092,45 @@ declare namespace LocalJSX {
         "value"?: any;
     }
     interface ChoMenuItemGroup {
+    }
+    interface ChoNotification {
+        /**
+          * The kind to use.
+          * @default 'default'
+         */
+        "kind"?: TNotificationKind;
+        /**
+          * The fixed position of the badge on the screen.
+          * @default 'bottom'
+         */
+        "placement"?: TOverlayPlacement;
+        /**
+          * If `true`, the notification will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
+    }
+    interface ChoProgress {
+        /**
+          * If `true`, the component appears indeterminate.
+          * @default true
+         */
+        "indeterminate"?: boolean;
+        /**
+          * The kind to use.
+          * @default 'circular'
+         */
+        "kind"?: TProgressKind;
+        /**
+          * If `true`, the label will be visible.
+          * @default false
+         */
+        "label"?: boolean;
+        /**
+          * The value of the progress indicator for the determinate and static variants. Value between 0 and 100.
+          * @default 0
+         */
+        "value"?: number;
     }
     interface ChoRadio {
         /**
@@ -584,7 +1221,7 @@ declare namespace LocalJSX {
         /**
           * The track presentation: - `normal` the track will render a bar representing the slider value. - `inverted` the track will render a bar representing the remaining slider value. - `false` the track will render without a bar.
          */
-        "track"?: "normal" | "inverted" | "false";
+        "track"?: 'normal' | 'inverted' | 'false';
         /**
           * The value of the slider.
           * @default 0
@@ -611,6 +1248,63 @@ declare namespace LocalJSX {
           * Callback fired when the state is changed.
          */
         "onCheckedChanged"?: (event: CustomEvent<ISwitchValueChangedDetail>) => void;
+    }
+    interface ChoTabItem {
+        /**
+          * If `true`, the button will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * The position index of the tab.
+          * @default undefined
+         */
+        "index": number;
+        /**
+          * The label content.
+          * @default undefined
+         */
+        "label": string;
+        /**
+          * Called every time the component is connected to the DOM.
+         */
+        "onTabItemConnected"?: (event: CustomEvent<ITabItemConnectedDetail>) => void;
+        /**
+          * Callback fired when the tab item is selected.
+         */
+        "onTabItemSelected"?: (event: CustomEvent<ITabItemSelectedDetail>) => void;
+        /**
+          * If `true`, the tab item will display selected.
+          * @default false
+         */
+        "selected"?: boolean;
+    }
+    interface ChoTabItemContent {
+        /**
+          * The position index of the tab content.
+          * @default undefined
+         */
+        "index": number;
+        /**
+          * Called every time the component is connected to the DOM.
+         */
+        "onTabItemContentConnected"?: (event: CustomEvent<ITabItemContentConnectedDetail>) => void;
+        /**
+          * If `true`, the tab item content will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
+    }
+    interface ChoTabs {
+        /**
+          * The position index of the tab content.
+          * @default 0
+         */
+        "currentIndex"?: number;
+        /**
+          * Callback fired when current index value is changed.
+         */
+        "onCurrentIndexChanged"?: (event: CustomEvent<ICurrentIndexChangedDetail>) => void;
     }
     interface ChoTextField {
         /**
@@ -688,37 +1382,118 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface ChoTimePicker {
+        /**
+          * If `true`, the text-field will be disabled.
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Callback fired when the hours value is changed.
+         */
+        "onHoursChanged"?: (event: CustomEvent<ITimePickerHoursChangedDetail>) => void;
+        /**
+          * Callback fired when the minutes value is changed.
+         */
+        "onMinutesChanged"?: (event: CustomEvent<ITimePickerMinutesChangedDetail>) => void;
+        /**
+          * Callback fired when the value is changed.
+         */
+        "onValueChanged"?: (event: CustomEvent<ITimePickerValueChangedDetail>) => void;
+        /**
+          * If `true`, the value will be formatted with AM/PM.
+          * @default false
+         */
+        "twelveHourFormat"?: boolean;
+        /**
+          * The value of the time-picker.
+          * @default new Date()
+         */
+        "value"?: Date;
+    }
+    interface ChoTooltip {
+        /**
+          * The fixed position of the badge on the screen.
+          * @default 'bottom'
+         */
+        "placement"?: TOverlayPlacement;
+        /**
+          * Tooltip title.
+         */
+        "titleContent"?: string;
+        /**
+          * If `true`, the tooltip will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
+    }
     interface IntrinsicElements {
+        "cho-app-bar": ChoAppBar;
+        "cho-backdrop": ChoBackdrop;
+        "cho-badge": ChoBadge;
+        "cho-breadcrumbs": ChoBreadcrumbs;
         "cho-button": ChoButton;
         "cho-checkbox": ChoCheckbox;
+        "cho-chip": ChoChip;
         "cho-date-picker": ChoDatePicker;
+        "cho-dialog": ChoDialog;
         "cho-divider": ChoDivider;
+        "cho-drawer": ChoDrawer;
+        "cho-expansion-panel": ChoExpansionPanel;
+        "cho-expansion-panel-item": ChoExpansionPanelItem;
+        "cho-icon": ChoIcon;
+        "cho-link": ChoLink;
         "cho-menu": ChoMenu;
         "cho-menu-item": ChoMenuItem;
         "cho-menu-item-group": ChoMenuItemGroup;
+        "cho-notification": ChoNotification;
+        "cho-progress": ChoProgress;
         "cho-radio": ChoRadio;
         "cho-select": ChoSelect;
         "cho-slider": ChoSlider;
         "cho-switch": ChoSwitch;
+        "cho-tab-item": ChoTabItem;
+        "cho-tab-item-content": ChoTabItemContent;
+        "cho-tabs": ChoTabs;
         "cho-text-field": ChoTextField;
+        "cho-time-picker": ChoTimePicker;
+        "cho-tooltip": ChoTooltip;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "cho-app-bar": LocalJSX.ChoAppBar & JSXBase.HTMLAttributes<HTMLChoAppBarElement>;
+            "cho-backdrop": LocalJSX.ChoBackdrop & JSXBase.HTMLAttributes<HTMLChoBackdropElement>;
+            "cho-badge": LocalJSX.ChoBadge & JSXBase.HTMLAttributes<HTMLChoBadgeElement>;
+            "cho-breadcrumbs": LocalJSX.ChoBreadcrumbs & JSXBase.HTMLAttributes<HTMLChoBreadcrumbsElement>;
             "cho-button": LocalJSX.ChoButton & JSXBase.HTMLAttributes<HTMLChoButtonElement>;
             "cho-checkbox": LocalJSX.ChoCheckbox & JSXBase.HTMLAttributes<HTMLChoCheckboxElement>;
+            "cho-chip": LocalJSX.ChoChip & JSXBase.HTMLAttributes<HTMLChoChipElement>;
             "cho-date-picker": LocalJSX.ChoDatePicker & JSXBase.HTMLAttributes<HTMLChoDatePickerElement>;
+            "cho-dialog": LocalJSX.ChoDialog & JSXBase.HTMLAttributes<HTMLChoDialogElement>;
             "cho-divider": LocalJSX.ChoDivider & JSXBase.HTMLAttributes<HTMLChoDividerElement>;
+            "cho-drawer": LocalJSX.ChoDrawer & JSXBase.HTMLAttributes<HTMLChoDrawerElement>;
+            "cho-expansion-panel": LocalJSX.ChoExpansionPanel & JSXBase.HTMLAttributes<HTMLChoExpansionPanelElement>;
+            "cho-expansion-panel-item": LocalJSX.ChoExpansionPanelItem & JSXBase.HTMLAttributes<HTMLChoExpansionPanelItemElement>;
+            "cho-icon": LocalJSX.ChoIcon & JSXBase.HTMLAttributes<HTMLChoIconElement>;
+            "cho-link": LocalJSX.ChoLink & JSXBase.HTMLAttributes<HTMLChoLinkElement>;
             "cho-menu": LocalJSX.ChoMenu & JSXBase.HTMLAttributes<HTMLChoMenuElement>;
             "cho-menu-item": LocalJSX.ChoMenuItem & JSXBase.HTMLAttributes<HTMLChoMenuItemElement>;
             "cho-menu-item-group": LocalJSX.ChoMenuItemGroup & JSXBase.HTMLAttributes<HTMLChoMenuItemGroupElement>;
+            "cho-notification": LocalJSX.ChoNotification & JSXBase.HTMLAttributes<HTMLChoNotificationElement>;
+            "cho-progress": LocalJSX.ChoProgress & JSXBase.HTMLAttributes<HTMLChoProgressElement>;
             "cho-radio": LocalJSX.ChoRadio & JSXBase.HTMLAttributes<HTMLChoRadioElement>;
             "cho-select": LocalJSX.ChoSelect & JSXBase.HTMLAttributes<HTMLChoSelectElement>;
             "cho-slider": LocalJSX.ChoSlider & JSXBase.HTMLAttributes<HTMLChoSliderElement>;
             "cho-switch": LocalJSX.ChoSwitch & JSXBase.HTMLAttributes<HTMLChoSwitchElement>;
+            "cho-tab-item": LocalJSX.ChoTabItem & JSXBase.HTMLAttributes<HTMLChoTabItemElement>;
+            "cho-tab-item-content": LocalJSX.ChoTabItemContent & JSXBase.HTMLAttributes<HTMLChoTabItemContentElement>;
+            "cho-tabs": LocalJSX.ChoTabs & JSXBase.HTMLAttributes<HTMLChoTabsElement>;
             "cho-text-field": LocalJSX.ChoTextField & JSXBase.HTMLAttributes<HTMLChoTextFieldElement>;
+            "cho-time-picker": LocalJSX.ChoTimePicker & JSXBase.HTMLAttributes<HTMLChoTimePickerElement>;
+            "cho-tooltip": LocalJSX.ChoTooltip & JSXBase.HTMLAttributes<HTMLChoTooltipElement>;
         }
     }
 }

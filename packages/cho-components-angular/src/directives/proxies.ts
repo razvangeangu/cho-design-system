@@ -43,6 +43,52 @@ export function ProxyCmp(opts: { inputs?: any; methods?: any }) {
 
 import { Components } from '@cho/components'
 
+export declare interface ChoAppBar extends Components.ChoAppBar {}
+@ProxyCmp({inputs: ['hidesOnScroll', 'position']})
+@Component({ selector: 'cho-app-bar', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['hidesOnScroll', 'position'] })
+export class ChoAppBar {
+  hamburgerClicked!: EventEmitter<CustomEvent>;
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['hamburgerClicked']);
+  }
+}
+
+export declare interface ChoBackdrop extends Components.ChoBackdrop {}
+@ProxyCmp({inputs: ['visible']})
+@Component({ selector: 'cho-backdrop', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['visible'] })
+export class ChoBackdrop {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+export declare interface ChoBadge extends Components.ChoBadge {}
+@ProxyCmp({inputs: ['content', 'horizontalPlacement', 'kind', 'max', 'verticalPlacement', 'visible']})
+@Component({ selector: 'cho-badge', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['content', 'horizontalPlacement', 'kind', 'max', 'verticalPlacement', 'visible'] })
+export class ChoBadge {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+export declare interface ChoBreadcrumbs extends Components.ChoBreadcrumbs {}
+@ProxyCmp({inputs: ['separator']})
+@Component({ selector: 'cho-breadcrumbs', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['separator'] })
+export class ChoBreadcrumbs {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 export declare interface ChoButton extends Components.ChoButton {}
 @ProxyCmp({inputs: ['disabled', 'kind']})
 @Component({ selector: 'cho-button', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'kind'] })
@@ -67,6 +113,19 @@ export class ChoCheckbox {
   }
 }
 
+export declare interface ChoChip extends Components.ChoChip {}
+@ProxyCmp({inputs: ['clickable', 'deleteIcon', 'disabled', 'kind']})
+@Component({ selector: 'cho-chip', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['clickable', 'deleteIcon', 'disabled', 'kind'] })
+export class ChoChip {
+  delete!: EventEmitter<CustomEvent>;
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['delete']);
+  }
+}
+
 export declare interface ChoDatePicker extends Components.ChoDatePicker {}
 @ProxyCmp({inputs: ['disabled', 'maxDate', 'minDate', 'shouldDisableDate', 'value']})
 @Component({ selector: 'cho-date-picker', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'maxDate', 'minDate', 'shouldDisableDate', 'value'] })
@@ -83,10 +142,79 @@ export class ChoDatePicker {
   }
 }
 
+export declare interface ChoDialog extends Components.ChoDialog {}
+@ProxyCmp({inputs: ['dismissible', 'visible']})
+@Component({ selector: 'cho-dialog', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['dismissible', 'visible'] })
+export class ChoDialog {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
 export declare interface ChoDivider extends Components.ChoDivider {}
 
 @Component({ selector: 'cho-divider', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>' })
 export class ChoDivider {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+export declare interface ChoDrawer extends Components.ChoDrawer {}
+@ProxyCmp({inputs: ['visible']})
+@Component({ selector: 'cho-drawer', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['visible'] })
+export class ChoDrawer {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+export declare interface ChoExpansionPanel extends Components.ChoExpansionPanel {}
+@ProxyCmp({inputs: ['accordion']})
+@Component({ selector: 'cho-expansion-panel', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['accordion'] })
+export class ChoExpansionPanel {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+export declare interface ChoExpansionPanelItem extends Components.ChoExpansionPanelItem {}
+@ProxyCmp({inputs: ['disabled', 'visible']})
+@Component({ selector: 'cho-expansion-panel-item', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'visible'] })
+export class ChoExpansionPanelItem {
+  visibleChanged!: EventEmitter<CustomEvent>;
+  expansionPanelItemConnected!: EventEmitter<CustomEvent>;
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['visibleChanged', 'expansionPanelItemConnected']);
+  }
+}
+
+export declare interface ChoIcon extends Components.ChoIcon {}
+@ProxyCmp({inputs: ['color', 'kind']})
+@Component({ selector: 'cho-icon', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['color', 'kind'] })
+export class ChoIcon {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+export declare interface ChoLink extends Components.ChoLink {}
+@ProxyCmp({inputs: ['disabled', 'href', 'relation', 'target']})
+@Component({ selector: 'cho-link', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'href', 'relation', 'target'] })
+export class ChoLink {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -122,6 +250,28 @@ export declare interface ChoMenuItemGroup extends Components.ChoMenuItemGroup {}
 
 @Component({ selector: 'cho-menu-item-group', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>' })
 export class ChoMenuItemGroup {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+export declare interface ChoNotification extends Components.ChoNotification {}
+@ProxyCmp({inputs: ['kind', 'placement', 'visible']})
+@Component({ selector: 'cho-notification', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['kind', 'placement', 'visible'] })
+export class ChoNotification {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+export declare interface ChoProgress extends Components.ChoProgress {}
+@ProxyCmp({inputs: ['indeterminate', 'kind', 'label', 'value']})
+@Component({ selector: 'cho-progress', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['indeterminate', 'kind', 'label', 'value'] })
+export class ChoProgress {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
@@ -181,6 +331,46 @@ export class ChoSwitch {
   }
 }
 
+export declare interface ChoTabItem extends Components.ChoTabItem {}
+@ProxyCmp({inputs: ['disabled', 'index', 'label', 'selected']})
+@Component({ selector: 'cho-tab-item', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'index', 'label', 'selected'] })
+export class ChoTabItem {
+  tabItemSelected!: EventEmitter<CustomEvent>;
+  tabItemConnected!: EventEmitter<CustomEvent>;
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['tabItemSelected', 'tabItemConnected']);
+  }
+}
+
+export declare interface ChoTabItemContent extends Components.ChoTabItemContent {}
+@ProxyCmp({inputs: ['index', 'visible']})
+@Component({ selector: 'cho-tab-item-content', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['index', 'visible'] })
+export class ChoTabItemContent {
+  tabItemContentConnected!: EventEmitter<CustomEvent>;
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['tabItemContentConnected']);
+  }
+}
+
+export declare interface ChoTabs extends Components.ChoTabs {}
+@ProxyCmp({inputs: ['currentIndex']})
+@Component({ selector: 'cho-tabs', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['currentIndex'] })
+export class ChoTabs {
+  currentIndexChanged!: EventEmitter<CustomEvent>;
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['currentIndexChanged']);
+  }
+}
+
 export declare interface ChoTextField extends Components.ChoTextField {}
 @ProxyCmp({inputs: ['disabled', 'error', 'helperText', 'label', 'max', 'min', 'multiline', 'name', 'placeholder', 'readOnly', 'rows', 'step', 'type', 'value']})
 @Component({ selector: 'cho-text-field', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'error', 'helperText', 'label', 'max', 'min', 'multiline', 'name', 'placeholder', 'readOnly', 'rows', 'step', 'type', 'value'] })
@@ -191,5 +381,31 @@ export class ChoTextField {
     c.detach();
     this.el = r.nativeElement;
     proxyOutputs(this, this.el, ['valueChanged']);
+  }
+}
+
+export declare interface ChoTimePicker extends Components.ChoTimePicker {}
+@ProxyCmp({inputs: ['disabled', 'twelveHourFormat', 'value']})
+@Component({ selector: 'cho-time-picker', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'twelveHourFormat', 'value'] })
+export class ChoTimePicker {
+  valueChanged!: EventEmitter<CustomEvent>;
+  hoursChanged!: EventEmitter<CustomEvent>;
+  minutesChanged!: EventEmitter<CustomEvent>;
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['valueChanged', 'hoursChanged', 'minutesChanged']);
+  }
+}
+
+export declare interface ChoTooltip extends Components.ChoTooltip {}
+@ProxyCmp({inputs: ['placement', 'titleContent', 'visible']})
+@Component({ selector: 'cho-tooltip', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['placement', 'titleContent', 'visible'] })
+export class ChoTooltip {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
   }
 }

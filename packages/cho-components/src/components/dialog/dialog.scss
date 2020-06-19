@@ -1,0 +1,61 @@
+:host {
+  /* stylelint-disable-line a11y/no-display-none */
+  align-content: center;
+  align-items: center;
+  bottom: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+
+.dialog__container {
+  background-color: var(--surface__background-color);
+  border: solid;
+  border-color: var(--surface__border-color);
+  border-radius: var(--border-radius);
+  border-width: var(--border-width);
+  display: flex;
+  flex-direction: column;
+  max-height: 90%;
+  max-width: 90%;
+  overflow: hidden;
+}
+
+.dialog__title {
+  @include surface-inner-space();
+
+  align-content: center;
+  align-items: center;
+  border-bottom: solid;
+  border-color: var(--surface__border-color);
+  border-width: var(--border-width);
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: row;
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-bold);
+  justify-content: space-between;
+  min-height: 2.375rem;
+}
+
+.dialog__content {
+  @include surface-inner-space();
+
+  flex: 1 1 auto;
+  overflow-y: scroll;
+}
+
+.dialog__footer {
+  @include surface-inner-space();
+
+  border-top: solid var(--surface__border-color);
+  border-width: var(--border-width);
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: row;
+  justify-content: flex-end;
+}

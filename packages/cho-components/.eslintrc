@@ -27,8 +27,6 @@
         "html": "ignore"
       }
     ],
-    "no-param-reassign": ["error", { "props": false }],
-    // TODO(https://github.com/typescript-eslint/typescript-eslint/issues/2077): remove next line this once eslint is upgraded to use v3
-    "@typescript-eslint/camelcase": 0
+    "no-param-reassign": ["error", { "props": false }]
   }
 }

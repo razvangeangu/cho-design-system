@@ -1,0 +1,43 @@
+:host {
+  display: inline-block;
+}
+
+.menu-item__li {
+  @include surface-inner-space();
+
+  background-color: var(--surface__background-color);
+  list-style-type: none;
+  outline: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  ::slotted(*) {
+    width: 100%;
+  }
+
+  &[data-disabled='true'] {
+    color: var(--disabled);
+    cursor: default;
+  }
+
+  &:not([data-disabled='true']) {
+    cursor: pointer;
+
+    &:focus {
+      background-color: var(--surface__background-color--focus);
+    }
+
+    &:hover {
+      background-color: var(--surface__background-color--hover);
+
+      &:active {
+        background-color: var(--surface__background-color--active);
+      }
+    }
+  }
+}
+
+.menu-item__li--selected {
+  background-color: var(--surface__background-color--active);
+}

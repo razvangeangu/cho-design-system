@@ -1,0 +1,94 @@
+:host {
+  display: inline-block;
+}
+
+.button {
+  @include button-without-defaults();
+  @include surface-inner-space();
+
+  background-color: transparent;
+  border: var(--border-width) solid transparent;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  display: inline-flex;
+  white-space: nowrap;
+  width: 100%;
+
+  * {
+    font-weight: var(--font-weight-bold);
+    text-transform: uppercase;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+
+    * {
+      pointer-events: none;
+    }
+  }
+
+  ::slotted([slot='leading']) {
+    @include surface-leading-space();
+  }
+
+  ::slotted([slot='trailing']) {
+    @include surface-trailing-space();
+  }
+}
+
+@mixin button-kind-enabled($focusColor, $hoverColor, $activeColor) {
+  &:not(:disabled) {
+    &:focus {
+      background-color: $focusColor;
+    }
+
+    &:hover {
+      background-color: $hoverColor;
+
+      &:active {
+        background-color: $activeColor;
+      }
+    }
+  }
+}
+
+.button[data-kind='contained'] {
+  @include button-kind-enabled(var(--primary--hover), var(--primary--hover), var(--primary--active));
+
+  background-color: var(--primary);
+  color: var(--button__text-color);
+
+  &:disabled {
+    background-color: var(--disabled);
+  }
+}
+
+.button[data-kind='outlined'] {
+  @include button-kind-enabled(
+    var(--button__primary-color--hover),
+    var(--button__primary-color--hover),
+    var(--button__primary-color--active)
+  );
+
+  border-color: var(--primary);
+  color: var(--primary);
+
+  &:disabled {
+    border-color: var(--disabled);
+    color: var(--disabled);
+  }
+}
+
+.button[data-kind='text'] {
+  @include button-kind-enabled(
+    var(--button__primary-color--hover),
+    var(--button__primary-color--hover),
+    var(--button__primary-color--active)
+  );
+
+  color: var(--primary);
+
+  &:disabled {
+    color: var(--disabled);
+  }
+}

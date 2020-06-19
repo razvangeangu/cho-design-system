@@ -1,0 +1,70 @@
+:host {
+  display: inline-block;
+}
+
+@mixin link-enabled() {
+  cursor: pointer;
+
+  &:visited {
+    color: var(--primary);
+  }
+
+  &:focus {
+    color: var(--primary--focus);
+    text-decoration: underline;
+  }
+
+  &:hover {
+    color: var(--primary--hover);
+    text-decoration: underline;
+
+    &:active {
+      color: var(--primary--active);
+      text-decoration: underline;
+    }
+  }
+}
+
+.link__container {
+  color: var(--primary);
+  font-size: var(--font-size);
+  outline: none;
+  text-decoration: none;
+  width: 100%;
+
+  &:not([data-disabled='true']) {
+    @include link-enabled();
+  }
+
+  &[data-disabled='true'] {
+    color: var(--disabled);
+    cursor: not-allowed;
+
+    * {
+      pointer-events: none;
+    }
+  }
+}
+
+.link__container-button {
+  @include button-without-defaults();
+
+  color: var(--primary);
+  font-size: var(--font-size);
+  outline: none;
+  text-decoration: none;
+  width: 100%;
+
+  &:not(:disabled) {
+    @include link-enabled();
+  }
+
+  &:disabled {
+    color: var(--disabled);
+    cursor: not-allowed;
+
+    * {
+      pointer-events: none;
+    }
+  }
+}
