@@ -14,9 +14,23 @@ export function* getComponentDocs() {
     return;
   }
 
-  const requestURL = `https://raw.githubusercontent.com/razvangeangu/cho-design-system/develop/packages/cho-components/src/components/${componentName}/readme.md?token=ADS5RAWX54R7ZK5SMHXCMZK66UR5W`;
+  // TODO: once in production revert to the following implementation
+  // const requestURL = `https://raw.githubusercontent.com/razvangeangu/cho-design-system/develop/packages/cho-components/src/components/${componentName}/readme.md?token=ADS5RAWX54R7ZK5SMHXCMZK66UR5W`;
+  // const docs: string = yield call(request, requestURL, undefined, 'text');
+
+  const requestURL = `https://api.github.com/repos/razvangeangu/cho-design-system/contents/packages/cho-components/src/components/${componentName}/readme.md`;
   try {
-    const docs: string = yield call(request, requestURL, undefined, 'text');
+    const docs: string = yield call(
+      request,
+      requestURL,
+      {
+        headers: {
+          Authorization: `token ${process.env.REACT_APP_GITHUB_ACCESS_TOKEN}`,
+          Accept: 'application/vnd.github.v3.raw',
+        },
+      },
+      'text',
+    );
     if (docs?.length > 0) {
       yield put(actions.docsLoaded(docs));
     } else {
