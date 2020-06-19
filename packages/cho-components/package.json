@@ -6,7 +6,7 @@
   "main": "dist/index.js",
   "unpkg": "dist/cho.js",
   "private": true,
-  "types": "dist/types/components.d.ts",
+  "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "files": [
     "dist/"

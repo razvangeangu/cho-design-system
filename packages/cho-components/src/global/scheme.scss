@@ -32,6 +32,7 @@
   --surface__color--hover: var(--gray700);
   --surface__color--focus: var(--gray800);
   --surface__color--active: var(--gray800);
+  --background-color: var(--black);
 
   color: var(--text-color);
 }
@@ -68,6 +69,7 @@
   --surface__color--hover: var(--gray50);
   --surface__color--focus: var(--gray100);
   --surface__color--active: var(--gray100);
+  --background-color: var(--white);
 
   color: var(--text-color);
 }
