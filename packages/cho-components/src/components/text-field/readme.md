@@ -1,6 +1,62 @@
 # cho-text-field
 
+Text fields let users enter and edit text.
 
+## Examples
+
+### Error
+
+<cho-text-field label="Error" value="Hello World" helper-text="Incorrect entry" error>
+</cho-text-field>
+
+```html
+<cho-text-field label="Error" value="Hello World" helper-text="Incorrect entry" error>
+</cho-text-field>
+```
+
+### Leading
+
+<cho-text-field label="Amount" type="number" value="100" placeholder="Enter amount">
+  <span slot="leading">$</span>
+</cho-text-field>
+
+```html
+<cho-text-field label="Amount" type="number" value="100" placeholder="Enter amount">
+  <span slot="leading">$</span>
+</cho-text-field>
+```
+
+### Trailing
+
+<cho-text-field label="Email" type="email" style="width: 26ch;">
+  <span slot="trailing" style="white-space: nowrap;">@mail.com</span>
+</cho-text-field>
+
+```html
+<cho-text-field label="Email" type="email" style="width: 26ch;">
+  <span slot="trailing" style="white-space: nowrap;">@mail.com</span>
+</cho-text-field>
+```
+
+### Read Only
+
+<cho-text-field label="Read Only" value="Hello World" read-only>
+</cho-text-field>
+
+```html
+<cho-text-field label="Read Only" value="Hello World" read-only>
+</cho-text-field>
+```
+
+### Textarea
+
+<cho-text-field label="Textarea" placeholder="Multiline..." rows="5" multiline>
+</cho-text-field>
+
+```html
+<cho-text-field label="Textarea" placeholder="Multiline..." rows="5" multiline>
+</cho-text-field>
+```
 
 <!-- Auto Generated Below -->
 

@@ -1,6 +1,32 @@
 # cho-radio
 
+Radio buttons allow the user to select one option from a set.
 
+## Examples
+
+### Checked
+
+<cho-radio checked>
+  Checked
+</cho-radio>
+
+```html
+<cho-radio checked>
+  Checked
+</cho-radio>
+```
+
+### Error
+
+<cho-radio error>
+  Error
+</cho-radio>
+
+```html
+<cho-radio error>
+  Error
+</cho-radio>
+```
 
 <!-- Auto Generated Below -->
 

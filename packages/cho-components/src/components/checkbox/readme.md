@@ -1,6 +1,50 @@
 # cho-checkbox
 
+Checkboxes allow the user to select one or more items from a set.
 
+## Examples
+
+<style>
+  cho-checkbox {
+    margin-right: 0.5rem;
+  }
+</style>
+
+### Checked
+
+<cho-checkbox checked>
+  Checked
+</cho-checkbox>
+
+```html
+<cho-checkbox checked>
+  Checked
+</cho-checkbox>
+```
+
+### Error
+
+<cho-checkbox error>
+  Error
+</cho-checkbox>
+
+```html
+<cho-checkbox error>
+  Error
+</cho-checkbox>
+```
+
+### Indeterminate
+
+<cho-checkbox indeterminate checked>
+  Indeterminate
+</cho-checkbox>
+
+```html
+<cho-checkbox indeterminate checked>
+  Indeterminate
+</cho-checkbox>
+```
 
 <!-- Auto Generated Below -->
 

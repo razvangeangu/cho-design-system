@@ -73,6 +73,7 @@
 
   color: var(--label-color);
   font-size: var(--label__font-size);
+  white-space: nowrap;
 
   /* stylelint-disable-next-line a11y/content-property-no-static-value */
   &::after {
@@ -131,6 +132,7 @@
   position: absolute;
   right: 0;
   top: 0;
+  white-space: nowrap;
 
   /* stylelint-disable-next-line a11y/content-property-no-static-value */
   &::after {

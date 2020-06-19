@@ -1,6 +1,102 @@
 # cho-button
 
+Buttons allow users to take actions, and make choices, with a single tap.
 
+## Examples
+
+<style>
+  cho-button {
+    margin-right: 0.5rem;
+  }
+</style>
+
+### Contained
+
+<cho-button>
+  Contained
+</cho-button>
+
+<cho-button disabled>
+  Contained
+</cho-button>
+
+```html
+<cho-button>
+  Contained
+</cho-button>
+
+<cho-button disabled>
+  Contained
+</cho-button>
+```
+
+### Contained Leading
+
+<cho-button>
+  <span slot="leading">+</span>
+  <span>Add</span>
+</cho-button>
+
+```html
+<cho-button>
+  <span slot="leading">+</span>
+  <span>Add</span>
+</cho-button>
+```
+
+### Contained Trailing
+
+<cho-button>
+  <span slot="trailing">+</span>
+  <span>Add</span>
+</cho-button>
+
+```html
+<cho-button>
+  <span>Add</span>
+  <span slot="trailing">+</span>
+</cho-button>
+```
+
+### Outlined
+
+<cho-button kind="outlined">
+  Outlined
+</cho-button>
+
+<cho-button kind="outlined" disabled>
+  Disabled
+</cho-button>
+
+```html
+<cho-button kind="outlined">
+  Outlined
+</cho-button>
+
+<cho-button kind="outlined" disabled>
+  Disabled
+</cho-button>
+```
+
+### Text
+
+<cho-button kind="text">
+  Text
+</cho-button>
+
+<cho-button kind="text" disabled>
+  Text
+</cho-button>
+
+```html
+<cho-button kind="text">
+  Text
+</cho-button>
+
+<cho-button kind="text" disabled>
+  Text
+</cho-button>
+```
 
 <!-- Auto Generated Below -->
 

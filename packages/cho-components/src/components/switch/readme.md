@@ -1,5 +1,30 @@
 # cho-switch
 
+Switches toggle the state of a single setting on or off.
+
+## Examples
+
+### Checked
+
+<cho-switch checked>
+</cho-switch>
+
+```html
+<cho-switch checked>
+</cho-switch>
+```
+
+### Label placement
+
+<cho-switch label-placement="end">
+  Label
+</cho-switch>
+
+```html
+<cho-switch label-placement="end">
+  Label
+</cho-switch>
+```
 
 
 <!-- Auto Generated Below -->

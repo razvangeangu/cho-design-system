@@ -1,5 +1,15 @@
 # cho-time-picker
 
+## Examples
+
+<cho-time-picker>
+</cho-time-picker>
+
+```html
+<cho-time-picker>
+</cho-time-picker>
+```
+
 <!-- Auto Generated Below -->
 
 
@@ -10,6 +20,7 @@
 | `disabled`         | `disabled`           | If `true`, the text-field will be disabled.        | `boolean` | `false`      |
 | `twelveHourFormat` | `twelve-hour-format` | If `true`, the value will be formatted with AM/PM. | `boolean` | `false`      |
 | `value`            | --                   | The value of the time-picker.                      | `Date`    | `new Date()` |
+| `visible`          | `visible`            | If `true`, the time will be visible.               | `boolean` | `false`      |
 
 
 ## Events

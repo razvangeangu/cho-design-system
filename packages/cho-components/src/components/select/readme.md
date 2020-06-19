@@ -1,5 +1,34 @@
 # cho-select
 
+Select components are used for collecting user provided information from a list of options.
+
+## Examples
+
+<cho-select>
+  <cho-menu-item-group>
+    <cho-menu-item value="1">Option 1</cho-menu-item>
+    <cho-menu-item value="2">Option 2</cho-menu-item>
+  </cho-menu-item-group>
+  <cho-divider></cho-divider>
+  <cho-menu-item-group>
+    <cho-menu-item value="3">Option 3</cho-menu-item>
+    <cho-menu-item value="4">Option 4</cho-menu-item>
+  </cho-menu-item-group>
+</cho-select>
+
+```html
+<cho-select>
+  <cho-menu-item-group>
+    <cho-menu-item value="1">Option 1</cho-menu-item>
+    <cho-menu-item value="2">Option 2</cho-menu-item>
+  </cho-menu-item-group>
+  <cho-divider></cho-divider>
+  <cho-menu-item-group>
+    <cho-menu-item value="3">Option 3</cho-menu-item>
+    <cho-menu-item value="4">Option 4</cho-menu-item>
+  </cho-menu-item-group>
+</cho-select>
+```
 
 
 <!-- Auto Generated Below -->
@@ -13,6 +42,7 @@
 | `error`    | `error`    | If `true`, the label will be displayed in an error state. | `boolean` | `false`     |
 | `label`    | `label`    | The label content.                                        | `string`  | `undefined` |
 | `value`    | `value`    | The value of the select.                                  | `any`     | `null`      |
+| `visible`  | `visible`  | If `true`, the dropdown will be visible.                  | `boolean` | `false`     |
 
 
 ## Events

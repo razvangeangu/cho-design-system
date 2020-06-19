@@ -174,6 +174,11 @@ export namespace Components {
           * @default new Date()
          */
         "value"?: Date;
+        /**
+          * If `true`, the calendar will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
     }
     interface ChoDialog {
         /**
@@ -374,6 +379,11 @@ export namespace Components {
           * @default null
          */
         "value"?: any;
+        /**
+          * If `true`, the dropdown will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
     }
     interface ChoSlider {
         /**
@@ -581,6 +591,11 @@ export namespace Components {
           * @default new Date()
          */
         "value"?: Date;
+        /**
+          * If `true`, the time will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
     }
     interface ChoTooltip {
         /**
@@ -987,6 +1002,11 @@ declare namespace LocalJSX {
           * @default new Date()
          */
         "value"?: Date;
+        /**
+          * If `true`, the calendar will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
     }
     interface ChoDialog {
         /**
@@ -1183,6 +1203,11 @@ declare namespace LocalJSX {
           * @default null
          */
         "value"?: any;
+        /**
+          * If `true`, the dropdown will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
     }
     interface ChoSlider {
         /**
@@ -1410,6 +1435,11 @@ declare namespace LocalJSX {
           * @default new Date()
          */
         "value"?: Date;
+        /**
+          * If `true`, the time will be visible.
+          * @default false
+         */
+        "visible"?: boolean;
     }
     interface ChoTooltip {
         /**

@@ -1,6 +1,44 @@
 # cho-slider
 
+Sliders allow users to make selections from a range of values.
 
+## Examples
+
+### Inverted
+
+<cho-slider track="inverted">
+</cho-slider>
+
+```html
+<cho-slider track="inverted">
+</cho-slider>
+```
+
+### Trailing
+
+<cho-slider label="Number" min="0" max="100">
+  <cho-text-field
+    slot="trailing"
+    style="width: 11ch;"
+    type="number"
+    value="0"
+    min="0"
+    max="100"
+  ></cho-text-field>
+</cho-slider>
+
+```html
+<cho-slider label="Number" min="0" max="100">
+  <cho-text-field
+    slot="trailing"
+    style="width: 11ch;"
+    type="number"
+    value="0"
+    min="0"
+    max="100"
+  ></cho-text-field>
+</cho-slider>
+```
 
 <!-- Auto Generated Below -->
 

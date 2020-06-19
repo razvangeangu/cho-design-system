@@ -1,6 +1,24 @@
 # cho-app-bar
 
+The App Bar displays information and actions relating to the current screen.
 
+## Examples
+
+<cho-app-bar>
+  <span slot="title">App Name</span>
+  <cho-button slot="trailing">
+    Switch Theme
+  </cho-button>
+</cho-app-bar>
+
+```html
+<cho-app-bar>
+  <span slot="title">App Name</span>
+  <cho-button slot="trailing">
+    Switch Theme
+  </cho-button>
+</cho-app-bar>
+```
 
 <!-- Auto Generated Below -->
 

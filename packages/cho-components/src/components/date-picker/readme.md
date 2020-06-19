@@ -1,5 +1,16 @@
 # cho-date-picker
 
+Date picker provides a simple way to select a single value from a pre-determined set.
+
+## Examples
+
+<cho-date-picker>
+</cho-date-picker>
+
+```html
+<cho-date-picker>
+</cho-date-picker>
+```
 
 
 <!-- Auto Generated Below -->
@@ -14,6 +25,7 @@
 | `minDate`           | --         | Min selectable date                         | `Date`                            | `new Date('1897-01-14')` |
 | `shouldDisableDate` | --         | Callback used to disable specific dates.    | `(timestamp?: number) => boolean` | `() => false`            |
 | `value`             | --         | The value of the date-picker.               | `Date`                            | `new Date()`             |
+| `visible`           | `visible`  | If `true`, the calendar will be visible.    | `boolean`                         | `false`                  |
 
 
 ## Events

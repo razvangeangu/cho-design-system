@@ -1,6 +1,14 @@
 # cho-tooltip
 
+Tooltips display informative text when users hover over, focus on, or tap an element.
 
+### Examples
+
+```html
+<cho-tooltip title-content="Tooltip" visible>
+  <cho-icon kind="info"></cho-icon>
+</cho-tooltip>
+```
 
 <!-- Auto Generated Below -->
 

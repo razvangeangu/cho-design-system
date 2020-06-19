@@ -1,6 +1,25 @@
 # cho-tabs
 
+Tabs make it easy to explore and switch between different views.
 
+## Examples
+
+```html
+<cho-tabs>
+  <cho-tab-item label="Item 1" index="0"></cho-tab-item>
+  <cho-tab-item label="Item 2" index="1"></cho-tab-item>
+  <cho-tab-item label="Item 3" index="2"></cho-tab-item>
+  <cho-tab-item-content label="Item 1" index="0">
+    Content 1
+  </cho-tab-item-content>
+  <cho-tab-item-content label="Item 2" index="1">
+    Content 2
+  </cho-tab-item-content>
+  <cho-tab-item-content label="Item 3" index="2">
+    Content 3
+  </cho-tab-item-content>
+</cho-tabs>
+```
 
 <!-- Auto Generated Below -->
 

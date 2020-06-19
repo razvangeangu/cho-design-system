@@ -2,9 +2,14 @@
   display: inline-block;
 }
 
+.time-picker__container {
+  position: relative;
+}
+
 .time-picker__time-container {
   @include surface-inner-space();
 
+  background-color: var(--surface__background-color);
   border: solid var(--surface__border-color);
   border-radius: var(--border-radius);
   border-width: var(--border-width);
@@ -12,6 +17,7 @@
   flex-direction: row;
   min-width: 2rem;
   position: absolute;
+  z-index: 1;
 }
 
 .time-picker__ul {

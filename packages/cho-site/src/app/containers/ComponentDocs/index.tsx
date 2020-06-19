@@ -164,12 +164,15 @@ const Docs = styled.div`
 
 const DocsTable = styled.table`
   text-align: left;
-  width: 100%;
 
   th,
   td {
     border-bottom: var(--border-width) solid var(--surface__border-color);
     padding: 0.375rem;
+  }
+
+  th {
+    white-space: nowrap;
   }
 `;
 

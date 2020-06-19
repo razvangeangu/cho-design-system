@@ -2,12 +2,23 @@
   display: inline-block;
 }
 
+.select__container {
+  position: relative;
+}
+
 .select__ul {
+  background-color: var(--surface__background-color);
+  border: solid;
+  border-color: var(--surface__border-color);
+  border-radius: var(--border-radius);
+  border-width: var(--border-width);
   display: flex;
   flex-direction: column;
   list-style: none;
   margin: 0;
+  max-width: 18.75rem;
   padding: 0.5rem 0;
+  position: absolute;
 }
 
 .select__trailing-icon {

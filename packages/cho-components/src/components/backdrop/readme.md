@@ -1,6 +1,16 @@
 # cho-backdrop
 
+The backdrop component is used to provide emphasis on a particular element or parts of it.
 
+## Examples
+
+<cho-button onclick="document.getElementById('demo-1-backdrop').visible = true">Show</cho-button>
+<cho-backdrop onclick="event.target.visible = false;" id="demo-1-backdrop" style="position: fixed; z-index: 1;"></cho-backdrop>
+
+```html
+<cho-backdrop style="position: fixed; z-index: 1;">
+</cho-backdrop>
+```
 
 <!-- Auto Generated Below -->
 

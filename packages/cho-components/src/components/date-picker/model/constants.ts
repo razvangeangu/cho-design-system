@@ -1,6 +1,7 @@
 export const kDatePicker = {
   componentName: 'cho-date-picker' as const,
   classes: {
+    container: 'date-picker__container',
     calendarContainer: 'date-picker__calendar-container',
     calendarHeader: 'date-picker__calendar-header',
     calendarHeaderDay: 'date-picker__calendar-header-day',

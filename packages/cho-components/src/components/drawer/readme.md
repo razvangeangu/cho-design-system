@@ -1,6 +1,18 @@
 # cho-drawer
 
+Navigation drawers provide access to destinations in your app.
 
+## Examples
+
+```html
+<cho-drawer>
+  <cho-menu-item-group>
+    <cho-menu-item>Option 1</cho-menu-item>
+    <cho-menu-item>Option 2</cho-menu-item>
+    <cho-menu-item>Option 3</cho-menu-item>
+  </cho-menu-item-group>
+</cho-drawer>
+```
 
 <!-- Auto Generated Below -->
 

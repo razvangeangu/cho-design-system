@@ -55,6 +55,13 @@ export class DatePicker implements ComponentInterface {
   @Prop() disabled?: boolean = false;
 
   /**
+   * If `true`, the calendar will be visible.
+   *
+   * @default false
+   */
+  @Prop({ mutable: true }) visible?: boolean = false;
+
+  /**
    * Callback fired when the value is changed.
    */
   @Event() valueChanged: EventEmitter<IDatePickerValueChangedDetail>;
@@ -137,11 +144,15 @@ export class DatePicker implements ComponentInterface {
   private didClickTextField = (event: MouseEvent) => {
     // Hide the native calendar
     event.preventDefault();
+
+    if (!this.disabled) {
+      this.visible = !this.visible;
+    }
   };
 
   render() {
     return (
-      <div>
+      <div class={kDatePicker.classes.container}>
         <cho-text-field
           type="date"
           disabled={this.disabled}
@@ -158,50 +169,52 @@ export class DatePicker implements ComponentInterface {
             color={this.disabled ? 'var(--disabled)' : undefined}
           />
         </cho-text-field>
-        <div class={kDatePicker.classes.calendarContainer}>
-          <table class={kDatePicker.classes.calendarDaysContainer}>
-            <thead>
-              <tr>
-                {kDatePicker.days.map(d => (
-                  <th
-                    key={d}
-                    class={kDatePicker.classes.calendarHeaderDay}
-                    data-disabled={String(!!this.disabled)}
-                  >
-                    {d.slice(0, 3)}
-                  </th>
-                ))}
-              </tr>
-            </thead>
-            <tbody>
-              {getMonthDetails(this.value.getFullYear(), this.value.getMonth()).map(week => (
+        {this.visible && (
+          <div class={kDatePicker.classes.calendarContainer}>
+            <table class={kDatePicker.classes.calendarDaysContainer}>
+              <thead>
                 <tr>
-                  {week.map(day => {
-                    const shouldDisableDate = this.shouldDisableDate(day.timestamp) || this.disabled;
-                    const selected = isSameDate(this.value.getTime(), day.timestamp, day.month);
-
-                    return (
-                      <td
-                        tabIndex={shouldDisableDate ? -1 : 0}
-                        role="gridcell"
-                        key={day.date}
-                        class={kDatePicker.classes.calendarDay}
-                        onClick={this.didClickDay}
-                        onKeyPress={this.didKeyPressDay}
-                        data-month={String(day.month)}
-                        data-timestamp={String(day.timestamp)}
-                        data-selected={String(!!selected)}
-                        data-disabled={String(!!shouldDisableDate)}
-                      >
-                        {day.date}
-                      </td>
-                    );
-                  })}
+                  {kDatePicker.days.map(d => (
+                    <th
+                      key={d}
+                      class={kDatePicker.classes.calendarHeaderDay}
+                      data-disabled={String(!!this.disabled)}
+                    >
+                      {d.slice(0, 3)}
+                    </th>
+                  ))}
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {getMonthDetails(this.value.getFullYear(), this.value.getMonth()).map(week => (
+                  <tr>
+                    {week.map(day => {
+                      const shouldDisableDate = this.shouldDisableDate(day.timestamp) || this.disabled;
+                      const selected = isSameDate(this.value.getTime(), day.timestamp, day.month);
+
+                      return (
+                        <td
+                          tabIndex={shouldDisableDate ? -1 : 0}
+                          role="gridcell"
+                          key={day.date}
+                          class={kDatePicker.classes.calendarDay}
+                          onClick={this.didClickDay}
+                          onKeyPress={this.didKeyPressDay}
+                          data-month={String(day.month)}
+                          data-timestamp={String(day.timestamp)}
+                          data-selected={String(!!selected)}
+                          data-disabled={String(!!shouldDisableDate)}
+                        >
+                          {day.date}
+                        </td>
+                      );
+                    })}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
     );
   }
