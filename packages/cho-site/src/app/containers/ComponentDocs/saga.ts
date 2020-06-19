@@ -14,7 +14,7 @@ export function* getComponentDocs() {
     return;
   }
 
-  const requestURL = `https://raw.githubusercontent.com/razvangeangu/cho-design-system/develop/packages/cho-components/src/components/data-display/${componentName}/readme.md?token=ADS5RAUWFA4A257U2R67P3K66PZPU`;
+  const requestURL = `https://raw.githubusercontent.com/razvangeangu/cho-design-system/develop/packages/cho-components/src/components/${componentName}/readme.md?token=ADS5RAWX54R7ZK5SMHXCMZK66UR5W`;
   try {
     const docs: string = yield call(request, requestURL, undefined, 'text');
     if (docs?.length > 0) {

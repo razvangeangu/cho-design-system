@@ -12,7 +12,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { GlobalStyle } from 'styles/global-styles';
 import { NotFoundPage } from './components/NotFoundPage/Loadable';
 import { ComponentDocs } from './containers/ComponentDocs';
-import { HomePage } from './containers/HomePage/Loadable';
+// import { HomePage } from './containers/HomePage/Loadable';
 
 export function App() {
   return (
@@ -28,8 +28,9 @@ export function App() {
       </Helmet>
 
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/docs/:compName" component={ComponentDocs} />
+        {/* <Route exact path="/" component={HomePage} /> */}
+        <Route path="/not-found" component={NotFoundPage} />
+        <Route exact path="/:compName" component={ComponentDocs} />
         <Route component={NotFoundPage} />
       </Switch>
       <GlobalStyle />

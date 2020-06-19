@@ -4,22 +4,38 @@
  *
  */
 
-import { ChoAppBar, ChoLink, ChoProgress } from '@cho/components-react';
+import {
+  ChoAppBar,
+  ChoButton,
+  ChoDrawer,
+  ChoMenuItem,
+  ChoMenuItemGroup,
+  ChoProgress,
+  setTheme,
+} from '@cho/components-react';
 import { AnchorHeader } from 'app/components/AnchorHeader/Loadable';
 import * as H from 'history';
+import { translations } from 'locales/i18n';
 import Markdown from 'markdown-to-jsx';
+import mermaid from 'mermaid';
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { match } from 'react-router-dom';
+import { Link, match } from 'react-router-dom';
 import styled from 'styled-components/macro';
 import { useInjectReducer, useInjectSaga } from 'utils/redux-injectors';
 import { scrollToLocation } from 'utils/scroll-to-location';
+import { sentenceCase } from 'utils/sentence-case';
+import { Anchor } from './components/Anchor';
+import { Code } from './components/Code';
+import { kComponentDocs } from './constants';
 import { componentDocsSaga } from './saga';
 import { selectComponentName, selectDocs, selectLoading } from './selectors';
 import { actions, reducer, sliceKey } from './slice';
 
 interface Props {
+  history: H.History;
   location: H.Location;
   match: match & { params: { compName: string } };
 }
@@ -28,18 +44,24 @@ export function ComponentDocs(props: Props) {
   useInjectReducer({ key: sliceKey, reducer: reducer });
   useInjectSaga({ key: sliceKey, saga: componentDocsSaga });
 
+  const { t } = useTranslation();
+
   const loading = useSelector(selectLoading);
   const docs = useSelector(selectDocs);
   const componentName = useSelector(selectComponentName);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    // When initial state username is not null, submit the form to load docs
     if (props.match.params.compName.length > 0) {
+      if (!kComponentDocs.components.includes(props.match.params.compName))
+        props.history.push('/not-found');
+
+      mermaid.initialize({ startOnLoad: true, theme: 'default' });
+
       dispatch(actions.changeComponentName(props.match.params.compName));
       dispatch(actions.loadComponentDocs());
     }
-  }, [dispatch, props.match.params.compName]);
+  }, [dispatch, props.history, props.match.params.compName]);
 
   useEffect(() => {
     if (docs) {
@@ -47,42 +69,97 @@ export function ComponentDocs(props: Props) {
     }
   }, [docs, loading, props.location.hash]);
 
+  const changeTheme = () => {
+    setTheme();
+  };
+
+  const openCloseDrawer = () => {
+    const drawer = document.querySelector('cho-drawer');
+    if (drawer) {
+      drawer.visible = !drawer.visible;
+    }
+  };
+
   return (
     <>
       <Helmet>
-        <title>{componentName} Docs</title>
+        <title>
+          {sentenceCase(componentName)} {t(translations.docs())}
+        </title>
         <meta
           name="description"
-          content={`Documentation for ${componentName}`}
+          content={`${t(translations.documentationFor())} ${sentenceCase(
+            componentName,
+          )}`}
         />
       </Helmet>
-      <ChoAppBar position="sticky">
-        <span slot="title">Chocolate Design System</span>
+      <ChoAppBar onHamburgerClicked={openCloseDrawer}>
+        <span slot="title">{t(translations.appName())}</span>
+        <ChoButton slot="trailing" onClick={changeTheme}>
+          {t(translations.changeTheme())}
+        </ChoButton>
       </ChoAppBar>
-      {loading ? (
-        <Progress>
-          <ChoProgress />
-        </Progress>
-      ) : (
-        <Docs>
-          <Markdown children={docs} options={markdownOptions} />
-        </Docs>
-      )}
+      <Main>
+        <ChoDrawerStyled>
+          <ChoMenuItemGroup>
+            {kComponentDocs.components.map(name => (
+              <StyledLink to={name} key={name}>
+                <ChoStyledMenuItem selected={name === componentName}>
+                  {sentenceCase(name)}
+                </ChoStyledMenuItem>
+              </StyledLink>
+            ))}
+          </ChoMenuItemGroup>
+        </ChoDrawerStyled>
+        {loading ? (
+          <ProgressContainer>
+            <ChoProgress />
+          </ProgressContainer>
+        ) : (
+          <Docs>
+            <Markdown children={docs} options={markdownOptions} />
+          </Docs>
+        )}
+      </Main>
     </>
   );
 }
 
-const Progress = styled.div`
+const StyledLink = styled(Link)`
+  color: var(--text-color);
+  display: flex;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+`;
+
+const ChoStyledMenuItem = styled(ChoMenuItem)`
+  width: 100%;
+`;
+
+const ChoDrawerStyled = styled(ChoDrawer)`
+  height: calc(100vh - 59px);
+`;
+
+const Main = styled.main`
+  display: flex;
+  width: 100%;
+`;
+
+const ProgressContainer = styled.div`
+  align-content: center;
+  align-items: center;
   display: flex;
   justify-content: center;
-  padding-top: calc(20% + 3.625rem);
+  width: 100%;
 `;
 
 const Docs = styled.div`
-  padding-bottom: 1.25rem;
   padding-left: 5%;
   padding-right: 5%;
-  padding-top: 3.625rem;
+  overflow-y: auto;
+  height: calc(100vh - 59px);
+  width: 100%;
 `;
 
 const DocsTable = styled.table`
@@ -96,23 +173,10 @@ const DocsTable = styled.table`
   }
 `;
 
-const Code = props => {
-  const StyledCode = styled.code`
-    width: 100%;
-    max-width: 100%;
-    overflow: auto;
-    padding: 0.25rem;
-    background-color: var(--surface__background-color);
-    box-sizing: border-box;
-    margin-bottom: 0.25rem;
-  `;
-  return <StyledCode>{(props.children || '').replace('\\|', '|')}</StyledCode>;
-};
-
 const markdownOptions = {
   overrides: {
     a: {
-      component: ChoLink,
+      component: Anchor,
     },
     code: {
       component: Code,

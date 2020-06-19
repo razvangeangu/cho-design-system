@@ -31,6 +31,7 @@
     "jest-styled-components": "7.0.2",
     "lint-staged": "10.0.8",
     "markdown-to-jsx": "^6.11.4",
+    "mermaid": "^8.5.2",
     "node-plop": "0.25.0",
     "plop": "2.6.0",
     "prettier": "2.0.1",

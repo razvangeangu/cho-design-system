@@ -10,7 +10,11 @@ const renderComponent = (store: Store) =>
   render(
     <Provider store={store}>
       <HelmetProvider>
-        <ComponentDocs location={{} as any} match={{} as any} />
+        <ComponentDocs
+          location={{} as any}
+          match={{} as any}
+          history={{} as any}
+        />
       </HelmetProvider>
     </Provider>,
   );

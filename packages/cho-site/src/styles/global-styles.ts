@@ -8,6 +8,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
+    background-color: var(--background-color);
     font-family: var(--font-family), 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
