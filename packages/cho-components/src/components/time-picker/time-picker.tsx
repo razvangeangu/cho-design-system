@@ -35,6 +35,13 @@ export class TimePicker implements ComponentInterface {
   @Prop() twelveHourFormat: boolean = false;
 
   /**
+   * If `true`, the time will be visible.
+   *
+   * @default false
+   */
+  @Prop({ mutable: true }) visible?: boolean = false;
+
+  /**
    * Callback fired when the value is changed.
    */
   @Event() valueChanged: EventEmitter<ITimePickerValueChangedDetail>;
@@ -95,42 +102,56 @@ export class TimePicker implements ComponentInterface {
     }
   };
 
+  private didClickTextField = (event: MouseEvent) => {
+    event.preventDefault();
+
+    if (!this.disabled) {
+      this.visible = !this.visible;
+    }
+  };
+
   render() {
     return (
-      <div>
-        <cho-text-field disabled={this.disabled} value={this.toTimeFormat(this.value)} />
-        <div class={kTimePicker.classes.timeContainer}>
-          <ul class={kTimePicker.classes.timeUl}>
-            {[...Array(this.twelveHourFormat ? 12 : 24).keys()].map(hours => (
-              <li
-                class={kTimePicker.classes.timeLi}
-                role="menuitem"
-                onClick={this.didClickHours}
-                onKeyPress={this.didKeyPressHours}
-                data-selected={String(this.value.getHours() === hours)}
-                data-hours={String(hours)}
-                data-disabled={String(!!this.disabled)}
-              >
-                {`${hours < 10 ? '0' : ''}${hours}`}
-              </li>
-            ))}
-          </ul>
-          <ul class={kTimePicker.classes.timeUl}>
-            {[...Array(60).keys()].map(minutes => (
-              <li
-                class={kTimePicker.classes.timeLi}
-                role="menuitem"
-                onClick={this.didClickMinutes}
-                onKeyPress={this.didKeyPressMinutes}
-                data-selected={String(this.value.getMinutes() === minutes)}
-                data-minutes={String(minutes)}
-                data-disabled={String(!!this.disabled)}
-              >
-                {`${minutes < 10 ? '0' : ''}${minutes}`}
-              </li>
-            ))}
-          </ul>
-        </div>
+      <div class={kTimePicker.classes.container}>
+        <cho-text-field
+          disabled={this.disabled}
+          value={this.toTimeFormat(this.value)}
+          onClick={this.didClickTextField}
+        />
+        {this.visible && (
+          <div class={kTimePicker.classes.timeContainer}>
+            <ul class={kTimePicker.classes.timeUl}>
+              {Array.from(Array(this.twelveHourFormat ? 12 : 24).keys()).map(hours => (
+                <li
+                  class={kTimePicker.classes.timeLi}
+                  role="menuitem"
+                  onClick={this.didClickHours}
+                  onKeyPress={this.didKeyPressHours}
+                  data-selected={String(this.value.getHours() === hours)}
+                  data-hours={String(hours)}
+                  data-disabled={String(!!this.disabled)}
+                >
+                  {`${hours < 10 ? '0' : ''}${hours}`}
+                </li>
+              ))}
+            </ul>
+            <ul class={kTimePicker.classes.timeUl}>
+              {Array.from(Array(60).keys()).map(minutes => (
+                <li
+                  class={kTimePicker.classes.timeLi}
+                  role="menuitem"
+                  onClick={this.didClickMinutes}
+                  onKeyPress={this.didKeyPressMinutes}
+                  data-selected={String(this.value.getMinutes() === minutes)}
+                  data-minutes={String(minutes)}
+                  data-disabled={String(!!this.disabled)}
+                >
+                  {`${minutes < 10 ? '0' : ''}${minutes}`}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
     );
   }

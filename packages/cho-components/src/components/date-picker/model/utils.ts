@@ -49,9 +49,9 @@ export const getMonthDetails = (year: number, month: number): Array<Array<IDateP
   let index = 0;
   let currentDay = null;
 
-  [...Array(6).keys()].forEach(() => {
+  Array.from(Array(6).keys()).forEach(() => {
     const monthArray: Array<IDatePickerDayDetails> = [];
-    [...Array(7).keys()].forEach(() => {
+    Array.from(Array(7).keys()).forEach(() => {
       currentDay = getDayDetails({
         index,
         numberOfDays,

@@ -56,6 +56,13 @@ export class Select implements ComponentInterface {
   @Prop({ mutable: true }) value?: any = null;
 
   /**
+   * If `true`, the dropdown will be visible.
+   *
+   * @default false
+   */
+  @Prop({ mutable: true }) visible?: boolean = false;
+
+  /**
    * Callback fired when the value is changed.
    */
   @Event() valueChanged: EventEmitter<ISelectValueChangedDetail>;
@@ -133,15 +140,22 @@ export class Select implements ComponentInterface {
     }
   };
 
+  private didClickTextField = () => {
+    if (!this.disabled) {
+      this.visible = !this.visible;
+    }
+  };
+
   render() {
     return (
-      <div>
+      <div class={kSelect.classes.container}>
         <cho-text-field
           label={this.label}
           error={this.error}
           disabled={this.disabled}
           placeholder={kSelect.localization.select}
           value={this.inputValue}
+          onClick={this.didClickTextField}
           readOnly
         >
           <cho-icon
@@ -150,18 +164,20 @@ export class Select implements ComponentInterface {
             class={kSelect.classes.trailingIcon}
           />
         </cho-text-field>
-        <ul
-          class={kSelect.classes.selectUl}
-          role="presentation"
-          onClick={this.didClick}
-          onKeyPress={this.didKeyPress}
-        >
-          <cho-menu-item data-select-item-none value={null} selected={this.value == null}>
-            {kSelect.localization.none}
-          </cho-menu-item>
-          <cho-divider />
-          <slot />
-        </ul>
+        {this.visible && (
+          <ul
+            class={kSelect.classes.selectUl}
+            role="presentation"
+            onClick={this.didClick}
+            onKeyPress={this.didKeyPress}
+          >
+            <cho-menu-item data-select-item-none value={null} selected={this.value == null}>
+              {kSelect.localization.none}
+            </cho-menu-item>
+            <cho-divider />
+            <slot />
+          </ul>
+        )}
       </div>
     );
   }

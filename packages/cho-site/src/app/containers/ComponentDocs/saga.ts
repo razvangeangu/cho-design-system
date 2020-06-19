@@ -14,9 +14,15 @@ export function* getComponentDocs() {
     return;
   }
 
-  const requestURL = `https://raw.githubusercontent.com/razvangeangu/cho-design-system/develop/packages/cho-components/src/components/${componentName}/readme.md?token=ADS5RAWX54R7ZK5SMHXCMZK66UR5W`;
   try {
-    const docs: string = yield call(request, requestURL, undefined, 'text');
+    const docs = yield call(
+      request,
+      (yield import(
+        `@cho/components/src/components/${componentName}/readme.md`
+      )).default,
+      undefined,
+      'text',
+    );
     if (docs?.length > 0) {
       yield put(actions.docsLoaded(docs));
     } else {

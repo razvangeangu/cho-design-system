@@ -13,3 +13,5 @@ export const setTheme = (theme?: 'dark' | 'light') => {
 
   document.body.dataset.choTheme = localStorage.getItem('cho-theme');
 };
+
+document.body.dataset.choTheme = localStorage.getItem('cho-theme');

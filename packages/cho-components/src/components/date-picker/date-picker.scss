@@ -2,12 +2,19 @@
   display: inline-block;
 }
 
+.date-picker__container {
+  position: relative;
+}
+
 .date-picker__calendar-container {
   @include surface-inner-space();
 
+  background-color: var(--surface__background-color);
   border: solid var(--surface__border-color);
   border-radius: var(--border-radius);
   border-width: var(--border-width);
+  position: absolute;
+  z-index: 1;
 }
 
 .date-picker__calendar-header {
@@ -17,7 +24,9 @@
 .date-picker__calendar-header-day {
   color: var(--label-color);
   font-size: var(--label__font-size);
+  min-width: 1.75rem;
   text-transform: uppercase;
+  white-space: nowrap;
   width: 1.75rem;
 
   &[data-disabled='true'] {

@@ -127,8 +127,8 @@ export class ChoChip {
 }
 
 export declare interface ChoDatePicker extends Components.ChoDatePicker {}
-@ProxyCmp({inputs: ['disabled', 'maxDate', 'minDate', 'shouldDisableDate', 'value']})
-@Component({ selector: 'cho-date-picker', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'maxDate', 'minDate', 'shouldDisableDate', 'value'] })
+@ProxyCmp({inputs: ['disabled', 'maxDate', 'minDate', 'shouldDisableDate', 'value', 'visible']})
+@Component({ selector: 'cho-date-picker', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'maxDate', 'minDate', 'shouldDisableDate', 'value', 'visible'] })
 export class ChoDatePicker {
   valueChanged!: EventEmitter<CustomEvent>;
   yearChanged!: EventEmitter<CustomEvent>;
@@ -293,8 +293,8 @@ export class ChoRadio {
 }
 
 export declare interface ChoSelect extends Components.ChoSelect {}
-@ProxyCmp({inputs: ['disabled', 'error', 'label', 'value'], 'methods': ['reset']})
-@Component({ selector: 'cho-select', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'error', 'label', 'value'] })
+@ProxyCmp({inputs: ['disabled', 'error', 'label', 'value', 'visible'], 'methods': ['reset']})
+@Component({ selector: 'cho-select', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'error', 'label', 'value', 'visible'] })
 export class ChoSelect {
   valueChanged!: EventEmitter<CustomEvent>;
   protected el: HTMLElement;
@@ -385,8 +385,8 @@ export class ChoTextField {
 }
 
 export declare interface ChoTimePicker extends Components.ChoTimePicker {}
-@ProxyCmp({inputs: ['disabled', 'twelveHourFormat', 'value']})
-@Component({ selector: 'cho-time-picker', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'twelveHourFormat', 'value'] })
+@ProxyCmp({inputs: ['disabled', 'twelveHourFormat', 'value', 'visible']})
+@Component({ selector: 'cho-time-picker', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'twelveHourFormat', 'value', 'visible'] })
 export class ChoTimePicker {
   valueChanged!: EventEmitter<CustomEvent>;
   hoursChanged!: EventEmitter<CustomEvent>;
