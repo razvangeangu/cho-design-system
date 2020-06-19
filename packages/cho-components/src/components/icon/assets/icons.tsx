@@ -1,3 +1,4 @@
+/* istanbul ignore file */
 /* eslint-disable max-len */
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { h } from '@stencil/core';

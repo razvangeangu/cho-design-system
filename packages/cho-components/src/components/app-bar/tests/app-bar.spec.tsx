@@ -83,4 +83,18 @@ describe('AppBar', () => {
       expect(page.root.style.position).toBe('fixed');
     });
   });
+
+  describe('didClickHamburger', () => {
+    it('should emit event', async () => {
+      const didClickHamburger = jest.fn();
+      const page = await newSpecPage({
+        components: [AppBar],
+        template: () => <cho-app-bar onHamburgerClicked={didClickHamburger} />,
+      });
+
+      page.root.shadowRoot.querySelector('cho-button').dispatchEvent(new MouseEvent('click'));
+
+      expect(didClickHamburger).toHaveBeenCalled();
+    });
+  });
 });
