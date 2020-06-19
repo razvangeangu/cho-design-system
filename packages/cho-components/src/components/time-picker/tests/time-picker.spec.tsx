@@ -17,7 +17,7 @@ describe('TimePicker', () => {
     it('should have twelve hour format', async () => {
       const page = await newSpecPage({
         components: [TimePicker],
-        template: () => <cho-time-picker twelveHourFormat />,
+        template: () => <cho-time-picker twelveHourFormat visible />,
       });
 
       expect(page.root.shadowRoot.querySelectorAll('li[data-hours]')).toHaveLength(12);
@@ -31,7 +31,7 @@ describe('TimePicker', () => {
       const page = await newSpecPage({
         components: [TimePicker],
         template: () => (
-          <cho-time-picker onValueChanged={didValueChanged} onHoursChanged={didHoursChanged} />
+          <cho-time-picker onValueChanged={didValueChanged} onHoursChanged={didHoursChanged} visible />
         ),
       });
 
@@ -50,7 +50,11 @@ describe('TimePicker', () => {
       const page = await newSpecPage({
         components: [TimePicker],
         template: () => (
-          <cho-time-picker onValueChanged={didValueChanged} onMinutesChanged={didMinutesChanged} />
+          <cho-time-picker
+            onValueChanged={didValueChanged}
+            onMinutesChanged={didMinutesChanged}
+            visible
+          />
         ),
       });
 
@@ -66,7 +70,7 @@ describe('TimePicker', () => {
     it('should handle hours selection - Enter', async () => {
       const page = await newSpecPage({
         components: [TimePicker],
-        template: () => <cho-time-picker />,
+        template: () => <cho-time-picker visible />,
       });
 
       page.rootInstance.handleHoursSelection = jest.fn();
@@ -79,7 +83,7 @@ describe('TimePicker', () => {
     it('should not handle hours selection - not Enter', async () => {
       const page = await newSpecPage({
         components: [TimePicker],
-        template: () => <cho-time-picker />,
+        template: () => <cho-time-picker visible />,
       });
 
       page.rootInstance.handleHoursSelection = jest.fn();
@@ -94,7 +98,7 @@ describe('TimePicker', () => {
     it('should handle minutes selection - Enter', async () => {
       const page = await newSpecPage({
         components: [TimePicker],
-        template: () => <cho-time-picker />,
+        template: () => <cho-time-picker visible />,
       });
 
       page.rootInstance.handleMinutesSelection = jest.fn();
@@ -107,7 +111,7 @@ describe('TimePicker', () => {
     it('should not handle minutes selection - not Enter', async () => {
       const page = await newSpecPage({
         components: [TimePicker],
-        template: () => <cho-time-picker />,
+        template: () => <cho-time-picker visible />,
       });
 
       page.rootInstance.handleMinutesSelection = jest.fn();

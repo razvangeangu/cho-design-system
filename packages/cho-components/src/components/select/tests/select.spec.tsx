@@ -119,7 +119,7 @@ describe('Select', () => {
       const didValueChanged = jest.fn();
       const page = await newSpecPage({
         components: [Select, MenuItem],
-        template: () => <cho-select onValueChanged={didValueChanged} />,
+        template: () => <cho-select onValueChanged={didValueChanged} visible />,
       });
 
       (page.root.shadowRoot.querySelector(
@@ -136,7 +136,7 @@ describe('Select', () => {
       const didValueChanged = jest.fn();
       const page = await newSpecPage({
         components: [Select, MenuItem],
-        template: () => <cho-select onValueChanged={didValueChanged} />,
+        template: () => <cho-select onValueChanged={didValueChanged} visible />,
       });
 
       const selectNoneElement = page.root.shadowRoot.querySelector(
@@ -154,7 +154,7 @@ describe('Select', () => {
     it('should handle selection - keypress - Enter - incompatible element', async () => {
       const page = await newSpecPage({
         components: [Select, MenuItem],
-        template: () => <cho-select />,
+        template: () => <cho-select visible />,
       });
 
       page.root.shadowRoot
@@ -179,7 +179,7 @@ describe('Select', () => {
     it('should not handle selection - keypress - Backspace', async () => {
       const page = await newSpecPage({
         components: [Select, MenuItem],
-        template: () => <cho-select />,
+        template: () => <cho-select visible />,
       });
 
       page.root.shadowRoot

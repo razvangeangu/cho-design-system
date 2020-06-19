@@ -44,7 +44,7 @@ describe('DatePicker', () => {
     it('should handle selection - Enter', async () => {
       const page = await newSpecPage({
         components: [DatePicker],
-        template: () => <cho-date-picker />,
+        template: () => <cho-date-picker visible />,
       });
       page.rootInstance.handleDaySelection = jest.fn();
 
@@ -57,7 +57,7 @@ describe('DatePicker', () => {
     it('should not handle selection - Other', async () => {
       const page = await newSpecPage({
         components: [DatePicker],
-        template: () => <cho-date-picker />,
+        template: () => <cho-date-picker visible />,
       });
       page.rootInstance.handleDaySelection = jest.fn();
 
@@ -72,7 +72,7 @@ describe('DatePicker', () => {
     it('should handle selection - click handler', async () => {
       const page = await newSpecPage({
         components: [DatePicker],
-        template: () => <cho-date-picker />,
+        template: () => <cho-date-picker visible />,
       });
       page.rootInstance.handleDaySelection = jest.fn();
 
@@ -89,7 +89,7 @@ describe('DatePicker', () => {
       const page = await newSpecPage({
         components: [DatePicker],
         template: () => (
-          <cho-date-picker onValueChanged={didValueChanged} value={new Date(1997, 0, 14)} />
+          <cho-date-picker onValueChanged={didValueChanged} value={new Date(1997, 0, 14)} visible />
         ),
       });
 
@@ -105,7 +105,7 @@ describe('DatePicker', () => {
       const didValueChanged = jest.fn();
       const page = await newSpecPage({
         components: [DatePicker],
-        template: () => <cho-date-picker onValueChanged={didValueChanged} />,
+        template: () => <cho-date-picker onValueChanged={didValueChanged} visible />,
       });
 
       const click = new MouseEvent('click');
