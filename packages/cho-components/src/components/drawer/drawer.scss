@@ -1,0 +1,16 @@
+:host {
+  display: inline-block;
+}
+
+.drawer__container {
+  background-color: var(--surface__background-color);
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 1rem);
+  list-style: none;
+  margin: 0;
+  max-width: 15rem;
+  overflow-y: auto;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+}
