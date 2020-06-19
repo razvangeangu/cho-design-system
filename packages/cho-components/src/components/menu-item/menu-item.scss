@@ -5,8 +5,12 @@
 .menu-item__li {
   @include surface-inner-space();
 
+  background-color: var(--surface__background-color);
   list-style-type: none;
   outline: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 
   ::slotted(*) {
     width: 100%;
