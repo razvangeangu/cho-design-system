@@ -2,7 +2,7 @@
 
 # Chocolate Design System
 
-A light design system based on common web standards and design guidelines useful to get started in buildinig your own set of web components.
+A light design system based on common web standards and design guidelines useful to get started in building your own set of web components.
 
 ## Get Started
 
