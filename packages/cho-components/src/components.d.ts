@@ -5,7 +5,7 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { TAppBarPosition } from "./components/app-bar/model";
+import { IAppBarHamburgerClickedDetail, TAppBarPosition } from "./components/app-bar/model";
 import { TBadgeKind } from "./components/badge/model";
 import { TInputType, TPlacement, TPlacementHorizontal, TPlacementVertical } from "./types";
 import { TButtonKind } from "./components/button/model";
@@ -188,6 +188,13 @@ export namespace Components {
         "visible"?: boolean;
     }
     interface ChoDivider {
+    }
+    interface ChoDrawer {
+        /**
+          * If `true`, the drawer and it's children will be visible.
+          * @default true
+         */
+        "visible"?: boolean;
     }
     interface ChoExpansionPanel {
         /**
@@ -653,6 +660,12 @@ declare global {
         prototype: HTMLChoDividerElement;
         new (): HTMLChoDividerElement;
     };
+    interface HTMLChoDrawerElement extends Components.ChoDrawer, HTMLStencilElement {
+    }
+    var HTMLChoDrawerElement: {
+        prototype: HTMLChoDrawerElement;
+        new (): HTMLChoDrawerElement;
+    };
     interface HTMLChoExpansionPanelElement extends Components.ChoExpansionPanel, HTMLStencilElement {
     }
     var HTMLChoExpansionPanelElement: {
@@ -778,6 +791,7 @@ declare global {
         "cho-date-picker": HTMLChoDatePickerElement;
         "cho-dialog": HTMLChoDialogElement;
         "cho-divider": HTMLChoDividerElement;
+        "cho-drawer": HTMLChoDrawerElement;
         "cho-expansion-panel": HTMLChoExpansionPanelElement;
         "cho-expansion-panel-item": HTMLChoExpansionPanelItemElement;
         "cho-icon": HTMLChoIconElement;
@@ -806,6 +820,10 @@ declare namespace LocalJSX {
           * @default 'false'
          */
         "hidesOnScroll"?: boolean;
+        /**
+          * Callback fired when clicking the hamburger button.
+         */
+        "onHamburgerClicked"?: (event: CustomEvent<IAppBarHamburgerClickedDetail>) => void;
         /**
           * The position of the app bar.
           * @default 'static'
@@ -983,6 +1001,13 @@ declare namespace LocalJSX {
         "visible"?: boolean;
     }
     interface ChoDivider {
+    }
+    interface ChoDrawer {
+        /**
+          * If `true`, the drawer and it's children will be visible.
+          * @default true
+         */
+        "visible"?: boolean;
     }
     interface ChoExpansionPanel {
         /**
@@ -1413,6 +1438,7 @@ declare namespace LocalJSX {
         "cho-date-picker": ChoDatePicker;
         "cho-dialog": ChoDialog;
         "cho-divider": ChoDivider;
+        "cho-drawer": ChoDrawer;
         "cho-expansion-panel": ChoExpansionPanel;
         "cho-expansion-panel-item": ChoExpansionPanelItem;
         "cho-icon": ChoIcon;
@@ -1448,6 +1474,7 @@ declare module "@stencil/core" {
             "cho-date-picker": LocalJSX.ChoDatePicker & JSXBase.HTMLAttributes<HTMLChoDatePickerElement>;
             "cho-dialog": LocalJSX.ChoDialog & JSXBase.HTMLAttributes<HTMLChoDialogElement>;
             "cho-divider": LocalJSX.ChoDivider & JSXBase.HTMLAttributes<HTMLChoDividerElement>;
+            "cho-drawer": LocalJSX.ChoDrawer & JSXBase.HTMLAttributes<HTMLChoDrawerElement>;
             "cho-expansion-panel": LocalJSX.ChoExpansionPanel & JSXBase.HTMLAttributes<HTMLChoExpansionPanelElement>;
             "cho-expansion-panel-item": LocalJSX.ChoExpansionPanelItem & JSXBase.HTMLAttributes<HTMLChoExpansionPanelItemElement>;
             "cho-icon": LocalJSX.ChoIcon & JSXBase.HTMLAttributes<HTMLChoIconElement>;

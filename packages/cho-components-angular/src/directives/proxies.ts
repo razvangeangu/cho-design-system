@@ -47,10 +47,12 @@ export declare interface ChoAppBar extends Components.ChoAppBar {}
 @ProxyCmp({inputs: ['hidesOnScroll', 'position']})
 @Component({ selector: 'cho-app-bar', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['hidesOnScroll', 'position'] })
 export class ChoAppBar {
+  hamburgerClicked!: EventEmitter<CustomEvent>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
+    proxyOutputs(this, this.el, ['hamburgerClicked']);
   }
 }
 
@@ -155,6 +157,17 @@ export declare interface ChoDivider extends Components.ChoDivider {}
 
 @Component({ selector: 'cho-divider', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>' })
 export class ChoDivider {
+  protected el: HTMLElement;
+  constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
+    c.detach();
+    this.el = r.nativeElement;
+  }
+}
+
+export declare interface ChoDrawer extends Components.ChoDrawer {}
+@ProxyCmp({inputs: ['visible']})
+@Component({ selector: 'cho-drawer', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['visible'] })
+export class ChoDrawer {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();

@@ -1,6 +1,16 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Component, ComponentInterface, h, Host, Listen, Prop, State } from '@stencil/core';
-import { kAppBar, TAppBarPosition } from './model';
+import {
+  Component,
+  ComponentInterface,
+  Event,
+  EventEmitter,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  h,
+  Host,
+  Listen,
+  Prop,
+  State,
+} from '@stencil/core';
+import { IAppBarHamburgerClickedDetail, kAppBar, TAppBarPosition } from './model';
 
 /**
  * @slot leading - A component to display before the primary content.
@@ -27,6 +37,11 @@ export class AppBar implements ComponentInterface {
    */
   @Prop() hidesOnScroll?: boolean = false;
 
+  /**
+   * Callback fired when clicking the hamburger button.
+   */
+  @Event() hamburgerClicked: EventEmitter<IAppBarHamburgerClickedDetail>;
+
   @State() visible: boolean = true;
 
   private lastScrollTop: number = 0;
@@ -52,13 +67,17 @@ export class AppBar implements ComponentInterface {
     };
   }
 
+  private didClickHamburger = () => {
+    this.hamburgerClicked.emit();
+  };
+
   render() {
     return (
       <Host style={{ ...this.hostStyle }}>
         <div class={kAppBar.classes.container}>
           <div class={kAppBar.classes.leading}>
             <slot name={kAppBar.slots.leading}>
-              <cho-button>
+              <cho-button onClick={this.didClickHamburger}>
                 <cho-icon kind="hamburger" color="var(--button__text-color)" />
               </cho-button>
             </slot>

@@ -13,6 +13,13 @@
 | `position`      | `position`        | The position of the app bar.                                    | `"static" \| "sticky"` | `'static'` |
 
 
+## Events
+
+| Event              | Description                                        | Type                                         |
+| ------------------ | -------------------------------------------------- | -------------------------------------------- |
+| `hamburgerClicked` | Callback fired when clicking the hamburger button. | `CustomEvent<IAppBarHamburgerClickedDetail>` |
+
+
 ## Slots
 
 | Slot         | Description                                        |
