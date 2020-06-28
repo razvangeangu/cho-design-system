@@ -1,3 +1,3 @@
-export type TTabItemHostContainer = HTMLElement & {
+export type TTabItemHostContainer = {
   removeTabItem: (tabItem: HTMLChoTabItemElement) => Promise<any>;
 };

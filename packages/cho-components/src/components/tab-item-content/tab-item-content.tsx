@@ -38,10 +38,12 @@ export class TabItemContent implements ComponentInterface {
 
   /**
    * Called every time the component is connected to the DOM.
+   *
+   * @internal
    */
   @Event() tabItemContentConnected: EventEmitter<ITabItemContentConnectedDetail>;
 
-  private hostContainer: TTabItemContentHostContainer;
+  private hostContainer: HTMLElement & TTabItemContentHostContainer;
 
   /**
    * Helper used to keep track internally of the menu items in containers.
@@ -50,7 +52,7 @@ export class TabItemContent implements ComponentInterface {
    * @param hostContainer The container that controls the menu-item.
    */
   @Method()
-  async setHostContainer(hostContainer: TTabItemContentHostContainer) {
+  async setHostContainer(hostContainer: HTMLElement & TTabItemContentHostContainer) {
     this.hostContainer = hostContainer;
   }
 

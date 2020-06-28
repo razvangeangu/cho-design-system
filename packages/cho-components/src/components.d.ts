@@ -223,7 +223,7 @@ export namespace Components {
           * Helper used to keep track internally of the menu items in containers.
           * @param hostContainer The container that controls the menu-item.
          */
-        "setHostContainer": (hostContainer: TExpansionPanelItemHostContainer) => Promise<void>;
+        "setHostContainer": (hostContainer: HTMLElement & TExpansionPanelItemHostContainer) => Promise<void>;
         /**
           * If `true`, the content will be visible.
           * @default false
@@ -279,7 +279,7 @@ export namespace Components {
           * Helper used to keep track internally of the menu items in containers.
           * @param hostContainer The container that controls the menu-item.
          */
-        "setHostContainer": (hostContainer: TMenuItemHostContainer) => Promise<void>;
+        "setHostContainer": (hostContainer: HTMLElement & TMenuItemHostContainer) => Promise<void>;
         /**
           * The value of the menu-item.
           * @default undefined
@@ -467,7 +467,7 @@ export namespace Components {
           * Helper used to keep track internally of the menu items in containers.
           * @param hostContainer The container that controls the menu-item.
          */
-        "setHostContainer": (hostContainer: TTabItemHostContainer) => Promise<void>;
+        "setHostContainer": (hostContainer: HTMLElement & TTabItemHostContainer) => Promise<void>;
     }
     interface ChoTabItemContent {
         /**
@@ -479,7 +479,7 @@ export namespace Components {
           * Helper used to keep track internally of the menu items in containers.
           * @param hostContainer The container that controls the menu-item.
          */
-        "setHostContainer": (hostContainer: TTabItemContentHostContainer) => Promise<void>;
+        "setHostContainer": (hostContainer: HTMLElement & TTabItemContentHostContainer) => Promise<void>;
         /**
           * If `true`, the tab item content will be visible.
           * @default false

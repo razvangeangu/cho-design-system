@@ -11,8 +11,12 @@ import {
   Prop,
   Watch,
 } from '@stencil/core';
-import { ITabItemContentConnectedDetail } from '../tab-item-content/model';
-import { ITabItemConnectedDetail, ITabItemSelectedDetail } from '../tab-item/model';
+import { ITabItemContentConnectedDetail, TTabItemContentHostContainer } from '../tab-item-content/model';
+import {
+  ITabItemConnectedDetail,
+  ITabItemSelectedDetail,
+  TTabItemHostContainer,
+} from '../tab-item/model';
 import { ICurrentIndexChangedDetail, kTabs } from './model';
 
 /**
@@ -24,7 +28,7 @@ import { ICurrentIndexChangedDetail, kTabs } from './model';
   styleUrl: 'tabs.scss',
   shadow: true,
 })
-export class Tabs implements ComponentInterface {
+export class Tabs implements ComponentInterface, TTabItemHostContainer, TTabItemContentHostContainer {
   @Element() host!: HTMLChoTabsElement;
 
   /**

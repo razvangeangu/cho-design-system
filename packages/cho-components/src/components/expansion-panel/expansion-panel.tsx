@@ -3,6 +3,7 @@ import { Component, ComponentInterface, Element, h, Listen, Method, Prop } from 
 import {
   IExpansionPanelItemConnectedDetail,
   IExpansionPanelItemVisibleChangedDetail,
+  TExpansionPanelItemHostContainer,
 } from '../expansion-panel-item/model';
 import { kExpansionPanel } from './model';
 
@@ -14,7 +15,7 @@ import { kExpansionPanel } from './model';
   styleUrl: 'expansion-panel.scss',
   shadow: true,
 })
-export class ExpansionPanel implements ComponentInterface {
+export class ExpansionPanel implements ComponentInterface, TExpansionPanelItemHostContainer {
   @Element() host!: HTMLChoExpansionPanelElement;
 
   /**

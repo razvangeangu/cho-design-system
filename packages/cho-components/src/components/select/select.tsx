@@ -12,7 +12,7 @@ import {
   State,
   Watch,
 } from '@stencil/core';
-import { IMenuItemConnectedDetail, kMenuItem } from '../menu-item/model';
+import { IMenuItemConnectedDetail, kMenuItem, TMenuItemHostContainer } from '../menu-item/model';
 import { kTextField } from '../text-field/model';
 import { ISelectValueChangedDetail, kSelect } from './model';
 
@@ -24,7 +24,7 @@ import { ISelectValueChangedDetail, kSelect } from './model';
   styleUrl: 'select.scss',
   shadow: true,
 })
-export class Select implements ComponentInterface {
+export class Select implements ComponentInterface, TMenuItemHostContainer {
   @Element() host!: HTMLChoSelectElement;
 
   /**

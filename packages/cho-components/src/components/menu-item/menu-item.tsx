@@ -45,10 +45,12 @@ export class MenuItem implements ComponentInterface {
 
   /**
    * Called every time the component is connected to the DOM.
+   *
+   * @internal
    */
   @Event() menuItemConnected: EventEmitter<IMenuItemConnectedDetail>;
 
-  private hostContainer: TMenuItemHostContainer;
+  private hostContainer: HTMLElement & TMenuItemHostContainer;
 
   /**
    * Helper used to keep track internally of the menu items in containers.
@@ -57,7 +59,7 @@ export class MenuItem implements ComponentInterface {
    * @param hostContainer The container that controls the menu-item.
    */
   @Method()
-  async setHostContainer(hostContainer: TMenuItemHostContainer) {
+  async setHostContainer(hostContainer: HTMLElement & TMenuItemHostContainer) {
     this.hostContainer = hostContainer;
   }
 

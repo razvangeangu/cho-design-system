@@ -50,10 +50,12 @@ export class ExpansionPanelItem implements ComponentInterface {
 
   /**
    * Called every time the component is connected to the DOM.
+   *
+   * @internal
    */
   @Event() expansionPanelItemConnected: EventEmitter<IExpansionPanelItemConnectedDetail>;
 
-  private hostContainer: TExpansionPanelItemHostContainer;
+  private hostContainer: HTMLElement & TExpansionPanelItemHostContainer;
 
   /**
    * Helper used to keep track internally of the menu items in containers.
@@ -62,7 +64,7 @@ export class ExpansionPanelItem implements ComponentInterface {
    * @param hostContainer The container that controls the menu-item.
    */
   @Method()
-  async setHostContainer(hostContainer: TExpansionPanelItemHostContainer) {
+  async setHostContainer(hostContainer: HTMLElement & TExpansionPanelItemHostContainer) {
     this.hostContainer = hostContainer;
   }
 

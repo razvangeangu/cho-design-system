@@ -15,10 +15,9 @@
 
 ## Events
 
-| Event                         | Description                                              | Type                                                   |
-| ----------------------------- | -------------------------------------------------------- | ------------------------------------------------------ |
-| `expansionPanelItemConnected` | Called every time the component is connected to the DOM. | `CustomEvent<IExpansionPanelItemConnectedDetail>`      |
-| `visibleChanged`              | Callback fired when the visible is changed.              | `CustomEvent<IExpansionPanelItemVisibleChangedDetail>` |
+| Event            | Description                                 | Type                                                   |
+| ---------------- | ------------------------------------------- | ------------------------------------------------------ |
+| `visibleChanged` | Callback fired when the visible is changed. | `CustomEvent<IExpansionPanelItemVisibleChangedDetail>` |
 
 
 ## Slots

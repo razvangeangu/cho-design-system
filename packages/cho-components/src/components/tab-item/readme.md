@@ -17,10 +17,9 @@
 
 ## Events
 
-| Event              | Description                                              | Type                                   |
-| ------------------ | -------------------------------------------------------- | -------------------------------------- |
-| `tabItemConnected` | Called every time the component is connected to the DOM. | `CustomEvent<ITabItemConnectedDetail>` |
-| `tabItemSelected`  | Callback fired when the tab item is selected.            | `CustomEvent<ITabItemSelectedDetail>`  |
+| Event             | Description                                   | Type                                  |
+| ----------------- | --------------------------------------------- | ------------------------------------- |
+| `tabItemSelected` | Callback fired when the tab item is selected. | `CustomEvent<ITabItemSelectedDetail>` |
 
 
 ## Dependencies

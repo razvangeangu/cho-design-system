@@ -191,12 +191,11 @@ export declare interface ChoExpansionPanelItem extends Components.ChoExpansionPa
 @Component({ selector: 'cho-expansion-panel-item', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'visible'] })
 export class ChoExpansionPanelItem {
   visibleChanged!: EventEmitter<CustomEvent>;
-  expansionPanelItemConnected!: EventEmitter<CustomEvent>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['visibleChanged', 'expansionPanelItemConnected']);
+    proxyOutputs(this, this.el, ['visibleChanged']);
   }
 }
 
@@ -237,12 +236,10 @@ export declare interface ChoMenuItem extends Components.ChoMenuItem {}
 @ProxyCmp({inputs: ['disabled', 'selected', 'value']})
 @Component({ selector: 'cho-menu-item', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'selected', 'value'] })
 export class ChoMenuItem {
-  menuItemConnected!: EventEmitter<CustomEvent>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['menuItemConnected']);
   }
 }
 
@@ -336,12 +333,11 @@ export declare interface ChoTabItem extends Components.ChoTabItem {}
 @Component({ selector: 'cho-tab-item', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'index', 'label', 'selected'] })
 export class ChoTabItem {
   tabItemSelected!: EventEmitter<CustomEvent>;
-  tabItemConnected!: EventEmitter<CustomEvent>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['tabItemSelected', 'tabItemConnected']);
+    proxyOutputs(this, this.el, ['tabItemSelected']);
   }
 }
 
@@ -349,12 +345,10 @@ export declare interface ChoTabItemContent extends Components.ChoTabItemContent 
 @ProxyCmp({inputs: ['index', 'visible']})
 @Component({ selector: 'cho-tab-item-content', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['index', 'visible'] })
 export class ChoTabItemContent {
-  tabItemContentConnected!: EventEmitter<CustomEvent>;
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
     c.detach();
     this.el = r.nativeElement;
-    proxyOutputs(this, this.el, ['tabItemContentConnected']);
   }
 }
 

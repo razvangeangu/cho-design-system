@@ -14,13 +14,6 @@
 | `value`    | `value`    | The value of the menu-item.                | `any`     | `undefined` |
 
 
-## Events
-
-| Event               | Description                                              | Type                                    |
-| ------------------- | -------------------------------------------------------- | --------------------------------------- |
-| `menuItemConnected` | Called every time the component is connected to the DOM. | `CustomEvent<IMenuItemConnectedDetail>` |
-
-
 ## Slots
 
 | Slot | Description                           |

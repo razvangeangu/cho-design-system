@@ -1,3 +1,3 @@
-export type TExpansionPanelItemHostContainer = HTMLElement & {
+export type TExpansionPanelItemHostContainer = {
   removeExpansionPanelItem: (expansionPanelItem: HTMLChoExpansionPanelItemElement) => Promise<any>;
 };

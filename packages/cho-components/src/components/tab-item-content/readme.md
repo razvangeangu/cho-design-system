@@ -13,13 +13,6 @@
 | `visible`            | `visible` | If `true`, the tab item content will be visible. | `boolean` | `false`     |
 
 
-## Events
-
-| Event                     | Description                                              | Type                                          |
-| ------------------------- | -------------------------------------------------------- | --------------------------------------------- |
-| `tabItemContentConnected` | Called every time the component is connected to the DOM. | `CustomEvent<ITabItemContentConnectedDetail>` |
-
-
 ## Slots
 
 | Slot | Description                               |
