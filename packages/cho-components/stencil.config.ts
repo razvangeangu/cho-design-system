@@ -59,6 +59,8 @@ export const config: Config = {
     reactOutputTarget({
       componentCorePackage: '@cho/components',
       proxiesFile: '../cho-components-react/src/components.ts',
+      includeDefineCustomElements: true,
+      includePolyfills: true,
     }),
     {
       type: 'dist',
