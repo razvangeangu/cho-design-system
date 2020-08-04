@@ -77,6 +77,7 @@ Text fields let users enter and edit text.
 | `readOnly`    | `read-only`   | It prevents the user from changing the value of the field (not from interacting with the field). | `boolean`                                                                                         | `false`     |
 | `rows`        | `rows`        | Number of rows to display when `multiline` option is set to true.                                | `number`                                                                                          | `2`         |
 | `step`        | `step`        | The granularity with which the input can step through values.                                    | `number \| string`                                                                                | `'any'`     |
+| `textAlign`   | `text-align`  | Set the text alignment inside the input element.                                                 | `"center" \| "end" \| "justify" \| "left" \| "match-parent" \| "right" \| "start"`                | `undefined` |
 | `type`        | `type`        | Specifies the type of <input> element to display.                                                | `"date" \| "email" \| "hidden" \| "number" \| "password" \| "search" \| "tel" \| "text" \| "url"` | `'text'`    |
 | `value`       | `value`       | The value of the input element, required for a controlled component.                             | `string`                                                                                          | `undefined` |
 

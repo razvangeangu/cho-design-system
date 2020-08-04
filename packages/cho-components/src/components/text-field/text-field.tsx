@@ -2,7 +2,7 @@
 import { Component, ComponentInterface, Event, EventEmitter, h, Prop, State } from '@stencil/core';
 import { JSXBase } from '@stencil/core/internal';
 import { TInputType } from '../../types';
-import { ITextFieldValueChangedDetail, kTextField } from './model';
+import { ITextFieldValueChangedDetail, kTextField, TTextAlign } from './model';
 
 /**
  * @slot leading - A component to display before the primary content.
@@ -113,6 +113,13 @@ export class TextField implements ComponentInterface {
   @Prop({ mutable: true }) value?: string;
 
   /**
+   * Set the text alignment inside the input element.
+   *
+   * @default undefined
+   */
+  @Prop() textAlign?: TTextAlign;
+
+  /**
    * Callback fired when the value is changed.
    */
   @Event() valueChanged: EventEmitter<ITextFieldValueChangedDetail>;
@@ -142,6 +149,7 @@ export class TextField implements ComponentInterface {
       onInput: this.didInput,
       onFocus: this.didFocus,
       onBlur: this.didFocus,
+      style: { textAlign: this.textAlign },
     };
 
     if (this.multiline) {
