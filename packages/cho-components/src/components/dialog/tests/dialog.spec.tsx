@@ -50,4 +50,32 @@ describe('Dialog', () => {
       expect(page.rootInstance.visible).toBeFalsy();
     });
   });
+
+  describe('open', () => {
+    it('should open dialog', async () => {
+      const page = await newSpecPage({
+        components: [Dialog],
+        template: () => <cho-dialog visible={false} />,
+      });
+
+      await page.root.open();
+      await page.waitForChanges();
+
+      expect(page.root.visible).toBeTruthy();
+    });
+  });
+
+  describe('close', () => {
+    it('should close dialog', async () => {
+      const page = await newSpecPage({
+        components: [Dialog],
+        template: () => <cho-dialog visible />,
+      });
+
+      await page.root.close();
+      await page.waitForChanges();
+
+      expect(page.root.visible).toBe(false);
+    });
+  });
 });

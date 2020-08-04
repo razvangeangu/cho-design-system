@@ -18,7 +18,7 @@ describe('DatePicker', () => {
     it('should remove all cells tabIndex', async () => {
       const page = await newSpecPage({
         components: [DatePicker],
-        template: () => <cho-date-picker disabled />,
+        template: () => <cho-date-picker visible disabled />,
       });
       page.root.shadowRoot.querySelectorAll('td').forEach(tableCell => {
         expect(tableCell.tabIndex).toBe(-1);
@@ -218,6 +218,64 @@ describe('DatePicker', () => {
       expect(didYearChanged).toHaveBeenCalled();
       expect(didMonthChanged).toHaveBeenCalled();
       expect(didDayChanged).toHaveBeenCalled();
+    });
+  });
+
+  describe('didClickTextField', () => {
+    it('should prevent default and change visible', async () => {
+      const page = await newSpecPage({
+        components: [DatePicker],
+        template: () => <cho-date-picker visible />,
+      });
+
+      const clickEvent = new MouseEvent('click');
+      page.root.shadowRoot.querySelector('cho-text-field').dispatchEvent(clickEvent);
+      await page.waitForChanges();
+
+      expect(clickEvent.defaultPrevented).toBeTruthy();
+      expect(page.root.visible).toBe(false);
+    });
+
+    it('should prevent default and not change visible', async () => {
+      const page = await newSpecPage({
+        components: [DatePicker],
+        template: () => <cho-date-picker visible={false} disabled />,
+      });
+
+      const clickEvent = new MouseEvent('click');
+      page.root.shadowRoot.querySelector('cho-text-field').dispatchEvent(clickEvent);
+      await page.waitForChanges();
+
+      expect(clickEvent.defaultPrevented).toBeTruthy();
+      expect(page.root.visible).toBe(false);
+    });
+  });
+
+  describe('open', () => {
+    it('should open dropdown', async () => {
+      const page = await newSpecPage({
+        components: [DatePicker],
+        template: () => <cho-date-picker visible={false} />,
+      });
+
+      await page.root.open();
+      await page.waitForChanges();
+
+      expect(page.root.visible).toBeTruthy();
+    });
+  });
+
+  describe('close', () => {
+    it('should close dropdown', async () => {
+      const page = await newSpecPage({
+        components: [DatePicker],
+        template: () => <cho-date-picker visible />,
+      });
+
+      await page.root.close();
+      await page.waitForChanges();
+
+      expect(page.root.visible).toBe(false);
     });
   });
 });

@@ -121,4 +121,62 @@ describe('TimePicker', () => {
       expect(page.rootInstance.handleMinutesSelection).not.toHaveBeenCalled();
     });
   });
+
+  describe('didClickTextField', () => {
+    it('should prevent default and change visible', async () => {
+      const page = await newSpecPage({
+        components: [TimePicker],
+        template: () => <cho-time-picker visible />,
+      });
+
+      const clickEvent = new MouseEvent('click');
+      page.root.shadowRoot.querySelector('cho-text-field').dispatchEvent(clickEvent);
+      await page.waitForChanges();
+
+      expect(clickEvent.defaultPrevented).toBeTruthy();
+      expect(page.root.visible).toBe(false);
+    });
+
+    it('should prevent default and not change visible', async () => {
+      const page = await newSpecPage({
+        components: [TimePicker],
+        template: () => <cho-time-picker visible={false} disabled />,
+      });
+
+      const clickEvent = new MouseEvent('click');
+      page.root.shadowRoot.querySelector('cho-text-field').dispatchEvent(clickEvent);
+      await page.waitForChanges();
+
+      expect(clickEvent.defaultPrevented).toBeTruthy();
+      expect(page.root.visible).toBe(false);
+    });
+  });
+
+  describe('open', () => {
+    it('should open dropdown', async () => {
+      const page = await newSpecPage({
+        components: [TimePicker],
+        template: () => <cho-time-picker visible={false} />,
+      });
+
+      await page.root.open();
+      await page.waitForChanges();
+
+      expect(page.root.visible).toBeTruthy();
+    });
+  });
+
+  describe('close', () => {
+    it('should close dropdown', async () => {
+      const page = await newSpecPage({
+        components: [TimePicker],
+        template: () => <cho-time-picker visible />,
+      });
+
+      await page.root.close();
+      await page.waitForChanges();
+
+      expect(page.root.visible).toBe(false);
+    });
+  });
 });
