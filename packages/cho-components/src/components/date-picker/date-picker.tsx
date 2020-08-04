@@ -1,5 +1,14 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Component, ComponentInterface, Event, EventEmitter, h, Prop } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Event,
+  EventEmitter,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  h,
+  Method,
+  Prop,
+} from '@stencil/core';
+import { IOverlayController } from '../../types';
 import { ITextFieldValueChangedDetail, kTextField } from '../text-field/model';
 import {
   getDateFromDateString,
@@ -18,7 +27,7 @@ import {
   styleUrl: 'date-picker.scss',
   shadow: true,
 })
-export class DatePicker implements ComponentInterface {
+export class DatePicker implements ComponentInterface, IOverlayController {
   /**
    * The value of the date-picker.
    *
@@ -80,6 +89,22 @@ export class DatePicker implements ComponentInterface {
    * Callback fired when the day is changed.
    */
   @Event() dayChanged: EventEmitter<IDatePickerDayChangedDetail>;
+
+  /**
+   * Open the dropdown.
+   */
+  @Method()
+  async open() {
+    this.visible = true;
+  }
+
+  /**
+   * Close the dropdown.
+   */
+  @Method()
+  async close() {
+    this.visible = false;
+  }
 
   private valueChangedEmitter = (newValue: Date, oldValue: Date) => {
     this.valueChanged.emit({ value: this.value });

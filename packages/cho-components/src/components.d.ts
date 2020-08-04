@@ -26,7 +26,7 @@ import { ISwitchValueChangedDetail } from "./components/switch/model";
 import { ITabItemConnectedDetail, ITabItemSelectedDetail, TTabItemHostContainer } from "./components/tab-item/model";
 import { ITabItemContentConnectedDetail, TTabItemContentHostContainer } from "./components/tab-item-content/model";
 import { ICurrentIndexChangedDetail } from "./components/tabs/model";
-import { ITextFieldValueChangedDetail } from "./components/text-field/model";
+import { ITextFieldValueChangedDetail, TTextAlign } from "./components/text-field/model";
 import { ITimePickerHoursChangedDetail, ITimePickerMinutesChangedDetail, ITimePickerValueChangedDetail } from "./components/time-picker/model";
 export namespace Components {
     interface ChoAppBar {
@@ -150,6 +150,10 @@ export namespace Components {
     }
     interface ChoDatePicker {
         /**
+          * Close the dropdown.
+         */
+        "close": () => Promise<void>;
+        /**
           * If `true`, the text-field will be disabled.
           * @default false
          */
@@ -164,6 +168,10 @@ export namespace Components {
           * @default new Date('1897-01-14')
          */
         "minDate"?: Date;
+        /**
+          * Open the dropdown.
+         */
+        "open": () => Promise<void>;
         /**
           * Callback used to disable specific dates.
           * @default () => false
@@ -182,10 +190,18 @@ export namespace Components {
     }
     interface ChoDialog {
         /**
+          * Close the dialog.
+         */
+        "close": () => Promise<void>;
+        /**
           * If `true`, the dialog will close when clicking on the backdrop.
           * @default true
          */
         "dismissible"?: boolean;
+        /**
+          * Open the dialog.
+         */
+        "open": () => Promise<void>;
         /**
           * If `true`, the dialog will be visible.
           * @default false
@@ -351,6 +367,10 @@ export namespace Components {
     }
     interface ChoSelect {
         /**
+          * Close the dropdown.
+         */
+        "close": () => Promise<void>;
+        /**
           * If `true`, the text-field will be disabled.
           * @default false
          */
@@ -365,6 +385,10 @@ export namespace Components {
           * @default undefined
          */
         "label"?: string;
+        /**
+          * Open the dropdown.
+         */
+        "open": () => Promise<void>;
         /**
           * Helper used to keep track internally of the menu items in select.
           * @param menuItem The menu item that has been disconnected and due to be removed.
@@ -565,6 +589,11 @@ export namespace Components {
          */
         "step"?: number | string;
         /**
+          * Set the text alignment inside the input element.
+          * @default undefined
+         */
+        "textAlign"?: TTextAlign;
+        /**
           * Specifies the type of <input> element to display.
           * @default 'text'
          */
@@ -577,10 +606,18 @@ export namespace Components {
     }
     interface ChoTimePicker {
         /**
+          * Close the dropdown.
+         */
+        "close": () => Promise<void>;
+        /**
           * If `true`, the text-field will be disabled.
           * @default false
          */
         "disabled"?: boolean;
+        /**
+          * Open the dropdown.
+         */
+        "open": () => Promise<void>;
         /**
           * If `true`, the value will be formatted with AM/PM.
           * @default false
@@ -599,6 +636,14 @@ export namespace Components {
     }
     interface ChoTooltip {
         /**
+          * Close the dropdown.
+         */
+        "close": () => Promise<void>;
+        /**
+          * Open the dropdown.
+         */
+        "open": () => Promise<void>;
+        /**
           * The fixed position of the badge on the screen.
           * @default 'bottom'
          */
@@ -612,6 +657,11 @@ export namespace Components {
           * @default false
          */
         "visible"?: boolean;
+        /**
+          * If `true`, the tooltip will show on mouse hover and disappear on mouse out.
+          * @default false
+         */
+        "visibleOnHover"?: boolean;
     }
 }
 declare global {
@@ -1397,6 +1447,11 @@ declare namespace LocalJSX {
          */
         "step"?: number | string;
         /**
+          * Set the text alignment inside the input element.
+          * @default undefined
+         */
+        "textAlign"?: TTextAlign;
+        /**
           * Specifies the type of <input> element to display.
           * @default 'text'
          */
@@ -1456,6 +1511,11 @@ declare namespace LocalJSX {
           * @default false
          */
         "visible"?: boolean;
+        /**
+          * If `true`, the tooltip will show on mouse hover and disappear on mouse out.
+          * @default false
+         */
+        "visibleOnHover"?: boolean;
     }
     interface IntrinsicElements {
         "cho-app-bar": ChoAppBar;

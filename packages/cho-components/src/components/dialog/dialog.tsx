@@ -1,5 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Component, ComponentInterface, Element, h, Host, Prop } from '@stencil/core';
+import { Component, ComponentInterface, Element, h, Host, Method, Prop } from '@stencil/core';
+import { IOverlayController } from '../../types';
 import { kDialog } from './model';
 
 /**
@@ -12,7 +13,7 @@ import { kDialog } from './model';
   styleUrl: 'dialog.scss',
   shadow: true,
 })
-export class Dialog implements ComponentInterface {
+export class Dialog implements ComponentInterface, IOverlayController {
   @Element() host!: HTMLChoDialogElement;
 
   /**
@@ -28,6 +29,22 @@ export class Dialog implements ComponentInterface {
    * @default true
    */
   @Prop() dismissible?: boolean = true;
+
+  /**
+   * Open the dialog.
+   */
+  @Method()
+  async open() {
+    this.visible = true;
+  }
+
+  /**
+   * Close the dialog.
+   */
+  @Method()
+  async close() {
+    this.visible = false;
+  }
 
   private didClick = () => {
     this.visible = false;

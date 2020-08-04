@@ -20,7 +20,9 @@ describe('TabItemContent', () => {
         components: [TabItemContent],
         template: () => <cho-tab-item-content index={0} />,
       });
-      const hostContainer: TTabItemContentHostContainer = { removeTabItemContent: jest.fn() } as any;
+      const hostContainer: HTMLElement & TTabItemContentHostContainer = {
+        removeTabItemContent: jest.fn(),
+      } as any;
 
       await (page.root as HTMLChoTabItemContentElement).setHostContainer(hostContainer);
       page.root.remove();

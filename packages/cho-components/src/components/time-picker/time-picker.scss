@@ -13,11 +13,12 @@
   border: solid var(--surface__border-color);
   border-radius: var(--border-radius);
   border-width: var(--border-width);
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   min-width: 2rem;
   position: absolute;
-  z-index: 1;
+  z-index: var(--overlay-z-index);
 }
 
 .time-picker__ul {
@@ -90,4 +91,9 @@
       }
     }
   }
+}
+
+.time-picker__text-field {
+  text-align: center;
+  width: 5.875rem;
 }

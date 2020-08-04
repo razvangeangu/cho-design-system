@@ -54,6 +54,26 @@ Select components are used for collecting user provided information from a list 
 
 ## Methods
 
+### `close() => Promise<void>`
+
+Close the dropdown.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `open() => Promise<void>`
+
+Open the dropdown.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
 ### `reset() => Promise<void>`
 
 Reset the select to its initial state.

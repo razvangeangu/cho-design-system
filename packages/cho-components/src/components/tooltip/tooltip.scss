@@ -10,6 +10,8 @@
   @include surface-inner-space-dense();
 
   background-color: var(--surface__background-color);
+  box-sizing: border-box;
   font-size: var(--label__font-size);
   position: absolute;
+  z-index: var(--overlay-z-index);
 }

@@ -32,6 +32,29 @@
 | `valueChanged`   | Callback fired when the value is changed.         | `CustomEvent<ITimePickerValueChangedDetail>`   |
 
 
+## Methods
+
+### `close() => Promise<void>`
+
+Close the dropdown.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `open() => Promise<void>`
+
+Open the dropdown.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Depends on

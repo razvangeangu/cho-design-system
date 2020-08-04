@@ -1,5 +1,14 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { Component, ComponentInterface, Event, EventEmitter, h, Prop } from '@stencil/core';
+import {
+  Component,
+  ComponentInterface,
+  Event,
+  EventEmitter,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  h,
+  Method,
+  Prop,
+} from '@stencil/core';
+import { IOverlayController } from '../../types';
 import {
   ITimePickerHoursChangedDetail,
   ITimePickerMinutesChangedDetail,
@@ -12,7 +21,7 @@ import {
   styleUrl: 'time-picker.scss',
   shadow: true,
 })
-export class TimePicker implements ComponentInterface {
+export class TimePicker implements ComponentInterface, IOverlayController {
   /**
    * The value of the time-picker.
    *
@@ -55,6 +64,22 @@ export class TimePicker implements ComponentInterface {
    * Callback fired when the minutes value is changed.
    */
   @Event() minutesChanged: EventEmitter<ITimePickerMinutesChangedDetail>;
+
+  /**
+   * Open the dropdown.
+   */
+  @Method()
+  async open() {
+    this.visible = true;
+  }
+
+  /**
+   * Close the dropdown.
+   */
+  @Method()
+  async close() {
+    this.visible = false;
+  }
 
   private toTimeFormat = (time: Date) => {
     return time.toLocaleString('en-US', {
@@ -114,9 +139,11 @@ export class TimePicker implements ComponentInterface {
     return (
       <div class={kTimePicker.classes.container}>
         <cho-text-field
+          class={kTimePicker.classes.textField}
           disabled={this.disabled}
           value={this.toTimeFormat(this.value)}
           onClick={this.didClickTextField}
+          textAlign="center"
         />
         {this.visible && (
           <div class={kTimePicker.classes.timeContainer}>

@@ -12,6 +12,7 @@ import {
   State,
   Watch,
 } from '@stencil/core';
+import { IOverlayController } from '../../types';
 import { IMenuItemConnectedDetail, kMenuItem, TMenuItemHostContainer } from '../menu-item/model';
 import { kTextField } from '../text-field/model';
 import { ISelectValueChangedDetail, kSelect } from './model';
@@ -24,7 +25,7 @@ import { ISelectValueChangedDetail, kSelect } from './model';
   styleUrl: 'select.scss',
   shadow: true,
 })
-export class Select implements ComponentInterface, TMenuItemHostContainer {
+export class Select implements ComponentInterface, TMenuItemHostContainer, IOverlayController {
   @Element() host!: HTMLChoSelectElement;
 
   /**
@@ -70,6 +71,22 @@ export class Select implements ComponentInterface, TMenuItemHostContainer {
   @State() inputValue: string = '';
 
   private menuItems: Set<HTMLChoMenuItemElement> = new Set();
+
+  /**
+   * Open the dropdown.
+   */
+  @Method()
+  async open() {
+    this.visible = true;
+  }
+
+  /**
+   * Close the dropdown.
+   */
+  @Method()
+  async close() {
+    this.visible = false;
+  }
 
   /**
    * Reset the select to its initial state.

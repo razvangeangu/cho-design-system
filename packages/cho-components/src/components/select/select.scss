@@ -12,6 +12,7 @@
   border-color: var(--surface__border-color);
   border-radius: var(--border-radius);
   border-width: var(--border-width);
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   list-style: none;
@@ -19,6 +20,8 @@
   max-width: 18.75rem;
   padding: 0.5rem 0;
   position: absolute;
+  width: 100%;
+  z-index: var(--overlay-z-index);
 }
 
 .select__trailing-icon {

@@ -38,6 +38,29 @@ Date picker provides a simple way to select a single value from a pre-determined
 | `yearChanged`  | Callback fired when the year is changed.  | `CustomEvent<IDatePickerYearChangedDetail>`  |
 
 
+## Methods
+
+### `close() => Promise<void>`
+
+Close the dropdown.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `open() => Promise<void>`
+
+Open the dropdown.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Depends on

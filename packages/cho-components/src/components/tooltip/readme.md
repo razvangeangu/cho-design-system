@@ -15,11 +15,35 @@ Tooltips display informative text when users hover over, focus on, or tap an ele
 
 ## Properties
 
-| Property       | Attribute       | Description                                    | Type                                                                                                  | Default     |
-| -------------- | --------------- | ---------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------- |
-| `placement`    | `placement`     | The fixed position of the badge on the screen. | `"bottom" \| "bottom-end" \| "bottom-start" \| "end" \| "start" \| "top" \| "top-end" \| "top-start"` | `'bottom'`  |
-| `titleContent` | `title-content` | Tooltip title.                                 | `string`                                                                                              | `undefined` |
-| `visible`      | `visible`       | If `true`, the tooltip will be visible.        | `boolean`                                                                                             | `false`     |
+| Property         | Attribute          | Description                                                                 | Type                                                                                                  | Default     |
+| ---------------- | ------------------ | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ----------- |
+| `placement`      | `placement`        | The fixed position of the badge on the screen.                              | `"bottom" \| "bottom-end" \| "bottom-start" \| "end" \| "start" \| "top" \| "top-end" \| "top-start"` | `'bottom'`  |
+| `titleContent`   | `title-content`    | Tooltip title.                                                              | `string`                                                                                              | `undefined` |
+| `visible`        | `visible`          | If `true`, the tooltip will be visible.                                     | `boolean`                                                                                             | `false`     |
+| `visibleOnHover` | `visible-on-hover` | If `true`, the tooltip will show on mouse hover and disappear on mouse out. | `boolean`                                                                                             | `false`     |
+
+
+## Methods
+
+### `close() => Promise<void>`
+
+Close the dropdown.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `open() => Promise<void>`
+
+Open the dropdown.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
 
 
 ## Slots

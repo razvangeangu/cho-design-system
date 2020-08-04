@@ -13,6 +13,29 @@
 | `visible`     | `visible`     | If `true`, the dialog will be visible.                          | `boolean` | `false` |
 
 
+## Methods
+
+### `close() => Promise<void>`
+
+Close the dialog.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `open() => Promise<void>`
+
+Open the dialog.
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Slots
 
 | Slot       | Description                     |

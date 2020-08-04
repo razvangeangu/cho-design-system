@@ -40,7 +40,7 @@ describe('MenuItem', () => {
         components: [MenuItem],
         template: () => <cho-menu-item />,
       });
-      const hostContainer: TMenuItemHostContainer = { removeMenuItem: jest.fn() } as any;
+      const hostContainer: HTMLElement & TMenuItemHostContainer = { removeMenuItem: jest.fn() } as any;
 
       await (page.root as HTMLChoMenuItemElement).setHostContainer(hostContainer);
       expect(page.rootInstance.hostContainer).toBe(hostContainer);
@@ -51,7 +51,7 @@ describe('MenuItem', () => {
         components: [MenuItem],
         template: () => <cho-menu-item />,
       });
-      const hostContainer: TMenuItemHostContainer = { removeMenuItem: jest.fn() } as any;
+      const hostContainer: HTMLElement & TMenuItemHostContainer = { removeMenuItem: jest.fn() } as any;
 
       await (page.root as HTMLChoMenuItemElement).setHostContainer(hostContainer);
       page.root.remove();

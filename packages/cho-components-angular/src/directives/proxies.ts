@@ -127,7 +127,7 @@ export class ChoChip {
 }
 
 export declare interface ChoDatePicker extends Components.ChoDatePicker {}
-@ProxyCmp({inputs: ['disabled', 'maxDate', 'minDate', 'shouldDisableDate', 'value', 'visible']})
+@ProxyCmp({inputs: ['disabled', 'maxDate', 'minDate', 'shouldDisableDate', 'value', 'visible'], 'methods': ['open', 'close']})
 @Component({ selector: 'cho-date-picker', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'maxDate', 'minDate', 'shouldDisableDate', 'value', 'visible'] })
 export class ChoDatePicker {
   valueChanged!: EventEmitter<CustomEvent>;
@@ -143,7 +143,7 @@ export class ChoDatePicker {
 }
 
 export declare interface ChoDialog extends Components.ChoDialog {}
-@ProxyCmp({inputs: ['dismissible', 'visible']})
+@ProxyCmp({inputs: ['dismissible', 'visible'], 'methods': ['open', 'close']})
 @Component({ selector: 'cho-dialog', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['dismissible', 'visible'] })
 export class ChoDialog {
   protected el: HTMLElement;
@@ -290,7 +290,7 @@ export class ChoRadio {
 }
 
 export declare interface ChoSelect extends Components.ChoSelect {}
-@ProxyCmp({inputs: ['disabled', 'error', 'label', 'value', 'visible'], 'methods': ['reset']})
+@ProxyCmp({inputs: ['disabled', 'error', 'label', 'value', 'visible'], 'methods': ['open', 'close', 'reset']})
 @Component({ selector: 'cho-select', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'error', 'label', 'value', 'visible'] })
 export class ChoSelect {
   valueChanged!: EventEmitter<CustomEvent>;
@@ -366,8 +366,8 @@ export class ChoTabs {
 }
 
 export declare interface ChoTextField extends Components.ChoTextField {}
-@ProxyCmp({inputs: ['disabled', 'error', 'helperText', 'label', 'max', 'min', 'multiline', 'name', 'placeholder', 'readOnly', 'rows', 'step', 'type', 'value']})
-@Component({ selector: 'cho-text-field', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'error', 'helperText', 'label', 'max', 'min', 'multiline', 'name', 'placeholder', 'readOnly', 'rows', 'step', 'type', 'value'] })
+@ProxyCmp({inputs: ['disabled', 'error', 'helperText', 'label', 'max', 'min', 'multiline', 'name', 'placeholder', 'readOnly', 'rows', 'step', 'textAlign', 'type', 'value']})
+@Component({ selector: 'cho-text-field', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'error', 'helperText', 'label', 'max', 'min', 'multiline', 'name', 'placeholder', 'readOnly', 'rows', 'step', 'textAlign', 'type', 'value'] })
 export class ChoTextField {
   valueChanged!: EventEmitter<CustomEvent>;
   protected el: HTMLElement;
@@ -379,7 +379,7 @@ export class ChoTextField {
 }
 
 export declare interface ChoTimePicker extends Components.ChoTimePicker {}
-@ProxyCmp({inputs: ['disabled', 'twelveHourFormat', 'value', 'visible']})
+@ProxyCmp({inputs: ['disabled', 'twelveHourFormat', 'value', 'visible'], 'methods': ['open', 'close']})
 @Component({ selector: 'cho-time-picker', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['disabled', 'twelveHourFormat', 'value', 'visible'] })
 export class ChoTimePicker {
   valueChanged!: EventEmitter<CustomEvent>;
@@ -394,8 +394,8 @@ export class ChoTimePicker {
 }
 
 export declare interface ChoTooltip extends Components.ChoTooltip {}
-@ProxyCmp({inputs: ['placement', 'titleContent', 'visible']})
-@Component({ selector: 'cho-tooltip', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['placement', 'titleContent', 'visible'] })
+@ProxyCmp({inputs: ['placement', 'titleContent', 'visible', 'visibleOnHover'], 'methods': ['open', 'close']})
+@Component({ selector: 'cho-tooltip', changeDetection: ChangeDetectionStrategy.OnPush, template: '<ng-content></ng-content>', inputs: ['placement', 'titleContent', 'visible', 'visibleOnHover'] })
 export class ChoTooltip {
   protected el: HTMLElement;
   constructor(c: ChangeDetectorRef, r: ElementRef, protected z: NgZone) {
