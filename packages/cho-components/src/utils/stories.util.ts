@@ -1,6 +1,8 @@
 /* istanbul ignore file */
-/* eslint-disable import/extensions */
-import docs from '../../docs/cho-components';
+
+import { JsonDocs } from '@stencil/core/internal';
+
+const docs: JsonDocs = require('../../docs/cho-components');
 
 const valueFromDoc = (doc: string): any => {
   if (doc == null) return doc;
