@@ -3,7 +3,7 @@
 /* auto-generated react proxies */
 import { createReactComponent } from './react-component-lib';
 
-import { JSX } from '@cho/components';
+import type { JSX } from '@cho/components';
 
 import { applyPolyfills, defineCustomElements } from '@cho/components/loader';
 
