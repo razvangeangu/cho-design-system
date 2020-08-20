@@ -5,7 +5,7 @@ import { createReactComponent } from './react-component-lib';
 
 import type { JSX } from '@cho/components';
 
-import { applyPolyfills, defineCustomElements } from '@cho/components/loader';
+import { applyPolyfills, defineCustomElements } from '@cho/components/dist/loader';
 
 applyPolyfills().then(() => defineCustomElements());
 export const ChoAppBar = /*@__PURE__*/createReactComponent<JSX.ChoAppBar, HTMLChoAppBarElement>('cho-app-bar');

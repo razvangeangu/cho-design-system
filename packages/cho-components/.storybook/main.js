@@ -14,7 +14,7 @@ module.exports = {
   addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
   // Custom webpack config to tell Storybook where to find the compiled files from Stencil
   async webpackFinal(config) {
-    config.entry.push(path.join(__dirname, OUTPUT_DIR, `${PROJECT_NAME}.js`));
+    config.entry.push(path.join(__dirname, OUTPUT_DIR, 'cjs', `${PROJECT_NAME}.cjs.js`));
     fs.readdirSync(path.join(__dirname, OUTPUT_DIR, 'collection/components')).map(file => {
       jsFilePath = path.join(__dirname, OUTPUT_DIR, `collection/components/${file}/${file}.js`);
       try {

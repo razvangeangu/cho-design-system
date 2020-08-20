@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { defineCustomElements } from '@cho/components/loader';
+import { defineCustomElements } from '@cho/components/dist/loader';
 import { BooleanValueAccessor } from './directives/boolean-value-accessor';
 import { NumericValueAccessor } from './directives/number-value-accessor';
 import {

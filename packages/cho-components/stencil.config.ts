@@ -64,9 +64,7 @@ export const config: Config = {
     }),
     {
       type: 'dist',
-      esmLoaderPath: '../loader',
     },
-    { type: 'experimental-dist-module', dir: 'dist/module' },
     { type: 'docs-readme' },
     { type: 'docs-json', file: 'docs/cho-components.json' },
     {
