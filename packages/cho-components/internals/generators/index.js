@@ -23,7 +23,6 @@ module.exports = plop => {
       __dirname,
       '/../../src/',
       config.path,
-      answers.type,
       answers.name,
       '**',
       '**.tsx',

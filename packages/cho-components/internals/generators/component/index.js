@@ -26,12 +26,18 @@ module.exports = {
     },
   ],
   actions: data => {
-    // Generate component.tsx, component.spec.tsx and component.scss
+    // Generate component.tsx, component.stories.ts, component.spec.tsx and component.scss
     const actions = [
       {
         type: 'add',
         path: '../../src/components/{{name}}/{{name}}.tsx',
         templateFile: './component/templates/simple/component.tsx.hbs',
+        abortOnFail: true,
+      },
+      {
+        type: 'add',
+        path: '../../src/components/{{name}}/{{name}}.stories.ts',
+        templateFile: './component/templates/simple/component.stories.ts.hbs',
         abortOnFail: true,
       },
       {

@@ -1,0 +1,38 @@
+/* istanbul ignore file */
+
+import {
+  attachArgs,
+  attachSlots,
+  eventsFromDocs,
+  propsFromDocs,
+  slotsFromDocs,
+} from '../../utils/stories.util';
+import { k{{ properCase name }} } from './model';
+
+const { componentName } = k{{ properCase name }};
+const props = propsFromDocs(componentName);
+const slots = slotsFromDocs(componentName);
+const events = eventsFromDocs(componentName);
+
+export default {
+  title: '{{ properCase name }}',
+  argTypes: {
+    ...props,
+    ...slots,
+    ...events,
+    onClick: { action: 'onClick' },
+  },
+};
+
+const Template = (args: any) => {
+  const component = document.createElement(componentName);
+  attachArgs(args, events, component);
+  attachSlots(args, slots, component);
+
+  return component;
+};
+
+export const Default = Template.bind({});
+Default.args = {
+  '': componentName,
+};
