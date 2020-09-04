@@ -1,2 +1,5 @@
-readme.md
-packages/cho-components-angular/src/directives
+packages/cho-components-angular/src/directives/*
+packages/cho-components-react/src/react-component-lib/*
+packages/cho-components-react/src/components.ts
+packages/cho-components-vue/src/vue-component-lib/*
+packages/cho-components-vue/src/proxies.ts

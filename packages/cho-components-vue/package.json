@@ -1,0 +1,46 @@
+{
+  "name": "@cho/components-vue",
+  "sideEffects": false,
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vue specific wrapper for cho-components",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/razvangeangu/cho-design-system"
+  },
+  "scripts": {
+    "test": "jest",
+    "build": "npm run clean && npm run compile",
+    "clean": "rimraf dist",
+    "compile": "npm run tsc",
+    "tsc": "tsc -p ."
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/"
+  ],
+  "devDependencies": {
+    "@vue/test-utils": "^2.0.0-beta.3",
+    "jest": "^26.4.2",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.26.9",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "typescript": "^4.0.2",
+    "vue": "^3.0.0-rc.10"
+  },
+  "dependencies": {
+    "@cho/components": "1.0.0"
+  },
+  "jest": {
+    "preset": "ts-jest",
+    "setupFilesAfterEnv": [
+      "<rootDir>/setupTests.ts"
+    ],
+    "testPathIgnorePatterns": [
+      "node_modules",
+      "dist"
+    ]
+  }
+}
