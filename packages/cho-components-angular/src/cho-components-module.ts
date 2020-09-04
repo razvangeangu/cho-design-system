@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { defineCustomElements } from '@cho/components/dist/loader';
+import { applyPolyfills, defineCustomElements } from '@cho/components/dist/loader';
 import { BooleanValueAccessor } from './directives/boolean-value-accessor';
 import { NumericValueAccessor } from './directives/number-value-accessor';
 import {
@@ -39,7 +39,7 @@ import { SelectValueAccessor } from './directives/select-value-accessor';
 import { TextValueAccessor } from './directives/text-value-accessor';
 import { ValueAccessor } from './directives/value-accessor';
 
-defineCustomElements(window);
+applyPolyfills().then(() => defineCustomElements());
 
 const DECLARATIONS = [
   // proxies

@@ -49,7 +49,6 @@ export const config: Config = {
     reloadStrategy: 'pageReload',
     openBrowser: false,
   },
-  taskQueue: 'async',
   outputTargets: [
     angularOutputTarget({
       componentCorePackage: '@cho/components',

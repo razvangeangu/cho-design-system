@@ -1,5 +1,5 @@
 // UTILITIES
-export { setTheme } from '@cho/components';
+export * from '@cho/components';
 // PACKAGE MODULE
 export { ChoComponentsModule } from './cho-components-module';
 // DIRECTIVES
