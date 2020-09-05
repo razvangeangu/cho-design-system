@@ -29,7 +29,7 @@ module.exports = plop => {
     )}`;
 
     try {
-      execSync(`yarn prettify -- "${folderPath}"`);
+      execSync(`npm run prettify -- "${folderPath}"`);
       return folderPath;
     } catch (err) {
       throw err;

@@ -10,15 +10,6 @@
     "lerna": "^3.22.1",
     "standard-version": "^9.0.0"
   },
-  "workspaces": {
-    "packages": [
-      "packages/*"
-    ],
-    "nohoist": [
-      "**",
-      "**/**"
-    ]
-  },
   "scripts": {
     "dev": "lerna --stream --scope @cho/components run start & lerna --stream --scope @cho/components run storybook",
     "release": "standard-version",

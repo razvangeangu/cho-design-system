@@ -13,14 +13,14 @@ git clone https://github.com/razvangeangu/cho-design-system.git
 Open the directory and run:
 
 ```sh
-yarn
-yarn build
+npm install
+lerna bootstrap
 ```
 
 Start the stencil development server and navigate to `http://localhost:3333`
 
 ```sh
-yarn dev
+npm run dev
 ```
 
 ## Documentation
