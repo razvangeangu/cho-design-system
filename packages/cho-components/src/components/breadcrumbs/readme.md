@@ -4,12 +4,6 @@ Breadcrumbs allow users to make selections from a range of values.
 
 ## Examples
 
-<cho-breadcrumbs>
-  <span>Chocolate</span>
-  <span>Design</span>
-  <span>System</span>
-</cho-breadcrumbs>
-
 ```html
 <cho-breadcrumbs>
   <span>Chocolate</span>

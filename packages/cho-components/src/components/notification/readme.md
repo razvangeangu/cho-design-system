@@ -4,18 +4,8 @@ Notifications provide brief messages about app processes.
 
 ## Examples
 
-<cho-button onclick="document.querySelector('cho-notification').visible = true">
-  Show
-</cho-button>
-
-<cho-notification>
-  I am a notification
-</cho-notification>
-
 ```html
-<cho-notification>
-  I am a notification
-</cho-notification>
+<cho-notification>I am a notification</cho-notification>
 ```
 
 

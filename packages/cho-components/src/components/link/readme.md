@@ -4,15 +4,8 @@ The Link component allows you to easily customize anchor elements.
 
 ## Examples
 
-<cho-link>
-  Link
-</cho-link>
-
-
 ```html
-<cho-link>
-  Link
-</cho-link>
+<cho-link>Link</cho-link>
 ```
 
 <!-- Auto Generated Below -->

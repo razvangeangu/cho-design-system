@@ -2,12 +2,8 @@
 
 ## Examples
 
-<cho-time-picker>
-</cho-time-picker>
-
 ```html
-<cho-time-picker>
-</cho-time-picker>
+<cho-time-picker></cho-time-picker>
 ```
 
 <!-- Auto Generated Below -->

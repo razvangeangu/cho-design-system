@@ -4,10 +4,6 @@ Badge generates a small badge to the top-right of its child(ren).
 
 ## Examples
 
-<cho-badge content="99">
-  <cho-icon kind="info"></cho-icon>
-</cho-badge>
-
 ```html
 <cho-badge content="99">
   <cho-icon kind="info"></cho-icon>

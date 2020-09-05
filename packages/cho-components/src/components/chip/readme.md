@@ -4,82 +4,28 @@ Chips are compact elements that represent an input, attribute, or action.
 
 ## Examples
 
-<style>
-  cho-chip {
-    margin-right: 0.5rem;
-  }
-</style>
-
 ### Contained
 
-<cho-chip>
-  Contained
-</cho-chip>
-
-<cho-chip clickable>
-  Clickable
-</cho-chip>
-
-<cho-chip delete-icon>
-  Delete
-</cho-chip>
-
-<cho-chip disabled>
-  Delete
-</cho-chip>
-
 ```html
-<cho-chip>
-  Contained
-</cho-chip>
+<cho-chip>Contained</cho-chip>
 
-<cho-chip clickable>
-  Clickable
-</cho-chip>
+<cho-chip clickable>Clickable</cho-chip>
 
-<cho-chip delete-icon>
-  Delete
-</cho-chip>
+<cho-chip delete-icon>Delete</cho-chip>
 
-<cho-chip disabled>
-  Delete
-</cho-chip>
+<cho-chip disabled>Delete</cho-chip>
 ```
 
 ### Outlined
 
-<cho-chip kind="outlined">
-  Contained
-</cho-chip>
-
-<cho-chip kind="outlined" clickable>
-  Clickable
-</cho-chip>
-
-<cho-chip kind="outlined" delete-icon>
-  Delete
-</cho-chip>
-
-<cho-chip kind="outlined" disabled>
-  Delete
-</cho-chip>
-
 ```html
-<cho-chip kind="outlined">
-  Contained
-</cho-chip>
+<cho-chip kind="outlined">Contained</cho-chip>
 
-<cho-chip kind="outlined" clickable>
-  Clickable
-</cho-chip>
+<cho-chip kind="outlined" clickable>Clickable</cho-chip>
 
-<cho-chip kind="outlined" delete-icon>
-  Delete
-</cho-chip>
+<cho-chip kind="outlined" delete-icon>Delete</cho-chip>
 
-<cho-chip kind="outlined" disabled>
-  Delete
-</cho-chip>
+<cho-chip kind="outlined" disabled>Delete</cho-chip>
 ```
 
 <!-- Auto Generated Below -->

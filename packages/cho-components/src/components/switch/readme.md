@@ -6,24 +6,14 @@ Switches toggle the state of a single setting on or off.
 
 ### Checked
 
-<cho-switch checked>
-</cho-switch>
-
 ```html
-<cho-switch checked>
-</cho-switch>
+<cho-switch checked></cho-switch>
 ```
 
 ### Label placement
 
-<cho-switch label-placement="end">
-  Label
-</cho-switch>
-
 ```html
-<cho-switch label-placement="end">
-  Label
-</cho-switch>
+<cho-switch label-placement="end">Label</cho-switch>
 ```
 
 

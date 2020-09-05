@@ -4,12 +4,8 @@ Date picker provides a simple way to select a single value from a pre-determined
 
 ## Examples
 
-<cho-date-picker>
-</cho-date-picker>
-
 ```html
-<cho-date-picker>
-</cho-date-picker>
+<cho-date-picker></cho-date-picker>
 ```
 
 

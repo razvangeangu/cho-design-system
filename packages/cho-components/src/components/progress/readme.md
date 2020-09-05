@@ -6,34 +6,18 @@ Progress indicators commonly known as spinners, express an unspecified wait time
 
 ### Circular
 
-<cho-progress>
-</cho-progress>
-
-<cho-progress value="50" indeterminate="false" label>
-</cho-progress>
-
 ```html
-<cho-progress>
-</cho-progress>
+<cho-progress></cho-progress>
 
-<cho-progress value="50" indeterminate="false" label>
-</cho-progress>
+<cho-progress value="50" indeterminate="false" label></cho-progress>
 ```
 
 ### Linear
 
-<cho-progress kind="linear">
-</cho-progress>
-
-<cho-progress kind="linear" value="50" indeterminate="false" label>
-</cho-progress>
-
 ```html
-<cho-progress kind="linear">
-</cho-progress>
+<cho-progress kind="linear"></cho-progress>
 
-<cho-progress kind="linear" value="50" indeterminate="false" label>
-</cho-progress>
+<cho-progress kind="linear" value="50" indeterminate="false" label></cho-progress>
 ```
 
 <!-- Auto Generated Below -->
