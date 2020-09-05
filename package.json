@@ -15,28 +15,8 @@
       "packages/*"
     ],
     "nohoist": [
-      "**/vue",
-      "**/vue/**",
-      "**/@vue/runtime-dom",
-      "**/@vue/runtime-dom/**",
-      "**/@vue/runtime-core",
-      "**/@vue/runtime-core/**",
-      "**/@vue/reactivity",
-      "**/@vue/reactivity/**",
-      "**/@types/react",
-      "**/@types/react/**",
-      "**/@types/reach__router",
-      "**/@types/reach__router/**",
-      "**/@types/react-color",
-      "**/@types/react-color/**",
-      "**/@types/react-dom",
-      "**/@types/react-dom/**",
-      "**/@types/react-syntax-highlighter",
-      "**/@types/react-syntax-highlighter/**",
-      "**/@types/react-textarea-autosize",
-      "**/@types/react-textarea-autosize/**",
-      "**/@types/markdown-to-jsx",
-      "**/@types/markdown-to-jsx/**"
+      "**",
+      "**/**"
     ]
   },
   "scripts": {
