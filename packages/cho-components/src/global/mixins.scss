@@ -1,6 +1,6 @@
 @mixin button-without-defaults {
   background-color: transparent;
-  border: none;
+  border: 0;
   font-family: var(--font-family);
   font-size: var(--font-size);
   margin: 0;
