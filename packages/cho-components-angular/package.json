@@ -17,7 +17,7 @@
     "lint.ts": "tslint --project .",
     "lint.fix": "tslint --project . --fix",
     "prerelease": "yarn validate && np prerelease --yolo --any-branch --tag next",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "tsc": "tsc -p .",
     "validate": "yarn && yarn lint && yarn test && yarn build"
   },
