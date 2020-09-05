@@ -8,18 +8,18 @@
     "url": "https://github.com/razvangeangu/cho-design-system"
   },
   "scripts": {
-    "build": "npm run build.ng",
+    "build": "yarn build.ng",
     "build.fesm": "rollup --config ./scripts/rollup.config.js",
-    "build.ng": "npm run build.es2015 && npm run build.es5",
+    "build.ng": "yarn build.es2015 && yarn build.es5",
     "build.es2015": "ngc -p tsconfig.json && rollup --config ./scripts/rollup.config.js",
     "build.es5": "ngc -p tsconfig.legacy.json && rollup --config ./scripts/rollup.config.legacy.js",
-    "lint": "npm run lint.ts",
+    "lint": "yarn lint.ts",
     "lint.ts": "tslint --project .",
     "lint.fix": "tslint --project . --fix",
-    "prerelease": "npm run validate && np prerelease --yolo --any-branch --tag next",
+    "prerelease": "yarn validate && np prerelease --yolo --any-branch --tag next",
     "test": "jest",
     "tsc": "tsc -p .",
-    "validate": "npm i && npm run lint && npm run test && npm run build"
+    "validate": "yarn && yarn lint && yarn test && yarn build"
   },
   "module": "dist/fesm5.js",
   "main": "dist/fesm5.js",

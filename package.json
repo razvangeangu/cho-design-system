@@ -42,7 +42,8 @@
   "scripts": {
     "dev": "lerna --stream --scope @cho/components run start & lerna --stream --scope @cho/components run storybook",
     "release": "standard-version",
-    "lerna": "lerna"
+    "lerna": "lerna",
+    "build": "lerna run build"
   },
   "husky": {
     "hooks": {

@@ -10,9 +10,9 @@
   },
   "scripts": {
     "test": "jest",
-    "build": "npm run clean && npm run compile",
+    "build": "yarn clean && yarn compile",
     "clean": "rimraf dist",
-    "compile": "npm run tsc",
+    "compile": "yarn tsc",
     "tsc": "tsc -p ."
   },
   "main": "./dist/index.js",

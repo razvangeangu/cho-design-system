@@ -5,19 +5,19 @@ These are commands that the repository makes use for faster and efficient develo
 ## Run the handlebars generator to create a new stencil web component
 
 ```sh
-npm run generate
+yarn generate
 ```
 
 ## Run the stencil server in dev mode
 
 ```sh
-npm run dev
+yarn dev
 ```
 
 ## Build all packages
 
 ```sh
-lerna run build
+yarn build
 ```
 
 ## Run a command for a specific package
