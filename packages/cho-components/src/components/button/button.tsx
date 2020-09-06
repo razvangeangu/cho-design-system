@@ -44,9 +44,9 @@ export class Button implements ComponentInterface {
         data-kind={this.kind}
         data-color="primary"
       >
-        <slot name="leading" />
+        <slot name={kButton.slots.leading} />
         <slot />
-        <slot name="trailing" />
+        <slot name={kButton.slots.trailing} />
       </button>
     );
   }

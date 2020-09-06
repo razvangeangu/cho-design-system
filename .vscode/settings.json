@@ -1,0 +1,7 @@
+{
+  "prettier.eslintIntegration": true,
+  "prettier.stylelintIntegration": true,
+  "editor.codeActionsOnSave": { "source.fixAll": false },
+  "editor.formatOnSave": true,
+  "eslint.workingDirectories": ["./packages/cho-components"]
+}
