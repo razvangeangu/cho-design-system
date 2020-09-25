@@ -17,7 +17,7 @@ npm install
 lerna bootstrap
 ```
 
-Start the stencil development server and navigate to `http://localhost:3333`
+Start the stencil development server and navigate to `http://localhost:6006`
 
 ```sh
 npm run dev
